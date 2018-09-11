@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, SubmissionError} from 'redux-form';
+import {Field, SubmissionError, reduxForm} from 'redux-form';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-form.css'; 
@@ -51,7 +51,6 @@ export class SubscriptionForm extends React.Component {
       );
     });
   }
-
   render() {
     let successMessage;
     if (this.props.submitSucceeded) {
@@ -68,54 +67,71 @@ export class SubscriptionForm extends React.Component {
       );
     }
     return (
-<h1>HelloWorld</h1>
-      // <form onSubmit={this.props.handleSubmit(values =>
-      //   this.onSubmit(values)
-      //   )}>
-      //   {successMessage}
-      //   {errorMessage}
-      //   <div class="arrangement">
-      //     <div class="thumb">
-      //       <img class="thumbnail" src="./public/img/flowers.jpg" alt=""/> 
-      //     </div>
-      //     <div class="form-input">
-      //       <Field
-      //         name="large"
-      //         type="radio"
-      //         component={Input}
-      //         label="Designer's Lobby Arrangement"
-      //         value="lobby"
-      //       />
-      //     </div>
-      //   </div>
-      //   <div class="arrangement">
-      //     <div class="thumb">
-      //      <img class="thumbnail" src="./public/img/flowers.jpg" alt=""/> 
-      //     </div>
-      //     <div class="form-input">
-      //       <Field
-      //         name="personal"
-      //         type="radio"
-      //         component={Input}
-      //         label="Designer's Choice Arrangement"
-      //         value="choice"
-      //       />
-      //     </div>
-      //   </div>
-      //   <div class="arrangement">
-      //     <div class="thumb">
-      //       <img class="thumbnail" src="./public/img/flowers.jpg" alt=""/> 
-      //     </div>
-      //     <div class="form-input">
-      //       <Field
-      //         name="gift"
-      //         type="radio"
-      //         component={Input}
-      //         label="Designer's Bouquet"
-      //         value="bouquet"
-      //       />
-      //     </div>
-      //   </div>
+      <div>
+        <h1>Hello World</h1>
+        <form onSubmit={this.props.handleSubmit(values =>
+          this.onSubmit(values)
+          )}>
+          {successMessage}
+          {errorMessage} 
+          <div class="arrangement">
+            <span class="thumb">
+            <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+          </span>
+          <div class="form-input">
+            <Field
+              name="large"
+              type="radio"
+              component={Input}
+              label="Designer's Lobby Arrangement"
+              value="lobby"
+            />
+          </div>
+        </div>
+        <div class="arrangement"> 
+          <span class="thumb">
+            <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+          </span>
+          <div class="form-input">
+            <Field
+              name="personal"
+              type="radio"
+              component={Input}
+              label="Designer's Choice Arrangement"
+              value="choice"
+            />
+          </div>
+        </div>
+        <div class="arrangement">
+          <span class="thumb">
+            <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+          </span>
+         <div class="form-input">
+            <Field
+              name="gift"
+              type="radio"
+              component={Input}
+              label="Designer's Bouquet"
+              value="bouquet"
+            />
+          </div>
+        </div>
+          
+        {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
+          <button type="submit" >Submit</button> 
+        </form> 
+      </div>
+
+    )
+  }
+}
+export default reduxForm({
+  form: 'subscriptionForm'
+})(SubscriptionForm); 
+
+
+
+
       //   <div class="arrangement">
       //     <Field
       //       name="personal"
@@ -188,9 +204,9 @@ export class SubscriptionForm extends React.Component {
       // {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
       //   <button type="submit" >Submit</button>
       // </form>    
-    )
-  }
-}
-export default SubscriptionForm({
-  form: 'subscriptionForm'
-})(SubscriptionForm); 
+//     )
+//   }
+// }
+// export default SubscriptionForm({
+//   form: 'subscriptionForm'
+// })(SubscriptionForm); 

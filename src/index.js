@@ -1,18 +1,21 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import './index.css';
 //import App from './App';
 //import registerServiceWorker from './registerServiceWorker';
 import store from './store';
-//import SubscriptionForm from './components/subscription-form';
+import SubscriptionForm from './components/subscription-form';
 import SubscriptionList from './components/subscription-list';
 
-//ReactDOM.render(
-render(
+ReactDOM.render(
+
+
   <Provider store={store}>
-      <SubscriptionList />
+    <div>
+      <SubscriptionForm />
+    </div>
   </Provider>,
   document.getElementById('root')
 );
