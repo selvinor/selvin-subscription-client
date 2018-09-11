@@ -16,9 +16,7 @@ export class SubscriptionList extends React.Component {
     });
     return subscriptionList;
   }
-// let subscriptions = this.props.subscriptions.map((subscription, index) => (
-//   <li key={index}>{subscription}</li>
-// ));
+
   render() {
     console.log(this.renderResults());
     return (
@@ -28,13 +26,6 @@ export class SubscriptionList extends React.Component {
     );
   }
 }
-
-// SubscriptionList.propTypes = {
-//   fetchData: PropTypes.func.isRequired,
-//   subscriptions: PropTypes.array.isRequired,
-//   hasErrored: PropTypes.bool.isRequired,
-//   isLoading: PropTypes.bool.isRequired
-// };
 
 const mapStateToProps = state => ({
     subscriptions: state.subscriptions.subscriptions

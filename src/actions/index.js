@@ -43,7 +43,8 @@ export function fetchProductsSuccess(products) {
   };
 }
 export const fetchSubscriptions = () => dispatch => {
-  fetch(`http://localhost:8080/api/subscriptions`).then(res => {
+  fetch(`http://localhost:8080/api/subscriptions`)
+  .then(res => {
       if (!res.ok) {
           return Promise.reject(res.statusText);
       }
@@ -53,14 +54,3 @@ export const fetchSubscriptions = () => dispatch => {
       dispatch(fetchSubscriptionSuccess(subscriptions));
   });
 };
-
-// export const fetchProducts = () => dispatch => {
-//   fetch(`http://localhost:8080/products`).then(res => {
-//       if (!res.ok) {
-//           return Promise.reject(res.statusText);
-//       }
-//       return res.json();
-//   }).then(products => {
-//       dispatch(fetchProductSuccess(products));
-//   });
-// };

@@ -1,4 +1,4 @@
-import  React, { PropTypes } from 'react';
+import  React from 'react';
 import { connect } from 'react-redux';
 export function productsFetchData(url) {
 import { fetchProducts } from '../actions/products';
