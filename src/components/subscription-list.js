@@ -10,9 +10,9 @@ export class SubscriptionList extends React.Component {
   renderResults() {
     console.log('this.props.subscriptions', this.props.subscriptions);
     const subscriptionList = this.props.subscriptions.map((subscription, index) => {
-      const { product, frequency, duration, gift, color, suspend, delivery } = subscription;
+      const { userId, productType, productColor, productSize, frequency, duration, gift, color, suspended, delivery } = subscription;
 
-      return (<li key={index}>{product}, {frequency}, {duration}, {gift}, {color}, {suspend}, {delivery}</li>)
+      return (<li key={index}>{userId}, {productType}, {productColor}, {productSize}, {frequency}, {duration}, {gift}, {color}, {suspended}, {delivery}</li>)
     });
     return subscriptionList;
   }
@@ -26,7 +26,7 @@ export class SubscriptionList extends React.Component {
     );
   }
 }
-
+ 
 const mapStateToProps = state => ({
     subscriptions: state.subscriptions.subscriptions
     // hasErrored: state.subscriptionsHasErrored,
