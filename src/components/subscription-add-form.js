@@ -2,10 +2,10 @@ import React from 'react';
 import {Field, SubmissionError, reduxForm} from 'redux-form';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
-import './subscription-form.css'; 
+import './subscription-add-form.css'; 
 
 
-export class SubscriptionForm extends React.Component {
+export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
     return fetch('http://localhost:8080/api/subscriptions', {
       method:'POST',
@@ -218,5 +218,5 @@ export class SubscriptionForm extends React.Component {
   }
 }
 export default reduxForm({
-  form: 'subscriptionForm'
-})(SubscriptionForm); 
+  form: 'subscriptionAddForm'
+})(SubscriptionAddForm); 

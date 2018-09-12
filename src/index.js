@@ -6,13 +6,16 @@ import './index.css';
 //import App from './App';
 //import registerServiceWorker from './registerServiceWorker';
 import store from './store';
-import SubscriptionForm from './components/subscription-form';
+import SubscriptionAddForm from './components/subscription-add-form';
+import RecipientAddForm from './components/recipient-add-form';
 import SubscriptionList from './components/subscription-list';
 
 ReactDOM.render(
   <Provider store={store}>
     <div>
-      <SubscriptionForm />
+      <SubscriptionList />
+      <SubscriptionAddForm />
+      <RecipientAddForm />
     </div>
   </Provider>,
   document.getElementById('root')
