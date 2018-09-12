@@ -68,78 +68,143 @@ export class SubscriptionForm extends React.Component {
     }
     return (
       <div>
-        <h1>Hello World</h1>
+        <h1>SUBSCRIBE</h1>
         <form onSubmit={this.props.handleSubmit(values =>
           this.onSubmit(values)
           )}>
           {successMessage}
           {errorMessage} 
           <ul>
-          <li class="arrangement">
-            <div class="thumb">
-              <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+          <li className="arrangement">
+            <div className="thumb">
+              <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
-            <div class="flowerChoice form-input">
-            <label htmlFor="large">Designer's Lobby Arrangement
+            <div className="flowerChoice form-input">            
               <Field
                 name="large"
                 type="radio"
                 component={Input}
                 value="lobby"
-              /></label>
+                label="Designer's Lobby Arrangement"
+              />
             </div>
           </li>
-          <li class="arrangement"> 
-            <div class="thumb">
-              <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+          <li className="arrangement"> 
+            <div className="thumb">
+              <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
-            <div class="flowerChoice form-input">
-            <label htmlFor="large">Designer's Choice Arrangement
+            <div className="flowerChoice form-input">
               <Field
                 name="medium"
                 type="radio"
                 component={Input}
                 value="choice"
-              /></label>
+                label="Designer's Choice Arrangement"
+              />
             </div>
           </li>
-          <li class="arrangement">
-            <div class="thumb">
-              <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+          <li className="arrangement">
+            <div className="thumb">
+              <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
-            <div class="flowerChoice form-input">
-            <label htmlFor="large">Designer's Bouquet
+            <div className="flowerChoice form-input">
               <Field
                 name="small"
                 type="radio"
                 component={Input}
                 value="bouquet"
-              /></label>
+                label="Designer's Bouquet"
+              />
             </div>
           </li>
-          <li class="gift">
+          <li className="gift">
               <p>SUBSCRIPTION</p>
-              <div class="gift form-input">
+              <div className="gift form-input">
               <label htmlFor="large">Gift Subscription
                 <Field
                   name="gift"
                   type="radio"
                   component={Input}
-                  value="personal"
+                  value="gift"
                   className="gift"
                 /></label>
                 </div>
-                <div class="flowerChoice form-input">
+                <div className="personal form-input">
                 <label htmlFor="large">Personal Subscription
                 <Field
                   name="personal"
                   type="radio"
                   component={Input}
                   value="personal"
-                  className="gift"
+                  className="personal"
                 /></label>
               </div>
           </li>
+          <li>
+            <div className="frequency form-input">
+              <label className="frequency">FREQUENCY</label>
+                <Field
+                  name="weekly"
+                  type="radio"
+                  component={Input}
+                  label="weekly"
+                  value="weekly"
+                />
+                <Field
+                  name="biWeekly"
+                  type="radio"
+                  component={Input}
+                  label="bi-weekly"
+                  value="biWeekly"
+                />
+                <Field
+                  name="monthly"
+                  type="radio"
+                  component={Input}
+                  label="monthly"
+                  value="gift"
+                />
+              </div>
+              <div className="form-input">
+              <label htmlFor="giftmsg" className="giftMsg">Gift Message
+                <Field
+                  name="giftmsg"
+                  type="textarea"
+                  component={Input}
+                /></label>                            
+              </div>
+          </li>
+          <div className="form-input">
+            <label>DURATION</label>
+              <Field
+                name="threeMonths"
+                type="radio"
+                component={Input}
+                label="3 MONTHS"
+                value="3"
+              />
+              <Field
+                name="sixMonths"
+                type="radio"
+                component={Input}
+                label="6 MONTHS"
+                value="6"
+              />
+              <Field
+                name="twelveMonths"
+                type="radio"
+                component={Input}
+                label="12 MONTHS"
+                value="9"
+              />
+              <Field
+                name="ongoing"
+                type="radio"
+                component={Input}
+                label="ON-GOING" 
+              />
+        </div>
+
         </ul>  
         {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
           <button type="submit" >Submit</button> 
@@ -156,65 +221,6 @@ export default reduxForm({
 
 
 
-      //   <div class="form-input">
-      //   <label>SUBSCRIPTION</label>
-      //     <Field
-      //       name="weekly"
-      //       type="radio"
-      //       component={Input}
-      //       label="WEEKLY"
-      //       value="weekly"
-      //     />
-      //     <Field
-      //       name="biWeekly"
-      //       type="radio"
-      //       component={Input}
-      //       label="BI_WEEKLY"
-      //       value="biWeekly"
-      //     />
-      //     <Field
-      //       name="monthly"
-      //       type="radio"
-      //       component={Input}
-      //       label="MONTHLY"
-      //       value="gift"
-      //     />
-      //   </div>
-      //   <div class="form-input">
-      //     <Field
-      //       name="giftmsg"
-      //       type="textarea"
-      //       component={Input}
-      //       label="GIFT MESSAGE"
-      //     />
-      //   </div>
-      //   <div class="form-input">
-      //   <label>DURATION</label>
-      //     <Field
-      //       name="threeMonths"
-      //       type="radio"
-      //       component={Input}
-      //       label="3 MONTHS"
-      //     />
-      //     <Field
-      //       name="sixMonths"
-      //       type="radio"
-      //       component={Input}
-      //       label="6 MONTHS"
-      //     />
-      //     <Field
-      //       name="twelveMonths"
-      //       type="radio"
-      //       component={Input}
-      //       label="12 MONTHS"
-      //     />
-      //     <Field
-      //       name="ongoing"
-      //       type="radio"
-      //       component={Input}
-      //       label="ON-GOING" 
-      //     />
-      //   </div>
         
       // {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
       //   <button type="submit" >Submit</button>

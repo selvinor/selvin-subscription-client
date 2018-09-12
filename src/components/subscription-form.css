@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+body {
+  padding:10px;
+}
 label {
   margin-left:10px;
 }
@@ -28,6 +31,29 @@ padding-top:25px;
 display:block;
 }
 
-.gift {
+.gift, .personal {
   display: inline-block;
+  height:60px;
 }
+.gift input, .personal input {
+  margin-left:55px;
+}
+ .flowerChoice input{
+  float: left;
+}
+.gift p {
+  font-weight:bold;
+  margin-left:60px;
+}
+label.frequency {
+  font-weight:bold;
+
+}
+div.frequency input {
+  float: left;
+}
+#giftmsg {
+  min-width: 300px;
+  min-height:100px;
+}
+
