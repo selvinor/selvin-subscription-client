@@ -38,18 +38,16 @@ display:block;
 .gift input, .personal input {
   margin-left:55px;
 }
- .flowerChoice input{
-  float: left;
-}
+ 
 .gift p {
   font-weight:bold;
   margin-left:60px;
 }
-label.frequency {
+label.frequency , label.duration {
   font-weight:bold;
 
 }
-div.frequency input {
+.frequency input, .duration input, .flowerChoice input {
   float: left;
 }
 #giftmsg {

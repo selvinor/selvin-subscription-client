@@ -81,7 +81,7 @@ export class SubscriptionForm extends React.Component {
             </div>
             <div className="flowerChoice form-input">            
               <Field
-                name="large"
+                name="choice"
                 type="radio"
                 component={Input}
                 value="lobby"
@@ -95,7 +95,7 @@ export class SubscriptionForm extends React.Component {
             </div>
             <div className="flowerChoice form-input">
               <Field
-                name="medium"
+                name="choice"
                 type="radio"
                 component={Input}
                 value="choice"
@@ -109,7 +109,7 @@ export class SubscriptionForm extends React.Component {
             </div>
             <div className="flowerChoice form-input">
               <Field
-                name="small"
+                name="choice"
                 type="radio"
                 component={Input}
                 value="bouquet"
@@ -132,7 +132,7 @@ export class SubscriptionForm extends React.Component {
                 <div className="personal form-input">
                 <label htmlFor="large">Personal Subscription
                 <Field
-                  name="personal"
+                  name="gift"
                   type="radio"
                   component={Input}
                   value="personal"
@@ -140,12 +140,12 @@ export class SubscriptionForm extends React.Component {
                 /></label>
               </div>
               <div className="form-input">
-                <label htmlFor="giftmsg" className="giftMsg">Gift Message   
-                <Field
-                  name="giftmsg"
-                  type="textarea"
-                  component={Input}
-                /></label>                            
+                <label htmlFor="giftmsg" className="giftMsg">Gift Message
+                  <Field
+                    name="giftmsg"
+                    type="textarea"
+                    component={Input}
+                  /></label>                            
               </div>
 
           </li>
@@ -153,21 +153,21 @@ export class SubscriptionForm extends React.Component {
             <div className="frequency form-input">
               <label className="frequency">FREQUENCY</label>
                 <Field
-                  name="weekly"
+                  name="frequency"
                   type="radio"
                   component={Input}
                   label="weekly"
                   value="weekly"
                 />
                 <Field
-                  name="biWeekly"
+                  name="frequency"
                   type="radio"
                   component={Input}
                   label="bi-weekly"
                   value="biWeekly"
                 />
                 <Field
-                  name="monthly"
+                  name="frequency"
                   type="radio"
                   component={Input}
                   label="monthly"
@@ -175,38 +175,39 @@ export class SubscriptionForm extends React.Component {
                 />
               </div>
           </li>
-          <div className="form-input">
-            <label>DURATION</label>
+          <li>
+          <div className="form-input duration" >
+            <label className="duration">DURATION</label>
               <Field
-                name="threeMonths"
+                name="duration"
                 type="radio"
                 component={Input}
                 label="3 MONTHS"
                 value="3"
               />
               <Field
-                name="sixMonths"
+                name="duration"
                 type="radio"
                 component={Input}
                 label="6 MONTHS"
                 value="6"
               />
               <Field
-                name="twelveMonths"
+                name="duration"
                 type="radio"
                 component={Input}
                 label="12 MONTHS"
                 value="9"
               />
               <Field
-                name="ongoing"
+                name="duration"
                 type="radio"
                 component={Input}
                 label="ON-GOING" 
                 value="ongoing"
               />
         </div>
-
+        </li>
         </ul>  
         {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
           <button type="submit" >Submit</button> 
