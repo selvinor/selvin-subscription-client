@@ -82,7 +82,50 @@ export class RecipientAddForm extends React.Component {
                     name="firstName"
                     type="text"
                     component={Input}
-                  /></label>                            
+                  />
+                </label>
+                <label htmlFor="lastName" className="lastName">Last Name                            
+                  <Field
+                    name="lastName"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="lastName" className="lastName">Street Address 1                            
+                  <Field
+                    name="streetAddress1"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="streetAddress2" className="lastName">Street Address 2                            
+                  <Field
+                    name="streetAddress2"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="lastName" className="lastName">City                            
+                  <Field
+                    name="city"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="state" className="lastName">State                            
+                  <Field
+                    name="state"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="zipcode" className="lastName">Zipcode                           
+                  <Field
+                    name="zipcode"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
               </div>
             </li>
           </ul>  
