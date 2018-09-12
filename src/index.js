@@ -10,8 +10,6 @@ import SubscriptionForm from './components/subscription-form';
 import SubscriptionList from './components/subscription-list';
 
 ReactDOM.render(
-
-
   <Provider store={store}>
     <div>
       <SubscriptionForm />
@@ -20,6 +18,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-/* <SubscriptionList Subscriptions={Subscriptions}/>, 
-document.getElementById('root'));
-registerServiceWorker(); */
+/*registerServiceWorker(); */

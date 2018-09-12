@@ -182,28 +182,28 @@ export class SubscriptionForm extends React.Component {
                 name="duration"
                 type="radio"
                 component={Input}
-                label="3 MONTHS"
+                label="3 months"
                 value="3"
               />
               <Field
                 name="duration"
                 type="radio"
                 component={Input}
-                label="6 MONTHS"
+                label="6 months"
                 value="6"
               />
               <Field
                 name="duration"
                 type="radio"
                 component={Input}
-                label="12 MONTHS"
-                value="9"
+                label="12 months"
+                value="12"
               />
               <Field
                 name="duration"
                 type="radio"
                 component={Input}
-                label="ON-GOING" 
+                label="on-going" 
                 value="ongoing"
               />
         </div>
