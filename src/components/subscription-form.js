@@ -139,6 +139,15 @@ export class SubscriptionForm extends React.Component {
                   className="personal"
                 /></label>
               </div>
+              <div className="form-input">
+                <label htmlFor="giftmsg" className="giftMsg">Gift Message   
+                <Field
+                  name="giftmsg"
+                  type="textarea"
+                  component={Input}
+                /></label>                            
+              </div>
+
           </li>
           <li>
             <div className="frequency form-input">
@@ -164,14 +173,6 @@ export class SubscriptionForm extends React.Component {
                   label="monthly"
                   value="gift"
                 />
-              </div>
-              <div className="form-input">
-              <label htmlFor="giftmsg" className="giftMsg">Gift Message
-                <Field
-                  name="giftmsg"
-                  type="textarea"
-                  component={Input}
-                /></label>                            
               </div>
           </li>
           <div className="form-input">
