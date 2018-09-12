@@ -1,4 +1,33 @@
-.thumbnail {
-  width:120px;
+* {
+  box-sizing: border-box;
+}
+label {
+  margin-left:10px;
+}
+li  {
+  list-style-type: none;
+}
+.arrangement {
+  height:85px;
 
+}
+.thumbnail {
+  width:85px;
+  float:left;
+}
+
+.thumb  {
+height:85px;
+width:120px;
+float:left;
+clear:none;
+
+}
+.flowerChoice{  
+padding-top:25px;
+display:block;
+}
+
+.gift {
+  display: inline-block;
 }

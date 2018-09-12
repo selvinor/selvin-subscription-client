@@ -74,49 +74,73 @@ export class SubscriptionForm extends React.Component {
           )}>
           {successMessage}
           {errorMessage} 
-          <div class="arrangement">
-            <span class="thumb">
-            <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
-          </span>
-          <div class="form-input">
-            <Field
-              name="large"
-              type="radio"
-              component={Input}
-              label="Designer's Lobby Arrangement"
-              value="lobby"
-            />
-          </div>
-        </div>
-        <div class="arrangement"> 
-          <span class="thumb">
-            <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
-          </span>
-          <div class="form-input">
-            <Field
-              name="personal"
-              type="radio"
-              component={Input}
-              label="Designer's Choice Arrangement"
-              value="choice"
-            />
-          </div>
-        </div>
-        <div class="arrangement">
-          <span class="thumb">
-            <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
-          </span>
-         <div class="form-input">
-            <Field
-              name="gift"
-              type="radio"
-              component={Input}
-              label="Designer's Bouquet"
-              value="bouquet"
-            />
-          </div>
-        </div>
-          
+          <ul>
+          <li class="arrangement">
+            <div class="thumb">
+              <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+            </div>
+            <div class="flowerChoice form-input">
+            <label htmlFor="large">Designer's Lobby Arrangement
+              <Field
+                name="large"
+                type="radio"
+                component={Input}
+                value="lobby"
+              /></label>
+            </div>
+          </li>
+          <li class="arrangement"> 
+            <div class="thumb">
+              <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+            </div>
+            <div class="flowerChoice form-input">
+            <label htmlFor="large">Designer's Choice Arrangement
+              <Field
+                name="medium"
+                type="radio"
+                component={Input}
+                value="choice"
+              /></label>
+            </div>
+          </li>
+          <li class="arrangement">
+            <div class="thumb">
+              <img class="thumbnail" src="../img/flowers.jpg" alt=""/> 
+            </div>
+            <div class="flowerChoice form-input">
+            <label htmlFor="large">Designer's Bouquet
+              <Field
+                name="small"
+                type="radio"
+                component={Input}
+                value="bouquet"
+              /></label>
+            </div>
+          </li>
+          <li class="gift">
+              <p>SUBSCRIPTION</p>
+              <div class="gift form-input">
+              <label htmlFor="large">Gift Subscription
+                <Field
+                  name="gift"
+                  type="radio"
+                  component={Input}
+                  value="personal"
+                  className="gift"
+                /></label>
+                </div>
+                <div class="flowerChoice form-input">
+                <label htmlFor="large">Personal Subscription
+                <Field
+                  name="personal"
+                  type="radio"
+                  component={Input}
+                  value="personal"
+                  className="gift"
+                /></label>
+              </div>
+          </li>
+        </ul>  
         {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
           <button type="submit" >Submit</button> 
         </form> 
@@ -132,15 +156,6 @@ export default reduxForm({
 
 
 
-      //   <div class="arrangement">
-      //     <Field
-      //       name="personal"
-      //       type="radio"
-      //       component={Input}
-      //       label="Personal Subscription"
-      //       value="personal"
-      //     />
-      //   </div>
       //   <div class="form-input">
       //   <label>SUBSCRIPTION</label>
       //     <Field
