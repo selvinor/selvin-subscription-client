@@ -202,6 +202,7 @@ export class SubscriptionForm extends React.Component {
                 type="radio"
                 component={Input}
                 label="ON-GOING" 
+                value="ongoing"
               />
         </div>
 
@@ -217,17 +218,3 @@ export class SubscriptionForm extends React.Component {
 export default reduxForm({
   form: 'subscriptionForm'
 })(SubscriptionForm); 
-
-
-
-
-        
-      // {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
-      //   <button type="submit" >Submit</button>
-      // </form>    
-//     )
-//   }
-// }
-// export default SubscriptionForm({
-//   form: 'subscriptionForm'
-// })(SubscriptionForm); 
