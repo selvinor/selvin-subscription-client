@@ -3,7 +3,10 @@
 const initialState = {
   subscriptions: [],
   hasErrored : false,
-  isLoading : false
+  isLoading : false,
+  arrangementChosen : false,
+  subscriptionChosen: false,
+  recipientsChosen: false
 
 }
 export const subscriptionReducer = (state=initialState, action) => {
@@ -20,6 +23,10 @@ export const subscriptionReducer = (state=initialState, action) => {
       return Object.assign({}, state, {
         subscriptions: action.subscriptions
       });
+    case 'CREATE_SUBSCRIPTION':
+    return Object.assign({}, state, {
+      createSubscription: action.createSubscription
+    });
     default:
         return state;
   }

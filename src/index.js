@@ -13,7 +13,6 @@ ReactDOM.render(
   <Provider store={store}>
     <div>
       <SubscriptionAddForm />
-      <RecipientAddForm />
     </div>
   </Provider>,
   document.getElementById('root')

@@ -4,7 +4,7 @@ import {Field, SubmissionError, reduxForm} from 'redux-form';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
-
+import subscriptionInput from './subscription-input'; 
 
 export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
@@ -54,6 +54,17 @@ export class SubscriptionAddForm extends React.Component {
   }
   render() {
     let successMessage;
+    let subscriptionFields;
+    let formButton;
+
+    if (this.props.submitSucceeded) {
+      successMessage = (
+        <div className= "message message-successs">
+          Message submitted successfully
+        </div>
+      );
+    }
+  
     if (this.props.submitSucceeded) {
       successMessage = (
         <div className= "message message-successs">
@@ -67,9 +78,24 @@ export class SubscriptionAddForm extends React.Component {
         <div className="message message-error">{this.props.error}</div>
       );
     }
+    //state flags for form control
+    // arrangementChosen 
+    // subscriptionChosen
+    // recipientsChosen
+    if (this.props.recipientsChosen) {
+      formButton = (<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>); 
+    } else {
+      formButton = ( <button type="button">Continue</button>); 
+    }
+
+    if (this.props.arrangementChosen) {
+      subscriptionFields = {subscriptionInput};
+    }
+
     return (
       <div>
         <h1>SUBSCRIBE</h1>
+        <h2>Choose an Arrangement</h2>
         <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           {successMessage}
           {errorMessage} 
@@ -113,125 +139,10 @@ export class SubscriptionAddForm extends React.Component {
               />
             </div>
           </li>
-          <li className="gift">
-              <p>SUBSCRIPTION</p>
-              <div className="gift form-input">
-              <label htmlFor="large">Gift Subscription
-                <Field
-                  name="gift"
-                  type="radio"
-                  component={Input}
-                  className="gift"
-                /></label>
-                </div>
-                <div className="personal form-input">
-                <label htmlFor="large">Personal Subscription
-                <Field
-                  name="gift"
-                  type="radio"
-                  component={Input}
-                  className="personal"
-                /></label>
-              </div>
-              <div className="form-input">
-                <label htmlFor="giftmsg" className="giftMsg">Gift Message
-                  <Field
-                    name="giftmsg"
-                    type="textarea"
-                    component={Input}
-                  /></label>                            
-              </div>
+          {subscriptionFields}
 
-          </li>
-          <li>
-            <div className="frequency form-input">
-              <label className="frequency">FREQUENCY</label>
-                <Field
-                  name="frequency"
-                  type="radio"
-                  component={Input}
-                  label="weekly"
-                />
-                <Field
-                  name="frequency"
-                  type="radio"
-                  component={Input}
-                  label="bi-weekly"
-                />
-                <Field
-                  name="frequency"
-                  type="radio"
-                  component={Input}
-                  label="monthly"
-                />
-              
-            </div>
-          </li>
-          <li>
-            <div className="form-input duration" >
-              <label className="duration">DURATION</label>
-                <Field
-                  name="duration"
-                  type="radio"
-                  component={Input}
-                  label="3 months"
-                />
-                <Field
-                  name="duration"
-                  type="radio"
-                  component={Input}
-                  label="6 months"
-                />
-                <Field
-                  name="duration"
-                  type="radio"
-                  component={Input}
-                  label="12 months"
-                />
-                <Field
-                  name="duration"
-                  type="radio"
-                  component={Input}
-                  label="on-going" 
-                />
-              
-            </div>
-          </li>
-          <li>
-            <div className="buyerInfo">
-              <label htmlFor="buyerEmail" className="buyerEmail">Buyer Email</label>                            
-                <Field
-                  name="buyerEmail"
-                  type="email"
-                  component={Input}
-                />
-                                          
-              <label htmlFor="buyerFirstName" className="buyerFirstName">Buyer First Name</label>
-                <Field
-                  name="buyerFirstName"
-                  type="text"
-                  component={Input}
-                />
-              
-              <label htmlFor="buyerLastName" className="buyerLastName">Buyer Last Name</label>                            
-                <Field
-                  name="buyerLastName"
-                  type="text"
-                  component={Input}
-                />
-                                         
-              <label htmlFor="buyerPhone" className="buyerPhone">Buyer Phone</label>                            
-                <Field
-                  name="buyerPhone"
-                  type="text"
-                  component={Input}
-                />
-                                          
-            </div>
-          </li>
         </ul>  
-        <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> 
-          {/* <button type="submit" >Submit</button> */}
+        {formButton}
         </form> 
       </div>
 
