@@ -201,7 +201,7 @@ export class SubscriptionAddForm extends React.Component {
             <div className="buyerInfo">
               <label htmlFor="buyerEmail" className="buyerEmail">Buyer Email</label>                            
                 <Field
-                  name="streetAddress1"
+                  name="buyerEmail"
                   type="email"
                   component={Input}
                 />

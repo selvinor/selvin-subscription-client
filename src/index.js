@@ -12,7 +12,6 @@ import SubscriptionList from './components/subscription-list';
 ReactDOM.render(
   <Provider store={store}>
     <div>
-      <SubscriptionList />
       <SubscriptionAddForm />
       <RecipientAddForm />
     </div>

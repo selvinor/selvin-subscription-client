@@ -35,10 +35,15 @@ display:block;
   display: inline-block;
   height:60px;
 }
-.gift input, .personal input {
+.personal input {
   margin-left:55px;
 }
- 
+.gift input {
+  margin-left:0px;
+}
+label.giftMsg  {
+  font-weight: bold;
+}
 .gift p {
   font-weight:bold;
   margin-left:60px;
@@ -50,10 +55,7 @@ label.frequency , label.duration {
 .frequency input, .duration input, .flowerChoice input {
   float: left;
 }
-#giftmsg {
-  min-width: 300px;
-  min-height:100px;
-}
+
 .buyerInfo {
   margin-top: 15px;
 }
