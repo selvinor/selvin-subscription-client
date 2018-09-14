@@ -54,4 +54,6 @@ label.frequency , label.duration {
   min-width: 300px;
   min-height:100px;
 }
-
+.buyerInfo {
+  margin-top: 15px;
+}

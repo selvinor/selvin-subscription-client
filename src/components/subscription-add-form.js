@@ -164,37 +164,71 @@ export class SubscriptionAddForm extends React.Component {
                   component={Input}
                   label="monthly"
                 />
-              </div>
+              
+            </div>
           </li>
           <li>
-          <div className="form-input duration" >
-            <label className="duration">DURATION</label>
-              <Field
-                name="duration"
-                type="radio"
-                component={Input}
-                label="3 months"
-              />
-              <Field
-                name="duration"
-                type="radio"
-                component={Input}
-                label="6 months"
-              />
-              <Field
-                name="duration"
-                type="radio"
-                component={Input}
-                label="12 months"
-              />
-              <Field
-                name="duration"
-                type="radio"
-                component={Input}
-                label="on-going" 
-              />
-        </div>
-        </li>
+            <div className="form-input duration" >
+              <label className="duration">DURATION</label>
+                <Field
+                  name="duration"
+                  type="radio"
+                  component={Input}
+                  label="3 months"
+                />
+                <Field
+                  name="duration"
+                  type="radio"
+                  component={Input}
+                  label="6 months"
+                />
+                <Field
+                  name="duration"
+                  type="radio"
+                  component={Input}
+                  label="12 months"
+                />
+                <Field
+                  name="duration"
+                  type="radio"
+                  component={Input}
+                  label="on-going" 
+                />
+              
+            </div>
+          </li>
+          <li>
+            <div className="buyerInfo">
+              <label htmlFor="buyerEmail" className="buyerEmail">Buyer Email</label>                            
+                <Field
+                  name="streetAddress1"
+                  type="email"
+                  component={Input}
+                />
+                                          
+              <label htmlFor="buyerFirstName" className="buyerFirstName">Buyer First Name</label>
+                <Field
+                  name="buyerFirstName"
+                  type="text"
+                  component={Input}
+                />
+              
+              <label htmlFor="buyerLastName" className="buyerLastName">Buyer Last Name</label>                            
+                <Field
+                  name="buyerLastName"
+                  type="text"
+                  component={Input}
+                />
+                                         
+              <label htmlFor="buyerPhone" className="buyerPhone">Buyer Phone</label>                            
+                <Field
+                  name="buyerPhone"
+                  type="text"
+                  component={Input}
+                />
+                                          
+            </div>
+          </li>
         </ul>  
         <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> 
           {/* <button type="submit" >Submit</button> */}

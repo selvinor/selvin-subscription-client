@@ -92,35 +92,35 @@ export class RecipientAddForm extends React.Component {
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="lastName" className="lastName">Street Address 1                            
+                <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
                   <Field
                     name="streetAddress1"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="streetAddress2" className="lastName">Street Address 2                            
+                <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
                   <Field
                     name="streetAddress2"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="lastName" className="lastName">City                            
+                <label htmlFor="city" className="city">City                            
                   <Field
                     name="city"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="state" className="lastName">State                            
+                <label htmlFor="state" className="state">State                            
                   <Field
                     name="state"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="zipcode" className="lastName">Zipcode                           
+                <label htmlFor="zipcode" className="zipcode">Zipcode                           
                   <Field
                     name="zipcode"
                     type="text"
