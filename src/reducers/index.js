@@ -6,8 +6,8 @@ const initialState = {
   isLoading : false,
   arrangementChosen : false,
   subscriptionChosen: false,
-  recipientsChosen: false
-
+  recipientsChosen: false,
+  currentFormSection: "arrangement"
 }
 export const subscriptionReducer = (state=initialState, action) => {
   switch (action.type) {

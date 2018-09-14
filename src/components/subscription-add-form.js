@@ -1,10 +1,9 @@
 import React from 'react';
 import {Field, SubmissionError, reduxForm} from 'redux-form';
-
+import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
-import subscriptionInput from './subscription-input'; 
 
 export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
@@ -53,8 +52,8 @@ export class SubscriptionAddForm extends React.Component {
     });
   }
   render() {
+    console.log(this.props.currentFormSection);
     let successMessage;
-    let subscriptionFields;
     let formButton;
 
     if (this.props.submitSucceeded) {
@@ -83,13 +82,6 @@ export class SubscriptionAddForm extends React.Component {
     // subscriptionChosen
     // recipientsChosen
 
-    let formFields = `
-
-    `
-
-    if (this.props.arrangementChosen) {
-      subscriptionFields = {subscriptionInput};
-    }
 
     if (this.props.recipientsChosen) {
       formButton = (<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>); 
@@ -98,17 +90,15 @@ export class SubscriptionAddForm extends React.Component {
     }
 
 
-
-
-
-
     return (
       <div>
         <h1>SUBSCRIBE</h1>
         <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           {successMessage}
-          {errorMessage} 
-          <h2>Choose an Arrangement</h2>
+          {errorMessage} \
+          
+          { this.props.currentFormSection === "arrangement" ?  
+          
           <ul>
             <li className="arrangement">
               <div className="thumb">
@@ -150,6 +140,8 @@ export class SubscriptionAddForm extends React.Component {
               </div>
             </li>
           </ul>
+ : "" }
+ { this.props.currentFormSection === "schedule" ?           
           <ul>
             <li className="gift">
               <h3>CHOOSE SCHEDULE</h3>
@@ -265,12 +257,20 @@ export class SubscriptionAddForm extends React.Component {
               </div>
             </li>
           </ul> 
+  : ""  }
           {formButton}
         </form> 
       </div>
     )
   }
 }
+const mapStateToProps = state => ({
+  currentFormSection: state.subscription.currentFormSection
+
+  })
+
+SubscriptionAddForm = connect(mapStateToProps)(SubscriptionAddForm)
+
 export default reduxForm({
   form: 'subscriptionAddForm'
 })(SubscriptionAddForm); 

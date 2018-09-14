@@ -1,9 +1,11 @@
-import  React from 'react';
+import * as React from 'react';
+import { Field } from 'redux-form';
+import Input from './input';
+export const Arrangements = props => {
+  if (props && props.input && props.options) {
 
-export default class Input extends React.Component {
-  render() {
-      return `
-    <div>
+    return (
+      <div>
       <ul>
         <li>
           <div className="senderInfo">
@@ -121,6 +123,9 @@ export default class Input extends React.Component {
         </li>
       </ul>
     </div>
-   `
+    );
   }
+
 }
+
+export default Arrangements;
