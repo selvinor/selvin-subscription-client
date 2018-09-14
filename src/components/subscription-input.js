@@ -6,31 +6,31 @@ export default class Input extends React.Component {
     <div>
       <ul>
         <li>
-          <div className="buyerInfo">
-            <label htmlFor="buyerEmail" className="buyerEmail">Buyer Email</label>                            
+          <div className="senderInfo">
+            <label htmlFor="senderEmail" className="senderEmail">Sender Email</label>                            
               <Field
-                name="buyerEmail"
+                name="senderEmail"
                 type="email"
                 component={Input}
               />
                                         
-            <label htmlFor="buyerFirstName" className="buyerFirstName">Buyer First Name</label>
+            <label htmlFor="senderFirstName" className="senderFirstName">Sender First Name</label>
               <Field
-                name="buyerFirstName"
+                name="senderFirstName"
                 type="text"
                 component={Input}
               />
             
-            <label htmlFor="buyerLastName" className="buyerLastName">Buyer Last Name</label>                            
+            <label htmlFor="senderLastName" className="senderLastName">Sender Last Name</label>                            
               <Field
-                name="buyerLastName"
+                name="senderLastName"
                 type="text"
                 component={Input}
               />
                                       
-            <label htmlFor="buyerPhone" className="buyerPhone">Buyer Phone</label>                            
+            <label htmlFor="senderPhone" className="senderPhone">Sender Phone</label>                            
               <Field
-                name="buyerPhone"
+                name="senderPhone"
                 type="text"
                 component={Input}
               />                                      
