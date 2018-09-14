@@ -25,19 +25,19 @@ export const subscriptionReducer = (state=initialState, action) => {
   }
 }  
 
-export const productReducer = (state=initialState, action) => {
+export const recipientReducer = (state=initialState, action) => {
   switch (action.type) {
-    case 'PRODUCTS_HAS_ERRORED':
+    case 'RECIPIENTS_HAS_ERRORED':
       return Object.assign({}, state, {
         hasErrored: action.hasErrored
       });  
-    case 'PRODUCTS_IS_LOADING':
+    case 'RECIPIENTS_IS_LOADING':
       return Object.assign({}, state, {
         isLoading: action.isLoading
       }); 
-    case 'FETCH_PRODUCTS_SUCCESS':
+    case 'FETCH_RECIPIENTS_SUCCESS':
       return Object.assign({}, state, {
-        products: action.fetchProductsSuccess
+        recipients: action.fetchRecipientsSuccess
       });
     default:
         return state;

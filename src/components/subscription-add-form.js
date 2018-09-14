@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field, SubmissionError, reduxForm} from 'redux-form';
+
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
@@ -69,9 +70,7 @@ export class SubscriptionAddForm extends React.Component {
     return (
       <div>
         <h1>SUBSCRIBE</h1>
-        <form onSubmit={this.props.handleSubmit(values =>
-          this.onSubmit(values)
-          )}>
+        <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           {successMessage}
           {errorMessage} 
           <ul>
@@ -84,7 +83,6 @@ export class SubscriptionAddForm extends React.Component {
                 name="choice"
                 type="radio"
                 component={Input}
-                value="lobby"
                 label="Designer's Lobby Arrangement"
               />
             </div>
@@ -98,7 +96,6 @@ export class SubscriptionAddForm extends React.Component {
                 name="choice"
                 type="radio"
                 component={Input}
-                value="choice"
                 label="Designer's Choice Arrangement"
               />
             </div>
@@ -112,7 +109,6 @@ export class SubscriptionAddForm extends React.Component {
                 name="choice"
                 type="radio"
                 component={Input}
-                value="bouquet"
                 label="Designer's Bouquet"
               />
             </div>
@@ -125,7 +121,6 @@ export class SubscriptionAddForm extends React.Component {
                   name="gift"
                   type="radio"
                   component={Input}
-                  value="gift"
                   className="gift"
                 /></label>
                 </div>
@@ -135,7 +130,6 @@ export class SubscriptionAddForm extends React.Component {
                   name="gift"
                   type="radio"
                   component={Input}
-                  value="personal"
                   className="personal"
                 /></label>
               </div>
@@ -157,21 +151,18 @@ export class SubscriptionAddForm extends React.Component {
                   type="radio"
                   component={Input}
                   label="weekly"
-                  value="weekly"
                 />
                 <Field
                   name="frequency"
                   type="radio"
                   component={Input}
                   label="bi-weekly"
-                  value="biWeekly"
                 />
                 <Field
                   name="frequency"
                   type="radio"
                   component={Input}
                   label="monthly"
-                  value="gift"
                 />
               </div>
           </li>
@@ -183,34 +174,30 @@ export class SubscriptionAddForm extends React.Component {
                 type="radio"
                 component={Input}
                 label="3 months"
-                value="3"
               />
               <Field
                 name="duration"
                 type="radio"
                 component={Input}
                 label="6 months"
-                value="6"
               />
               <Field
                 name="duration"
                 type="radio"
                 component={Input}
                 label="12 months"
-                value="12"
               />
               <Field
                 name="duration"
                 type="radio"
                 component={Input}
                 label="on-going" 
-                value="ongoing"
               />
         </div>
         </li>
         </ul>  
-        {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
-          <button type="submit" >Submit</button> 
+        <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> 
+          {/* <button type="submit" >Submit</button> */}
         </form> 
       </div>
 

@@ -1,3 +1,4 @@
+//import {applyMiddleware as dispatch} from "redux";
 export const SUBSCRIPTIONS_HAS_ERRORED = 'SUBSCRIPTIONS_HAS_ERRORED';
 export function subscriptionsHasErrored(bool) {
   return {
@@ -12,34 +13,18 @@ export function subscriptionsIsLoading(bool) {
     isLoading: bool
   };
 }
+export const ADD_SUBSCRIPTION_SUCCESS = 'ADD_SUBSCRIPTION_SUCCESS'; 
+export function addSubscriptionSuccess(newSubscription) {
+  return {
+    type: ADD_SUBSCRIPTION_SUCCESS,
+    subscription: newSubscription
+  };
+}
 export const FETCH_SUBSCRIPTION_SUCCESS = 'FETCH_SUBSCRIPTION_SUCCESS';
 export function fetchSubscriptionSuccess(subscriptions) {
   return {
     type: FETCH_SUBSCRIPTION_SUCCESS,
     subscriptions
-  };
-}
-
-
-export const PRODUCTS_HAS_ERRORED = 'PRODUCTS_HAS_ERRORED';
-export function productsHasErrored(bool) {
-  return {
-      type: PRODUCTS_HAS_ERRORED,
-      hasErrored: bool
-  };
-}
-export const PRODUCTS_IS_LOADING = 'PRODUCTS_IS_LOADING';
-export function productsIsLoading(bool) {
-  return {
-      type: PRODUCTS_IS_LOADING,
-      isLoading: bool
-  };
-}
-export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
-export function fetchProductsSuccess(products) {
-  return {
-      type: FETCH_PRODUCTS_SUCCESS,
-      products
   };
 }
 export const fetchSubscriptions = () => dispatch => {
@@ -52,5 +37,18 @@ export const fetchSubscriptions = () => dispatch => {
   }).then(subscriptions => {
       console.log('subscriptions from the fetch', subscriptions);
       dispatch(fetchSubscriptionSuccess(subscriptions));
+  });
+};
+
+export const addSubscription = () => dispatch => {
+  fetch(`http://localhost:8080/api/subscriptions`)
+  .then(res => {
+      if (!res.ok) {
+          return Promise.reject(res.statusText);
+      }
+      return res.json();
+  }).then(newSubscription => {
+      console.log('subscription added', newSubscription);
+      dispatch(addSubscriptionSuccess(newSubscription));
   });
 };

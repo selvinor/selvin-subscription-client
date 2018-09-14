@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field, SubmissionError, reduxForm} from 'redux-form';
+//import {required, nonEmpty, reqLength, isNumber} from '../validators';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 //import './recipient-add-form.css'; 
@@ -130,7 +131,7 @@ export class RecipientAddForm extends React.Component {
             </li>
           </ul>  
         {/* <button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button> */}
-          <button type="submit" >Submit</button> 
+          <button type="button" >ADD</button> 
         </form> 
       </div>
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import './index.css';
 //import App from './App';
-//import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 import store from './store';
 import SubscriptionAddForm from './components/subscription-add-form';
 import RecipientAddForm from './components/recipient-add-form';
@@ -20,4 +20,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-/*registerServiceWorker(); */
+registerServiceWorker(); 
