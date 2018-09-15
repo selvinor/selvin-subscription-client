@@ -10,9 +10,9 @@ export class SubscriptionList extends React.Component {
   renderResults() {
     console.log('this.props.subscriptions', this.props.subscriptions);
     const subscriptionList = this.props.subscriptions.map((subscription, index) => {
-      const { senderEmail, senderFirstName, senderLastName, senderPhone, productCode, productName, productColor, productSize, frequency, duration, business, receiverMsg, color, suspended, delivery } = subscription;
+      const {productCode, productName, productSize, color, status, frequency, duration, senderEmail, senderFirstName, senderLastName, senderPhone, deliveryType, recipients} = subscription;
 
-      return (<li key={index}> {senderEmail}, {senderFirstName}, {senderLastName}, {senderPhone},  {productCode}, {productName}, {productColor}, {productSize}, {frequency}, {duration}, {business}, {receiverMsg}, {color}, {suspended}, {delivery}</li>)
+      return (<li key={index}> {productCode}, {productName}, {productSize}, {color}, {status}, {frequency}, {duration}, {senderEmail}, {senderFirstName}, {senderLastName}, {senderPhone},  {deliveryType}, {recipients}</li>)
     });
     return subscriptionList;
   }

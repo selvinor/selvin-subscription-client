@@ -1,12 +1,41 @@
-import * as actions from '../actions'; 
+//import * as actions from '../actions'; 
 const initialState = {
-  subscriptions: [],
+  subscriptions: [{
+      productCode: '2',
+      productName: 'Designer\'s Choice Arrangement',
+      productSize: 'standard',
+      status: 'active',
+      frequency: 'monthly',
+      duration: '3',
+      startDate: null,
+      color: true,
+      senderEmail: '',
+      senderFirstName: '',
+      senderLastName: '',
+      senderPhone: '',
+      deliveries: [],
+      recipients: [
+        {
+          firstName : '',
+          lastName : '',
+          address1 : '',
+          address2 : '',
+          city : '',
+          state : '',
+          zipcode : '',
+          phone : '',
+          deliveries: [
+            {
+              deliveryNumber: null
+            }
+          ]
+        }
+      ]    
+  }],
   hasErrored : false,
   isLoading : false,
-  arrangementChosen : false,
-  subscriptionChosen: false,
-  senderReceiversChosen: false,
-  currentFormSection: "arrangement"
+  currentFormSection: "arrangement",
+  numRecipientsToAdd: 1,
 }
 export const subscriptionReducer = (state=initialState, action) => {
   switch (action.type) {
@@ -27,11 +56,25 @@ export const subscriptionReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       subscriptions: [...state.subscriptions, action.newSubscription]
     });
+
+    case 'ADD_RECIPIENT_FORM':
+    console.log('addRecipientForm reducer called', action);
+    return Object.assign({}, state, {
+      numRecipientsToAdd: state.numRecipientsToAdd++
+    });
+
     case 'JUMP_TO_SECTION':
     console.log('JUMP_TO_SECTION reducer called', action);
     return Object.assign({}, state, {
       currentFormSection: action.section
     });
+    case 'ADD_RECEIVER_TO_SUBSCRIPTION':
+      console.log('ADD_RECEIVER reducer called', action);
+      // Do some stuff to add the receiver to the receiver array in subscription 
+      return Object.assign({}, state, {
+        subscriptions: [...state.subscriptions, action.addReceiver]
+    });
+      
     default:
         return state;
   }

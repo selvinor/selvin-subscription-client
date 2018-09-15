@@ -1,11 +1,10 @@
-//import * as actions from '../actions';
 import React from 'react';
 import {Field, SubmissionError, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
-import { jumpToSection } from '../actions';
+import { jumpToSection, addRecipientForm } from '../actions';
 
 export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
@@ -79,16 +78,19 @@ export class SubscriptionAddForm extends React.Component {
       );
     }
 
-    
+    //Set custom button for each section
     switch (this.props.currentFormSection) {
       case 'arrangement':
         formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('schedule'))}  type="button">SELECT</button>); 
         break;
       case 'schedule':
-        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('senderReceivers'))}  type="button">Schedule it</button>); 
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('sender'))}  type="button">Schedule it</button>); 
         break;
-      case 'senderReceivers':
-        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('checkout'))}  type="button">Add SenderReceiver(s)</button>);
+      case 'sender':
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('receiver'))}  type="button">Add Sender</button>);
+        break;
+      case 'receiver':
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('checkout'))}  type="button">Add Receiver</button>);
         break;
       case 'checkout':
         formButton = (<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
@@ -96,7 +98,113 @@ export class SubscriptionAddForm extends React.Component {
       case 'confirm':
         formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
         break;
-    }      
+      default:
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
+      break;
+    }   
+
+    const addReceiverButton = (<button onClick={() => this.props.dispatch(addRecipientForm())}  type="button">ADD ANOTHER RECIPIENT</button>);
+    const addRecipient = (
+      <ul>
+        <li>
+          <h3>ADD RECIPIENT</h3>
+        </li>
+        <li>
+          <div className="form-input">
+            <label htmlFor="firstName" className="firstName">First Name
+              <Field
+                name="firstName"
+                type="text"
+                component={Input}
+              />
+            </label>
+            <label htmlFor="lastName" className="lastName">Last Name                            
+              <Field
+                name="lastName"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
+              <Field
+                name="streetAddress1"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
+              <Field
+                name="streetAddress2"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="city" className="city">City                            
+              <Field
+                name="city"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="state" className="state">State                            
+              <Field
+                name="state"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="zipcode" className="zipcode">Zipcode                           
+              <Field
+                name="zipcode"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+          </div>
+        </li>
+        <li>
+          <h4>DELIVERY TYPE</h4>
+        </li>
+        <li>
+          <div className="deliveryType business form-input">
+            <label htmlFor="large" className="business">Business 
+              <Field
+              name="deliveryType"
+              type="radio"
+              component={Input}
+              className="deliveryRadio"
+            /></label>
+          </div>
+          <div className="deliveryType residential form-input">
+            <label htmlFor="large" className="residential">Residence
+            <Field
+              name="deliveryType"
+              type="radio"
+              component={Input}
+              className="deliveryRadio"
+            /></label>
+          </div>
+          <div className="receiverMsg form-input">
+          <label htmlFor="receiverMsg" className="receiverMsg">Message</label> 
+            <Field
+              name="receiverMsg"
+              type="textarea"
+              component={Input}
+            />
+          </div>
+          {addReceiverButton}
+        </li>
+      </ul>
+    );
+    let receiverArray = [];
+    const buildReceiverArray = (addRecipient) => {
+      for (let i=1; i <= this.props.numRecipientsToAdd; i++) {
+          receiverArray = [...receiverArray, addRecipient]         
+      }
+    };
+    
+
+
     return (
       <div>
         <h1>FLOWER SUBSCRIPTION SERVICE</h1>
@@ -210,10 +318,8 @@ export class SubscriptionAddForm extends React.Component {
             </div>
           </li>
         </ul> 
-      : ""  }
-  
-      { this.props.currentFormSection === "senderReceivers" ?   
-          
+      : ""  }  
+      { this.props.currentFormSection === "sender" ?             
         <ul>
         <li>
 
@@ -253,6 +359,10 @@ export class SubscriptionAddForm extends React.Component {
                 />                                      
             </div>
           </li>
+          </ul> 
+      : ""  }  
+      { this.props.currentFormSection === "receiver" ?             
+        <ul>
           <li>
             <h3>ADD RECIPIENT</h3>
           </li>
@@ -339,26 +449,31 @@ export class SubscriptionAddForm extends React.Component {
                   component={Input}
                 />
             </div>
+            {addReceiverButton}
           </li>
         </ul>          
       : ""  }
-          {formButton}
+        { buildReceiverArray }
+        { formButton }
       </form> 
       </div>
     )
   }
 }   
 const mapStateToProps = state => ({
-  currentFormSection: state.subscription.currentFormSection
-
+  currentFormSection: state.subscription.currentFormSection,
+  numRecipientsToAdd: state.subscription.numRecipientsToAdd
   })
 
   const mapDispatchToProps = dispatch => {
     return {
       jumpToSection: () => {
         dispatch(jumpToSection())
+      },
+      addRecipientForm: () => {
+        dispatch(addRecipientForm())
       }
-    };
+    }
   };
  
 

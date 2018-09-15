@@ -8,7 +8,7 @@ import Input from './input';
 
 export class SenderReceiverAddForm extends React.Component {
   onSubmit(values) {
-    return fetch('http://localhost:8080/api/senderReceivers', {
+    return fetch('http://localhost:8080/api/recipients', {
       method:'POST',
       body: JSON.stringify(values),
       headers: {

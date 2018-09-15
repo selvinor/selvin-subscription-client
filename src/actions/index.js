@@ -24,6 +24,16 @@ export const jumpToSection = (section) => ({
     type: JUMP_TO_SECTION, 
     section
 });
+export const ADD_RECEIVER_TO_SUBSCRIPTION = 'ADD_RECEIVER_TO_SUBSCRIPTION';
+export const addReceiverToSubscription = (receiver) => ({
+    type: ADD_RECEIVER_TO_SUBSCRIPTION, 
+    receiver
+});
+export const ADD_RECIPIENT_FORM = 'ADD_RECIPIENT_FORM';
+export const addRecipientForm = () => ({
+    type: ADD_RECIPIENT_FORM 
+});
+
 
 export const fetchSubscriptions = () => dispatch => {
   fetch(`http://localhost:8080/api/subscriptions`)
