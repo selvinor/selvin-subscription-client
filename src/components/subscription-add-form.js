@@ -54,13 +54,12 @@ export class SubscriptionAddForm extends React.Component {
     });
   }
   render() {
-    console.log(this.props.currentFormSection);
     let successMessage;
     let formButton;
 
     if (this.props.submitSucceeded) {
       successMessage = (
-        <div className= "message message-successs">
+        <div className= "message message-success">
           Message submitted successfully
         </div>
       );
@@ -68,7 +67,7 @@ export class SubscriptionAddForm extends React.Component {
   
     if (this.props.submitSucceeded) {
       successMessage = (
-        <div className= "message message-successs">
+        <div className= "message message-success">
           Message submitted successfully
         </div>
       );
@@ -79,267 +78,259 @@ export class SubscriptionAddForm extends React.Component {
         <div className="message message-error">{this.props.error}</div>
       );
     }
-    //state flags for form control
-    // arrangementChosen 
-    // subscriptionChosen
-    // recipientsChosen
-console.log('this.props - ', this.props);
 
-    if (this.props.currentFormSection === "arrangement") {
-      formButton = ( <button onClick={this.props.dispatch(jumpToSection('schedule'))}  type="button">Continue</button>); 
-    } else {
-      if (this.props.currentFormSection === "schedule") { 
-        formButton = ( <button onClick={this.props.dispatch(jumpToSection('recipients'))}  type="button">Continue</button>);     
-      } else {
-        if (this.props.currentFormSection === "recipients") {    
-          formButton = ( <button onClick={this.props.dispatch(jumpToSection('checkout'))}  type="button">Continue</button>);
-        } else {
-          if (this.props.currentFormSection === "checkout") { 
-            formButton = (<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>); 
-          } else {
-            if (this.props.currentFormSection === "confirm") { 
-              formButton = ( <button onClick={this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
-            }
-          }
-        }
-      }
-    }
-        
-
-        return (
-          <div>
-            <h1>FLOWER SUBSCRIPTION SERVICE</h1>
-            <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-              {successMessage}
-              {errorMessage} 
-              
+    
+    switch (this.props.currentFormSection) {
+      case 'arrangement':
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('schedule'))}  type="button">SELECT</button>); 
+        break;
+      case 'schedule':
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('recipients'))}  type="button">Schedule it</button>); 
+        break;
+      case 'recipients':
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('checkout'))}  type="button">Add Recipient(s)</button>);
+        break;
+      case 'checkout':
+        formButton = (<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
+        break;
+      case 'confirm':
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
+        break;
+    }      
+    return (
+      <div>
+        <h1>FLOWER SUBSCRIPTION SERVICE</h1>
+        <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+          {successMessage}
+          {errorMessage} 
+          
       { this.props.currentFormSection === "arrangement" ?  
 
 
-               
-          <ul>
-            <li><h3>CHOOSE THE ARRANGEMENT TYPE</h3></li>
-            <li className="arrangement">          
-              <div className="thumb">
-                <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
-              </div>
-              <div className="flowerChoice form-input">            
+            
+        <ul>
+          <li><h3>CHOOSE THE ARRANGEMENT TYPE</h3></li>
+          <li className="arrangement">          
+            <div className="thumb">
+              <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
+            </div>
+            <div className="flowerChoice form-input">            
+              <Field
+                name="choice"
+                type="radio"
+                component={Input}
+                label="Designer's Lobby Arrangement"
+              />
+            </div>
+          </li>
+          <li className="arrangement"> 
+            <div className="thumb">
+              <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
+            </div>
+            <div className="flowerChoice form-input">
+              <Field
+                name="choice"
+                type="radio"
+                component={Input}
+                label="Designer's Choice Arrangement"
+              />
+            </div>
+          </li>
+          <li className="arrangement">
+            <div className="thumb">
+              <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
+            </div>
+            <div className="flowerChoice form-input">
+              <Field
+                name="choice"
+                type="radio"
+                component={Input}
+                label="Designer's Bouquet"
+              />
+            </div>
+          </li>
+        </ul>
+      : "" }
+      { this.props.currentFormSection === "schedule" ?  
+        
+        <ul>
+          <li className="gift">
+          <h3>SCHEDULE DELIVERY</h3> 
+            <div className="gift form-input">
+              <label htmlFor="large">Gift Subscription
                 <Field
-                  name="choice"
+                name="gift"
+                type="radio"
+                component={Input}
+                className="gift"
+              /></label>
+            </div>
+            <div className="personal form-input">
+              <label htmlFor="large">Personal Subscription
+              <Field
+                name="gift"
+                type="radio"
+                component={Input}
+                className="personal"
+              /></label>
+            </div>
+            <div className="form-input">
+              <label htmlFor="giftmsg" className="giftMsg">Gift Message
+                <Field
+                  name="giftmsg"
+                  type="textarea"
+                  component={Input}
+                /></label>                            
+            </div>
+          </li>
+          <li>
+            <div className="frequency form-input">
+              <label className="frequency">FREQUENCY</label>
+                <Field
+                  name="frequency"
                   type="radio"
                   component={Input}
-                  label="Designer's Lobby Arrangement"
+                  label="weekly"
                 />
-              </div>
-            </li>
-            <li className="arrangement"> 
-              <div className="thumb">
-                <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
-              </div>
-              <div className="flowerChoice form-input">
                 <Field
-                  name="choice"
+                  name="frequency"
                   type="radio"
                   component={Input}
-                  label="Designer's Choice Arrangement"
+                  label="bi-weekly"
                 />
-              </div>
-            </li>
-            <li className="arrangement">
-              <div className="thumb">
-                <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
-              </div>
-              <div className="flowerChoice form-input">
                 <Field
-                  name="choice"
+                  name="frequency"
                   type="radio"
                   component={Input}
-                  label="Designer's Bouquet"
+                  label="monthly"
+                />           
+            </div>
+          </li>
+          <li>
+            <div className="form-input duration" >
+              <label className="duration">DURATION</label>
+                <Field
+                  name="duration"
+                  type="radio"
+                  component={Input}
+                  label="3 months"
                 />
-              </div>
-            </li>
-          </ul>
-    : "" }
-        { this.props.currentFormSection === "schedule" ?  
-         
-          <ul>
-            <li className="gift">
-            <h3>SCHEDULE DELIVERY</h3> 
-              <div className="gift form-input">
-                <label htmlFor="large">Gift Subscription
-                  <Field
-                  name="gift"
-                  type="radio"
-                  component={Input}
-                  className="gift"
-                /></label>
-              </div>
-              <div className="personal form-input">
-                <label htmlFor="large">Personal Subscription
                 <Field
-                  name="gift"
+                  name="duration"
                   type="radio"
                   component={Input}
-                  className="personal"
-                /></label>
-              </div>
-              <div className="form-input">
-                <label htmlFor="giftmsg" className="giftMsg">Gift Message
-                  <Field
-                    name="giftmsg"
-                    type="textarea"
-                    component={Input}
-                  /></label>                            
-              </div>
-            </li>
-            <li>
-              <div className="frequency form-input">
-                <label className="frequency">FREQUENCY</label>
-                  <Field
-                    name="frequency"
-                    type="radio"
-                    component={Input}
-                    label="weekly"
-                  />
-                  <Field
-                    name="frequency"
-                    type="radio"
-                    component={Input}
-                    label="bi-weekly"
-                  />
-                  <Field
-                    name="frequency"
-                    type="radio"
-                    component={Input}
-                    label="monthly"
-                  />           
-              </div>
-            </li>
-            <li>
-              <div className="form-input duration" >
-                <label className="duration">DURATION</label>
-                  <Field
-                    name="duration"
-                    type="radio"
-                    component={Input}
-                    label="3 months"
-                  />
-                  <Field
-                    name="duration"
-                    type="radio"
-                    component={Input}
-                    label="6 months"
-                  />
-                  <Field
-                    name="duration"
-                    type="radio"
-                    component={Input}
-                    label="12 months"
-                  />
-                  <Field
-                    name="duration"
-                    type="radio"
-                    component={Input}
-                    label="on-going" 
-                  />              
-              </div>
-            </li>
-            <li>
-              <h3>ENTER SENDER INFORMATION</h3>
-              <div className="senderInfo">
-                <label htmlFor="senderEmail" className="senderEmail">Sender Email</label>                            
-                  <Field
-                    name="senderEmail"
-                    type="email"
-                    component={Input}
-                  />
-                                            
-                <label htmlFor="senderFirstName" className="senderFirstName">Sender First Name</label>
-                  <Field
-                    name="senderFirstName"
-                    type="text"
-                    component={Input}
-                  />
-                
-                <label htmlFor="senderLastName" className="senderLastName">Sender Last Name</label>                            
-                  <Field
-                    name="senderLastName"
-                    type="text"
-                    component={Input}
-                  />
+                  label="6 months"
+                />
+                <Field
+                  name="duration"
+                  type="radio"
+                  component={Input}
+                  label="12 months"
+                />
+                <Field
+                  name="duration"
+                  type="radio"
+                  component={Input}
+                  label="on-going" 
+                />              
+            </div>
+          </li>
+          <li>
+            <h3>ENTER SENDER INFORMATION</h3>
+            <div className="senderInfo">
+              <label htmlFor="senderEmail" className="senderEmail">Sender Email</label>                            
+                <Field
+                  name="senderEmail"
+                  type="email"
+                  component={Input}
+                />
                                           
-                <label htmlFor="senderPhone" className="senderPhone">Sender Phone</label>                            
-                  <Field
-                    name="senderPhone"
-                    type="text"
-                    component={Input}
-                  />                                      
-              </div>
-            </li>
-          </ul> 
-    : ""  }
+              <label htmlFor="senderFirstName" className="senderFirstName">Sender First Name</label>
+                <Field
+                  name="senderFirstName"
+                  type="text"
+                  component={Input}
+                />
+              
+              <label htmlFor="senderLastName" className="senderLastName">Sender Last Name</label>                            
+                <Field
+                  name="senderLastName"
+                  type="text"
+                  component={Input}
+                />
+                                        
+              <label htmlFor="senderPhone" className="senderPhone">Sender Phone</label>                            
+                <Field
+                  name="senderPhone"
+                  type="text"
+                  component={Input}
+                />                                      
+            </div>
+          </li>
+        </ul> 
+      : ""  }
   
-    { this.props.currentFormSection === "recipients" ?   
+      { this.props.currentFormSection === "recipients" ?   
           
-          <ul>
-            <li>
-              <h3>CHOOSE RECIPIENTS</h3>
-              <div className="form-input">
-                <label htmlFor="firstName" className="firstName">First Name
-                  <Field
-                    name="firstName"
-                    type="text"
-                    component={Input}
-                  />
-                </label>
-                <label htmlFor="lastName" className="lastName">Last Name                            
-                  <Field
-                    name="lastName"
-                    type="text"
-                    component={Input}
-                  />
-                </label>                            
-                <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
-                  <Field
-                    name="streetAddress1"
-                    type="text"
-                    component={Input}
-                  />
-                </label>                            
-                <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
-                  <Field
-                    name="streetAddress2"
-                    type="text"
-                    component={Input}
-                  />
-                </label>                            
-                <label htmlFor="city" className="city">City                            
-                  <Field
-                    name="city"
-                    type="text"
-                    component={Input}
-                  />
-                </label>                            
-                <label htmlFor="state" className="state">State                            
-                  <Field
-                    name="state"
-                    type="text"
-                    component={Input}
-                  />
-                </label>                            
-                <label htmlFor="zipcode" className="zipcode">Zipcode                           
-                  <Field
-                    name="zipcode"
-                    type="text"
-                    component={Input}
-                  />
-                </label>                            
-              </div>
-            </li>
-          </ul>          
-    : ""  }
+        <ul>
+          <li>
+            <h3>CHOOSE RECIPIENTS</h3>
+            <div className="form-input">
+              <label htmlFor="firstName" className="firstName">First Name
+                <Field
+                  name="firstName"
+                  type="text"
+                  component={Input}
+                />
+              </label>
+              <label htmlFor="lastName" className="lastName">Last Name                            
+                <Field
+                  name="lastName"
+                  type="text"
+                  component={Input}
+                />
+              </label>                            
+              <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
+                <Field
+                  name="streetAddress1"
+                  type="text"
+                  component={Input}
+                />
+              </label>                            
+              <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
+                <Field
+                  name="streetAddress2"
+                  type="text"
+                  component={Input}
+                />
+              </label>                            
+              <label htmlFor="city" className="city">City                            
+                <Field
+                  name="city"
+                  type="text"
+                  component={Input}
+                />
+              </label>                            
+              <label htmlFor="state" className="state">State                            
+                <Field
+                  name="state"
+                  type="text"
+                  component={Input}
+                />
+              </label>                            
+              <label htmlFor="zipcode" className="zipcode">Zipcode                           
+                <Field
+                  name="zipcode"
+                  type="text"
+                  component={Input}
+                />
+              </label>                            
+            </div>
+          </li>
+        </ul>          
+      : ""  }
           {formButton}
-        </form> 
+      </form> 
       </div>
     )
   }
@@ -358,7 +349,7 @@ const mapStateToProps = state => ({
   };
  
 
-SubscriptionAddForm = connect(mapStateToProps)(SubscriptionAddForm)
+SubscriptionAddForm = connect(mapStateToProps, mapDispatchToProps)(SubscriptionAddForm)
 
 export default reduxForm({
   form: 'subscriptionAddForm'

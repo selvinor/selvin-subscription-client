@@ -1,5 +1,4 @@
-import * as actions from '../actions';
-
+import * as actions from '../actions'; 
 const initialState = {
   subscriptions: [],
   hasErrored : false,
@@ -27,9 +26,10 @@ export const subscriptionReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       createSubscription: action.createSubscription
     });
-    case 'SET_CURRENT_FORM_SECTION':
+    case 'JUMP_TO_SECTION':
+    console.log('JUMP_TO_SECTION reducer called', action);
     return Object.assign({}, state, {
-      setCurrentFormSection: action.setCurrentFormSection
+      currentFormSection: action.section
     });
     default:
         return state;

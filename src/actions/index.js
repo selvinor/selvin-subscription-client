@@ -1,39 +1,30 @@
 //import {applyMiddleware as dispatch} from "redux";
 export const SUBSCRIPTIONS_HAS_ERRORED = 'SUBSCRIPTIONS_HAS_ERRORED';
-export function subscriptionsHasErrored(bool) {
-  return {
+export const subscriptionsHasErrored = (hasErrored) => ({
     type: SUBSCRIPTIONS_HAS_ERRORED,
-    hasErrored: bool
-  };
-}
+    hasErrored
+});
 export const SUBSCRIPTIONS_IS_LOADING = 'SUBSCRIPTIONS_IS_LOADING'; 
-export function subscriptionsIsLoading(bool) {
-  return {
+export const subscriptionsIsLoading = (isLoading) => ({
     type: SUBSCRIPTIONS_IS_LOADING,
-    isLoading: bool
-  };
-}
+    isLoading
+});
 export const ADD_SUBSCRIPTION_SUCCESS = 'ADD_SUBSCRIPTION_SUCCESS'; 
-export function addSubscriptionSuccess(newSubscription) {
-  return {
+export const addSubscriptionSuccess = (newSubscription) => ({
     type: ADD_SUBSCRIPTION_SUCCESS,
-    subscription: newSubscription
-  };
-}
+    newSubscription
+});
 export const FETCH_SUBSCRIPTION_SUCCESS = 'FETCH_SUBSCRIPTION_SUCCESS';
-export function fetchSubscriptionSuccess(subscriptions) {
-  return {
+export const fetchSubscriptionSuccess = (subscriptions) => ({
     type: FETCH_SUBSCRIPTION_SUCCESS,
     subscriptions
-  };
-}
+});
 export const JUMP_TO_SECTION = 'JUMP_TO_SECTION';
-export function jumpToSection(section) {
-  return {
+export const jumpToSection = (section) => ({
     type: JUMP_TO_SECTION, 
     section
-  };
-}
+});
+
 export const fetchSubscriptions = () => dispatch => {
   fetch(`http://localhost:8080/api/subscriptions`)
   .then(res => {
