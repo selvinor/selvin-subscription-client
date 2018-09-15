@@ -31,20 +31,27 @@ padding-top:25px;
 display:block;
 }
 
-.gift, .personal {
+.business, .residential {
   display: inline-block;
   height:60px;
 }
-.personal input {
+.residential input {
   margin-left:55px;
 }
-.gift input {
+.business input {
   margin-left:0px;
 }
-label.giftMsg  {
+.residential, .business {
+  text-align:center;
+}
+#deliveryType {
+  width:13px;
+  margin: 0 auto;
+}
+label.receiverMsg  {
   font-weight: bold;
 }
-.gift p {
+.business p {
   font-weight:bold;
   margin-left:60px;
 }

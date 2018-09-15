@@ -3,12 +3,12 @@ import {Field, SubmissionError, reduxForm} from 'redux-form';
 //import {required, nonEmpty, reqLength, isNumber} from '../validators';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
-//import './recipient-add-form.css'; 
+//import './senderReceiver-add-form.css'; 
 
 
-export class RecipientAddForm extends React.Component {
+export class SenderReceiverAddForm extends React.Component {
   onSubmit(values) {
-    return fetch('http://localhost:8080/api/recipients', {
+    return fetch('http://localhost:8080/api/senderReceivers', {
       method:'POST',
       body: JSON.stringify(values),
       headers: {
@@ -139,5 +139,5 @@ export class RecipientAddForm extends React.Component {
   }
 }
 export default reduxForm({
-  form: 'recipientAddForm'
-})(RecipientAddForm); 
+  form: 'senderReceiverAddForm'
+})(SenderReceiverAddForm); 

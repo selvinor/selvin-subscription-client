@@ -5,7 +5,7 @@ const initialState = {
   isLoading : false,
   arrangementChosen : false,
   subscriptionChosen: false,
-  recipientsChosen: false,
+  senderReceiversChosen: false,
   currentFormSection: "arrangement"
 }
 export const subscriptionReducer = (state=initialState, action) => {
@@ -22,9 +22,10 @@ export const subscriptionReducer = (state=initialState, action) => {
       return Object.assign({}, state, {
         subscriptions: action.subscriptions
       });
-    case 'CREATE_SUBSCRIPTION':
+    case 'ADD_SUBSCRIPTION_SUCCESS':
+    // Do some stuff to create the subscription from the payload 
     return Object.assign({}, state, {
-      createSubscription: action.createSubscription
+      subscriptions: [...state.subscriptions, action.newSubscription]
     });
     case 'JUMP_TO_SECTION':
     console.log('JUMP_TO_SECTION reducer called', action);
@@ -36,7 +37,7 @@ export const subscriptionReducer = (state=initialState, action) => {
   }
 }  
 
-export const recipientReducer = (state=initialState, action) => {
+export const senderReceiverReducer = (state=initialState, action) => {
   switch (action.type) {
     case 'RECIPIENTS_HAS_ERRORED':
       return Object.assign({}, state, {
@@ -48,7 +49,7 @@ export const recipientReducer = (state=initialState, action) => {
       }); 
     case 'FETCH_RECIPIENTS_SUCCESS':
       return Object.assign({}, state, {
-        recipients: action.fetchRecipientsSuccess
+        senderReceivers: action.fetchSenderReceiversSuccess
       });
     default:
         return state;

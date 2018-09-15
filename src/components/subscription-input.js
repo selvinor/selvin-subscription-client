@@ -38,30 +38,30 @@ export const Arrangements = props => {
               />                                      
           </div>
         </li>
-        <li className="gift">
+        <li className="business">
             <p>SUBSCRIPTION</p>
-            <div className="gift form-input">
-            <label htmlFor="large">Gift Subscription
+            <div className="business form-input">
+            <label htmlFor="large">Business 
               <Field
-                name="gift"
+                name="business"
                 type="radio"
                 component={Input}
-                className="gift"
+                className="business"
               /></label>
               </div>
-              <div className="personal form-input">
-              <label htmlFor="large">Personal Subscription
+              <div className="residential form-input">
+              <label htmlFor="large">Residence
               <Field
-                name="gift"
+                name="business"
                 type="radio"
                 component={Input}
-                className="personal"
+                className="residential"
               /></label>
             </div>
             <div className="form-input">
-              <label htmlFor="giftmsg" className="giftMsg">Gift Message
+              <label htmlFor="receiverMsg" className="receiverMsg">Message
                 <Field
-                  name="giftmsg"
+                  name="receiverMsg"
                   type="textarea"
                   component={Input}
                 /></label>                            

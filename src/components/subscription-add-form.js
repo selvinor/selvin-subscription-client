@@ -85,10 +85,10 @@ export class SubscriptionAddForm extends React.Component {
         formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('schedule'))}  type="button">SELECT</button>); 
         break;
       case 'schedule':
-        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('recipients'))}  type="button">Schedule it</button>); 
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('senderReceivers'))}  type="button">Schedule it</button>); 
         break;
-      case 'recipients':
-        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('checkout'))}  type="button">Add Recipient(s)</button>);
+      case 'senderReceivers':
+        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('checkout'))}  type="button">Add SenderReceiver(s)</button>);
         break;
       case 'checkout':
         formButton = (<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
@@ -154,34 +154,8 @@ export class SubscriptionAddForm extends React.Component {
       { this.props.currentFormSection === "schedule" ?  
         
         <ul>
-          <li className="gift">
+          <li className="schedule">
           <h3>SCHEDULE DELIVERY</h3> 
-            <div className="gift form-input">
-              <label htmlFor="large">Gift Subscription
-                <Field
-                name="gift"
-                type="radio"
-                component={Input}
-                className="gift"
-              /></label>
-            </div>
-            <div className="personal form-input">
-              <label htmlFor="large">Personal Subscription
-              <Field
-                name="gift"
-                type="radio"
-                component={Input}
-                className="personal"
-              /></label>
-            </div>
-            <div className="form-input">
-              <label htmlFor="giftmsg" className="giftMsg">Gift Message
-                <Field
-                  name="giftmsg"
-                  type="textarea"
-                  component={Input}
-                /></label>                            
-            </div>
           </li>
           <li>
             <div className="frequency form-input">
@@ -235,7 +209,19 @@ export class SubscriptionAddForm extends React.Component {
                 />              
             </div>
           </li>
-          <li>
+        </ul> 
+      : ""  }
+  
+      { this.props.currentFormSection === "senderReceivers" ?   
+          
+        <ul>
+        <li>
+
+          <div className="form-input">
+                           
+          </div>          
+        </li>
+        <li>
             <h3>ENTER SENDER INFORMATION</h3>
             <div className="senderInfo">
               <label htmlFor="senderEmail" className="senderEmail">Sender Email</label>                            
@@ -267,14 +253,10 @@ export class SubscriptionAddForm extends React.Component {
                 />                                      
             </div>
           </li>
-        </ul> 
-      : ""  }
-  
-      { this.props.currentFormSection === "recipients" ?   
-          
-        <ul>
           <li>
-            <h3>CHOOSE RECIPIENTS</h3>
+            <h3>ADD RECIPIENT</h3>
+          </li>
+          <li>
             <div className="form-input">
               <label htmlFor="firstName" className="firstName">First Name
                 <Field
@@ -325,6 +307,37 @@ export class SubscriptionAddForm extends React.Component {
                   component={Input}
                 />
               </label>                            
+            </div>
+          </li>
+          <li>
+            <h4>DELIVERY TYPE</h4>
+          </li>
+          <li>
+            <div className="deliveryType business form-input">
+              <label htmlFor="large" className="business">Business 
+                <Field
+                name="deliveryType"
+                type="radio"
+                component={Input}
+                className="deliveryRadio"
+              /></label>
+            </div>
+            <div className="deliveryType residential form-input">
+              <label htmlFor="large" className="residential">Residence
+              <Field
+                name="deliveryType"
+                type="radio"
+                component={Input}
+                className="deliveryRadio"
+              /></label>
+            </div>
+            <div className="receiverMsg form-input">
+            <label htmlFor="receiverMsg" className="receiverMsg">Message</label> 
+                <Field
+                  name="receiverMsg"
+                  type="textarea"
+                  component={Input}
+                />
             </div>
           </li>
         </ul>          
