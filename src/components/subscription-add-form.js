@@ -1,9 +1,11 @@
+//import * as actions from '../actions';
 import React from 'react';
 import {Field, SubmissionError, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
+import { jumpToSection } from '../actions';
 
 export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
@@ -81,26 +83,43 @@ export class SubscriptionAddForm extends React.Component {
     // arrangementChosen 
     // subscriptionChosen
     // recipientsChosen
+console.log('this.props - ', this.props);
 
-
-    if (this.props.recipientsChosen) {
-      formButton = (<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>); 
+    if (this.props.currentFormSection === "arrangement") {
+      formButton = ( <button onClick={this.props.dispatch(jumpToSection('schedule'))}  type="button">Continue</button>); 
     } else {
-      formButton = ( <button type="button">Continue</button>); 
+      if (this.props.currentFormSection === "schedule") { 
+        formButton = ( <button onClick={this.props.dispatch(jumpToSection('recipients'))}  type="button">Continue</button>);     
+      } else {
+        if (this.props.currentFormSection === "recipients") {    
+          formButton = ( <button onClick={this.props.dispatch(jumpToSection('checkout'))}  type="button">Continue</button>);
+        } else {
+          if (this.props.currentFormSection === "checkout") { 
+            formButton = (<button type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>); 
+          } else {
+            if (this.props.currentFormSection === "confirm") { 
+              formButton = ( <button onClick={this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
+            }
+          }
+        }
+      }
     }
+        
+
+        return (
+          <div>
+            <h1>FLOWER SUBSCRIPTION SERVICE</h1>
+            <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+              {successMessage}
+              {errorMessage} 
+              
+      { this.props.currentFormSection === "arrangement" ?  
 
 
-    return (
-      <div>
-        <h1>SUBSCRIBE</h1>
-        <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-          {successMessage}
-          {errorMessage} \
-          
-          { this.props.currentFormSection === "arrangement" ?  
-          
+               
           <ul>
-            <li className="arrangement">
+            <li><h3>CHOOSE THE ARRANGEMENT TYPE</h3></li>
+            <li className="arrangement">          
               <div className="thumb">
                 <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
               </div>
@@ -140,11 +159,12 @@ export class SubscriptionAddForm extends React.Component {
               </div>
             </li>
           </ul>
- : "" }
- { this.props.currentFormSection === "schedule" ?           
+    : "" }
+        { this.props.currentFormSection === "schedule" ?  
+         
           <ul>
             <li className="gift">
-              <h3>CHOOSE SCHEDULE</h3>
+            <h3>SCHEDULE DELIVERY</h3> 
               <div className="gift form-input">
                 <label htmlFor="large">Gift Subscription
                   <Field
@@ -257,17 +277,86 @@ export class SubscriptionAddForm extends React.Component {
               </div>
             </li>
           </ul> 
-  : ""  }
+    : ""  }
+  
+    { this.props.currentFormSection === "recipients" ?   
+          
+          <ul>
+            <li>
+              <h3>CHOOSE RECIPIENTS</h3>
+              <div className="form-input">
+                <label htmlFor="firstName" className="firstName">First Name
+                  <Field
+                    name="firstName"
+                    type="text"
+                    component={Input}
+                  />
+                </label>
+                <label htmlFor="lastName" className="lastName">Last Name                            
+                  <Field
+                    name="lastName"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
+                  <Field
+                    name="streetAddress1"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
+                  <Field
+                    name="streetAddress2"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="city" className="city">City                            
+                  <Field
+                    name="city"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="state" className="state">State                            
+                  <Field
+                    name="state"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+                <label htmlFor="zipcode" className="zipcode">Zipcode                           
+                  <Field
+                    name="zipcode"
+                    type="text"
+                    component={Input}
+                  />
+                </label>                            
+              </div>
+            </li>
+          </ul>          
+    : ""  }
           {formButton}
         </form> 
       </div>
     )
   }
-}
+}   
 const mapStateToProps = state => ({
   currentFormSection: state.subscription.currentFormSection
 
   })
+
+  const mapDispatchToProps = dispatch => {
+    return {
+      jumpToSection: () => {
+        dispatch(jumpToSection())
+      }
+    };
+  };
+ 
 
 SubscriptionAddForm = connect(mapStateToProps)(SubscriptionAddForm)
 

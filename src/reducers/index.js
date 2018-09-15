@@ -1,4 +1,4 @@
-//import * as actions from '../actions';
+import * as actions from '../actions';
 
 const initialState = {
   subscriptions: [],
@@ -26,6 +26,10 @@ export const subscriptionReducer = (state=initialState, action) => {
     case 'CREATE_SUBSCRIPTION':
     return Object.assign({}, state, {
       createSubscription: action.createSubscription
+    });
+    case 'SET_CURRENT_FORM_SECTION':
+    return Object.assign({}, state, {
+      setCurrentFormSection: action.setCurrentFormSection
     });
     default:
         return state;

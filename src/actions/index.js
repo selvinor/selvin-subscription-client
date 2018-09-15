@@ -27,6 +27,13 @@ export function fetchSubscriptionSuccess(subscriptions) {
     subscriptions
   };
 }
+export const JUMP_TO_SECTION = 'JUMP_TO_SECTION';
+export function jumpToSection(section) {
+  return {
+    type: JUMP_TO_SECTION, 
+    section
+  };
+}
 export const fetchSubscriptions = () => dispatch => {
   fetch(`http://localhost:8080/api/subscriptions`)
   .then(res => {
