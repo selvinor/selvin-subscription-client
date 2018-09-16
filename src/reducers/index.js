@@ -36,7 +36,9 @@ const initialState = {
   isLoading : false,
   currentFormSection: "arrangement",
   numRecipientsToAdd: 1,
+  addRecipientsArray: []    
 }
+
 export const subscriptionReducer = (state=initialState, action) => {
   switch (action.type) {
     case 'SUBSCRIPTIONS_HAS_ERRORED':
@@ -58,9 +60,9 @@ export const subscriptionReducer = (state=initialState, action) => {
     });
 
     case 'ADD_RECIPIENT_FORM':
-    console.log('addRecipientForm reducer called', action);
+    console.log('state.numRecipientsToAdd', state.numRecipientsToAdd);
     return Object.assign({}, state, {
-      numRecipientsToAdd: state.numRecipientsToAdd++
+      numRecipientsToAdd: state.numRecipientsToAdd + 1
     });
 
     case 'JUMP_TO_SECTION':

@@ -197,10 +197,12 @@ export class SubscriptionAddForm extends React.Component {
       </ul>
     );
     let receiverArray = [];
+    console.log('addRecipient.props: ', addRecipient.props);
     const buildReceiverArray = (addRecipient) => {
       for (let i=1; i <= this.props.numRecipientsToAdd; i++) {
           receiverArray = [...receiverArray, addRecipient]         
       }
+      return receiverArray;
     };
     
 
@@ -453,7 +455,8 @@ export class SubscriptionAddForm extends React.Component {
           </li>
         </ul>          
       : ""  }
-        { buildReceiverArray }
+
+        { buildReceiverArray() }
         { formButton }
       </form> 
       </div>
