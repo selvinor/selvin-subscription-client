@@ -29,9 +29,10 @@ export const addReceiverToSubscription = (receiver) => ({
     type: ADD_RECEIVER_TO_SUBSCRIPTION, 
     receiver
 });
-export const ADD_RECIPIENT_FORM = 'ADD_RECIPIENT_FORM';
-export const addRecipientForm = () => ({
-    type: ADD_RECIPIENT_FORM 
+export const SET_NUMBER_OF_DELIVERIES = 'SET_NUMBER_OF_DELIVERIES';
+export const setNumberOfDeliveries = (numberOfDeliveries) => ({
+    type: SET_NUMBER_OF_DELIVERIES,
+    numberOfDeliveries
 });
 
 

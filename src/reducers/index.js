@@ -35,8 +35,7 @@ const initialState = {
   hasErrored : false,
   isLoading : false,
   currentFormSection: "arrangement",
-  numRecipientsToAdd: 1,
-  addRecipientsArray: []    
+  numberOfDeliveries : 0   
 }
 
 export const subscriptionReducer = (state=initialState, action) => {
@@ -59,14 +58,13 @@ export const subscriptionReducer = (state=initialState, action) => {
       subscriptions: [...state.subscriptions, action.newSubscription]
     });
 
-    case 'ADD_RECIPIENT_FORM':
-    console.log('state.numRecipientsToAdd', state.numRecipientsToAdd);
+    case 'SET_NUMBER_OF_DELIVERIES':
     return Object.assign({}, state, {
-      numRecipientsToAdd: state.numRecipientsToAdd + 1
+      numberOfDeliveries: action.numberOfDeliveries,
+      currentFormSection: 'sender'
     });
 
     case 'JUMP_TO_SECTION':
-    console.log('JUMP_TO_SECTION reducer called', action);
     return Object.assign({}, state, {
       currentFormSection: action.section
     });

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
-import { jumpToSection, addRecipientForm } from '../actions';
+import { jumpToSection, setNumberOfDeliveries } from '../actions';
 
 export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
@@ -79,12 +79,13 @@ export class SubscriptionAddForm extends React.Component {
     }
 
     //Set custom button for each section
+ 
     switch (this.props.currentFormSection) {
       case 'arrangement':
         formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('schedule'))}  type="button">SELECT</button>); 
         break;
       case 'schedule':
-        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('sender'))}  type="button">Schedule it</button>); 
+        formButton = ( <button onClick={() => this.props.dispatch(setNumberOfDeliveries(1))}  type="button">Schedule it</button>); 
         break;
       case 'sender':
         formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('receiver'))}  type="button">Add Sender</button>);
@@ -103,104 +104,119 @@ export class SubscriptionAddForm extends React.Component {
       break;
     }   
 
-    const addReceiverButton = (<button onClick={() => this.props.dispatch(addRecipientForm())}  type="button">ADD ANOTHER RECIPIENT</button>);
+    const addReceiverButton = (<button onClick={() => this.props.dispatch(setNumberOfDeliveries())}  type="button">ADD ANOTHER RECIPIENT</button>);
+      let today = new Date();
+      let dd = today.getDate();
+      let mm = today.getMonth()+1; //January is 0!
+      let yyyy = today.getFullYear();
+      
+      if(dd<10) {
+          dd = '0'+dd
+      } 
+      
+      if(mm<10) {
+          mm = '0'+mm
+      } 
+      
+      today = mm + '/' + dd + '/' + yyyy;
     
-    const addRecipient = props => (
-    <div className="recipientsArray">
-      {props.field.map(id => (
-        <ul>
-          <li>
-            <h3>ADD RECIPIENT</h3>
-          </li>
-          <li>
-            <div className="form-input">
-              <label htmlFor="firstName" className="firstName">First Name
-                <Field
-                  name="firstName"
-                  type="text"
-                  component={Input}
-                />
-              </label>
-              <label htmlFor="lastName" className="lastName">Last Name                            
-                <Field
-                  name="lastName"
-                  type="text"
-                  component={Input}
-                />
-              </label>                            
-              <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
-                <Field
-                  name="streetAddress1"
-                  type="text"
-                  component={Input}
-                />
-              </label>                            
-              <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
-                <Field
-                  name="streetAddress2"
-                  type="text"
-                  component={Input}
-                />
-              </label>                            
-              <label htmlFor="city" className="city">City                            
-                <Field
-                  name="city"
-                  type="text"
-                  component={Input}
-                />
-              </label>                            
-              <label htmlFor="state" className="state">State                            
-                <Field
-                  name="state"
-                  type="text"
-                  component={Input}
-                />
-              </label>                            
-              <label htmlFor="zipcode" className="zipcode">Zipcode                           
-                <Field
-                  name="zipcode"
-                  type="text"
-                  component={Input}
-                />
-              </label>                            
-            </div>
-          </li>
-          <li>
-            <h4>DELIVERY TYPE</h4>
-          </li>
-          <li>
-            <div className="deliveryType business form-input">
-              <label htmlFor="large" className="business">Business 
-                <Field
-                name="deliveryType"
-                type="radio"
-                component={Input}
-                className="deliveryRadio"
-              /></label>
-            </div>
-            <div className="deliveryType residential form-input">
-              <label htmlFor="large" className="residential">Residence
-              <Field
-                name="deliveryType"
-                type="radio"
-                component={Input}
-                className="deliveryRadio"
-              /></label>
-            </div>
-            <div className="receiverMsg form-input">
-            <label htmlFor="receiverMsg" className="receiverMsg">Message</label> 
-              <Field
-                name="receiverMsg"
-                type="textarea"
-                component={Input}
-              />
-            </div>
-            {addReceiverButton}
-          </li>
-        </ul>     
-      ))}
-      </div>
-    );
+    
+    // const addRecipient = props => (
+    // <div className="recipientsArray">
+    //   {props.field.map(id => (
+    //     <ul>
+    //       <li>
+    //         <h3>ADD RECIPIENT</h3>
+    //       </li>
+    //       <li>
+    //         <div className="form-input">
+    //           <label htmlFor="firstName" className="firstName">First Name
+    //             <Field
+    //               name="firstName"
+    //               type="text"
+    //               component={Input}
+    //             />
+    //           </label>
+    //           <label htmlFor="lastName" className="lastName">Last Name                            
+    //             <Field
+    //               name="lastName"
+    //               type="text"
+    //               component={Input}
+    //             />
+    //           </label>                            
+    //           <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
+    //             <Field
+    //               name="streetAddress1"
+    //               type="text"
+    //               component={Input}
+    //             />
+    //           </label>                            
+    //           <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
+    //             <Field
+    //               name="streetAddress2"
+    //               type="text"
+    //               component={Input}
+    //             />
+    //           </label>                            
+    //           <label htmlFor="city" className="city">City                            
+    //             <Field
+    //               name="city"
+    //               type="text"
+    //               component={Input}
+    //             />
+    //           </label>                            
+    //           <label htmlFor="state" className="state">State                            
+    //             <Field
+    //               name="state"
+    //               type="text"
+    //               component={Input}
+    //             />
+    //           </label>                            
+    //           <label htmlFor="zipcode" className="zipcode">Zipcode                           
+    //             <Field
+    //               name="zipcode"
+    //               type="text"
+    //               component={Input}
+    //             />
+    //           </label>                            
+    //         </div>
+    //       </li>
+    //       <li>
+    //         <h4>DELIVERY TYPE</h4>
+    //       </li>
+    //       <li>
+    //         <div className="deliveryType business form-input">
+    //           <label htmlFor="large" className="business">Business 
+    //             <Field
+    //             name="deliveryType"
+    //             type="radio"
+    //             component={Input}
+    //             className="deliveryRadio"
+    //           /></label>
+    //         </div>
+    //         <div className="deliveryType residential form-input">
+    //           <label htmlFor="large" className="residential">Residence
+    //           <Field
+    //             name="deliveryType"
+    //             type="radio"
+    //             component={Input}
+    //             className="deliveryRadio"
+    //           /></label>
+    //         </div>
+    //         <div className="receiverMsg form-input">
+    //         <label htmlFor="receiverMsg" className="receiverMsg">Message</label> 
+    //           <Field
+    //             name="receiverMsg"
+    //             type="textarea"
+    //             component={Input}
+    //           />
+    //         </div>
+    //         {addReceiverButton}
+    //       </li>
+    //     </ul>     
+    //   ))}
+    //   </div>
+    // );
 
     // let receiverArray = [];
     // console.log('addRecipient.props: ', addRecipient.props);
@@ -243,6 +259,46 @@ export class SubscriptionAddForm extends React.Component {
               type="text"
               component={renderField}
               label="Last Name"/>
+            <Field
+              name={`${member}.addressLine1`}
+              type="text"
+              component={renderField}
+              label="Address Line 1"/>
+            <Field
+              name={`${member}.addressLine2`}
+              type="text"
+              component={renderField}
+              label="Address Line 2"/>
+            <Field
+              name={`${member}.city`}
+              type="text"
+              component={renderField}
+              label="City"/>
+            <Field
+              name={`${member}.state`}
+              type="text"
+              component={renderField}
+              label="State"/>
+            <Field
+              name={`${member}.zipcode`}
+              type="text"
+              component={renderField}
+              label="Zip Code"/>
+            <Field
+              name={`${member}.phone`}
+              type="text"
+              component={renderField}
+              label="Phone Number"/>
+            <Field
+              name={`${member}.deliveryType`}
+              type="radio"
+              component={renderField}
+              label="Residence"/>
+            <Field
+              name={`${member}.deliveryType`}
+              type="radio"
+              component={renderField}
+              label="Business"/>
             <FieldArray name={`${member}.deliveries`} component={renderDeliveries}/>
           </li>
         )}
@@ -446,8 +502,8 @@ const mapStateToProps = state => ({
       jumpToSection: () => {
         dispatch(jumpToSection())
       },
-      addRecipientForm: () => {
-        dispatch(addRecipientForm())
+      setNumberOfDeliveries: () => {
+        dispatch(setNumberOfDeliveries())
       }
     }
   };
