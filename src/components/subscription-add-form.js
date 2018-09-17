@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
-import { jumpToSection, setNumberOfDeliveries, setProductChoice } from '../actions';
+import { jumpToSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration } from '../actions';
 
 export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
@@ -77,32 +77,58 @@ export class SubscriptionAddForm extends React.Component {
         <div className="message message-error">{this.props.error}</div>
       );
     }
-    const setArrangement = (choice) => {
+    const dispatchArrangement = (choice) => {
       this.props.dispatch(setProductChoice(choice)) ;
     }
-
-    const setNumberOfDeliveries = () => {
+    const dispatchFrequency = (frequency) => {
+      this.props.dispatch(setFrequency(frequency));
+    }    
+    const dispatchDuration = (duration) => {
+      this.props.dispatch(setDuration(duration)) ;
+    }        
+    const dispatchNumberOfDeliveries = () => {
       console.log( 'starting setNumberOfDeliveries')
-      // let numberOfDeliveries; 
-      // let subscriptionTerm;
-      // console.log('this.props.frequency: ', this.props.frequency);
+      let numberOfDeliveries; 
+      let subscriptionTerm;
+      console.log('this.props.currentFrequency: ', this.props.currentFrequency);
 
-      // subscriptionTerm === "ongoing" ? 12 : Number(this.props.duration);     
-      // console.log('subscriptionTerm: ', subscriptionTerm);
-      // switch (this.props.frequency) {
-      //   case 'monthly':
-      //     numberOfDeliveries = subscriptionTerm; 
-      //     break;
-      //   case 'bi-weekly':
-      //     numberOfDeliveries = subscriptionTerm * 2;  
-      //     break;
-      //   case 'weekly':
-      //     numberOfDeliveries = subscriptionTerm * 4; 
-      //   default:
-      //     numberOfDeliveries = subscriptionTerm;
-      //   break;
-      // }   
-      //this.props.dispatch(setNumberOfDeliveries(numberOfDeliveries));
+      //subscriptionTerm === "on-going" ? 12 : Number(this.props.duration);     
+      //console.log('subscriptionTerm: ', subscriptionTerm);
+      switch (this.props.currentDuration) {
+        case '3 months':
+        subscriptionTerm = 3; 
+          break;
+        case '6 months':
+        subscriptionTerm = 6;  
+          break;
+        case '12 months':
+        subscriptionTerm = 12; 
+        break;
+        default:
+        subscriptionTerm = 12;
+        break;
+      }   
+
+
+      switch (this.props.currentFrequency) {
+        case 'monthly':
+          numberOfDeliveries = subscriptionTerm; 
+          break;
+        case 'bi-weekly':
+          numberOfDeliveries = subscriptionTerm * 2;   
+          break;
+        case 'weekly':
+          numberOfDeliveries = subscriptionTerm * 4; 
+          break;
+        case 'on-going':
+          numberOfDeliveries = 99; 
+          break;
+        default:
+          numberOfDeliveries = 12;
+        break;
+      }   
+      console.log('numberOfDeliveries: ', numberOfDeliveries);
+      this.props.dispatch(setNumberOfDeliveries(numberOfDeliveries));
       
     }
     formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">Schedule it</button>); 
@@ -111,8 +137,7 @@ export class SubscriptionAddForm extends React.Component {
  
     switch (this.props.currentFormSection) {
       case 'schedule':
-//        formButton = ( <button onClick={() => this.props.dispatch(setNumberOfDeliveries(1))}  type="button">Schedule it</button>); 
-        formButton = ( <button onClick={() => setNumberOfDeliveries()}  type="button">Schedule it</button>); 
+        formButton = ( <button onClick={() => dispatchNumberOfDeliveries()}  type="button">Schedule it</button>); 
         break;
       case 'sender':
         formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('receiver'))}  type="button">Add Sender</button>);
@@ -263,7 +288,7 @@ export class SubscriptionAddForm extends React.Component {
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
             <div className="flowerChoice form-input">            
-              <button onClick={() => setArrangement('3')}  type="button">SELECT</button>            
+              <button onClick={() => dispatchArrangement('3')}  type="button">SELECT</button>            
             </div>
           </li>
           <li className="arrangement">          
@@ -271,7 +296,7 @@ export class SubscriptionAddForm extends React.Component {
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
             <div className="flowerChoice form-input">            
-              <button onClick={() => setArrangement('2')}  type="button">SELECT</button>            
+              <button onClick={() => dispatchArrangement('2')}  type="button">SELECT</button>            
             </div>
           </li>
           <li className="arrangement">          
@@ -279,11 +304,8 @@ export class SubscriptionAddForm extends React.Component {
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
             <div className="flowerChoice form-input">            
-              <button onClick={() => setArrangement('1')}  type="button">SELECT</button>            
+              <button onClick={() => dispatchArrangement('1')}  type="button">SELECT</button>            
             </div>
-          </li>
-          <li>
-         { console.log('this.props.currentSubscription: ', this.props.currentSubscription)}
           </li>
         </ul>
       : "" }
@@ -291,79 +313,66 @@ export class SubscriptionAddForm extends React.Component {
         
         <ul>
           <li className="schedule">
-          <h3>SCHEDULE DELIVERY</h3> 
+            <h3>SCHEDULE DELIVERY</h3> 
+          </li>
+          <li>
+            <h4>FREQUENCY: {this.props.currentFrequency}</h4>
+
+          </li>
+            
+          <li>
+            <div className="frequency form-input">
+              <button onClick={() => dispatchFrequency("weekly")}  type="button">weekly</button>
+            </div>
           </li>
           <li>
             <div className="frequency form-input">
-              <label className="frequency">FREQUENCY</label>
-                <Field
-                  name="frequency"
-                  type="radio"
-                  component={Input}
-                  label="weekly"
-                  value="weekly"
-                />
-                <Field
-                  name="frequency"
-                  type="radio"
-                  component={Input}
-                  label="bi-weekly"
-                  value="bi-weekly"
-                />
-                <Field
-                  name="frequency"
-                  type="radio"
-                  component={Input}
-                  label="monthly"
-                  value="monthly"
-                />           
+              <button onClick={() => dispatchFrequency("bi-weekly")}  type="button">bi-weekly</button>
             </div>
           </li>
           <li>
-            <div className="form-input duration" >
-              <label className="duration">DURATION</label>
-                <Field
-                  name="duration"
-                  type="radio"
-                  component={Input}
-                  label="3 months"
-                  value="3"
-                />
-                <Field
-                  name="duration"
-                  type="radio"
-                  component={Input}
-                  label="6 months"
-                  value="6"
-                />
-                <Field
-                  name="duration"
-                  type="radio"
-                  component={Input}
-                  label="12 months"
-                  value="12"
-                />
-                <Field
-                  name="duration"
-                  type="radio"
-                  component={Input}
-                  label="on-going"
-                  value="ongoing" 
-                />              
+            <div className="frequency form-input">
+              <button onClick={() => dispatchFrequency("monthly")}  type="button">monthly</button>
             </div>
+          </li>
+          <li>
+            <h4>DURATION: {this.props.currentDuration}</h4>
+          </li>
+          <li>
+            <div className="duration form-input">
+              <button onClick={() => dispatchDuration("3 months")}  type="button">3 months</button>
+            </div>
+          </li>
+          <li>
+            <div className="duration form-input">
+              <button onClick={() => dispatchDuration("6 months")}  type="button">6 months</button>
+            </div>
+          </li>
+          <li>
+            <div className="duration form-input">
+              <button onClick={() => dispatchDuration("12 months")}  type="button">12 months</button>
+            </div>
+          </li>
+          <li>
+            <div className="duration form-input">
+              <button onClick={() => dispatchDuration("on-going")}  type="button">on-going</button>
+            </div>
+          </li>
+          <li>
+          {formButton}
           </li>
         </ul> 
         
       : ""  }  
       { this.props.currentFormSection === "sender" ?             
         <ul>
-        <li>
+          <li>
 
-          <div className="form-input">
-                           
-          </div>          
-        </li>
-        <li>
+            <div className="form-input">
+                            
+            </div>          
+          </li>
+          <li>
             <h3>ENTER SENDER INFORMATION</h3>
             <div className="senderInfo">
               <label htmlFor="senderEmail" className="senderEmail">Sender Email</label>                            
@@ -395,7 +404,7 @@ export class SubscriptionAddForm extends React.Component {
                 />                                      
             </div>
           </li>
-          </ul> 
+        </ul> 
       : ""  }  
       { this.props.currentFormSection === "receiver" ?   
       <div>
@@ -412,13 +421,10 @@ export class SubscriptionAddForm extends React.Component {
 }   
 const mapStateToProps = state => ({
   currentFormSection: state.subscription.currentFormSection,
-  numberOfDeliveries: state.subscription.numberOfDeliveries,
-  frequency: state.subscription.subscriptions[0].frequency,
-  duration: state.subscription.subscriptions[0].duration,
+  currentNumberOfDeliveries: state.subscription.numberOfDeliveries,
   currentProductCode: state.subscription.currentProductCode,
   currentFrequency: state.subscription.currentFrequency,
   currentDuration: state.subscription.currentDuration,
-  currentSubscription: state.subscription.subscriptions
   //duration: selector(state.SubscriptionAddForm.duration, 'duration'),
   //choice: selector(state.SubscriptionAddForm.choice, 'choice')
 })
@@ -434,6 +440,12 @@ const mapStateToProps = state => ({
       },
       setProductChoice: () => {
         dispatch(setProductChoice())
+      },
+      setFrequency: () => {
+        dispatch(setFrequency())
+      },
+      setDuration: () => {
+        dispatch(setDuration())
       }
       
     }

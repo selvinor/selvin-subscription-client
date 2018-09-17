@@ -37,7 +37,7 @@ const initialState = {
   currentFormSection: "arrangement",
   currentProductCode: "2",
   currentFrequency: "monthly",
-  currentDuration: "3",
+  currentDuration: "3 months",
   numberOfDeliveries : 0   
 }
 
@@ -67,10 +67,20 @@ export const subscriptionReducer = (state=initialState, action) => {
       currentFormSection: 'sender'
     });
     case 'SET_PRODUCT_CHOICE':
-    console.log('reducer | SET_PRODUCT_CHOICE | action.setProductChoice: ', action.productCode);
+    console.log('reducer | SET_PRODUCT_CHOICE | action.productCode: ', action.productCode);
     return Object.assign({}, state, {
       currentProductCode: action.productCode,
       currentFormSection: 'schedule'
+    });
+    case 'SET_FREQUENCY':
+    console.log('reducer | SET_FREQUENCY | action.frequency: ', action.frequency);
+    return Object.assign({}, state, {
+      currentFrequency: action.frequency      
+    });
+    case 'SET_DURATION':
+    console.log('reducer | SET_DURATION | action.setDuration: ', action.duration);
+    return Object.assign({}, state, {
+      currentDuration: action.duration
     });
 
     case 'JUMP_TO_SECTION':

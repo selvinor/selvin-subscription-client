@@ -39,6 +39,16 @@ export const setProductChoice = (productCode) => ({
     type: SET_PRODUCT_CHOICE,
     productCode
 });
+export const SET_FREQUENCY = 'SET_FREQUENCY';
+export const setFrequency = (frequency) => ({
+    type: SET_FREQUENCY,
+    frequency
+});
+export const SET_DURATION = 'SET_DURATION';
+export const setDuration = (duration) => ({
+    type: SET_DURATION,
+    duration
+});
 
 export const fetchSubscriptions = () => dispatch => {
   fetch(`http://localhost:8080/api/subscriptions`)
