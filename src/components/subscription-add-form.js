@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
-import { jumpToSection, setNumberOfDeliveries } from '../actions';
+import { jumpToSection, setNumberOfDeliveries, setProductChoice } from '../actions';
 
 export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
@@ -77,15 +77,47 @@ export class SubscriptionAddForm extends React.Component {
         <div className="message message-error">{this.props.error}</div>
       );
     }
+    const setChoice = (choice) => {
+      console.log( 'currentSubscription: ', this.props.currentSubscription);
+      console.log(' this.props: ', this.props);
+    this.props.dispatch(setProductChoice(choice)) ;
+    }
+
+    const setNumberOfDeliveries = () => {
+      console.log( 'starting setNumberOfDeliveries')
+      // let numberOfDeliveries; 
+      // let subscriptionTerm;
+      // console.log('this.props.frequency: ', this.props.frequency);
+
+      // subscriptionTerm === "ongoing" ? 12 : Number(this.props.duration);     
+      // console.log('subscriptionTerm: ', subscriptionTerm);
+      // switch (this.props.frequency) {
+      //   case 'monthly':
+      //     numberOfDeliveries = subscriptionTerm; 
+      //     break;
+      //   case 'bi-weekly':
+      //     numberOfDeliveries = subscriptionTerm * 2;  
+      //     break;
+      //   case 'weekly':
+      //     numberOfDeliveries = subscriptionTerm * 4; 
+      //   default:
+      //     numberOfDeliveries = subscriptionTerm;
+      //   break;
+      // }   
+      //this.props.dispatch(setNumberOfDeliveries(numberOfDeliveries));
+      
+    }
+    formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">Schedule it</button>); 
 
     //Set custom button for each section
  
     switch (this.props.currentFormSection) {
       case 'arrangement':
-        formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('schedule'))}  type="button">SELECT</button>); 
+        formButton = ( <button onClick={() => setChoice('3')}  type="button">SELECT</button>); 
         break;
       case 'schedule':
-        formButton = ( <button onClick={() => this.props.dispatch(setNumberOfDeliveries(1))}  type="button">Schedule it</button>); 
+//        formButton = ( <button onClick={() => this.props.dispatch(setNumberOfDeliveries(1))}  type="button">Schedule it</button>); 
+        formButton = ( <button onClick={() => setNumberOfDeliveries()}  type="button">Schedule it</button>); 
         break;
       case 'sender':
         formButton = ( <button onClick={() => this.props.dispatch(jumpToSection('receiver'))}  type="button">Add Sender</button>);
@@ -104,7 +136,7 @@ export class SubscriptionAddForm extends React.Component {
       break;
     }   
 
-    const addReceiverButton = (<button onClick={() => this.props.dispatch(setNumberOfDeliveries())}  type="button">ADD ANOTHER RECIPIENT</button>);
+   // const addReceiverButton = (<button onClick={() => this.props.dispatch(setNumberOfDeliveries())}  type="button">ADD ANOTHER RECIPIENT</button>);
       let today = new Date();
       let dd = today.getDate();
       let mm = today.getMonth()+1; //January is 0!
@@ -119,114 +151,9 @@ export class SubscriptionAddForm extends React.Component {
       } 
       
       today = mm + '/' + dd + '/' + yyyy;
-    
-    
-    // const addRecipient = props => (
-    // <div className="recipientsArray">
-    //   {props.field.map(id => (
-    //     <ul>
-    //       <li>
-    //         <h3>ADD RECIPIENT</h3>
-    //       </li>
-    //       <li>
-    //         <div className="form-input">
-    //           <label htmlFor="firstName" className="firstName">First Name
-    //             <Field
-    //               name="firstName"
-    //               type="text"
-    //               component={Input}
-    //             />
-    //           </label>
-    //           <label htmlFor="lastName" className="lastName">Last Name                            
-    //             <Field
-    //               name="lastName"
-    //               type="text"
-    //               component={Input}
-    //             />
-    //           </label>                            
-    //           <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
-    //             <Field
-    //               name="streetAddress1"
-    //               type="text"
-    //               component={Input}
-    //             />
-    //           </label>                            
-    //           <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
-    //             <Field
-    //               name="streetAddress2"
-    //               type="text"
-    //               component={Input}
-    //             />
-    //           </label>                            
-    //           <label htmlFor="city" className="city">City                            
-    //             <Field
-    //               name="city"
-    //               type="text"
-    //               component={Input}
-    //             />
-    //           </label>                            
-    //           <label htmlFor="state" className="state">State                            
-    //             <Field
-    //               name="state"
-    //               type="text"
-    //               component={Input}
-    //             />
-    //           </label>                            
-    //           <label htmlFor="zipcode" className="zipcode">Zipcode                           
-    //             <Field
-    //               name="zipcode"
-    //               type="text"
-    //               component={Input}
-    //             />
-    //           </label>                            
-    //         </div>
-    //       </li>
-    //       <li>
-    //         <h4>DELIVERY TYPE</h4>
-    //       </li>
-    //       <li>
-    //         <div className="deliveryType business form-input">
-    //           <label htmlFor="large" className="business">Business 
-    //             <Field
-    //             name="deliveryType"
-    //             type="radio"
-    //             component={Input}
-    //             className="deliveryRadio"
-    //           /></label>
-    //         </div>
-    //         <div className="deliveryType residential form-input">
-    //           <label htmlFor="large" className="residential">Residence
-    //           <Field
-    //             name="deliveryType"
-    //             type="radio"
-    //             component={Input}
-    //             className="deliveryRadio"
-    //           /></label>
-    //         </div>
-    //         <div className="receiverMsg form-input">
-    //         <label htmlFor="receiverMsg" className="receiverMsg">Message</label> 
-    //           <Field
-    //             name="receiverMsg"
-    //             type="textarea"
-    //             component={Input}
-    //           />
-    //         </div>
-    //         {addReceiverButton}
-    //       </li>
-    //     </ul>     
-    //   ))}
-    //   </div>
-    // );
-
-    // let receiverArray = [];
-    // console.log('addRecipient.props: ', addRecipient.props);
-    // const buildReceiverArray = (addRecipient) => {
-    //   for (let i=1; i <= this.props.numRecipientsToAdd; i++) {
-    //       receiverArray = [...receiverArray, addRecipient]         
-    //   }
-    //   return receiverArray;
-    // };
-    const renderField = ({ input, label, type, meta: { touched, error } }) => (
+    console.log('today is: ', today);
+    console.log('this.props: ', this.props);
+       const renderField = ({ input, label, type, meta: { touched, error } }) => (
       <div>
         <label>{label}</label>
         <div>
@@ -242,7 +169,7 @@ export class SubscriptionAddForm extends React.Component {
           <button type="button" onClick={() => fields.push({})}>Add Recipient</button>
           {touched && error && <span>{error}</span>}
         </li>
-        {fields.map((member, index) =>
+        {fields.map((recipient, index) =>
           <li key={index}>
             <button
               type="button"
@@ -250,56 +177,56 @@ export class SubscriptionAddForm extends React.Component {
               onClick={() => fields.remove(index)}/>
             <h4>Recipient #{index + 1}</h4>
             <Field
-              name={`${member}.firstName`}
+              name={`${recipient}.firstName`}
               type="text"
               component={renderField}
               label="First Name"/>
             <Field
-              name={`${member}.lastName`}
+              name={`${recipient}.lastName`}
               type="text"
               component={renderField}
               label="Last Name"/>
             <Field
-              name={`${member}.addressLine1`}
+              name={`${recipient}.addressLine1`}
               type="text"
               component={renderField}
               label="Address Line 1"/>
             <Field
-              name={`${member}.addressLine2`}
+              name={`${recipient}.addressLine2`}
               type="text"
               component={renderField}
               label="Address Line 2"/>
             <Field
-              name={`${member}.city`}
+              name={`${recipient}.city`}
               type="text"
               component={renderField}
               label="City"/>
             <Field
-              name={`${member}.state`}
+              name={`${recipient}.state`}
               type="text"
               component={renderField}
               label="State"/>
             <Field
-              name={`${member}.zipcode`}
+              name={`${recipient}.zipcode`}
               type="text"
               component={renderField}
               label="Zip Code"/>
             <Field
-              name={`${member}.phone`}
+              name={`${recipient}.phone`}
               type="text"
               component={renderField}
               label="Phone Number"/>
             <Field
-              name={`${member}.deliveryType`}
+              name={`${recipient}.deliveryType`}
               type="radio"
               component={renderField}
               label="Residence"/>
             <Field
-              name={`${member}.deliveryType`}
+              name={`${recipient}.deliveryType`}
               type="radio"
               component={renderField}
               label="Business"/>
-            <FieldArray name={`${member}.deliveries`} component={renderDeliveries}/>
+            <FieldArray name={`${recipient}.deliveries`} component={renderDeliveries}/>
           </li>
         )}
       </ul>
@@ -346,6 +273,8 @@ export class SubscriptionAddForm extends React.Component {
                 type="radio"
                 component={Input}
                 label="Designer's Lobby Arrangement"
+                value="3"
+                checked={this.props.currentProductCode === '3'}
               />
             </div>
           </li>
@@ -359,6 +288,8 @@ export class SubscriptionAddForm extends React.Component {
                 type="radio"
                 component={Input}
                 label="Designer's Choice Arrangement"
+                value="2"
+                checked={this.props.currentProductCode === '2'}
               />
             </div>
           </li>
@@ -372,8 +303,13 @@ export class SubscriptionAddForm extends React.Component {
                 type="radio"
                 component={Input}
                 label="Designer's Bouquet"
+               value="1"
+               checked={this.props.currentProductCode === '3'}
               />
             </div>
+          </li>
+          <li>
+         { console.log('this.props.currentSubscription: ', this.props.currentSubscription)}
           </li>
         </ul>
       : "" }
@@ -391,18 +327,21 @@ export class SubscriptionAddForm extends React.Component {
                   type="radio"
                   component={Input}
                   label="weekly"
+                  value="weekly"
                 />
                 <Field
                   name="frequency"
                   type="radio"
                   component={Input}
                   label="bi-weekly"
+                  value="bi-weekly"
                 />
                 <Field
                   name="frequency"
                   type="radio"
                   component={Input}
                   label="monthly"
+                  value="monthly"
                 />           
             </div>
           </li>
@@ -414,24 +353,28 @@ export class SubscriptionAddForm extends React.Component {
                   type="radio"
                   component={Input}
                   label="3 months"
+                  value="3"
                 />
                 <Field
                   name="duration"
                   type="radio"
                   component={Input}
                   label="6 months"
+                  value="6"
                 />
                 <Field
                   name="duration"
                   type="radio"
                   component={Input}
                   label="12 months"
+                  value="12"
                 />
                 <Field
                   name="duration"
                   type="radio"
                   component={Input}
-                  label="on-going" 
+                  label="on-going"
+                  value="ongoing" 
                 />              
             </div>
           </li>
@@ -494,9 +437,18 @@ export class SubscriptionAddForm extends React.Component {
 }   
 const mapStateToProps = state => ({
   currentFormSection: state.subscription.currentFormSection,
-  numRecipientsToAdd: state.subscription.numRecipientsToAdd
-  })
+  numberOfDeliveries: state.subscription.numberOfDeliveries,
+  frequency: state.subscription.subscriptions[0].frequency,
+  duration: state.subscription.subscriptions[0].duration,
+  currentProductCode: state.subscription.currentProductCode,
+  currentFrequency: state.subscription.currentFrequency,
+  currentDuration: state.subscription.currentDuration,
+  currentSubscription: state.subscription.subscriptions
+  //duration: selector(state.SubscriptionAddForm.duration, 'duration'),
+  //choice: selector(state.SubscriptionAddForm.choice, 'choice')
+})
 
+//console.log('frequency: ', frequency, ' | duration: ', duration, ' | choice: ', choice );
   const mapDispatchToProps = dispatch => {
     return {
       jumpToSection: () => {
@@ -504,7 +456,11 @@ const mapStateToProps = state => ({
       },
       setNumberOfDeliveries: () => {
         dispatch(setNumberOfDeliveries())
+      },
+      setProductChoice: () => {
+        dispatch(setProductChoice())
       }
+      
     }
   };
  

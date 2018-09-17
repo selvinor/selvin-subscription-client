@@ -1,12 +1,12 @@
 //import * as actions from '../actions'; 
 const initialState = {
   subscriptions: [{
-      productCode: '2',
-      productName: 'Designer\'s Choice Arrangement',
-      productSize: 'standard',
+      productCode: '',
+      productName: '',
+      productSize: '',
       status: 'active',
-      frequency: 'monthly',
-      duration: '3',
+      frequency: '',
+      duration: '',
       startDate: null,
       color: true,
       senderEmail: '',
@@ -35,6 +35,9 @@ const initialState = {
   hasErrored : false,
   isLoading : false,
   currentFormSection: "arrangement",
+  currentProductCode: "2",
+  currentFrequency: "monthly",
+  currentDuration: "3",
   numberOfDeliveries : 0   
 }
 
@@ -62,6 +65,12 @@ export const subscriptionReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       numberOfDeliveries: action.numberOfDeliveries,
       currentFormSection: 'sender'
+    });
+    case 'SET_PRODUCT_CHOICE':
+    console.log('reducer SET_PRODUCT_CHOICE');
+    return Object.assign({}, state, {
+      currentProductCode: action.setProductChoice,
+      currentFormSection: 'schedule'
     });
 
     case 'JUMP_TO_SECTION':

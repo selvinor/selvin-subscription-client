@@ -34,7 +34,11 @@ export const setNumberOfDeliveries = (numberOfDeliveries) => ({
     type: SET_NUMBER_OF_DELIVERIES,
     numberOfDeliveries
 });
-
+export const SET_PRODUCT_CHOICE = 'SET_PRODUCT_CHOICE';
+export const setProductChoice = (productCode) => ({
+    type: SET_PRODUCT_CHOICE,
+    productCode
+});
 
 export const fetchSubscriptions = () => dispatch => {
   fetch(`http://localhost:8080/api/subscriptions`)
