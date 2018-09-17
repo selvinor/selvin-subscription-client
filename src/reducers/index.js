@@ -67,9 +67,9 @@ export const subscriptionReducer = (state=initialState, action) => {
       currentFormSection: 'sender'
     });
     case 'SET_PRODUCT_CHOICE':
-    console.log('reducer SET_PRODUCT_CHOICE');
+    console.log('reducer | SET_PRODUCT_CHOICE | action.setProductChoice: ', action.productCode);
     return Object.assign({}, state, {
-      currentProductCode: action.setProductChoice,
+      currentProductCode: action.productCode,
       currentFormSection: 'schedule'
     });
 

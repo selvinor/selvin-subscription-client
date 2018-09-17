@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, SubmissionError, FieldArray, reduxForm} from 'redux-form';
+import {Field, SubmissionError, FieldArray, formValueSelector, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
@@ -77,10 +77,8 @@ export class SubscriptionAddForm extends React.Component {
         <div className="message message-error">{this.props.error}</div>
       );
     }
-    const setChoice = (choice) => {
-      console.log( 'currentSubscription: ', this.props.currentSubscription);
-      console.log(' this.props: ', this.props);
-    this.props.dispatch(setProductChoice(choice)) ;
+    const setArrangement = (choice) => {
+      this.props.dispatch(setProductChoice(choice)) ;
     }
 
     const setNumberOfDeliveries = () => {
@@ -112,9 +110,6 @@ export class SubscriptionAddForm extends React.Component {
     //Set custom button for each section
  
     switch (this.props.currentFormSection) {
-      case 'arrangement':
-        formButton = ( <button onClick={() => setChoice('3')}  type="button">SELECT</button>); 
-        break;
       case 'schedule':
 //        formButton = ( <button onClick={() => this.props.dispatch(setNumberOfDeliveries(1))}  type="button">Schedule it</button>); 
         formButton = ( <button onClick={() => setNumberOfDeliveries()}  type="button">Schedule it</button>); 
@@ -268,44 +263,23 @@ export class SubscriptionAddForm extends React.Component {
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
             <div className="flowerChoice form-input">            
-              <Field
-                name="choice"
-                type="radio"
-                component={Input}
-                label="Designer's Lobby Arrangement"
-                value="3"
-                checked={this.props.currentProductCode === '3'}
-              />
+              <button onClick={() => setArrangement('3')}  type="button">SELECT</button>            
             </div>
           </li>
-          <li className="arrangement"> 
+          <li className="arrangement">          
             <div className="thumb">
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
-            <div className="flowerChoice form-input">
-              <Field
-                name="choice"
-                type="radio"
-                component={Input}
-                label="Designer's Choice Arrangement"
-                value="2"
-                checked={this.props.currentProductCode === '2'}
-              />
+            <div className="flowerChoice form-input">            
+              <button onClick={() => setArrangement('2')}  type="button">SELECT</button>            
             </div>
           </li>
-          <li className="arrangement">
+          <li className="arrangement">          
             <div className="thumb">
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
-            <div className="flowerChoice form-input">
-              <Field
-                name="choice"
-                type="radio"
-                component={Input}
-                label="Designer's Bouquet"
-               value="1"
-               checked={this.props.currentProductCode === '3'}
-              />
+            <div className="flowerChoice form-input">            
+              <button onClick={() => setArrangement('1')}  type="button">SELECT</button>            
             </div>
           </li>
           <li>
@@ -379,6 +353,7 @@ export class SubscriptionAddForm extends React.Component {
             </div>
           </li>
         </ul> 
+        
       : ""  }  
       { this.props.currentFormSection === "sender" ?             
         <ul>
@@ -429,7 +404,7 @@ export class SubscriptionAddForm extends React.Component {
 
       : ""  }
 
-        { formButton }
+
       </form> 
       </div>
     )
