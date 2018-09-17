@@ -10,6 +10,15 @@ label {
 li  {
   list-style-type: none;
 }
+h4{
+  border:1px #dddddd solid;
+  padding:10px;
+}
+h5 {
+
+  margin-bottom:5px;
+
+}
 .arrangement {
   height:85px;
 
@@ -26,9 +35,9 @@ float:left;
 clear:none;
 
 }
+
 .flowerChoice{  
-padding-top:25px;
-display:block;
+float:left;
 }
 
 .business, .residential {
@@ -65,4 +74,29 @@ label.frequency , label.duration {
 
 .senderInfo {
   margin-top: 15px;
+}
+.frequency button, .duration button { 
+  margin-top:5px;
+}
+.jump {
+  margin-top:35px;
+  background-color:green;
+  color:white;
+  padding:7px 10px;
+  font-weight:bold;
+}
+.arrangeButton {
+  /*
+  background-color:hotpink;
+  color: white;
+  font-weight:bold;
+  padding:7px 10px;
+  */
+}
+.arrangementName {
+  margin-left: 5px;
+  font-weight:bold;
+}
+.arrangement {
+  margin-top:20px;
 }

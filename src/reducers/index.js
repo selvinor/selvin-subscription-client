@@ -38,7 +38,7 @@ const initialState = {
   currentProductCode: "2",
   currentFrequency: "monthly",
   currentDuration: "3 months",
-  numberOfDeliveries : 0   
+  currentNumberOfDeliveries : "0"   
 }
 
 export const subscriptionReducer = (state=initialState, action) => {
@@ -62,10 +62,12 @@ export const subscriptionReducer = (state=initialState, action) => {
     });
 
     case 'SET_NUMBER_OF_DELIVERIES':
+    console.log('SET_NUMBER_OF_DELIVERIES reducer called', action.numberOfDeliveries);
     return Object.assign({}, state, {
-      numberOfDeliveries: action.numberOfDeliveries,
+      currentNumberOfDeliveries:"12",
       currentFormSection: 'sender'
     });
+
     case 'SET_PRODUCT_CHOICE':
     console.log('reducer | SET_PRODUCT_CHOICE | action.productCode: ', action.productCode);
     return Object.assign({}, state, {

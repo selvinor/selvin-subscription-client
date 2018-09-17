@@ -6,7 +6,7 @@ import Input from './input';
 //import './senderReceiver-add-form.css'; 
 
 
-export class SenderReceiverAddForm extends React.Component {
+export class ReceiverAddForm extends React.Component {
   onSubmit(values) {
     return fetch('http://localhost:8080/api/recipients', {
       method:'POST',
@@ -68,6 +68,10 @@ export class SenderReceiverAddForm extends React.Component {
       );
     }
     return (
+      
+      {/*<div>
+        <FieldArray name="recipients" component={renderRecipients}/>
+      </div>*/}
       <div>
         <h1>ADD RECIPIENT(S)</h1>
         <form onSubmit={this.props.handleSubmit(values =>
@@ -139,5 +143,5 @@ export class SenderReceiverAddForm extends React.Component {
   }
 }
 export default reduxForm({
-  form: 'senderReceiverAddForm'
-})(SenderReceiverAddForm); 
+  form: 'receiverAddForm'
+})(ReceiverAddForm); 
