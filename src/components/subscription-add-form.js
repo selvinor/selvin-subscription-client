@@ -48,6 +48,7 @@ export class SubscriptionAddForm extends React.Component {
           message: res.statusText
         });
       }
+      this.props.dispatch(jumpToSection('confirm'));
       return;
     })
     .then(() => console.log('Submitted with values', values))
@@ -174,7 +175,7 @@ export class SubscriptionAddForm extends React.Component {
 
    // const addReceiverButton = (<button onClick={() => this.props.dispatch(setNumberOfDeliveries())}  type="button">ADD ANOTHER RECIPIENT</button>);
       let today = new Date();
-      let dd = today.getDate();
+      let dd = today.getDate()+1;
       let mm = today.getMonth()+1; //January is 0!
       let yyyy = today.getFullYear();
       
@@ -541,9 +542,9 @@ export class SubscriptionAddForm extends React.Component {
 
         </section>
         <footer role="contentinfo">
-
-        </footer>
         {console.log('this.props.currentValues: ', this.props.currentValues)}
+        </footer>
+
       </div>
           
       
@@ -556,28 +557,17 @@ export class SubscriptionAddForm extends React.Component {
 
         </nav>
         <main role="content">
-          <div className="container">
-            <div className="orderSummary">
-              <p className="recipient name">{theForm.recipientFirstName} {theForm.recipientLastName}</p>
-              <p className="recipient phone">{theForm.recipientPhone}</p>
-              <p className="recipient address1">{theForm.recipientAddress1}</p>
-              <p className="recipient address2">{theForm.recipientAddress2}</p>
-              <p className="recipient cityStateZip">{theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
-              <p className="recipient deliveryDate">{deliveryDate}</p>
-              <p className="recipient productName">{thisProduct(this.props.currentProductCode)}</p>
-              <p className="recipient productPrice">{thisPrice(this.props.currentProductCode)}</p>
-              <p className="recipient totalAmount">{thisPrice(this.props.currentProductCode)}</p>
-            </div>
-          </div>
+          <h2>Thank You!</h2>
+          <p className="byebye">Your order will be delivered {deliveryDate}.</p>
           {formButton}
         </main>
         <section>
 
         </section>
         <footer role="contentinfo">
-
-        </footer>
         {console.log('this.props.currentValues: ', this.props.currentValues)}
+        </footer>
+
       </div>
           
       
