@@ -156,7 +156,7 @@ export class SubscriptionAddForm extends React.Component {
         formButton = ( <button className="jump" onClick={() => dispatchNumberOfDeliveries()}  type="button">Schedule it</button>); 
         break;
       case 'sender':
-        formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
+        formButton = (<button className="jump"  onClick={() => this.props.dispatch(jumpToSection('checkout'))}  type="button">Checkout</button>);
         break;
       case 'receiver':
         formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
@@ -189,6 +189,8 @@ export class SubscriptionAddForm extends React.Component {
       today = mm + '/' + dd + '/' + yyyy;
     console.log('today is: ', today);
     console.log('this.props: ', this.props);
+
+    console.log('this.props.currentSubEmail ',this.props.currentSubEmail);
        const renderField = ({ input, label, type, meta: { touched, error } }) => (
       <div>
         <label>{label}</label>
@@ -268,27 +270,27 @@ export class SubscriptionAddForm extends React.Component {
       </ul>
     )
     
-    const renderDeliveries = ({ fields, meta: { error } }) => (
-      <ul>
-        <li>
-          <button type="button" onClick={() => fields.push()}>Add Delivery</button>
-        </li>
-        {fields.map((delivery, index) =>
-          <li key={index}>
-            <button
-              type="button"
-              title="Remove Delivery"
-              onClick={() => fields.remove(index)}>Remove</button>
-            <Field
-              name={delivery}
-              type="text"
-              component={renderField}
-              label={`Delivery #${index + 1}`}/>
-          </li>
-        )}
-        {error && <li className="error">{error}</li>}
-      </ul>
-    )
+    // const renderDeliveries = ({ fields, meta: { error } }) => (
+    //   <ul>
+    //     <li>
+    //       <button type="button" onClick={() => fields.push()}>Add Delivery</button>
+    //     </li>
+    //     {fields.map((delivery, index) =>
+    //       <li key={index}>
+    //         <button
+    //           type="button"
+    //           title="Remove Delivery"
+    //           onClick={() => fields.remove(index)}>Remove</button>
+    //         <Field
+    //           name={delivery}
+    //           type="text"
+    //           component={renderField}
+    //           label={`Delivery #${index + 1}`}/>
+    //       </li>
+    //     )}
+    //     {error && <li className="error">{error}</li>}
+    //   </ul>
+    // )
 
     return (
       <div>
@@ -486,6 +488,29 @@ export class SubscriptionAddForm extends React.Component {
         </ul>  
 
       : ""  }  
+      { this.props.currentFormSection === "checkout" ?   
+      <div>
+        <header>
+          <nav>
+            <img src="" alt="">MENU</img>
+          </nav>
+
+        </header>
+        
+        <section>
+        <section>
+
+        </section>
+        <footer>
+
+        </footer>
+        {console.log('this.props.currentValues: ', this.props.currentValues)}
+        </section>
+          
+        <div></div>
+      </div>
+
+      : ""  }
       { this.props.currentFormSection === "receiver" ?   
       <div>
         <FieldArray name="recipients" component={renderRecipients}/>
@@ -499,15 +524,19 @@ export class SubscriptionAddForm extends React.Component {
     )
   }
 }   
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+  const form = state.form.subscriptionAddForm || {values:{}};
+  const values = form.values || {};
+  return ({
   currentFormSection: state.subscription.currentFormSection,
   currentNumberOfDeliveries: state.subscription.currentNumberOfDeliveries,
   currentProductCode: state.subscription.currentProductCode,
   currentFrequency: state.subscription.currentFrequency,
   currentDuration: state.subscription.currentDuration,
+  currentValues: values
   //duration: selector(state.SubscriptionAddForm.duration, 'duration'),
   //choice: selector(state.SubscriptionAddForm.choice, 'choice')
-})
+})}
 
 //console.log('frequency: ', frequency, ' | duration: ', duration, ' | choice: ', choice );
   const mapDispatchToProps = dispatch => {

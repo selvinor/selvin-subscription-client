@@ -82,9 +82,9 @@ export class ReceiverAddForm extends React.Component {
           <ul>
             <li>
               <div className="form-input">
-                <label htmlFor="recipientFirstName" className="recipientFirstName">First Name
+                <label htmlFor="RecipientFirstName" className="RecipientFirstName">First Name
                   <Field
-                    name="recipientFirstName"
+                    name="RecipientFirstName"
                     type="text"
                     component={Input}
                   />
@@ -96,9 +96,9 @@ export class ReceiverAddForm extends React.Component {
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="recipientAddress1" className="recipientAddress1">Recipient Street Address 1                            
+                <label htmlFor="RecipientStreetAddress1" className="RecipientStreetAddress1">Recipient Street Address 1                            
                   <Field
-                    name="recipientAddress1"
+                    name="RecipientStreetAddress1"
                     type="text"
                     component={Input}
                   />
