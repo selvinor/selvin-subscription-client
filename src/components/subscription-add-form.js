@@ -1,12 +1,13 @@
 import React from 'react';
-import {Field, SubmissionError, FieldArray, reduxForm} from 'redux-form';
+import {Field, SubmissionError, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
 import './subscription-add-form.css'; 
-import { jumpToSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration } from '../actions';
+import { jumpToSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
 
 export class SubscriptionAddForm extends React.Component {
+  //POST section starts here
   onSubmit(values) {
     console.log('this.props.currentProductCode: ', this.props.currentProductCode);
     values['productCode'] = this.props.currentProductCode;
@@ -49,9 +50,11 @@ export class SubscriptionAddForm extends React.Component {
         });
       }
       this.props.dispatch(jumpToSection('confirm'));
-      return;
+      return res.json();
     })
-    .then(() => console.log('Submitted with values', values))
+    .then((values) => {
+      console.log('please work ', values);
+      this.props.dispatch(setDeliveryDate(values.startDate))})
     .catch(err => {
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {
@@ -69,6 +72,11 @@ export class SubscriptionAddForm extends React.Component {
       );
     });
   }
+
+  //POST section ends here
+  //GET section starts here
+
+  //GET section ends here
   render() {
     let successMessage;
     let formButton;
@@ -150,7 +158,7 @@ export class SubscriptionAddForm extends React.Component {
     }
     formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">Schedule it</button>); 
 
-    //Set custom button for each section
+    // CONTROL FLOW BY Setting custom button for each section
  
     switch (this.props.currentFormSection) {
       case 'schedule':
@@ -172,8 +180,7 @@ export class SubscriptionAddForm extends React.Component {
         formButton = ( <button className="jump"  onClick={() => this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
       break;
     }   
-
-   // const addReceiverButton = (<button onClick={() => this.props.dispatch(setNumberOfDeliveries())}  type="button">ADD ANOTHER RECIPIENT</button>);
+// GET DELIVERY DATE
       let today = new Date();
       let dd = today.getDate()+1;
       let mm = today.getMonth()+1; //January is 0!
@@ -190,8 +197,9 @@ export class SubscriptionAddForm extends React.Component {
     const deliveryDate = mm + '/' + dd + '/' + yyyy;
     console.log('today is: ', today);
     console.log('this.props: ', this.props);
-
     console.log('this.props.currentSubEmail ',this.props.currentSubEmail);
+
+    //SET THE PRODUCT NAME
     const theForm = this.props.currentValues;
     const thisProduct = pCode => {
       if (pCode === '1') {
@@ -206,6 +214,8 @@ export class SubscriptionAddForm extends React.Component {
         }  
       }
     }
+
+  //SET THE PRODUCT PRICE
     const thisPrice = pCode => {
       if (pCode === '1') {
         return "$35";
@@ -220,107 +230,6 @@ export class SubscriptionAddForm extends React.Component {
       }
     }
 
-       const renderField = ({ input, label, type, meta: { touched, error } }) => (
-      <div>
-        <label>{label}</label>
-        <div>
-          <input {...input} type={type} placeholder={label}/>
-          {touched && error && <span>{error}</span>}
-        </div>
-      </div>
-    )
-    
-    const renderRecipients = ({ fields, meta: { touched, error } }) => (
-      <ul>
-        <li>
-          <button type="button" onClick={() => fields.push({})}>Add a Recipient</button>
-          {touched && error && <span>{error}</span>}
-        </li>
-        {fields.map((recipient, index) =>
-          <li key={index}>
-            <button
-              type="button"
-              title="Remove Recipient"
-              onClick={() => fields.remove(index)}>Remove</button>
-            <h4>Recipient #{index + 1}</h4>
-            <Field
-              name={`${recipient}.recipientFirstName`}
-              type="text"
-              component={renderField}
-              label="First Name"/>
-            <Field
-              name={`${recipient}.lastName`}
-              type="text"
-              component={renderField}
-              label="Last Name"/>
-            <Field
-              name={`${recipient}.addressLine1`}
-              type="text"
-              component={renderField}
-              label="Address Line 1"/>
-            <Field
-              name={`${recipient}.addressLine2`}
-              type="text"
-              component={renderField}
-              label="Address Line 2"/>
-            <Field
-              name={`${recipient}.recipientCity`}
-              type="text"
-              component={renderField}
-              label="Recipient City"/>
-            <Field
-              name={`${recipient}.state`}
-              type="text"
-              component={renderField}
-              label="State"/>
-            <Field
-              name={`${recipient}.zipcode`}
-              type="text"
-              component={renderField}
-              label="Zip Code"/>
-            <Field
-              name={`${recipient}.phone`}
-              type="text"
-              component={renderField}
-              label="Phone Number"/>
-            <Field
-              name={`${recipient}.deliveryType`}
-              type="radio"
-              component={renderField}
-              label="Residence"/>
-            <Field
-              name={`${recipient}.deliveryType`}
-              type="radio"
-              component={renderField}
-              label="Business"/>
-            {/*<FieldArray name={`${recipient}.deliveries`} component={renderDeliveries}/> */}
-          </li>
-        )}
-      </ul>
-    )
-    
-    // const renderDeliveries = ({ fields, meta: { error } }) => (
-    //   <ul>
-    //     <li>
-    //       <button type="button" onClick={() => fields.push()}>Add Delivery</button>
-    //     </li>
-    //     {fields.map((delivery, index) =>
-    //       <li key={index}>
-    //         <button
-    //           type="button"
-    //           title="Remove Delivery"
-    //           onClick={() => fields.remove(index)}>Remove</button>
-    //         <Field
-    //           name={delivery}
-    //           type="text"
-    //           component={renderField}
-    //           label={`Delivery #${index + 1}`}/>
-    //       </li>
-    //     )}
-    //     {error && <li className="error">{error}</li>}
-    //   </ul>
-    // )
-
     return (
       <div>
         <h2>FLOWER SUBSCRIPTION SERVICE</h2>
@@ -329,14 +238,14 @@ export class SubscriptionAddForm extends React.Component {
           {errorMessage} 
       { this.props.currentFormSection === "arrangement" ?             
         <ul>
-          <li><h4>CHOOSE THE ARRANGEMENT TYPE</h4></li>
+          <li><h3>CHOOSE THE ARRANGEMENT TYPE</h3></li>
           <li className="arrangement"> 
             <div>         
               <div className="thumb">
                 <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
               </div>
               <div className="flowerChoice form-input"> 
-                <h5 className="arrangementName">{thisProduct('3')}</h5>           
+                <h3 className="arrangementName">{thisProduct('3')}<span className="price"> {thisPrice('3')}</span></h3>          
                 <button className="arrangeButton" onClick={() => dispatchArrangement('3')}  type="button">SELECT</button>            
               </div>
             </div>
@@ -346,17 +255,17 @@ export class SubscriptionAddForm extends React.Component {
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
             <div className="flowerChoice form-input">            
-            <h5 className="arrangementName">{thisProduct("2")}</h5>           
-                <button className="arrangeButton" onClick={() => dispatchArrangement('2')}  type="button">SELECT</button>             
+            <h3 className="arrangementName">{thisProduct("2")}<span className="price"> {thisPrice('2')}</span>}</h3>                      
+              <button className="arrangeButton" onClick={() => dispatchArrangement('2')}  type="button">SELECT</button>             
             </div>
           </li>
           <li className="arrangement">          
             <div className="thumb">
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
-            <div className="flowerChoice form-input">            
-            <h5 className="arrangementName">{thisProduct("1")}</h5>           
-                <button className="arrangeButton" onClick={() => dispatchArrangement('1')}  type="button">SELECT</button>             
+            <div className="flowerChoice form-input">                    
+            <h3 className="arrangementName">{thisProduct("1")}<span className="price"> {thisPrice('1')}</span></h3>      
+              <button className="arrangeButton" onClick={() => dispatchArrangement('1')}  type="button">SELECT</button>             
             </div>
           </li>
         </ul>
@@ -367,8 +276,17 @@ export class SubscriptionAddForm extends React.Component {
           <li className="schedule">
             <h3>SCHEDULE DELIVERY</h3> 
           </li>
+          <li className="datePicking">
+            <h3> Date Picker</h3>
+            <Field
+                name="startDate"
+                type="date"
+                component={Input}
+              />
+          </li>    
+
           <li>
-            <h4 className="frequency">FREQUENCY: {this.props.currentFrequency}</h4>
+            <h3 className="frequency">FREQUENCY: {this.props.currentFrequency}</h3>
 
           </li>
             
@@ -388,7 +306,7 @@ export class SubscriptionAddForm extends React.Component {
             </div>
           </li>
           <li>
-            <h4 className="duration">DURATION: {this.props.currentDuration}</h4>
+            <h3 className="duration">DURATION: {this.props.currentDuration}</h3>
           </li>
           <li>
             <div className="duration form-input">
@@ -419,7 +337,7 @@ export class SubscriptionAddForm extends React.Component {
       { this.props.currentFormSection === "sender" ?             
         <ul>
           <li>
-            <h4>PLEASE ENTER SENDER INFORMATION</h4>
+            <h3>PLEASE ENTER SENDER INFORMATION</h3>
             <div className="senderInfo">
               <label htmlFor="senderEmail" className="senderEmail">Sender Email</label>                            
                 <Field
@@ -450,7 +368,7 @@ export class SubscriptionAddForm extends React.Component {
                 />                                      
             </div>
           </li>
-          <li><h4>PLEASE ENTER RECIPIENT INFO</h4></li>
+          <li><h3>PLEASE ENTER RECIPIENT INFO</h3></li>
           <li>
           <div className="form-input">
             <label htmlFor="recipientFirstName" className="recipientFirstName">First Name
@@ -519,10 +437,7 @@ export class SubscriptionAddForm extends React.Component {
       : ""  }  
       { this.props.currentFormSection === "checkout" ?   
       <div>
-        <nav role="menu">
-
-        </nav>
-        <main role="content">
+        <main>
           <div className="container">
             <div className="orderSummary">
               <p className="recipient name">{theForm.recipientFirstName} {theForm.recipientLastName}</p>
@@ -541,7 +456,7 @@ export class SubscriptionAddForm extends React.Component {
         <section>
 
         </section>
-        <footer role="contentinfo">
+        <footer>
         {console.log('this.props.currentValues: ', this.props.currentValues)}
         </footer>
 
@@ -556,9 +471,9 @@ export class SubscriptionAddForm extends React.Component {
         <nav role="menu">
 
         </nav>
-        <main role="content">
+        <main>
           <h2>Thank You!</h2>
-          <p className="byebye">Your order will be delivered {deliveryDate}.</p>
+          <p className="byebye">Your order will be delivered {this.props.currentDeliveryDate}.</p>
           {formButton}
         </main>
         <section>
@@ -574,12 +489,14 @@ export class SubscriptionAddForm extends React.Component {
       
 
       : ""  }
+      {/* 
+      //  MULTIPLE RECIPIENTS AND DELIVERIES
       { this.props.currentFormSection === "receiver" ?   
       <div>
         <FieldArray name="recipients" component={renderRecipients}/>
       </div>
 
-      : ""  }
+      : ""  } */}
 
 
       </form> 
@@ -596,7 +513,8 @@ const mapStateToProps = state => {
   currentProductCode: state.subscription.currentProductCode,
   currentFrequency: state.subscription.currentFrequency,
   currentDuration: state.subscription.currentDuration,
-  currentValues: values
+  currentValues: values,
+  currentDeliveryDate: state.subscription.currentDeliveryDate
   //duration: selector(state.SubscriptionAddForm.duration, 'duration'),
   //choice: selector(state.SubscriptionAddForm.choice, 'choice')
 })}
@@ -618,6 +536,9 @@ const mapStateToProps = state => {
       },
       setDuration: () => {
         dispatch(setDuration())
+      },
+      setDeliveryDate: () => {
+        dispatch(setDeliveryDate())
       }
       
     }

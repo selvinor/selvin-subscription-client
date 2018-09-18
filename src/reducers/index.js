@@ -28,7 +28,8 @@ const initialState = {
   currentProductCode: "2",
   currentFrequency: "monthly",
   currentDuration: "3 months",
-  currentNumberOfDeliveries : "0"   
+  currentNumberOfDeliveries : "0",   
+  currentDeliveryDate : ''
 }
 
 export const subscriptionReducer = (state=initialState, action) => {
@@ -73,6 +74,11 @@ export const subscriptionReducer = (state=initialState, action) => {
     console.log('reducer | SET_DURATION | action.setDuration: ', action.duration);
     return Object.assign({}, state, {
       currentDuration: action.duration
+    });
+    case 'SET_DELIVERY_DATE':
+    console.log('reducer | SET_DELIVERY_DATE | action.setDeliveryDate: ', action.deliveryDate);
+    return Object.assign({}, state, {
+      currentDeliveryDate: action.deliveryDate
     });
 
     case 'JUMP_TO_SECTION':

@@ -1,8 +1,13 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   padding:0 20px;
+  background: #fafafa url(../images/_DSC9784.jpg);
+  background-position: calc(-0% - 0px) calc(0% - 0px); 
+  background-repeat: no-repeat;
+  font-family: 'Oxygen', sans-serif;
 }
 label {
   margin-left:10px;
@@ -101,6 +106,12 @@ label.frequency , label.duration {
   margin-left: 5px;
   font-weight:bold;
 }
-.arrangement {
+li.arrangement {
   margin-top:20px;
+
+}
+li.arrangement {
+  background-color:rgba(255, 0, 0, 0.15);
+  color:#000000;
+  font-weight:bold;
 }

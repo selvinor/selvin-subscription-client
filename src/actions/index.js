@@ -50,6 +50,12 @@ export const setDuration = (duration) => ({
     duration
 });
 
+export const SET_DELIVERY_DATE = 'SET_DELIVERY_DATE';
+export const setDeliveryDate = (deliveryDate) => ({
+    type: SET_DELIVERY_DATE,
+    deliveryDate
+});
+
 export const fetchSubscriptions = () => dispatch => {
   fetch(`http://localhost:8080/api/subscriptions`)
   .then(res => {
