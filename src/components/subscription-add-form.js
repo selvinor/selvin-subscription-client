@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, SubmissionError, FieldArray, formValueSelector, reduxForm} from 'redux-form';
+import {Field, SubmissionError, FieldArray, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import Input from './input';
 //import {required, pristine, submitting} from '../validators';
@@ -8,6 +8,22 @@ import { jumpToSection, setNumberOfDeliveries, setProductChoice, setFrequency, s
 
 export class SubscriptionAddForm extends React.Component {
   onSubmit(values) {
+    console.log('this.props.currentProductCode: ', this.props.currentProductCode);
+    values['productCode'] = this.props.currentProductCode;
+    if (this.props.currentProductCode === '1') {
+      values['productName'] = "Designer's Bouquet";
+    } else {
+      if (this.props.currentProductCode === '2') {
+        values['productName'] = "Designer's Choice Arrangement";
+      } else {
+        if (this.props.currentProductCode === '3') {
+          values['productName'] = "Designer's Lobby Arrangement";
+        }
+      }
+    }
+    values['frequency'] = this.props.currentFrequency;
+    values['duration'] = this.props.currentDuration;
+    console.log('values" ', values);
     return fetch('http://localhost:8080/api/subscriptions', {
       method:'POST',
       body: JSON.stringify(values),
@@ -140,10 +156,10 @@ export class SubscriptionAddForm extends React.Component {
         formButton = ( <button className="jump" onClick={() => dispatchNumberOfDeliveries()}  type="button">Schedule it</button>); 
         break;
       case 'sender':
-        formButton = ( <button className="jump"  onClick={() => this.props.dispatch(jumpToSection('receiver'))}  type="button">Add Sender</button>);
+        formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
         break;
       case 'receiver':
-        formButton = ( <button className="jump"  onClick={() => this.props.dispatch(jumpToSection('checkout'))}  type="button">Add Receiver</button>);
+        formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
         break;
       case 'checkout':
         formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
@@ -197,7 +213,7 @@ export class SubscriptionAddForm extends React.Component {
               onClick={() => fields.remove(index)}>Remove</button>
             <h4>Recipient #{index + 1}</h4>
             <Field
-              name={`${recipient}.firstName`}
+              name={`${recipient}.recipientFirstName`}
               type="text"
               component={renderField}
               label="First Name"/>
@@ -217,10 +233,10 @@ export class SubscriptionAddForm extends React.Component {
               component={renderField}
               label="Address Line 2"/>
             <Field
-              name={`${recipient}.city`}
+              name={`${recipient}.recipientCity`}
               type="text"
               component={renderField}
-              label="City"/>
+              label="Recipient City"/>
             <Field
               name={`${recipient}.state`}
               type="text"
@@ -246,7 +262,7 @@ export class SubscriptionAddForm extends React.Component {
               type="radio"
               component={renderField}
               label="Business"/>
-            <FieldArray name={`${recipient}.deliveries`} component={renderDeliveries}/>
+            {/*<FieldArray name={`${recipient}.deliveries`} component={renderDeliveries}/> */}
           </li>
         )}
       </ul>
@@ -372,13 +388,7 @@ export class SubscriptionAddForm extends React.Component {
       { this.props.currentFormSection === "sender" ?             
         <ul>
           <li>
-
-            <div className="form-input">
-                            
-            </div>          
-          </li>
-          <li>
-            <h3>ENTER SENDER INFORMATION</h3>
+            <h4>PLEASE ENTER SENDER INFORMATION</h4>
             <div className="senderInfo">
               <label htmlFor="senderEmail" className="senderEmail">Sender Email</label>                            
                 <Field
@@ -409,10 +419,72 @@ export class SubscriptionAddForm extends React.Component {
                 />                                      
             </div>
           </li>
+          <li><h4>PLEASE ENTER RECIPIENT INFO</h4></li>
+          <li>
+          <div className="form-input">
+            <label htmlFor="recipientFirstName" className="recipientFirstName">First Name
+              <Field
+                name="recipientFirstName"
+                type="text"
+                component={Input}
+              />
+            </label>
+            <label htmlFor="recipientLastName" className="recipientLastName">Recipient Last Name                            
+              <Field
+                name="recipientLastName"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="recipientAddress1" className="recipientAddress1">Recipient Street Address 1                            
+              <Field
+                name="recipientAddress1"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="RecipientStreetAddress2" className="RecipientStreetAddress2">Recipient Street Address 2                            
+              <Field
+                name="RecipientStreetAddress2"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="recipientCity" className="recipientCity">Recipient City                            
+              <Field
+                name="recipientCity"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor=">recipientState" className="state">Recipient State                            
+              <Field
+                name="recipientState"
+                type="text"
+                component={Input}
+              />
+            </label>                            
+            <label htmlFor="recipientZipcode" className="recipientZipcode">Recipient Zipcode                           
+              <Field
+                name="recipientZipcode"
+                type="text"
+                component={Input}
+              />
+            </label>             
+            <label htmlFor="recipientPhone" className="recipientPhone">Recipient Phone                           
+              <Field
+                name="recipientPhone"
+                type="text"
+                component={Input}
+              />
+            </label>             
+          </div>
+          </li>
           <li>
           {formButton}
           </li>
-        </ul> 
+        </ul>  
+
       : ""  }  
       { this.props.currentFormSection === "receiver" ?   
       <div>

@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body {
-  padding:10px;
+  padding:0 20px;
 }
 label {
   margin-left:10px;
@@ -11,8 +11,12 @@ li  {
   list-style-type: none;
 }
 h4{
-  border:1px #dddddd solid;
-  padding:10px;
+
+  padding:0;
+  
+}
+ul {
+  padding:0;
 }
 h5 {
 

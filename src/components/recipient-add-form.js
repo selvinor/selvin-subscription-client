@@ -82,51 +82,51 @@ export class ReceiverAddForm extends React.Component {
           <ul>
             <li>
               <div className="form-input">
-                <label htmlFor="firstName" className="firstName">First Name
+                <label htmlFor="recipientFirstName" className="recipientFirstName">First Name
                   <Field
-                    name="firstName"
+                    name="recipientFirstName"
                     type="text"
                     component={Input}
                   />
                 </label>
-                <label htmlFor="lastName" className="lastName">Last Name                            
+                <label htmlFor="recipientLastName" className="recipientLastName">Recipient Last Name                            
                   <Field
-                    name="lastName"
+                    name="recipientLastName"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="streetAddress1" className="streetAddress1">Street Address 1                            
+                <label htmlFor="recipientAddress1" className="recipientAddress1">Recipient Street Address 1                            
                   <Field
-                    name="streetAddress1"
+                    name="recipientAddress1"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="streetAddress2" className="streetAddress2">Street Address 2                            
+                <label htmlFor="RecipientStreetAddress2" className="RecipientStreetAddress2">Recipient Street Address 2                            
                   <Field
-                    name="streetAddress2"
+                    name="RecipientStreetAddress2"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="city" className="city">City                            
+                <label htmlFor="recipientCity" className="recipientCity">Recipient City                            
                   <Field
-                    name="city"
+                    name="recipientCity"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="state" className="state">State                            
+                <label htmlFor=">recipientState" className="state">Recipient State                            
                   <Field
-                    name="state"
+                    name="recipientState"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="zipcode" className="zipcode">Zipcode                           
+                <label htmlFor="recipientZipcode" className="recipientZipcode">Recipient Zipcode                           
                   <Field
-                    name="zipcode"
+                    name="recipientZipcode"
                     type="text"
                     component={Input}
                   />

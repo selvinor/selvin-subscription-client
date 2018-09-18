@@ -13,24 +13,14 @@ const initialState = {
       senderFirstName: '',
       senderLastName: '',
       senderPhone: '',
-      deliveries: [],
-      recipients: [
-        {
-          firstName : '',
-          lastName : '',
-          address1 : '',
-          address2 : '',
-          city : '',
-          state : '',
-          zipcode : '',
-          phone : '',
-          deliveries: [
-            {
-              deliveryNumber: null
-            }
-          ]
-        }
-      ]    
+      firstName : '',
+      lastName : '',
+      address1 : '',
+      address2 : '',
+      recipientCity : '',
+      state : '',
+      zipcode : '',
+      phone : ''   
   }],
   hasErrored : false,
   isLoading : false,
