@@ -186,12 +186,39 @@ export class SubscriptionAddForm extends React.Component {
           mm = '0'+mm
       } 
       
-      today = mm + '/' + dd + '/' + yyyy;
+    const deliveryDate = mm + '/' + dd + '/' + yyyy;
     console.log('today is: ', today);
     console.log('this.props: ', this.props);
 
     console.log('this.props.currentSubEmail ',this.props.currentSubEmail);
     const theForm = this.props.currentValues;
+    const thisProduct = pCode => {
+      if (pCode === '1') {
+        return "Designer's Bouquet";
+      } else {
+        if (pCode === '2') {
+          return "Designer's Choice Arrangement";
+        } else {
+          if (pCode === '3') {
+            return "Designer's Lobby Arrangement";
+          }
+        }  
+      }
+    }
+    const thisPrice = pCode => {
+      if (pCode === '1') {
+        return "$35";
+      } else {
+        if (pCode === '2') {
+          return "$65";
+        } else {
+          if (pCode === '3') {
+            return "$125";
+          }
+        }  
+      }
+    }
+
        const renderField = ({ input, label, type, meta: { touched, error } }) => (
       <div>
         <label>{label}</label>
@@ -308,7 +335,7 @@ export class SubscriptionAddForm extends React.Component {
                 <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
               </div>
               <div className="flowerChoice form-input"> 
-                <h5 className="arrangementName">Designer's Lobby Arrangement</h5>           
+                <h5 className="arrangementName">{thisProduct('3')}</h5>           
                 <button className="arrangeButton" onClick={() => dispatchArrangement('3')}  type="button">SELECT</button>            
               </div>
             </div>
@@ -318,7 +345,7 @@ export class SubscriptionAddForm extends React.Component {
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
             <div className="flowerChoice form-input">            
-            <h5 className="arrangementName">Designer's Choice Arrangement</h5>           
+            <h5 className="arrangementName">{thisProduct("2")}</h5>           
                 <button className="arrangeButton" onClick={() => dispatchArrangement('2')}  type="button">SELECT</button>             
             </div>
           </li>
@@ -327,7 +354,7 @@ export class SubscriptionAddForm extends React.Component {
               <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
             </div>
             <div className="flowerChoice form-input">            
-            <h5 className="arrangementName">Designer's Bouquet</h5>           
+            <h5 className="arrangementName">{thisProduct("1")}</h5>           
                 <button className="arrangeButton" onClick={() => dispatchArrangement('1')}  type="button">SELECT</button>             
             </div>
           </li>
@@ -499,15 +526,50 @@ export class SubscriptionAddForm extends React.Component {
             <div className="orderSummary">
               <p className="recipient name">{theForm.recipientFirstName} {theForm.recipientLastName}</p>
               <p className="recipient phone">{theForm.recipientPhone}</p>
-              <p className="recipient address1"></p>
-              <p className="recipient address2"></p>
-              <p className="recipient cityStateZip"></p>
-              <p className="recipient deliveryDate"></p>
-              <p className="recipient productName"></p>
-              <p className="recipient productPrice"></p>
-              <p className="recipient totalAmount"></p>
+              <p className="recipient address1">{theForm.recipientAddress1}</p>
+              <p className="recipient address2">{theForm.recipientAddress2}</p>
+              <p className="recipient cityStateZip">{theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
+              <p className="recipient deliveryDate">{deliveryDate}</p>
+              <p className="recipient productName">{thisProduct(this.props.currentProductCode)}</p>
+              <p className="recipient productPrice">{thisPrice(this.props.currentProductCode)}</p>
+              <p className="recipient totalAmount">{thisPrice(this.props.currentProductCode)}</p>
             </div>
           </div>
+          {formButton}
+        </main>
+        <section>
+
+        </section>
+        <footer role="contentinfo">
+
+        </footer>
+        {console.log('this.props.currentValues: ', this.props.currentValues)}
+      </div>
+          
+      
+      
+
+      : ""  }
+      { this.props.currentFormSection === "confirm" ?   
+      <div>
+        <nav role="menu">
+
+        </nav>
+        <main role="content">
+          <div className="container">
+            <div className="orderSummary">
+              <p className="recipient name">{theForm.recipientFirstName} {theForm.recipientLastName}</p>
+              <p className="recipient phone">{theForm.recipientPhone}</p>
+              <p className="recipient address1">{theForm.recipientAddress1}</p>
+              <p className="recipient address2">{theForm.recipientAddress2}</p>
+              <p className="recipient cityStateZip">{theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
+              <p className="recipient deliveryDate">{deliveryDate}</p>
+              <p className="recipient productName">{thisProduct(this.props.currentProductCode)}</p>
+              <p className="recipient productPrice">{thisPrice(this.props.currentProductCode)}</p>
+              <p className="recipient totalAmount">{thisPrice(this.props.currentProductCode)}</p>
+            </div>
+          </div>
+          {formButton}
         </main>
         <section>
 
