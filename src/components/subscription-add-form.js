@@ -191,6 +191,7 @@ export class SubscriptionAddForm extends React.Component {
     console.log('this.props: ', this.props);
 
     console.log('this.props.currentSubEmail ',this.props.currentSubEmail);
+    const theForm = this.props.currentValues;
        const renderField = ({ input, label, type, meta: { touched, error } }) => (
       <div>
         <label>{label}</label>
@@ -490,25 +491,35 @@ export class SubscriptionAddForm extends React.Component {
       : ""  }  
       { this.props.currentFormSection === "checkout" ?   
       <div>
-        <header>
-          <nav>
-            <img src="" alt="">MENU</img>
-          </nav>
+        <nav role="menu">
 
-        </header>
-        
-        <section>
+        </nav>
+        <main role="content">
+          <div className="container">
+            <div className="orderSummary">
+              <p className="recipient name">{theForm.recipientFirstName} {theForm.recipientLastName}</p>
+              <p className="recipient phone">{theForm.recipientPhone}</p>
+              <p className="recipient address1"></p>
+              <p className="recipient address2"></p>
+              <p className="recipient cityStateZip"></p>
+              <p className="recipient deliveryDate"></p>
+              <p className="recipient productName"></p>
+              <p className="recipient productPrice"></p>
+              <p className="recipient totalAmount"></p>
+            </div>
+          </div>
+        </main>
         <section>
 
         </section>
-        <footer>
+        <footer role="contentinfo">
 
         </footer>
         {console.log('this.props.currentValues: ', this.props.currentValues)}
-        </section>
-          
-        <div></div>
       </div>
+          
+      
+      
 
       : ""  }
       { this.props.currentFormSection === "receiver" ?   
