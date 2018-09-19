@@ -96,16 +96,16 @@ export class ReceiverAddForm extends React.Component {
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="RecipientStreetAddress1" className="RecipientStreetAddress1">Recipient Street Address 1                            
+                <label htmlFor="RecipientStreetAddress" className="RecipientStreetAddress">Recipient Street Address 1                            
                   <Field
-                    name="RecipientStreetAddress1"
+                    name="RecipientStreetAddress"
                     type="text"
                     component={Input}
                   />
                 </label>                            
-                <label htmlFor="RecipientStreetAddress2" className="RecipientStreetAddress2">Recipient Street Address 2                            
+                <label htmlFor="RecipientAptSuite" className="RecipientAptSuite">Recipient Street Address 2                            
                   <Field
-                    name="RecipientStreetAddress2"
+                    name="RecipientAptSuite"
                     type="text"
                     component={Input}
                   />

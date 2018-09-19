@@ -20,23 +20,50 @@ export default class Input extends React.Component {
               <div className="form-warning">{this.props.meta.warning}</div>
           );
       }
+if (this.props.rows ) {
+  return (
+    <div className="form-input">
+        <label htmlFor={this.props.input.name}>
+            {this.props.label}
+            {error}
+            {warning}
+        </label>
+        <textarea
+            {...this.props.input}
+            id={this.props.input.name}
+            ref={input => (this.input = input)}
+            placeholder={this.props.placeholder}
+            rows={this.props.rows}
+            columns={this.props.columns}
+        >
+            {this.props.children}
+        </textarea>
+    </div>
+);
 
-      return (
-          <div className="form-input">
-              <label htmlFor={this.props.input.name}>
-                  {this.props.label}
-                  {error}
-                  {warning}
-              </label>
-              <Element
-                  {...this.props.input}
-                  id={this.props.input.name}
-                  type={this.props.type}
-                  ref={input => (this.input = input)}
-              >
-                  {this.props.children}
-              </Element>
-          </div>
-      );
+} else {
+  return (
+    <div className="form-input">
+        <label htmlFor={this.props.input.name}>
+            {this.props.label}
+            {error}
+            {warning}
+        </label>
+        <Element
+            {...this.props.input}
+            id={this.props.input.name}
+            type={this.props.type}
+            ref={input => (this.input = input)}
+            placeholder={this.props.placeholder}
+            rows={this.props.rows}
+            columns={this.props.columns}
+        >
+            {this.props.children}
+        </Element>
+    </div>
+);
+
+}
+
   }
 }

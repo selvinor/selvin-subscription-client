@@ -15,8 +15,8 @@ const initialState = {
       senderPhone: '',
       firstName : '',
       lastName : '',
-      address1 : '',
-      address2 : '',
+      streetAddress : '',
+      aptSuite : '',
       recipientCity : '',
       state : '',
       zipcode : '',
@@ -56,14 +56,14 @@ export const subscriptionReducer = (state=initialState, action) => {
     console.log('SET_NUMBER_OF_DELIVERIES reducer called', action.numberOfDeliveries);
     return Object.assign({}, state, {
       currentNumberOfDeliveries:"12",
-      currentFormSection: 'sender'
+      currentFormSection: 'checkout'
     });
 
     case 'SET_PRODUCT_CHOICE':
     console.log('reducer | SET_PRODUCT_CHOICE | action.productCode: ', action.productCode);
     return Object.assign({}, state, {
       currentProductCode: action.productCode,
-      currentFormSection: 'schedule'
+      currentFormSection: 'recipient'
     });
     case 'SET_FREQUENCY':
     console.log('reducer | SET_FREQUENCY | action.frequency: ', action.frequency);

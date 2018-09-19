@@ -3,11 +3,14 @@
 }
 
 body {
-  padding:0 20px;
+  /*padding:0 20px;*/
   background: #fafafa url(../images/_DSC9784.jpg);
-  background-position: calc(-0% - 0px) calc(0% - 0px); 
+  background-position: calc(-0% - 30px) calc(0% - 0px); 
   background-repeat: no-repeat;
   font-family: 'Oxygen', sans-serif;
+}
+#root {
+  margin:20px;
 }
 label {
   margin-left:10px;
@@ -66,6 +69,10 @@ float:left;
   width:13px;
   margin: 0 auto;
 }
+form {
+ /* background-color:rgba(255, 0, 0, 0.15);*/
+  padding:10px 20px;
+}
 label.receiverMsg  {
   font-weight: bold;
 }
@@ -96,22 +103,41 @@ label.frequency , label.duration {
 }
 .arrangeButton {
   /*
-  background-color:hotpink;
-  color: white;
+  background-color:hotpink;  */
+  color: black;
   font-weight:bold;
   padding:7px 10px;
-  */
+  margin:5px;
 }
 .arrangementName {
   margin-left: 5px;
   font-weight:bold;
+  color:#333;
+  font-size: 1.4em;
+ /* text-shadow: 1.25px 1.0px #000000; */
 }
 li.arrangement {
   margin-top:20px;
 
 }
 li.arrangement {
-  background-color:rgba(255, 0, 0, 0.15);
+
   color:#000000;
   font-weight:bold;
+}
+h3.arrangementName {
+  margin: 3px;
+}
+.recipientFormFields, .scheduleFormFields, .senderInfo {
+  float:left;
+  margin-right:20px;
+}
+ .formButton {
+  float:left;
+}
+.productSummary {
+  width:350px;
+  padding:10px;
+ background-color:rgba(255, 255, 255, 0.5);
+ border-radius:7px;
 }
