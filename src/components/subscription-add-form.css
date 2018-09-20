@@ -497,7 +497,7 @@ div.recipientFormFields, .sender {
 }
 @media only screen and (max-width: 680px) {
   .arrangementName {
-    font-size: 3.5vw;  
+    font-size: 3vw;  
   }
   h1 {
     font-size:5vw;
@@ -519,12 +519,12 @@ div.recipientFormFields, .sender {
   }
   p{
     font-size:2vw;
-  }
-    .arrangements {
+  }    
+  .arrangements {
     height:840px;
     padding:2% 0% 5% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:7px;
+    background-color:rgba(255, 255, 255, 0.75);
+    border-radius:7px;
   }
   .productSummary {
     width:100%;
@@ -560,7 +560,7 @@ div.recipientFormFields, .sender {
     font-size:3vw;
   }
   p{
-    font-size:2.5vw;
+    font-size:2.2vw;
   }
     .arrangements {
     height:840px;
@@ -601,7 +601,7 @@ div.recipientFormFields, .sender {
     font-size:3vw;
   }
   p{
-    font-size:3vw;
+    font-size:2.5vw;
   }
   ul.arrangements {
 
@@ -703,7 +703,9 @@ div.recipientFormFields, .sender {
   h3 {
     font-size:3vw;
   }
-
+  p{
+    font-size:3vw;
+  }
   div.formButton.recipientFormFields {
     margin-left: 25%;
     margin-top: 0px;
