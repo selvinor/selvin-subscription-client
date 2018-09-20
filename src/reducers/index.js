@@ -55,7 +55,7 @@ export const subscriptionReducer = (state=initialState, action) => {
     case 'SET_NUMBER_OF_DELIVERIES':
     console.log('SET_NUMBER_OF_DELIVERIES reducer called', action.numberOfDeliveries);
     return Object.assign({}, state, {
-      currentNumberOfDeliveries:"12",
+      currentNumberOfDeliveries: action.numberOfDeliveries,
       currentFormSection: 'checkout'
     });
 

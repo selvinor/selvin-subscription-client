@@ -235,303 +235,330 @@ export class SubscriptionAddForm extends React.Component {
 
     return (
       <div>
-        <h1>FLOWER SUBSCRIPTION SERVICE</h1>
-        <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-          {successMessage}
-          {errorMessage} 
-      { this.props.currentFormSection === "arrangement" ?             
-        <ul>
-          <li><h3>CHOOSE THE ARRANGEMENT TYPE</h3></li>
-          <li className="arrangement"> 
-            <div>         
-              <div className="thumb">
-                <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
+        <header role="heading">
+          <h1>FLOWER SUBSCRIPTION SERVICE</h1>
+        </header>
+        <main role="main">
+          <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+            {successMessage}
+            {errorMessage} 
+            { this.props.currentFormSection === "arrangement" ?             
+          <ul className="arrangements">
+            <li>
+              <h4>CHOOSE THE ARRANGEMENT TYPE</h4>
+            </li>
+            <li className="arrangement3">         
+              <div className="selectArr">
+                <p className="arrangementName ">{thisProduct('3')}</p>
+                <button className="arrangeButton" onClick={() => dispatchArrangement('3')}  type="button">SELECT</button><span className="price"> {thisPrice('3')}</span>                 
               </div>
-              <div className="flowerChoice form-input"> 
-                <h3 className="arrangementName">{thisProduct('3')}<span className="price"> {thisPrice('3')}</span></h3>          
-                <button className="arrangeButton" onClick={() => dispatchArrangement('3')}  type="button">SELECT</button>            
-              </div>
-            </div>
-          </li>
-          <li className="arrangement">          
-            <div className="thumb">
-              <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
-            </div>
-            <div className="flowerChoice form-input">            
-            <h3 className="arrangementName">{thisProduct("2")}<span className="price"> {thisPrice('2')}</span></h3>                      
-              <button className="arrangeButton" onClick={() => dispatchArrangement('2')}  type="button">SELECT</button>             
-            </div>
-          </li>
-          <li className="arrangement">          
-            <div className="thumb">
-              <img className="thumbnail" src="../img/flowers.jpg" alt=""/> 
-            </div>
-            <div className="flowerChoice form-input">                    
-            <h3 className="arrangementName">{thisProduct("1")}<span className="price"> {thisPrice('1')}</span></h3>      
-              <button className="arrangeButton" onClick={() => dispatchArrangement('1')}  type="button">SELECT</button>             
-            </div>
-          </li>
-        </ul>
-      : "" }
-      { this.props.currentFormSection === "recipient" ?             
-        <ul>
-          <li>
-            <div className="productSummary">
-              <p className="recipient productName">PRODUCT: {thisProduct(this.props.currentProductCode)}</p>
-              <p className="recipient productPrice">PRICE: {thisPrice(this.props.currentProductCode)}</p>
-              <p className="recipient productPrice">DELIVERY CHARGE: TBD</p>
-            </div>
-          </li>
-          <li><h3>PLEASE ENTER RECIPIENT INFO</h3></li>
-          <li>
-            <div className="form-input recipientFormFields">
-              <label htmlFor="recipientFirstName" className="recipientFirstName">
-                <Field
-                  name="recipientFirstName"
-                  type="text"
-                  component={Input}
-                  placeholder="FIRST NAME"
-                />
-              </label>
-              <label htmlFor="recipientLastName" className="recipientLastName">                           
-                <Field
-                  name="recipientLastName"
-                  type="text"
-                  component={Input}
-                  placeholder="LAST NAME" 
-                />
-              </label>                            
-              <label htmlFor="recipientCompany" className="recipientCompany">                           
-                <Field
-                  name="recipientCompany"
-                  type="text"
-                  component={Input}
-                  placeholder="COMPANY" 
-                />
-              </label>                            
-              <label htmlFor="recipientAddress" className="recipientAddress">                            
-                <Field
-                  name="recipientAddress"
-                  type="text"
-                  component={Input}
-                  placeholder="STREET ADDRESS" 
-                />
-              </label>                            
-              <label htmlFor="RecipientAptSuite" className="RecipientAptSuite">                            
-                <Field
-                  name="RecipientAptSuite"
-                  type="text"
-                  component={Input}
-                  placeholder="APT /SUITE"
-                />
-              </label>                                    
-            </div> 
-            <div className="form-input recipientFormFields">
-              <label htmlFor="recipientCity" className="recipientCity">                            
-                <Field
-                  name="recipientCity"
-                  type="text"
-                  component={Input}
-                  placeholder="CITY"
-                />
-              </label>                            
-              <label htmlFor=">recipientState" className="recipientState">                            
-                <Field
-                  name="recipientState"
-                  type="text"
-                  component={Input}
-                  placeholder="CITY"
-                />
-              </label>                            
-              <label htmlFor="recipientZipcode" className="recipientZipcode">                          
-                <Field
-                  name="recipientZipcode"
-                  type="text"
-                  component={Input}
-                  placeholder="ZIP CODE"
-                />
-              </label>             
-              <label htmlFor="recipientPhone" className="recipientPhone">                           
-                <Field
-                  name="recipientPhone"
-                  type="text"
-                  component={Input}
-                  placeholder="CELL PHONE"
-                />
-              </label>             
-              <label htmlFor="recipientMessage" className="recipientMessage">                           
-                <Field
-                  name="recipientMessage"
-                  type="textarea"
-                  rows="4" 
-                  cols="50"
-                  component={Input}
-                  placeholder="GIFT MESSAGE"
-                />
-              </label>     
-            </div>
-          </li>
-          <li>
-            <div className="formButton">
-             {formButton}
-            </div>
-          </li>
-        </ul>
-          : ""  }
-      { this.props.currentFormSection === "sender" ?   
 
+                <div className="thumb">
+                  <img className="thumbnail" src="../img/_DSC3098.png" alt=""/>
+                </div>                                   
+
+            </li>
+            <li className="arrangement2">         
+              <div className="selectArr">
+                <p className="arrangementName">{thisProduct('2')}</p>
+                <button className="arrangeButton" onClick={() => dispatchArrangement('2')}  type="button">SELECT</button><span className="price"> {thisPrice('2')}</span> 
+              </div>
+
+              <div className="thumb">
+                <img className="thumbnail" src="../img/_DSC2980.png" alt=""/>                  
+              </div>
+
+            </li>
+            <li className="arrangement1">         
+              <div className="selectArr">
+                <p className="arrangementName">{thisProduct('1')}</p>
+                <button className="arrangeButton" onClick={() => dispatchArrangement('1')}  type="button">SELECT</button><span className="price"> {thisPrice('1')}</span>  
+              </div>
+
+              <div className="thumb">
+                <img className="thumbnail" src="../img/_DSC3345.png" alt=""/>
+                  
+              </div>
+                                  
+
+            </li>
+          </ul>
+        : "" }
+        { this.props.currentFormSection === "recipient" ?             
           <ul>
             <li>
-            <h3>PLEASE ENTER SENDER INFORMATION</h3>
-            <div className="senderInfo">
-              <label htmlFor="senderEmail" className="senderEmail"/>                     
-                <Field
-                  name="senderEmail"
-                  type="email"
-                  component={Input}
-                  placeholder="EMAIL"
-                />
-                                          
-              <label htmlFor="senderFirstName" className="senderFirstName" />
-                <Field
-                  placeholder="FIRST NAME" 
-                  name="senderFirstName" 
-                  type="text"
-                  component={Input}
-                  
-                />
+              <ul>
+              <li>           
+              <div className="productSummary">
+              <h4>Order Summary</h4>
+                <p className="recipient productName">PRODUCT: {thisProduct(this.props.currentProductCode)}</p>
+                <p className="recipient productPrice">PRICE: {thisPrice(this.props.currentProductCode)}</p>
+                <p className="recipient productPrice">DELIVERY CHARGE: TBD</p>
+                
+              </div>
+            </li>
+            <li>
+            <h4>PLEASE ENTER RECIPIENT INFO</h4>
+              <div className="form-input recipientFormFields">
               
-              <label htmlFor="senderLastName" className="senderLastName" />                            
-                <Field
-                  name="senderLastName"
-                  placeholder="LAST NAME" 
-                  type="text"
-                  component={Input}
-                  
-                />
-                                        
-              <label htmlFor="senderPhone" className="senderPhone" />                        
-                <Field
-                  name="senderPhone"
-                  type="text"
-                  component={Input}
-                  placeholder="PHONE"  
-                />                                      
-            </div>
-            <div class="formbutton">
+                <label htmlFor="recipientFirstName" className="recipientFirstName">
+                  <Field
+                    name="recipientFirstName"
+                    type="text"
+                    component={Input}
+                    placeholder="FIRST NAME"
+                  />
+                </label>
+                <label htmlFor="recipientLastName" className="recipientLastName">                           
+                  <Field
+                    name="recipientLastName"
+                    type="text"
+                    component={Input}
+                    placeholder="LAST NAME" 
+                  />
+                </label>                            
+                <label htmlFor="recipientCompany" className="recipientCompany">                           
+                  <Field
+                    name="recipientCompany"
+                    type="text"
+                    component={Input}
+                    placeholder="COMPANY" 
+                  />
+                </label>                            
+                <label htmlFor="recipientAddress" className="recipientAddress">                            
+                  <Field
+                    name="recipientAddress"
+                    type="text"
+                    component={Input}
+                    placeholder="STREET ADDRESS" 
+                  />
+                </label>                            
+                <label htmlFor="RecipientAptSuite" className="RecipientAptSuite">                            
+                  <Field
+                    name="RecipientAptSuite"
+                    type="text"
+                    component={Input}
+                    placeholder="APT /SUITE"
+                  />
+                </label>                                    
+              </div> 
+              <div className="form-input recipientFormFields">
+                <label htmlFor="recipientCity" className="recipientCity">                            
+                  <Field
+                    name="recipientCity"
+                    type="text"
+                    component={Input}
+                    placeholder="CITY"
+                  />
+                </label>                            
+                <label htmlFor=">recipientState" className="recipientState">                            
+                  <Field
+                    name="recipientState"
+                    type="text"
+                    component={Input}
+                    placeholder="CITY"
+                  />
+                </label>                            
+                <label htmlFor="recipientZipcode" className="recipientZipcode">                          
+                  <Field
+                    name="recipientZipcode"
+                    type="text"
+                    component={Input}
+                    placeholder="ZIP CODE"
+                  />
+                </label>             
+                <label htmlFor="recipientPhone" className="recipientPhone">                           
+                  <Field
+                    name="recipientPhone"
+                    type="text"
+                    component={Input}
+                    placeholder="CELL PHONE"
+                  />
+                </label>             
+                <label htmlFor="recipientMessage" className="recipientMessage">                           
+                  <Field
+                    name="recipientMessage"
+                    type="textarea"
+                    rows="4" 
+                    cols="50"
+                    component={Input}
+                    placeholder="GIFT MESSAGE"
+                  />
+                </label>     
+              </div>
+            </li>
+
+              </ul>
+            </li>
+            <li>
+              <div className="formButton">
               {formButton}
-            </div>
-          </li>
-        </ul>  
+              </div>
+            </li>
+          </ul>
+            : ""  }
+        { this.props.currentFormSection === "sender" ?   
 
-      : ""  }  
-      { this.props.currentFormSection === "schedule" ?  
+            <ul>
+              <li>
+              <h3>PLEASE ENTER SENDER INFORMATION</h3>
+              <div className="senderInfo">
+                <label htmlFor="senderEmail" className="senderEmail"/>                     
+                  <Field
+                    name="senderEmail"
+                    type="email"
+                    component={Input}
+                    placeholder="EMAIL"
+                  />
+                                            
+                <label htmlFor="senderFirstName" className="senderFirstName" />
+                  <Field
+                    placeholder="FIRST NAME" 
+                    name="senderFirstName" 
+                    type="text"
+                    component={Input}
+                    
+                  />
+                
+                <label htmlFor="senderLastName" className="senderLastName" />                            
+                  <Field
+                    name="senderLastName"
+                    placeholder="LAST NAME" 
+                    type="text"
+                    component={Input}
+                    
+                  />
+                                          
+                <label htmlFor="senderPhone" className="senderPhone" />                        
+                  <Field
+                    name="senderPhone"
+                    type="text"
+                    component={Input}
+                    placeholder="PHONE"  
+                  />                                      
+              </div>
+              <div class="formbutton">
+                {formButton}
+              </div>
+            </li>
+          </ul>  
+
+        : ""  }  
+        { this.props.currentFormSection === "schedule" ?  
+          
+          <ul>
+            <li>
+              <div className="scheduleBlock">
+                <ul>
+                <li className="schedule">
+                  <h3>SCHEDULE DELIVERY</h3> 
+                </li>
+              <li>
+              
+                <div className="scheduleFormFields">
+                  <ul>  
+                    <li>
+                      <Field name="frequency" component="select">
+                        <option>How Often</option>
+                        <option value="monthly">monthly</option>
+                        <option value="bi-weekly">bi-weekly</option>
+                        <option value="weekly">weekly</option>
+                      </Field>
+                    </li>
+                  </ul>
+                </div>
+                <div className="scheduleFormFields">
+                  <ul>  
+                    <li>
+                      <Field name="duration" component="select">
+                        <option>How Long</option>
+                        <option value="3 months">3 months</option>
+                        <option value="6 months">6 months</option>
+                        <option value="12 months">12 months</option>
+                        <option value="ongoing">ongoing</option>
+                      </Field>
+                    </li>
+                    <li className="datePicking">
+                <h3>Choose Delivery Start Date</h3>
+                <Field
+                  name="startDate"
+                  type="date"
+                  component={Input}
+                />
+              </li>    
+
+                </ul>
+              </div>
+            </li>
+                  <li>
+                    {formButton}
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul> 
+          
+        : ""  }  
+        { this.props.currentFormSection === "checkout" ?   
+        <div>
+          <main>
+            <div className="container">
+              <div className="orderSummary">
+              <h4>ORDER SUMMARY</h4>
+
+                <p className="recipient name">NAME: {theForm.recipientFirstName} {theForm.recipientLastName}</p>
+                <p className="recipient company">COMPANY: {theForm.recipientCompany} {theForm.recipientCompany}</p>
+                <p className="recipient phone">PHONE: {theForm.recipientPhone}</p>
+                <p className="recipient streetAddress">STREET ADDRESS: {theForm.recipientAddress}</p>
+                <p className="recipient aptSuite">APT/SUITE: {theForm.recipientAptSuite}</p>
+                <p className="recipient cityStateZip">CITY, STATE, ZIPCODE: {theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
+                <p className="recipient message">GIFT MESSAGE: {theForm.recipientMessage}</p>
+                <p className="recipient deliveryDate"> START DELIVERY ON: {deliveryDate}</p>
+                <p className="recipient productName">PRODUCT: {thisProduct(this.props.currentProductCode)}</p>
+                <p className="recipient productPrice">PRICE: {thisPrice(this.props.currentProductCode)}</p>
+                <p className="recipient productPrice">DELIVERY CHARGE: TBD</p>
+              </div>
+            </div>
+            {formButton}
+          </main>
+          <section>
+
+          </section>
+          <footer>
+          {console.log('this.props.currentValues: ', this.props.currentValues)}
+          </footer>
+
+        </div>
+            
         
-        <ul>
-          <li className="schedule">
-            <h3>SCHEDULE DELIVERY</h3> 
-          </li>
-          <li className="datePicking">
-            <h3>Choose Delivery Start Date</h3>
-            <Field
-              name="startDate"
-              type="date"
-              component={Input}
-            />
-          </li>    
-          <li>
-          
-            <div className="scheduleFormFields">
-              <ul>  
-                <li>
-                  <Field name="frequency" component="select">
-                    <option>How Often</option>
-                    <option value="monthly">monthly</option>
-                    <option value="bi-weekly">bi-weekly</option>
-                    <option value="weekly">weekly</option>
-                  </Field>
-                </li>
-              </ul>
-            </div>
-            <div className="scheduleFormFields">
-              <ul>  
-                <li>
-                  <Field name="duration" component="select">
-                    <option>How Long</option>
-                    <option value="3 months">3 months</option>
-                    <option value="6 months">6 months</option>
-                    <option value="12 months">12 months</option>
-                    <option value="ongoing">ongoing</option>
-                  </Field>
-                </li>
-                <li>
-                  {formButton}
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul> 
         
-      : ""  }  
-      { this.props.currentFormSection === "checkout" ?   
-      <div>
-        <main>
-          <div className="container">
-            <div className="orderSummary">
-            <h4>ORDER SUMMARY</h4>
 
-              <p className="recipient name">NAME: {theForm.recipientFirstName} {theForm.recipientLastName}</p>
-              <p className="recipient company">COMPANY: {theForm.recipientCompany} {theForm.recipientCompany}</p>
-              <p className="recipient phone">PHONE: {theForm.recipientPhone}</p>
-              <p className="recipient streetAddress">STREET ADDRESS: {theForm.recipientAddress}</p>
-              <p className="recipient aptSuite">APT/SUITE: {theForm.recipientAptSuite}</p>
-              <p className="recipient cityStateZip">CITY, STATE, ZIPCODE: {theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
-              <p className="recipient message">GIFT MESSAGE: {theForm.recipientMessage}</p>
-              <p className="recipient deliveryDate"> START DELIVERY ON: {deliveryDate}</p>
-              <p className="recipient productName">PRODUCT: {thisProduct(this.props.currentProductCode)}</p>
-              <p className="recipient productPrice">PRICE: {thisPrice(this.props.currentProductCode)}</p>
-              <p className="recipient productPrice">DELIVERY CHARGE: TBD</p>
-            </div>
-          </div>
-          {formButton}
-        </main>
-        <section>
+        : ""  }
+        { this.props.currentFormSection === "confirm" ?   
+        <div className="confirm">
+          <nav role="menu">
 
-        </section>
-        <footer>
-        {console.log('this.props.currentValues: ', this.props.currentValues)}
-        </footer>
+          </nav>
+          <main>
+            <h2>Thank You!</h2>
+            <p className="byebye">Your order will be delivered {this.props.currentDeliveryDate}.</p>
+            {formButton}
+          </main>
+          <section>
 
-      </div>
-          
-      
-      
+          </section>
+          <footer role="contentinfo">
+          {console.log('this.props.currentValues: ', this.props.currentValues)}
+          </footer>
 
-      : ""  }
-      { this.props.currentFormSection === "confirm" ?   
-      <div className="confirm">
-        <nav role="menu">
+        </div>
+            
+        
+        
 
-        </nav>
-        <main>
-          <h2>Thank You!</h2>
-          <p className="byebye">Your order will be delivered {this.props.currentDeliveryDate}.</p>
-          {formButton}
-        </main>
-        <section>
-
-        </section>
-        <footer role="contentinfo">
-        {console.log('this.props.currentValues: ', this.props.currentValues)}
-        </footer>
-
-      </div>
-          
-      
-      
-
-      : ""  }
+        : ""  }
       </form> 
+      </main>
       </div>
     )
   }
@@ -546,7 +573,7 @@ const mapStateToProps = state => {
   currentFrequency: state.subscription.currentFrequency,
   currentDuration: state.subscription.currentDuration,
   currentValues: values,
-  currentDeliveryDate: state.subscription.currentDeliveryDate
+  currentDeliveryDate: state.subscription.currentDeliveryDate.substring(0, 10)
   //duration: selector(state.SubscriptionAddForm.duration, 'duration'),
   //choice: selector(state.SubscriptionAddForm.choice, 'choice')
 })}

@@ -1,63 +1,189 @@
+body {
+  /*padding:0 20px;*/
+  background: #e8e9ed url(../images/backgroundLilies.jpg);
+  background-position: calc(50% - 0px) calc(0% - 0px); 
+  background-repeat: no-repeat;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 100%;
+   font-size: 16px;
+   font-size: 1em;
+ 
+  
+}
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  /*padding:0 20px;*/
-  background: #fafafa url(../images/_DSC9784.jpg);
-  background-position: calc(-0% - 30px) calc(0% - 0px); 
-  background-repeat: no-repeat;
-  font-family: 'Oxygen', sans-serif;
-}
 #root {
-  margin:20px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 96%; /* Holding outermost DIV */
+}
+
+#header {
+  margin-right: 1.0416667%;
+  margin-left: 1.0416667%;
+  width: 97.9166667%; /* 940 divided by 960 */
+}
+#navigation {
+  padding-bottom: 25px;
+  margin-top: 26px;
+  margin-left: -1.0416667%;
+  padding-right: 1.0416667%;
+  padding-left: 1.0416667%;
+  width: 97.9166667%; /* 940 divided by 960 */
+}
+#navigation ul li {
+  display: inline-block;
+}
+#content {
+  margin-top: 58px;
+  margin-right: 1.0416667%;
+  float: right;
+  width: 72.7083333%;
+}
+ 
+#footer {
+  float: left;
+  margin-top: 2.833333px;
+  margin-right: 1.0416667%;
+  margin-left: 1.0416667%;
+  clear: both;
+  width: 97.9166667%; /* 940 divided by 960 */
+}
+
+.span11 {
+  width: 68.75%;
+}
+.span10 {
+  width: 62.5%;
+}
+.span9 {
+  width: 56.25%;
+}
+.span8 {
+  width: 50%;
+}
+.span7 {
+  width: 420px;
+}
+.span6 {
+  width: 43.75%;
+}
+.span5 {
+  width: 31.25%;
+}
+.span4 {
+  width: 25%;
+}
+.span3 {
+  width: 18.75%;
+}
+.span2 {
+  width: 12.5%;
+}
+.span1 {
+  width: 6.25%;
+}
+
+h1 {
+  font-size:3vw;
+}
+
+h2 {
+  font-size:2.5vw;
+}
+
+h3 {
+  font-size:2vw;
+}
+
+h4{
+  font-size:1.75vw; 
+}
+
+h5 {
+  font-size:1.5vw;
+}
+
+h6 {
+  font-size:1vw;
+}
+
+form {
+  /* background-color:rgba(255, 0, 0, 0.15);*/
+   padding:1.0416667% 20px;
+ }
+
+ul {
+  padding:0;
 }
 label {
-  margin-left:10px;
+  margin-left:1.0416667%;
 }
 li  {
   list-style-type: none;
 }
-h4{
-
-  padding:0;
-  
-}
-ul {
-  padding:0;
-}
-h5 {
-
-  margin-bottom:5px;
+ label.receiverMsg  {
+   font-weight: bold;
+ }
+ li.arrangement3 {
+  color:#000000;
+  font-weight:bold;
+  height:180px;
 
 }
-.arrangement {
-  height:85px;
+li.arrangement2 {
 
+  color:#000000;
+  font-weight:bold;
+  height:140px;
 }
-.thumbnail {
-  width:85px;
-  float:left;
+li.arrangement1 {
+  margin-top:0px;
+  color:#000000;
+  font-weight:bold;
+  height:160px;
+}
+
+ label.frequency , label.duration {
+  font-weight:bold;
+ }
+ 
+ .thumb > img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
 }
 
 .thumb  {
-height:85px;
-width:120px;
-float:left;
-clear:none;
-
+  display:inline-block;
+  float:left;
 }
-
-.flowerChoice{  
-float:left;
+p.arrangementName {
+  width:100%;
+  padding:0;
 }
-
+.flowerChoice {  
+display:inline-block;
+}
+.selectArr {
+  display:inline-block;
+}
+.arrangement1 .selectArr {
+  display:inline-block;
+  
+}
+.productName {
+  margin-top:0px;
+}
 .business, .residential {
   display: inline-block;
   height:60px;
 }
 .residential input {
-  margin-left:55px;
+  margin-left:5.729%;
 }
 .business input {
   margin-left:0px;
@@ -66,26 +192,16 @@ float:left;
   text-align:center;
 }
 #deliveryType {
-  width:13px;
+  width:1.3541667%;
   margin: 0 auto;
-}
-form {
- /* background-color:rgba(255, 0, 0, 0.15);*/
-  padding:10px 20px;
-}
-label.receiverMsg  {
-  font-weight: bold;
 }
 .business p {
   font-weight:bold;
   margin-left:60px;
 }
-label.frequency , label.duration {
-  font-weight:bold;
 
-}
-.frequency input, .duration input, .flowerChoice input {
-  float: left;
+.frequency input, .duration input, {
+  display:inline-block;
 }
 
 .senderInfo {
@@ -94,50 +210,132 @@ label.frequency , label.duration {
 .frequency button, .duration button { 
   margin-top:5px;
 }
+.thumbnail{
+  /**/
+}
+
 .jump {
   margin-top:35px;
   background-color:green;
   color:white;
-  padding:7px 10px;
+  padding:7px 1.0416667%;
   font-weight:bold;
 }
 .arrangeButton {
-  /*
-  background-color:hotpink;  */
-  color: black;
+  
+  background-color:green;  
+  color: #fafafa;
   font-weight:bold;
+  padding: 1.0416667%;
+  margin-top: 0px;
   padding:7px 10px;
-  margin:5px;
+  width: 100px;
 }
 .arrangementName {
-  margin-left: 5px;
+  margin-top: - .520833%;
   font-weight:bold;
   color:#333;
-  font-size: 1.4em;
- /* text-shadow: 1.25px 1.0px #000000; */
+  font-size: 1.4vw;
 }
-li.arrangement {
-  margin-top:20px;
 
-}
-li.arrangement {
 
-  color:#000000;
-  font-weight:bold;
-}
-h3.arrangementName {
-  margin: 3px;
-}
 .recipientFormFields, .scheduleFormFields, .senderInfo {
   float:left;
   margin-right:20px;
 }
- .formButton {
-  float:left;
+
+.recipientFormFields {
+  /*background-color:rgba(255, 255, 255, 0.75);*/
+  
 }
-.productSummary {
+
+/*.productSummary, .scheduleBlock {
+
   width:350px;
-  padding:10px;
- background-color:rgba(255, 255, 255, 0.5);
+  padding:1.0416667%;
+ background-color:rgba(255, 255, 255, 0.75);
  border-radius:7px;
+ font-size:.8em;
+}
+*/
+
+/*
+.arrangements { 
+  background: rgba(232, 233, 237, 0.75);
+  border: .5px solid #ccc;
+ 
+  border-radius:7px;
+  width:28%;
+  height:66%;
+}
+*/
+/*
+div.recipientFormFields, .sender {
+  background: rgba(232, 233, 237, 0.75);
+  border: .5px solid #ccc;
+  padding: 1.0416667%;
+  border-radius:7px;
+  width:15%;
+  height:300px;
+}
+*/
+
+.orderSummary {
+  background: rgba(232, 233, 237, 0.75);
+  padding: 1.0416667%;
+  border-radius:7px;
+  width:50%
+}
+@media only screen and (max-width: 1366px) {
+  .arrangementName {
+    font-size: 2vw;  
+  }
+  h4 {
+    font-size:2.75vw;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .arrangementName {
+    font-size: 2vw;  
+  }
+  h4 {
+    font-size:3vw;
+  }
+  h1 {
+    font-size:4vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .arrangementName {
+    font-size: 2.5vw;  
+  }
+  h1 {
+    font-size:5vw;
+  }
+  h4 {
+    font-size:4vw;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .arrangementName {
+    font-size: 3vw;  
+  }
+  h1 {
+    font-size:5vw;
+  }
+  h4 {
+    font-size:4vw;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .arrangementName {
+    font-size: 3.25vw;    
+  }
+  h1 {
+    font-size:5vw;
+  }
+  h4 {
+    font-size:4vw;
+  }
 }
