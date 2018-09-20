@@ -236,7 +236,7 @@ export class SubscriptionAddForm extends React.Component {
     return (
       <div>
         <header role="heading">
-          <h1>FLOWER SUBSCRIPTION SERVICE</h1>
+          <h1>BLOOMS SUBSCRIPTIONS</h1>
         </header>
         <main role="main">
           <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
@@ -299,7 +299,7 @@ export class SubscriptionAddForm extends React.Component {
             </li>
             <li>
             <h4>PLEASE ENTER RECIPIENT INFO</h4>
-              <div className="form-input recipientFormFields">
+              <div className="form-input recipientFormFields part1">
               
                 <label htmlFor="recipientFirstName" className="recipientFirstName">
                   <Field
@@ -342,7 +342,7 @@ export class SubscriptionAddForm extends React.Component {
                   />
                 </label>                                    
               </div> 
-              <div className="form-input recipientFormFields">
+              <div className="form-input recipientFormFields part2">
                 <label htmlFor="recipientCity" className="recipientCity">                            
                   <Field
                     name="recipientCity"
@@ -391,7 +391,7 @@ export class SubscriptionAddForm extends React.Component {
               </ul>
             </li>
             <li>
-              <div className="formButton">
+              <div className="formButton recipientData">
               {formButton}
               </div>
             </li>
@@ -439,6 +439,15 @@ export class SubscriptionAddForm extends React.Component {
               </div>
               <div class="formbutton">
                 {formButton}
+              </div>
+            </li>
+              <li>           
+              <div className="productSummary">
+              <h4>Order Summary</h4>
+                <p className="recipient productName">PRODUCT: {thisProduct(this.props.currentProductCode)}</p>
+                <p className="recipient productPrice">PRICE: {thisPrice(this.props.currentProductCode)}</p>
+                <p className="recipient productPrice">DELIVERY CHARGE: TBD</p>
+                
               </div>
             </li>
           </ul>  
