@@ -440,7 +440,7 @@ div.recipientFormFields, .sender {
   .arrangements {
     height:800px;
     padding:1% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.5);
+   background-color:rgba(255, 255, 255, 0.33);
    border-radius:7px;
   }
   .productSummary {
@@ -482,7 +482,7 @@ div.recipientFormFields, .sender {
 
     height:860px;
     padding:2% 0% 5% 5%;
-   background-color:rgba(255, 255, 255, 0.5);
+   background-color:rgba(255, 255, 255, 0.33);
    border-radius:7px;
   }
   .productSummary {
@@ -523,7 +523,7 @@ div.recipientFormFields, .sender {
   .arrangements {
     height:840px;
     padding:2% 0% 5% 5%;
-    background-color:rgba(255, 255, 255, 0.75);
+    background-color:rgba(255, 255, 255, 0.33);
     border-radius:7px;
   }
   .productSummary {
@@ -565,7 +565,7 @@ div.recipientFormFields, .sender {
     .arrangements {
     height:840px;
     padding:2% 0% 5% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
+   background-color:rgba(255, 255, 255, 0.33);
    border-radius:7px;
   }
   .productSummary {
@@ -607,7 +607,7 @@ div.recipientFormFields, .sender {
 
     height:790px;
     padding:2% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
+   background-color:rgba(255, 255, 255, 0.33);
    border-radius:7px;
   }
   .productSummary {
@@ -646,7 +646,7 @@ div.recipientFormFields, .sender {
 
     height:780px;
     padding:2% 5% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
+   background-color:rgba(255, 255, 255, 0.50);
    border-radius:7px;
   }
   .productSummary {
@@ -713,7 +713,7 @@ div.recipientFormFields, .sender {
   ul.arrangements {
     height:700px;
     padding:5% 10%;
-   background-color:rgba(255, 255, 255, 0.75);
+   background-color:rgba(255, 255, 255, 0.50);
    border-radius:7px;
   }
   .productSummary {
