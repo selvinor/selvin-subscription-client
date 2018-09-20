@@ -200,6 +200,7 @@ display:inline-block;
 
 .senderInfo {
   margin-top: 15px;
+  display:inline-block;
 }
 .frequency button, .duration button { 
   margin-top:5px;
@@ -233,7 +234,7 @@ display:inline-block;
 }
 
 
-.scheduleFormFields, .senderInfo {
+.scheduleFormFields {
   float:left;
   margin-right:20px;
   width:100%;
@@ -245,37 +246,6 @@ display:inline-block;
   /*background-color:rgba(255, 255, 255, 0.75);*/
   
 }
-
-/*.productSummary, .scheduleBlock {
-
-  width:350px;
-  padding:1.0416667%;
- background-color:rgba(255, 255, 255, 0.75);
- border-radius:7px;
- font-size:.8em;
-}
-*/
-
-/*
-.arrangements { 
-  background: rgba(232, 233, 237, 0.75);
-  border: .5px solid #ccc;
- 
-  border-radius:7px;
-  width:28%;
-  height:66%;
-}
-*/
-/*
-div.recipientFormFields, .sender {
-  background: rgba(232, 233, 237, 0.75);
-  border: .5px solid #ccc;
-  padding: 1.0416667%;
-  border-radius:7px;
-  width:15%;
-  height:300px;
-}
-*/
 .productSummary {
   width:100%;
 }
@@ -315,6 +285,16 @@ div.recipientFormFields, .sender {
   h6 {
     font-size:1vw;
   }
+  p{
+    font-size:1.1vw;
+  }
+  .arrangements {
+
+    height:840px;
+    padding:1% 0% 0% 5%;
+   background-color:rgba(255, 255, 255, 0.33);
+   border-radius:7px;
+  }
 }
 .productSummary {
   width:100%;
@@ -328,7 +308,7 @@ div.recipientFormFields, .sender {
   .part2{
     width:75%;
   }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1280px) {
   .arrangementName {
     font-size: 2vw;  
   }
@@ -357,7 +337,7 @@ div.recipientFormFields, .sender {
 
     height:840px;
     padding:1% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.33);
+   background-color:rgba(255, 255, 255, 0.67);
    border-radius:7px;
   }
   .productSummary {
@@ -399,7 +379,7 @@ div.recipientFormFields, .sender {
 
     height:840px;
     padding:1% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.33);
+   background-color:rgba(255, 255, 255, 0.67);
    border-radius:7px;
   }
   .productSummary {
@@ -440,7 +420,7 @@ div.recipientFormFields, .sender {
   .arrangements {
     height:800px;
     padding:1% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.33);
+   background-color:rgba(255, 255, 255, 0.75);
    border-radius:7px;
   }
   .productSummary {
@@ -482,11 +462,15 @@ div.recipientFormFields, .sender {
 
     height:860px;
     padding:2% 0% 5% 5%;
-   background-color:rgba(255, 255, 255, 0.33);
+   background-color:rgba(255, 255, 255, 0.75);
    border-radius:7px;
   }
   .productSummary {
     width:100%;
+  }
+  .orderSummary {
+    width:100%;
+    float:left;
   }
   .part1{
     width:30%;
@@ -523,7 +507,7 @@ div.recipientFormFields, .sender {
   .arrangements {
     height:840px;
     padding:2% 0% 5% 5%;
-    background-color:rgba(255, 255, 255, 0.33);
+    background-color:rgba(255, 255, 255, 0.75);
     border-radius:7px;
   }
   .productSummary {
@@ -534,6 +518,10 @@ div.recipientFormFields, .sender {
   }
   .part2{
     width:50%;
+  }
+  .orderSummary {
+    width:40%;
+float:left;
   }
 }
 
@@ -565,17 +553,21 @@ div.recipientFormFields, .sender {
     .arrangements {
     height:840px;
     padding:2% 0% 5% 5%;
-   background-color:rgba(255, 255, 255, 0.33);
+   background-color:rgba(255, 255, 255, 0.75);
    border-radius:7px;
   }
   .productSummary {
     width:100%;
   }
-  .part1{
+  .senderInfo{
     width:40%;
   }
   .part2{
     width:50%;
+  }
+  .orderSummary {
+    width:100%;
+
   }
 }
 @media only screen and (max-width: 480px) {
@@ -607,13 +599,20 @@ div.recipientFormFields, .sender {
 
     height:790px;
     padding:2% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.33);
+   background-color:rgba(255, 255, 255, 0.75);
    border-radius:7px;
   }
   .productSummary {
     width:100%;
   }
+  .orderSummary {
+    width:100%;
+  }
   .recipientFormFields{
+    width:100%;
+  }
+  .senderInfo {
+    float:left;
     width:100%;
   }
 }
@@ -646,13 +645,20 @@ div.recipientFormFields, .sender {
 
     height:780px;
     padding:2% 5% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.50);
+   background-color:rgba(255, 255, 255, 0.75);
    border-radius:7px;
   }
   .productSummary {
     width:100%;
   }
+  .orderSummary {
+    width:100%;
+  }
   .recipientFormFields{
+    width:100%;
+  }
+  .senderInfo {
+
     width:100%;
   }
 }
@@ -676,7 +682,7 @@ div.recipientFormFields, .sender {
 
     height:720px;
     padding:1% 10% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.5);
+   background-color:rgba(255, 255, 255, 0.75);
    border-radius:7px;
   }
   div.formButton{
@@ -686,9 +692,17 @@ div.recipientFormFields, .sender {
   .productSummary {
     width:100%;
   }
+  .orderSummary {
+    width:100%;
+  }
   .recipientFormFields{
     width:100%;
   }
+  .senderInfo {
+
+    width:100%;
+  }
+
 }
 @media only screen and (max-width: 320px) {
   .arrangementName {
@@ -713,13 +727,20 @@ div.recipientFormFields, .sender {
   ul.arrangements {
     height:700px;
     padding:5% 10%;
-   background-color:rgba(255, 255, 255, 0.50);
+   background-color:rgba(255, 255, 255, 0.75);
    border-radius:7px;
   }
   .productSummary {
     width:100%;
   }
+  .orderSummary {
+    width:100%;
+  }
   .recipientFormFields{
+    width:100%;
+  }
+  .senderInfo {
+
     width:100%;
   }
 }

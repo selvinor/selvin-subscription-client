@@ -375,14 +375,14 @@ export class SubscriptionAddForm extends React.Component {
                     placeholder="CELL PHONE"
                   />
                 </label>             
-                <label htmlFor="recipientMessage" className="recipientMessage">                           
+                <label htmlFor="recipientMessage" className="recipientMessage">WRITE A MESSAGE                           
                   <Field
                     name="recipientMessage"
                     type="textarea"
                     rows="4" 
                     cols="50"
                     component={Input}
-                    placeholder="GIFT MESSAGE"
+                    placeholder="Why are you sending?"
                   />
                 </label>     
               </div>
@@ -402,7 +402,7 @@ export class SubscriptionAddForm extends React.Component {
             <ul>
               <li>
               <h3>PLEASE ENTER SENDER INFORMATION</h3>
-              <div className="senderInfo">
+              <div className="senderInfo part1">
                 <label htmlFor="senderEmail" className="senderEmail"/>                     
                   <Field
                     name="senderEmail"
@@ -437,17 +437,21 @@ export class SubscriptionAddForm extends React.Component {
                     placeholder="PHONE"  
                   />                                      
               </div>
-              <div class="formbutton">
-                {formButton}
-              </div>
+
             </li>
-              <li>           
-              <div className="productSummary">
+            <li>           
+              <div className="orderSummary">
               <h4>Order Summary</h4>
                 <p className="recipient productName">PRODUCT: {thisProduct(this.props.currentProductCode)}</p>
                 <p className="recipient productPrice">PRICE: {thisPrice(this.props.currentProductCode)}</p>
                 <p className="recipient productPrice">DELIVERY CHARGE: TBD</p>
                 
+              </div>
+            </li>
+
+            <li>
+            <div class="formbutton">
+                {formButton}
               </div>
             </li>
           </ul>  
@@ -488,7 +492,7 @@ export class SubscriptionAddForm extends React.Component {
                       </Field>
                     </li>
                     <li className="datePicking">
-                <h3>Choose Delivery Start Date</h3>
+                <h2>Choose Delivery Start Date</h2>
                 <Field
                   name="startDate"
                   type="date"
