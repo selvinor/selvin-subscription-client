@@ -1,4 +1,5 @@
-//import {applyMiddleware as dispatch} from "redux";
+import REACT_APP_BASE_URL from '../config';
+
 export const SUBSCRIPTIONS_HAS_ERRORED = 'SUBSCRIPTIONS_HAS_ERRORED';
 export const subscriptionsHasErrored = (hasErrored) => ({
     type: SUBSCRIPTIONS_HAS_ERRORED,
@@ -57,7 +58,7 @@ export const setDeliveryDate = (deliveryDate) => ({
 });
 
 export const fetchSubscriptions = () => dispatch => {
-  fetch(`http://localhost:8080/api/subscriptions`)
+  fetch(`${REACT_APP_BASE_URL}/api/subscriptions`)
   .then(res => {
       if (!res.ok) {
           return Promise.reject(res.statusText);
@@ -69,7 +70,7 @@ export const fetchSubscriptions = () => dispatch => {
 };
 
 export const addSubscription = () => dispatch => {
-  fetch(`http://localhost:8080/api/subscriptions`)
+  fetch(`${REACT_APP_BASE_URL}/api/subscriptions`)
   .then(res => {
       if (!res.ok) {
           return Promise.reject(res.statusText);
