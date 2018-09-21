@@ -279,6 +279,10 @@ display:inline-block;
   width:100%;
 
 }
+.recipientForm h4 {
+  padding:0;
+  margin:0;
+}
 .orderSummary {
   background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -404,6 +408,9 @@ li.arrangement1 {
   }
   .orderSummary {
   width:19%;
+  }
+  .orderSummary .productName {
+    margin-top: 5px;
   }
   li.arrangement2 {
     margin-top:70px;
