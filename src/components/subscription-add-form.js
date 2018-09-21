@@ -237,7 +237,7 @@ export class SubscriptionAddForm extends React.Component {
                 <p>Blooms provides an easy way to brighten up and beautify your home or office on a regular basis.</p>
                 <p>We will deliver beautiful, fresh, custom flower arrangements straight to your home or office on a regular schedule!</p>
                 <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
-                <p>Click the button, and we'll get you set up right away!</p>
+                <p>Click the button, and we'll get you set up right away!!</p>
               </section>
               <section>
                 <div className="entry">{formButton}</div>
@@ -248,7 +248,7 @@ export class SubscriptionAddForm extends React.Component {
             { this.props.currentFormSection === "arrangement" ?             
             <ul className="arrangements">
               <li>
-                <h4>CHOOSE THE ARRANGEMENT TYPE</h4>
+                <h4>CHOOSE THE ARRANGEMENT TYPE!</h4>
               </li>
               <li className="arrangement3">         
                 <div className="thumb">
