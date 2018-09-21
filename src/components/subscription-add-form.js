@@ -526,10 +526,13 @@ export class SubscriptionAddForm extends React.Component {
                 <h4>ORDER SUMMARY</h4>
               </header>
               <section>
+              <div className="checkoutSum">
+
+              
                 <header>
                     <h5>SENDER INFO</h5>
                 </header>
-                <div className="orderSummary left span6">
+                <div className="checkout left span6">
                   <p className="sender name">NAME: {theForm.senderFirstName} {theForm.senderLastName}</p>
                   <p className="sender email">EMAIL: {theForm.senderEmail}</p>
                   <p className="sender phone">PHONE: {theForm.senderPhone}</p>
@@ -539,12 +542,11 @@ export class SubscriptionAddForm extends React.Component {
                   <p className="recipient productPrice">DELIVERY: ${20}</p>
                   <p className="recipient productPrice">TOTAL: ${+20 + +thisPrice(this.props.currentProductCode)}</p>
                 </div>
-              </section>
-              <section>
+
                 <header>
                   <h5>RECIPIENT INFO</h5>
                 </header>
-                <div className="orderSummary right span6">
+                <div className="checkout right span6">
                   <p className="recipient name">NAME: {theForm.recipientFirstName} {theForm.recipientLastName}</p>
                   <p className="recipient company">COMPANY: {theForm.recipientCompany} {theForm.recipientCompany}</p>
                   <p className="recipient phone">PHONE: {theForm.recipientPhone}</p>
@@ -552,6 +554,7 @@ export class SubscriptionAddForm extends React.Component {
                   <p className="recipient aptSuite">APT/SUITE: {theForm.recipientAptSuite}</p>
                   <p className="recipient cityStateZip">CITY, STATE, ZIPCODE: {theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
                   <p className="recipient message">GIFT MESSAGE: {theForm.recipientMessage}</p>
+                </div>
                 </div>
                 <div>{formButton}</div>
               </section>        

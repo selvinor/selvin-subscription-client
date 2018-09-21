@@ -271,8 +271,9 @@ display:inline-block;
 .orderSummary {
 
   width:100%;
-  display:inline-block;
+  display:inline-block; 
 }
+
 .senderOrderSum{
   font-size:2vw;
 }
@@ -298,12 +299,20 @@ li.arrangement1 {
   margin-top:50px;
 }
 .recipientFormFields1{
-  width:18%;
+  width:18%; 
 }
 .productPrice {
   text-align:right;
 }
-
+.checkout { 
+  width:25%;
+  
+}
+.checkoutSum{
+  background: rgba(232, 233, 237, 0.75);
+  padding: 1.0416667%;
+  border-radius:0.72916667%; 
+}
 .senderHeader {
   font-size:1.7vw;
   width:100%;
@@ -528,6 +537,10 @@ li.arrangement1 {
     font-size:2.5vw;
     width:100%;
   }
+  .checkout { 
+    width:35%;
+    
+  }
 }
 @media only screen and (max-width: 680px) {
   .arrangementName {
@@ -565,7 +578,7 @@ li.arrangement1 {
     width:100%;
   }
   .orderSummary {
-    width:100%;
+    width:50%;
     display:inline-block;
   }
   .recipientFormFields1{
@@ -580,6 +593,10 @@ li.arrangement1 {
   .senderHeader {
     font-size:2.5vw;
     width:100%;
+  }
+  .checkout { 
+    width:50%;
+    
   }
 
 }
@@ -638,6 +655,10 @@ li.arrangement1 {
   .senderHeader {
     font-size:2.5vw;
     width:100%;
+  }
+  .checkout { 
+    width:60%;
+    
   }
 }
 @media only screen and (max-width: 640px) {
@@ -699,6 +720,12 @@ li.arrangement1 {
   .senderHeader {
     font-size:2vw;
     width:100%;
+  }
+  .checkoutSum { 
+    width:65%;
+    padding:2% 0% 5% 5%;
+    background-color:rgba(255, 255, 255, 0.75);
+    border-radius:0.72916667%;
   }
 }
 
