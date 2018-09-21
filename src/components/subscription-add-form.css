@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   /*padding:0 20px;*/
   background: #e8e9ed url(../images/backgroundLilies.jpg);
@@ -8,12 +12,12 @@ body {
    font-size: 16px;
    font-size: 1em;
  
-  
+}
+div, span, p {
+	margin: 0;
+	padding: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 #root {
   margin-right: auto;
@@ -88,17 +92,17 @@ body {
 }
 
 h1 {
-  font-size:2.75vw;
+  font-size:2.5vw;
 }
 h2 {
-  font-size:2.5vw;
+  font-size:2.3vw;
 }
 h3 {
   font-size:2vw;
 }
 
 h4 {
-  font-size:1.5vw;
+  font-size:1.3vw;
 }
 h5 {
   font-size:1.2vw;
@@ -131,13 +135,13 @@ li  {
 
 }
 li.arrangement2 {
-
+  margin-top:40px;
   color:#000000;
   font-weight:bold;
   height:140px;
 }
 li.arrangement1 {
-  margin-top:0px;
+  margin-top:15px;
   color:#000000;
   font-weight:bold;
   height:160px;
@@ -146,7 +150,14 @@ li.arrangement1 {
  label.frequency , label.duration {
   font-weight:bold;
  }
- 
+ button {
+   border:none;   
+
+ }
+ button:hover {
+  cursor: pointer;
+ }
+
  .thumb > img {
   object-fit: cover;
   width: 100%;
@@ -155,7 +166,6 @@ li.arrangement1 {
 
 .thumb  {
   display:inline-block;
-  float:left;
 }
 p.arrangementName {
   width:100%;
@@ -174,7 +184,7 @@ display:inline-block;
 }
 .business, .residential {
   display: inline-block;
-  height:60px;
+  height:6.25%;
 }
 .residential input {
   margin-left:5.729%;
@@ -191,7 +201,7 @@ display:inline-block;
 }
 .business p {
   font-weight:bold;
-  margin-left:60px;
+  margin-left:6.25%;
 }
 
 .frequency input, .duration input, {
@@ -199,11 +209,12 @@ display:inline-block;
 }
 
 .senderInfo {
-  margin-top: 15px;
+  margin-top: 1.5625%;
   display:inline-block;
+  width:100%;
 }
 .frequency button, .duration button { 
-  margin-top:5px;
+  margin-top:1.0416667%;
 }
 .thumbnail{
   /**/
@@ -213,7 +224,7 @@ display:inline-block;
   margin-top:35px;
   background-color:green;
   color:white;
-  padding:7px 1.0416667%;
+  padding:0.72916667% 1.0416667%;
   font-weight:bold;
 }
 .arrangeButton {
@@ -222,8 +233,8 @@ display:inline-block;
   color: #fafafa;
   font-weight:bold;
   padding: 1.0416667%;
-  margin-top: 0px;
-  padding:7px 10px;
+  margin-top: 1.0416667%;
+  padding:0.72916667% 1.0416667%;
   width: 100px;
 }
 .arrangementName {
@@ -234,40 +245,77 @@ display:inline-block;
 }
 
 
-.scheduleFormFields {
-  float:left;
-  margin-right:20px;
-  width:100%;
-}
 
-.recipientFormFields, .productSummary {
-  float:left;
-  margin-right:20px;
-  /*background-color:rgba(255, 255, 255, 0.75);*/
-  
-}
-.productSummary {
+.orderSummary {
   width:100%;
+  display:inline-block;
+  margin-right:2.08333333%;
 }
-.part1{
-  width:15%;
+.recipientFormFields1{
+  width:100%;
+  background: rgba(232, 233, 237, 0.50);
+  padding: 1.0416667%;
+  border-radius:0.72916667%;
 }
-.part2{
-  width:84%;
+.recipientFormFields2{
+  width:100%;
+
 }
 .orderSummary {
   background: rgba(232, 233, 237, 0.75);
   padding: 1.0416667%;
-  border-radius:7px;
-  width:50%
+  border-radius:0.72916667%;
+  width:20%;
+  display:inline-block;
 }
+.orderSummary {
+
+  width:100%;
+  display:inline-block;
+}
+.senderOrderSum{
+  font-size:2vw;
+}
+.confirm h2 {
+  font-size:1.2vw;
+}
+.confirm p {
+  font-size:1vw;
+} 
+.senderHeader {
+  font-size:1vw;
+  width:100%;
+}
+.senderData {
+  background: rgba(232, 233, 237, 0.75);
+  padding: 1.0416667%;
+  border-radius:0.72916667%; 
+}
+li.arrangement2 {
+  margin-top:80px;
+}
+li.arrangement1 {
+  margin-top:50px;
+}
+.recipientFormFields1{
+  width:18%;
+}
+.productPrice {
+  text-align:right;
+}
+
+.senderHeader {
+  font-size:1.7vw;
+  width:100%;
+}
+
 @media only screen and (max-width: 1366px) {
 
   .arrangementName {
     font-size: 1.5vw;  
   }
   h1 {
-    font-size:3vw;
+    font-size:vw;
   }
   h2 {
     font-size:2.5vw;
@@ -293,21 +341,38 @@ display:inline-block;
     height:840px;
     padding:1% 0% 0% 5%;
    background-color:rgba(255, 255, 255, 0.33);
-   border-radius:7px;
+   border-radius:0.72916667%;
   }
-}
-.productSummary {
-  width:100%;
-}
-  .productSummary {
-    width:100%;
-  }
-  .part1{
+
+  .recipientFormFields1{
     width:20%;
   }
-  .part2{
-    width:75%;
+  .confirm h1 {
+    font-size:2.2vw;
   }
+  .confirm h2 {
+    font-size:1.5vw;
+  }
+  .confirm p {
+    font-size:1.3vw;
+  } 
+  .senderData{
+  background: rgba(232, 233, 237, 0.75);
+  padding: 1.0416667%;
+  border-radius:0.72916667%;
+
+  }
+  .orderSummary {
+  width:45%;
+  }
+  li.arrangement2 {
+    margin-top:70px;
+  }
+  .senderHeader {
+    font-size:1.5vw;
+    width:100%;
+  }
+}
 @media only screen and (max-width: 1280px) {
   .arrangementName {
     font-size: 2vw;  
@@ -330,24 +395,38 @@ display:inline-block;
   h6 {
     font-size:2vw;
   }
-  p{
-    font-size:1.3vw;
+  .confirm h2 {
+    font-size:1.6vw;
   }
+  .confirm p {
+    font-size:1.4vw;
+  }
+  .recipientFormFields1{
+    width:22%;
+  }  
   .arrangements {
 
     height:840px;
     padding:1% 0% 0% 5%;
    background-color:rgba(255, 255, 255, 0.67);
-   border-radius:7px;
+   border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
   }
-  .part1{
 
+  .confirm h2 {
+    font-size:1.7vw;
   }
-  .part2{
-    width:100%%;
+  .confirm p {
+    font-size:1.5vw;
+  } 
+  li.arrangement2 {
+    margin-top:60px; 
+  } 
+  .senderHeader {
+    font-size:2vw;
+    width:100%;
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -355,10 +434,10 @@ display:inline-block;
     font-size: 2vw;  
   }
   h1 {
-    font-size:vw;
+    font-size:3.5vw;
   }
   h2 {
-    font-size:3.5vw;
+    font-size:3.3vw;
   }
   h3 {
     font-size:3.2vw;
@@ -370,26 +449,36 @@ display:inline-block;
     font-size:2.25vw;
   }  
   h6 {
-    font-size:2vw;
+    font-size:1.8vw;
   }
   p{
-    font-size:1.3vw;
+    font-size:1vw;
   }
   .arrangements {
 
     height:840px;
     padding:1% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.67);
-   border-radius:7px;
+    background-color:rgba(255, 255, 255, 0.67);
+    border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
   }
-  .part1{
+  .recipientFormFields1{
     width:30%;
   }
-  .part2{
-    width:60%;
+  .confirm h2 {
+    font-size:1.7vw;
+  }
+  .confirm p {
+    font-size:1.7vw;
+  } 
+  li.arrangement2 {
+    margin-top:50px; 
+  }
+  .senderHeader {
+    font-size:2vw;
+    width:100%;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -421,16 +510,23 @@ display:inline-block;
     height:800px;
     padding:1% 0% 0% 5%;
    background-color:rgba(255, 255, 255, 0.75);
-   border-radius:7px;
+   border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
   }
-  .part1{
-    width:30%;
+  .recipientFormFields1{
+    width:32%;
   }
-  .part2{
-    width:60%;
+  .confirm h2 {
+    font-size:2.2vw;
+  }
+  .confirm p {
+    font-size:1.8vw;
+  }  
+  .senderHeader {
+    font-size:2.5vw;
+    width:100%;
   }
 }
 @media only screen and (max-width: 680px) {
@@ -438,7 +534,7 @@ display:inline-block;
     font-size: 3vw;  
   }
   h1 {
-    font-size:5vw;
+    font-size:4.5vw;
   }
   h2 {
     font-size:4vw;
@@ -463,28 +559,36 @@ display:inline-block;
     height:860px;
     padding:2% 0% 5% 5%;
    background-color:rgba(255, 255, 255, 0.75);
-   border-radius:7px;
+   border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
   }
   .orderSummary {
     width:100%;
-    float:left;
+    display:inline-block;
   }
-  .part1{
-    width:30%;
+  .recipientFormFields1{
+    width:35%;
   }
-  .part2{
-    width:60%;
+  .confirm h2 {
+    font-size:2.4vw;
   }
+  .confirm p {
+    font-size:2.1vw;
+  }  
+  .senderHeader {
+    font-size:2.5vw;
+    width:100%;
+  }
+
 }
 @media only screen and (max-width: 680px) {
   .arrangementName {
     font-size: 3vw;  
   }
   h1 {
-    font-size:5vw;
+    font-size:4.2vw;
   }
   h2 {
     font-size:4vw;
@@ -508,20 +612,93 @@ display:inline-block;
     height:840px;
     padding:2% 0% 5% 5%;
     background-color:rgba(255, 255, 255, 0.75);
-    border-radius:7px;
+    border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
   }
-  .part1{
-    width:40%;
-  }
-  .part2{
-    width:50%;
+  .recipientFormFields1{
+    width:35%;
   }
   .orderSummary {
     width:40%;
-float:left;
+    display:inline-block;
+  }
+  .confirm h2 {
+    font-size: 2vw;
+  }
+  .confirm p {
+    font-size: 2vw;
+
+  }
+  .senderInfo {
+    display:inline-block;
+    width:100%;
+  }
+  .senderHeader {
+    font-size:2.5vw;
+    width:100%;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .arrangementName {
+    font-size: 3vw;  
+  }
+  h1 {
+    font-size:4.5vw;
+  }
+  h2 {
+    font-size:4vw;
+  }
+  h3 {
+    font-size:3.75vw;
+  }
+  h4 {
+    font-size:3vw;
+  }
+  h5 {
+    font-size:2.75vw;
+  }  
+  h6 {
+    font-size:2.5vw;
+  }
+  p{
+    font-size:1.9vw;
+  }    
+  .arrangements {
+    height:840px;
+    padding:2% 0% 5% 5%;
+    background-color:rgba(255, 255, 255, 0.75);
+    border-radius:0.72916667%;
+  }
+  .productSummary {
+    width:100%;
+  }
+  .recipientFormFields1{
+    width:35%;
+  }
+  .orderSummary {
+    width:45%;
+    display:inline-block;
+  }
+  .senderInfo{
+    width:45%;
+    display:inline-block;
+  }
+
+  .confirm h2 {
+    font-size: 2.4vw;
+  }
+  .confirm p {
+    font-size: 2.2vw;
+
+  }
+  .senderOrderSum{
+    font-size: 2vw;
+  }
+  .senderHeader {
+    font-size:2vw;
+    width:100%;
   }
 }
 
@@ -554,21 +731,90 @@ float:left;
     height:840px;
     padding:2% 0% 5% 5%;
    background-color:rgba(255, 255, 255, 0.75);
-   border-radius:7px;
+   border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
   }
   .senderInfo{
-    width:40%;
+    width:100%;
   }
-  .part2{
-    width:50%;
+  .recipientFormFields1{
+    width:40%;
   }
   .orderSummary {
     width:100%;
 
   }
+  .confirm h2 {
+    font-size: 2.7vw;
+  }
+  .confirm p {
+    font-size: 2.4vw;
+
+  }
+
+
+  .senderHeader {
+    font-size:2.2vw;
+    width:100%;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .arrangementName {
+    font-size: 3.5vw;  
+  }
+  h1 {
+    font-size:4.5vw;
+  }
+  h2 {
+    font-size:4vw;
+  }
+  h3 {
+    font-size:3.75vw;
+  }
+  h4 {
+    font-size:3vw;
+  }
+  h5 {
+    font-size:2.75vw;
+  }  
+  h6 {
+    font-size:3vw;
+  }
+  p{
+    font-size:2.2vw;
+  }
+    .arrangements {
+    height:840px;
+    padding:2% 0% 5% 5%;
+   background-color:rgba(255, 255, 255, 0.75);
+   border-radius:0.72916667%;
+  }
+  .productSummary {
+    width:100%;
+  }
+
+  .recipientFormFields1{
+    width:45%;
+  }
+  .orderSummary {
+    width:100%;
+
+  }
+  .confirm h2 {
+    font-size: 2.8vw;
+  }
+  .confirm p {
+    font-size: 2.5vw;
+
+  }
+
+  .senderHeader {
+    font-size:2.3vw;
+    width:100%;
+  }
+
 }
 @media only screen and (max-width: 480px) {
   .arrangementName {
@@ -584,7 +830,7 @@ float:left;
     font-size:3.75vw;
   }
   h4 {
-    font-size:3.5vw;
+    font-size:3vw;
   }
   h5 {
     font-size:3.25vw;
@@ -593,14 +839,14 @@ float:left;
     font-size:3vw;
   }
   p{
-    font-size:2.5vw;
+    font-size:2.6vw;
   }
   ul.arrangements {
 
     height:790px;
     padding:2% 0% 0% 5%;
    background-color:rgba(255, 255, 255, 0.75);
-   border-radius:7px;
+   border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
@@ -608,13 +854,23 @@ float:left;
   .orderSummary {
     width:100%;
   }
-  .recipientFormFields{
+  .recipientFormFields1{
+    width:55%;
+  }
+
+
+  .senderHeader {
+    font-size:2.5vw;
     width:100%;
   }
-  .senderInfo {
-    float:left;
-    width:100%;
+  .confirm h2 {
+    font-size: 3vw;
   }
+  .confirm p {
+    font-size: 2.9vw;
+
+  }
+ 
 }
 @media only screen and (max-width: 396px) {
   .arrangementName {
@@ -646,7 +902,7 @@ float:left;
     height:780px;
     padding:2% 5% 0% 5%;
    background-color:rgba(255, 255, 255, 0.75);
-   border-radius:7px;
+   border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
@@ -654,13 +910,25 @@ float:left;
   .orderSummary {
     width:100%;
   }
-  .recipientFormFields{
-    width:100%;
+  .recipientFormFields1{
+    width:60%;
   }
   .senderInfo {
 
     width:100%;
   }
+  .senderHeader {
+    font-size:2.5vw;
+    width:100%;
+  }
+  .confirm h2 {
+    font-size: 3.2vw;
+  }
+  .confirm p {
+    font-size: 3.2vw;
+
+  }
+
 }
 
 @media only screen and (max-width: 368px) {
@@ -675,7 +943,7 @@ float:left;
   }
   
   h3 {
-    font-size:3vw;
+    font-size:3.2vw;
   }  
   
   ul.arrangements {
@@ -683,7 +951,7 @@ float:left;
     height:720px;
     padding:1% 10% 0% 5%;
    background-color:rgba(255, 255, 255, 0.75);
-   border-radius:7px;
+   border-radius:0.72916667%;
   }
   div.formButton{
     margin-left: 25%;
@@ -695,13 +963,21 @@ float:left;
   .orderSummary {
     width:100%;
   }
-  .recipientFormFields{
-    width:100%;
+  .recipientFormFields1{
+    width:70%;
   }
   .senderInfo {
 
     width:100%;
   }
+  .confirm h2 {
+    font-size: 3.5vw;
+  }
+  .confirm p {
+    font-size: 3.5vw;
+
+  }
+
 
 }
 @media only screen and (max-width: 320px) {
@@ -712,7 +988,7 @@ float:left;
     font-size:5vw;
   }
   h4 {
-    font-size:4vw;
+    font-size:2.5vw;
   }
   h3 {
     font-size:3vw;
@@ -720,15 +996,12 @@ float:left;
   p{
     font-size:3vw;
   }
-  div.formButton.recipientFormFields {
-    margin-left: 25%;
-    margin-top: 0px;
-  }
+
   ul.arrangements {
     height:700px;
     padding:5% 10%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:7px;
+    background-color:rgba(255, 255, 255, 0.75);
+    border-radius:0.72916667%;
   }
   .productSummary {
     width:100%;
@@ -736,11 +1009,33 @@ float:left;
   .orderSummary {
     width:100%;
   }
-  .recipientFormFields{
-    width:100%;
+  .recipientFormFields1{
+    width:80%;
+
   }
   .senderInfo {
 
     width:100%;
+  }
+  .confirm h2 {
+    font-size: 3.8vw;
+  }
+  .confirm p {
+    font-size: 3.8vw;
+
+  }
+
+  .senderHeader {
+    font-size:3.5vw;
+    width:100%;
+  }
+  li.arrangement2 {
+    margin-top:30px;
+  }
+  li.arrangement1 {
+    margin-top:25px;
+  }
+  .senderOrderSum{
+    font-size: 2.5vw;
   }
 }

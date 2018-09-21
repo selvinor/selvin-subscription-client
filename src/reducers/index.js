@@ -24,7 +24,7 @@ const initialState = {
   }],
   hasErrored : false,
   isLoading : false,
-  currentFormSection: "arrangement",
+  currentFormSection: "onboarding",
   currentProductCode: "2",
   currentFrequency: "monthly",
   currentDuration: "3 months",
