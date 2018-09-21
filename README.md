@@ -10,10 +10,57 @@ Once the contact information has been entered, the app presents users with a cho
 
 Planned upgrades include:
  1) User accounts with the ability to edit one's own subscriptions.
- 2) Ability to designate a differnt recipient for each delivery in a subscription set.
+ 2) Ability to designate a different recipient for each delivery in a subscription set.
  3) Field validation to ensure data integrity.
  4) Additional product selections.
  5) Administrative backend to manage user accounts
  6) Integration with Square payment processing API
  7) Ability for user to Pause or Resume service
  8) Ability for user to Cancel service at will
+
+
+API INFORMATION
+info:
+  title: Blooms Subscription Service
+  description: Have flowers delivered on a regular schedule
+  version: 1.0.0
+host: https://blooms-pdx.herokuapp.com/
+schemes:
+  - https
+basePath: /api/subscriptions
+produces:
+  - application/json
+paths:
+  /:
+    post:
+      summary: Create Subscriptions
+      description: |
+        The  endpoint posts information about the subscription
+        including product, schedule, sender, recipient, and delivery location.
+
+      responses:
+        '200':
+          description: A new subscription
+          schema:
+            productCode: {type: String, default: ''}
+            productName:{type: String, default: ''},
+            productSize: {type: String, default: ''},
+            status: {type: String, default: 'active'},
+            frequency:{type: String, default: ''},
+            duration: {type: String, default: ''},
+            startDate: {type: Date, default: null},
+            color: {type: Boolean, default: true},
+            senderEmail: {type: String, default: ''},
+            senderFirstName: {type: String, default: ''},
+            senderLastName: {type: String, default: ''},
+            senderPhone: {type: String, default: ''},
+            recipientFirstName : {type: String, default: ''},
+            recipientLastName :  {type: String, default: ''},
+            recipientCompany :  {type: String, default: ''},
+            recipientStreetAddress :  {type: String, default: ''},
+            recipientAptSuite :  {type: String, default: ''},
+            recipientCity :  {type: String, default: ''},
+            recipientState :  {type: String, default: ''},
+            recipientZipcode :  {type: String, default: ''},
+            recipientPhone :  {type: String, default: ''},
+            recipientMessage :  {type: String, default: ''}
