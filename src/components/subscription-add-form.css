@@ -183,6 +183,9 @@ p.arrangementName {
   width:100%;
   padding:0;
 }
+p.byebye {
+  font-size:1vw;
+}
 .flowerChoice {  
 display:inline-block;
 }
@@ -292,9 +295,12 @@ display:inline-block;
   font-size:2vw;
 }
 
-.confirm p {
-  font-size:1vw;
-} 
+.confirm h2 {
+  font-size:4vw;
+}
+ .confirm p {
+   font-size: 1.5vw;
+ }
 .senderHeader {
   font-size:1vw;
   width:100%;
@@ -381,9 +387,12 @@ li.arrangement1 {
     font-size:2.2vw;
   }
 
-  .confirm p {
-    font-size:.7vw;
-  } 
+  .confirm h2 {
+    font-size:4vw;
+  }
+   .confirm p {
+     font-size: 1.5vw;
+   }
   .senderData{
     background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -1053,10 +1062,11 @@ li.arrangement1 {
 
     width:100%;
   }
- 
+ .confirm h2 {
+   font-size:5vw;
+ }
   .confirm p {
     font-size: 3.8vw;
-
   }
 
   .senderHeader {
