@@ -457,7 +457,7 @@ export class SubscriptionAddForm extends React.Component {
 
 
               <li>
-              <div class="formbutton">
+              <div className="formbutton">
                   {formButton}
                 </div>
               </li>
