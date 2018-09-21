@@ -9,7 +9,6 @@ import { jumpToSection, setNumberOfDeliveries, setProductChoice, setFrequency, s
 export class SubscriptionAddForm extends React.Component {
   //POST section starts here
   onSubmit(values) {
-    console.log('this.props.currentProductCode: ', this.props.currentProductCode);
     values['productCode'] = this.props.currentProductCode;
     if (this.props.currentProductCode === '1') {
       values['productName'] = "Designer's Bouquet";
@@ -24,7 +23,6 @@ export class SubscriptionAddForm extends React.Component {
     }
     values['frequency'] = this.props.currentFrequency;
     values['duration'] = this.props.currentDuration;
-    console.log('values" ', values);
     return fetch('http://localhost:8080/api/subscriptions', {
       method:'POST',
       body: JSON.stringify(values),
@@ -53,7 +51,6 @@ export class SubscriptionAddForm extends React.Component {
       return res.json();
     })
     .then((values) => {
-      console.log('please work ', values);
       this.props.dispatch(setDeliveryDate(values.startDate))})
     .catch(err => {
       const {reason, message, location} = err;
@@ -72,11 +69,6 @@ export class SubscriptionAddForm extends React.Component {
       );
     });
   }
-
-  //POST section ends here
-  //GET section starts here
-
-  //GET section ends here
   render() {
     let successMessage;
     let formButton;
@@ -112,13 +104,8 @@ export class SubscriptionAddForm extends React.Component {
       this.props.dispatch(setDuration(duration)) ;
     }        
     const dispatchNumberOfDeliveries = () => {
-      console.log( 'starting dispatchNumberOfDeliveries')
       let numberOfDeliveries; 
       let subscriptionTerm;
-      console.log('this.props.currentFrequency: ', this.props.currentFrequency);
-
-      //subscriptionTerm === "on-going" ? 12 : Number(this.props.duration);     
-      //console.log('subscriptionTerm: ', subscriptionTerm);
       switch (this.props.currentDuration) {
         case '3 months':
         subscriptionTerm = 3; 
@@ -152,17 +139,16 @@ export class SubscriptionAddForm extends React.Component {
           numberOfDeliveries = 12;
         break;
       }   
-      console.log('numberOfDeliveries: ', numberOfDeliveries);
       this.props.dispatch(setNumberOfDeliveries(numberOfDeliveries));
       
     }
     
 
-    // CONTROL FLOW BY Setting custom button for each section
-    formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">Schedule it</button>); 
+    //  custom button for each section
+    formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">NEXT</button>); 
     switch (this.props.currentFormSection) {
       case 'schedule':
-        formButton = ( <button className="jump" onClick={() => {console.log('this.props: ', this.props); dispatchFrequency(this.props.currentValues.frequency);  dispatchDuration(this.props.currentValues.duration); dispatchNumberOfDeliveries()}}  type="button">NEXT</button>); 
+        formButton = ( <button className="jump" onClick={() => { dispatchFrequency(this.props.currentValues.frequency);  dispatchDuration(this.props.currentValues.duration); dispatchNumberOfDeliveries()}}  type="button">NEXT</button>); 
         break;
       case 'recipient':
         formButton = (<button className="jump"  onClick={() => this.props.dispatch(jumpToSection('sender'))}  type="button">NEXT</button>);
@@ -201,9 +187,6 @@ export class SubscriptionAddForm extends React.Component {
       } 
       
     const deliveryDate = mm + '/' + dd + '/' + yyyy;
-    console.log('today is: ', today);
-    console.log('this.props: ', this.props);
-    console.log('this.props.currentSubEmail ',this.props.currentSubEmail);
     const deliveryCharge = 20;
     //SET THE PRODUCT NAME
     const theForm = this.props.currentValues;
@@ -572,7 +555,6 @@ export class SubscriptionAddForm extends React.Component {
 
             </section>
             <footer role="contentinfo">
-            {console.log('this.props.currentValues: ', this.props.currentValues)}
             </footer>
 
           </div>
@@ -594,11 +576,8 @@ const mapStateToProps = state => {
   currentDuration: state.subscription.currentDuration,
   currentValues: values,
   currentDeliveryDate: state.subscription.currentDeliveryDate.substring(0, 10)
-  //duration: selector(state.SubscriptionAddForm.duration, 'duration'),
-  //choice: selector(state.SubscriptionAddForm.choice, 'choice')
 })}
 
-//console.log('frequency: ', frequency, ' | duration: ', duration, ' | choice: ', choice );
   const mapDispatchToProps = dispatch => {
     return {
       jumpToSection: () => {
