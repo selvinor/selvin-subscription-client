@@ -222,7 +222,7 @@ export class SubscriptionAddForm extends React.Component {
             {successMessage}
             {errorMessage} 
             { this.props.currentFormSection === "onboarding" ?   
-            <div className="confirm">
+            <div className="confirm landing">
               <nav role="menu">
               </nav>
               <section>
@@ -532,7 +532,7 @@ export class SubscriptionAddForm extends React.Component {
                   <p className="recipient message">GIFT MESSAGE: {theForm.recipientMessage}</p>
                 </div>
                 </div>
-                <div>{formButton}</div>
+                <div className="checkoutButton">{formButton}</div>
               </section>        
             </main>
           </div>
@@ -541,15 +541,8 @@ export class SubscriptionAddForm extends React.Component {
           <div className="confirm">
             <main>
               <h2>Thank You!</h2>
-              <p className="byebye">Your order will be delivered {this.props.currentDeliveryDate}.</p>
-              {formButton}
+              <p className="byebye">Your order will be delivered {this.props.currentDeliveryDate}.</p>              
             </main>
-            <section>
-
-            </section>
-            <footer role="contentinfo">
-            </footer>
-
           </div>
         : ""  }
       </form> 
