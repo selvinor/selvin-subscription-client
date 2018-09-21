@@ -76,18 +76,11 @@ export class SubscriptionAddForm extends React.Component {
     if (this.props.submitSucceeded) {
       successMessage = (
         <div className= "message message-success">
-          Message submitted successfully
+          Your Blooms subscription has been activated!
         </div>
       );
     }
   
-    if (this.props.submitSucceeded) {
-      successMessage = (
-        <div className= "message message-success">
-          Message submitted successfully
-        </div>
-      );
-    }
     let errorMessage;
     if (this.props.error) {
       errorMessage = (
