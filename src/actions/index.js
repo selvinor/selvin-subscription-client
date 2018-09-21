@@ -64,7 +64,6 @@ export const fetchSubscriptions = () => dispatch => {
       }
       return res.json();
   }).then(subscriptions => {
-      console.log('subscriptions from the fetch', subscriptions);
       dispatch(fetchSubscriptionSuccess(subscriptions));
   });
 };
@@ -77,7 +76,6 @@ export const addSubscription = () => dispatch => {
       }
       return res.json();
   }).then(newSubscription => {
-      console.log('subscription added', newSubscription);
       dispatch(addSubscriptionSuccess(newSubscription));
   });
 };

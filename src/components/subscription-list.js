@@ -8,7 +8,6 @@ export class SubscriptionList extends React.Component {
   }
 
   renderResults() {
-    console.log('this.props.subscriptions', this.props.subscriptions);
     const subscriptionList = this.props.subscriptions.map((subscription, index) => {
       const {productCode, productName, frequency, duration, startDate, senderEmail, 
         senderFirstName, senderLastName, senderPhone, recipientFirstName, recipientLastName, 
@@ -27,7 +26,6 @@ export class SubscriptionList extends React.Component {
   }
 
   render() {
-    console.log(this.renderResults());
     return (
       <ul>
           {this.renderResults()}

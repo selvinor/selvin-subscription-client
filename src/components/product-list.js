@@ -17,7 +17,6 @@ export class ProductList extends React.Component {
 //   <li key={index}>{product}</li>
 // ));
   render() {
-    console.log(this.renderResults());
     return (
       <ul>
           {this.renderResults()}

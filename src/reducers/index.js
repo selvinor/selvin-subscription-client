@@ -53,30 +53,25 @@ export const subscriptionReducer = (state=initialState, action) => {
     });
 
     case 'SET_NUMBER_OF_DELIVERIES':
-    console.log('SET_NUMBER_OF_DELIVERIES reducer called', action.numberOfDeliveries);
     return Object.assign({}, state, {
       currentNumberOfDeliveries: action.numberOfDeliveries,
       currentFormSection: 'checkout'
     });
 
     case 'SET_PRODUCT_CHOICE':
-    console.log('reducer | SET_PRODUCT_CHOICE | action.productCode: ', action.productCode);
     return Object.assign({}, state, {
       currentProductCode: action.productCode,
       currentFormSection: 'recipient'
     });
     case 'SET_FREQUENCY':
-    console.log('reducer | SET_FREQUENCY | action.frequency: ', action.frequency);
     return Object.assign({}, state, {
       currentFrequency: action.frequency      
     });
     case 'SET_DURATION':
-    console.log('reducer | SET_DURATION | action.setDuration: ', action.duration);
     return Object.assign({}, state, {
       currentDuration: action.duration
     });
     case 'SET_DELIVERY_DATE':
-    console.log('reducer | SET_DELIVERY_DATE | action.setDeliveryDate: ', action.deliveryDate);
     return Object.assign({}, state, {
       currentDeliveryDate: action.deliveryDate
     });
@@ -86,7 +81,6 @@ export const subscriptionReducer = (state=initialState, action) => {
       currentFormSection: action.section
     });
     case 'ADD_RECEIVER_TO_SUBSCRIPTION':
-      console.log('ADD_RECEIVER reducer called', action);
       // Do some stuff to add the receiver to the receiver array in subscription 
       return Object.assign({}, state, {
         subscriptions: [...state.subscriptions, action.addReceiver]

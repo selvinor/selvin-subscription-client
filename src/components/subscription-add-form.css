@@ -110,7 +110,9 @@ h5 {
 h6 {
   font-size:1vw;
 }
-
+p {
+  font-size: .9vw;
+}
 form {
   /* background-color:rgba(255, 0, 0, 0.15);*/
    padding:1.0416667% 20px;
@@ -145,6 +147,16 @@ li.arrangement1 {
   color:#000000;
   font-weight:bold;
   height:160px;
+}
+ul.arrangements {
+  height:830px;
+  padding:1% 0% 0% 5%;
+
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */  
+  border-radius:0.72916667%;
 }
 
  label.frequency , label.duration {
@@ -246,14 +258,16 @@ display:inline-block;
 
 
 
-.orderSummary {
-  width:100%;
-  display:inline-block;
-  margin-right:2.08333333%;
+.recipientForm {
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+
+ 
 }
 .recipientFormFields1{
   width:100%;
-  background: rgba(232, 233, 237, 0.50);
   padding: 1.0416667%;
   border-radius:0.72916667%;
 }
@@ -262,24 +276,22 @@ display:inline-block;
 
 }
 .orderSummary {
-  background: rgba(232, 233, 237, 0.75);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
   padding: 1.0416667%;
   border-radius:0.72916667%;
-  width:20%;
+  width:21%;
   display:inline-block;
 }
-.orderSummary {
-
-  width:100%;
-  display:inline-block; 
+.confirm h2 {
+  font-size: 4vw;
 }
-
 .senderOrderSum{
   font-size:2vw;
 }
-.confirm h2 {
-  font-size:1.2vw;
-}
+
 .confirm p {
   font-size:1vw;
 } 
@@ -287,11 +299,7 @@ display:inline-block;
   font-size:1vw;
   width:100%;
 }
-.senderData {
-  background: rgba(232, 233, 237, 0.75);
-  padding: 1.0416667%;
-  border-radius:0.72916667%; 
-}
+
 li.arrangement2 {
   margin-top:80px;
 }
@@ -309,14 +317,34 @@ li.arrangement1 {
   
 }
 .checkoutSum{
-  background: rgba(232, 233, 237, 0.75);
+
   padding: 1.0416667%;
   border-radius:0.72916667%; 
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
 }
 .senderHeader {
   font-size:1.7vw;
   width:100%;
 }
+.senderData{
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+  padding: 1.0416667%;
+  border-radius:0.72916667%;
+  }
+  .scheduleBlock {
+      background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+      padding: 1.0416667%;
+      border-radius:0.72916667%;
+  }
 
 @media only screen and (max-width: 1366px) {
 
@@ -324,33 +352,26 @@ li.arrangement1 {
     font-size: 1.5vw;  
   }
   h1 {
-    font-size:vw;
+    font-size:2.1vw;
   }
   h2 {
-    font-size:2.5vw;
+    font-size:1.8vw;
   }
   h3 {
-    font-size:2vw;
+    font-size:1.6vw;
   }
 
   h4 {
-    font-size:1.5vw;
+    font-size:1.1vw;
   }
   h5 {
-    font-size:1.2vw;
+    font-size:1vw;
   }
   h6 {
     font-size:1vw;
   }
   p{
-    font-size:1.1vw;
-  }
-  .arrangements {
-
-    height:840px;
-    padding:1% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.33);
-   border-radius:0.72916667%;
+    font-size:.8vw;
   }
 
   .recipientFormFields1{
@@ -359,20 +380,20 @@ li.arrangement1 {
   .confirm h1 {
     font-size:2.2vw;
   }
-  .confirm h2 {
-    font-size:1.5vw;
-  }
+
   .confirm p {
-    font-size:1.3vw;
+    font-size:.7vw;
   } 
   .senderData{
-  background: rgba(232, 233, 237, 0.75);
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
   padding: 1.0416667%;
   border-radius:0.72916667%;
-
   }
   .orderSummary {
-  width:45%;
+  width:19%;
   }
   li.arrangement2 {
     margin-top:70px;
@@ -381,52 +402,49 @@ li.arrangement1 {
     font-size:1.5vw;
     width:100%;
   }
+  .senderData{
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    padding: 1.0416667%;
+    border-radius:0.72916667%;
+    }
 }
 @media only screen and (max-width: 1280px) {
   .arrangementName {
     font-size: 2vw;  
   }
   h1 {
-    font-size:vw;
+    font-size:2.3vw;
   }
   h2 {
-    font-size:3.5vw;
+    font-size:2vw;
   }
   h3 {
-    font-size:3.2vw;
-  }
-  h4 {
-    font-size:2vw;
-  }
-  h5 {
-    font-size:2.25vw;
-  }  
-  h6 {
-    font-size:2vw;
-  }
-  .confirm h2 {
     font-size:1.6vw;
   }
+  h4 {
+    font-size:1.3vw;
+  }
+  h5 {
+    font-size:1.1vw;
+  }  
+  h6 {
+    font-size:1vw;
+  }
+
   .confirm p {
-    font-size:1.4vw;
+    font-size:1.3vw;
   }
   .recipientFormFields1{
     width:22%;
   }  
-  .arrangements {
-
-    height:840px;
-    padding:1% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.67);
-   border-radius:0.72916667%;
-  }
-  .productSummary {
-    width:100%;
+  .orderSummary {
+    width:21%;
   }
 
-  .confirm h2 {
-    font-size:1.7vw;
-  }
+
   .confirm p {
     font-size:1.5vw;
   } 
@@ -434,60 +452,77 @@ li.arrangement1 {
     margin-top:60px; 
   } 
   .senderHeader {
-    font-size:2vw;
+    font-size:1.5vw;
     width:100%;
   }
+  .senderData{
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    padding: 1.0416667%;
+    border-radius:0.72916667%;
+    }
+    .checkout { 
+      width:30%; 
+    }
+    .checkoutSum h5 {
+      font-size:1.6vw;
+    }
+    .checkout p{
+      font-size:1.3vw;
+    }
 }
 @media only screen and (max-width: 1024px) {
   .arrangementName {
     font-size: 2vw;  
   }
   h1 {
-    font-size:3.5vw;
+    font-size:3vw;
   }
   h2 {
-    font-size:3.3vw;
+    font-size:2.5vw;
   }
   h3 {
-    font-size:3.2vw;
-  }
-  h4 {
     font-size:2vw;
   }
+  h4 {
+    font-size:1.5vw;
+  }
   h5 {
-    font-size:2.25vw;
+    font-size:1.5vw;
   }  
   h6 {
-    font-size:1.8vw;
+    font-size:1.2vw;
   }
   p{
-    font-size:1vw;
+    font-size:1.2vw;
   }
-  .arrangements {
-
-    height:840px;
-    padding:1% 0% 0% 5%;
-    background-color:rgba(255, 255, 255, 0.67);
-    border-radius:0.72916667%;
-  }
-  .productSummary {
-    width:100%;
+  .orderSummary {
+    width:28%;
   }
   .recipientFormFields1{
-    width:30%;
+    width:28%;
   }
-  .confirm h2 {
-    font-size:1.7vw;
-  }
+
   .confirm p {
-    font-size:1.7vw;
+    font-size:2.3vw;
   } 
   li.arrangement2 {
     margin-top:50px; 
   }
   .senderHeader {
-    font-size:2vw;
+    font-size:1.9vw;
     width:100%;
+  }
+  .checkout { 
+    width:40%; 
+  }
+  .checkoutSum h5 {
+    font-size:1.8vw;
+  }
+  .checkout p{
+    font-size:1.5vw;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -495,16 +530,16 @@ li.arrangement1 {
     font-size: 2.5vw;  
   }
   h1 {
-    font-size:vw;
-  }
-  h2 {
     font-size:3.5vw;
   }
+  h2 {
+    font-size:3vw;
+  }
   h3 {
-    font-size:3.2vw;
+    font-size:2.6vw;
   }
   h4 {
-    font-size:2.5vw;
+    font-size:2.1vw;
   }
   h5 {
     font-size:2.25vw;
@@ -515,31 +550,33 @@ li.arrangement1 {
   p{
     font-size:1.5vw;
   }
-  .arrangements {
-    height:800px;
-    padding:1% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:0.72916667%;
-  }
-  .productSummary {
-    width:100%;
+   .orderSummary {
+    width:34%;
   }
   .recipientFormFields1{
     width:32%;
   }
-  .confirm h2 {
-    font-size:2.2vw;
-  }
+
   .confirm p {
     font-size:1.8vw;
   }  
   .senderHeader {
-    font-size:2.5vw;
+    font-size:2.1vw;
     width:100%;
   }
   .checkout { 
-    width:35%;
+    width:80%;
     
+  }
+  .checkout { 
+    width:60%;
+    
+  }
+  .checkout h5 {
+    font-size:3.8vw;
+  }
+  .checkout p{
+    font-size:1.9vw;
   }
 }
 @media only screen and (max-width: 680px) {
@@ -547,16 +584,16 @@ li.arrangement1 {
     font-size: 3vw;  
   }
   h1 {
-    font-size:4.5vw;
-  }
-  h2 {
     font-size:4vw;
   }
+  h2 {
+    font-size:3vw;
+  }
   h3 {
-    font-size:3.75vw;
+    font-size:2.5vw;
   }
   h4 {
-    font-size:3vw;
+    font-size:2.3vw;
   }
   h5 {
     font-size:2.75vw;
@@ -565,40 +602,42 @@ li.arrangement1 {
     font-size:2.5vw;
   }
   p{
-    font-size:2vw;
+    font-size:1.3vw;
   }
-    .arrangements {
-
-    height:860px;
-    padding:2% 0% 5% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:0.72916667%;
-  }
-  .productSummary {
+ .productSummary {
     width:100%;
   }
   .orderSummary {
-    width:50%;
+    width:40%;
     display:inline-block;
   }
   .recipientFormFields1{
     width:35%;
   }
-  .confirm h2 {
-    font-size:2.4vw;
-  }
+
   .confirm p {
     font-size:2.1vw;
   }  
   .senderHeader {
-    font-size:2.5vw;
+    font-size:2.1vw;
     width:100%;
   }
   .checkout { 
-    width:50%;
+    width:35%;
     
   }
-
+  .checkout h5 {
+    font-size:4.1vw;
+  }
+  .checkout p{
+    font-size:2.1vw;
+  }
+  .checkout h5 {
+    font-size:3.9vw;
+  }
+  .checkout p{
+    font-size:2vw;
+  }
 }
 @media only screen and (max-width: 680px) {
   .arrangementName {
@@ -608,13 +647,13 @@ li.arrangement1 {
     font-size:4.2vw;
   }
   h2 {
-    font-size:4vw;
+    font-size:3vw;
   }
   h3 {
-    font-size:3.75vw;
+    font-size:2.7vw;
   }
   h4 {
-    font-size:3vw;
+    font-size:2.3vw;
   }
   h5 {
     font-size:2.75vw;
@@ -623,27 +662,19 @@ li.arrangement1 {
     font-size:2.5vw;
   }
   p{
-    font-size:2vw;
+    font-size:1.5vw;
   }    
-  .arrangements {
-    height:840px;
-    padding:2% 0% 5% 5%;
-    background-color:rgba(255, 255, 255, 0.75);
-    border-radius:0.72916667%;
-  }
   .productSummary {
     width:100%;
   }
   .recipientFormFields1{
-    width:35%;
+    width:45%;
   }
   .orderSummary {
-    width:40%;
+    width:34%;
     display:inline-block;
   }
-  .confirm h2 {
-    font-size: 2vw;
-  }
+
   .confirm p {
     font-size: 2vw;
 
@@ -653,12 +684,18 @@ li.arrangement1 {
     width:100%;
   }
   .senderHeader {
-    font-size:2.5vw;
+    font-size:2.1vw;
     width:100%;
   }
   .checkout { 
-    width:60%;
+    width:65%;
     
+  }
+  .checkout h5 {
+    font-size:4.0vw;
+  }
+  .checkout p{
+    font-size:2.0vw;
   }
 }
 @media only screen and (max-width: 640px) {
@@ -675,23 +712,16 @@ li.arrangement1 {
     font-size:3.75vw;
   }
   h4 {
-    font-size:3vw;
-  }
-  h5 {
+    font-size:2.3vw;
+  }  h5 {
     font-size:2.75vw;
   }  
   h6 {
     font-size:2.5vw;
   }
   p{
-    font-size:1.9vw;
+    font-size:1.7vw;
   }    
-  .arrangements {
-    height:840px;
-    padding:2% 0% 5% 5%;
-    background-color:rgba(255, 255, 255, 0.75);
-    border-radius:0.72916667%;
-  }
   .productSummary {
     width:100%;
   }
@@ -699,7 +729,7 @@ li.arrangement1 {
     width:35%;
   }
   .orderSummary {
-    width:45%;
+    width:39%;
     display:inline-block;
   }
   .senderInfo{
@@ -707,9 +737,6 @@ li.arrangement1 {
     display:inline-block;
   }
 
-  .confirm h2 {
-    font-size: 2.4vw;
-  }
   .confirm p {
     font-size: 2.2vw;
 
@@ -721,11 +748,15 @@ li.arrangement1 {
     font-size:2vw;
     width:100%;
   }
-  .checkoutSum { 
-    width:65%;
-    padding:2% 0% 5% 5%;
-    background-color:rgba(255, 255, 255, 0.75);
-    border-radius:0.72916667%;
+  .checkout { 
+    width:68%;
+    
+  }
+  .checkout h5 {
+    font-size:4.2vw;
+  }
+  .checkout p{
+    font-size:2.2vw;
   }
 }
 
@@ -743,7 +774,7 @@ li.arrangement1 {
     font-size:3.75vw;
   }
   h4 {
-    font-size:3vw;
+    font-size:2.5vw;
   }
   h5 {
     font-size:2.75vw;
@@ -752,13 +783,7 @@ li.arrangement1 {
     font-size:3vw;
   }
   p{
-    font-size:2.2vw;
-  }
-    .arrangements {
-    height:840px;
-    padding:2% 0% 5% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:0.72916667%;
+    font-size:2.0vw;
   }
   .productSummary {
     width:100%;
@@ -770,21 +795,28 @@ li.arrangement1 {
     width:40%;
   }
   .orderSummary {
-    width:100%;
+    width:46%;
 
   }
-  .confirm h2 {
-    font-size: 2.7vw;
-  }
+
   .confirm p {
     font-size: 2.4vw;
 
   }
 
-
+  .checkout { 
+    width:70%;
+    
+  }
   .senderHeader {
     font-size:2.2vw;
-    width:100%;
+    width:65%;
+  }
+  .checkout h5 {
+    font-size:4.5vw;
+  }
+  .checkout p{
+    font-size:2.2vw;
   }
 }
 @media only screen and (max-width: 540px) {
@@ -801,7 +833,7 @@ li.arrangement1 {
     font-size:3.75vw;
   }
   h4 {
-    font-size:3vw;
+    font-size:2.7vw;
   }
   h5 {
     font-size:2.75vw;
@@ -812,12 +844,6 @@ li.arrangement1 {
   p{
     font-size:2.2vw;
   }
-    .arrangements {
-    height:840px;
-    padding:2% 0% 5% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:0.72916667%;
-  }
   .productSummary {
     width:100%;
   }
@@ -826,12 +852,10 @@ li.arrangement1 {
     width:45%;
   }
   .orderSummary {
-    width:100%;
+    width:50%;
 
   }
-  .confirm h2 {
-    font-size: 2.8vw;
-  }
+
   .confirm p {
     font-size: 2.5vw;
 
@@ -841,7 +865,10 @@ li.arrangement1 {
     font-size:2.3vw;
     width:100%;
   }
-
+  .checkout { 
+    width:80%;
+    
+  }
 }
 @media only screen and (max-width: 480px) {
   .arrangementName {
@@ -857,7 +884,7 @@ li.arrangement1 {
     font-size:3.75vw;
   }
   h4 {
-    font-size:3vw;
+    font-size:3.4svw;
   }
   h5 {
     font-size:3.25vw;
@@ -866,20 +893,13 @@ li.arrangement1 {
     font-size:3vw;
   }
   p{
-    font-size:2.6vw;
-  }
-  ul.arrangements {
-
-    height:790px;
-    padding:2% 0% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:0.72916667%;
+    font-size:2.4vw;
   }
   .productSummary {
     width:100%;
   }
   .orderSummary {
-    width:100%;
+    width:56%;
   }
   .recipientFormFields1{
     width:55%;
@@ -890,14 +910,15 @@ li.arrangement1 {
     font-size:2.5vw;
     width:100%;
   }
-  .confirm h2 {
-    font-size: 3vw;
-  }
+
   .confirm p {
     font-size: 2.9vw;
 
   }
- 
+  .checkout { 
+    width:85%;
+    
+  }
 }
 @media only screen and (max-width: 396px) {
   .arrangementName {
@@ -922,20 +943,13 @@ li.arrangement1 {
     font-size:3vw;
   }
   p{
-    font-size:3vw;
-  }
-  ul.arrangements {
-
-    height:780px;
-    padding:2% 5% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:0.72916667%;
+    font-size:2.7vw;
   }
   .productSummary {
     width:100%;
   }
   .orderSummary {
-    width:100%;
+    width:63%;
   }
   .recipientFormFields1{
     width:60%;
@@ -948,9 +962,7 @@ li.arrangement1 {
     font-size:2.5vw;
     width:100%;
   }
-  .confirm h2 {
-    font-size: 3.2vw;
-  }
+ 
   .confirm p {
     font-size: 3.2vw;
 
@@ -968,19 +980,19 @@ li.arrangement1 {
   h4 {
     font-size:4vw;
   }
-  
+  h5 {
+    font-size:4.0vw;
+  }
+  p{
+    font-size:3vw;
+  }
   h3 {
     font-size:3.2vw;
   }  
-  
-  ul.arrangements {
-
-    height:720px;
-    padding:1% 10% 0% 5%;
-   background-color:rgba(255, 255, 255, 0.75);
-   border-radius:0.72916667%;
+  p{
+    font-size:2.7vw;
   }
-  div.formButton{
+ s  div.formButton{
     margin-left: 25%;
     margin-top: 0px;
   }
@@ -988,7 +1000,7 @@ li.arrangement1 {
     width:100%;
   }
   .orderSummary {
-    width:100%;
+    width:64%;
   }
   .recipientFormFields1{
     width:70%;
@@ -997,15 +1009,15 @@ li.arrangement1 {
 
     width:100%;
   }
-  .confirm h2 {
-    font-size: 3.5vw;
-  }
+
   .confirm p {
     font-size: 3.5vw;
 
   }
 
-
+  .checkout p {
+    font-size:3vw;
+  }
 }
 @media only screen and (max-width: 320px) {
   .arrangementName {
@@ -1015,38 +1027,33 @@ li.arrangement1 {
     font-size:5vw;
   }
   h4 {
-    font-size:2.5vw;
+    font-size:3.5vw;
   }
   h3 {
     font-size:3vw;
   }
+  h5 {
+    font-size:4.5vw;
+  }
   p{
-    font-size:3vw;
+    font-size:3.6vw;
   }
 
-  ul.arrangements {
-    height:700px;
-    padding:5% 10%;
-    background-color:rgba(255, 255, 255, 0.75);
-    border-radius:0.72916667%;
-  }
   .productSummary {
     width:100%;
   }
   .orderSummary {
-    width:100%;
+    width:67%;
   }
   .recipientFormFields1{
-    width:80%;
+    width:90%;
 
   }
   .senderInfo {
 
     width:100%;
   }
-  .confirm h2 {
-    font-size: 3.8vw;
-  }
+ 
   .confirm p {
     font-size: 3.8vw;
 
@@ -1065,4 +1072,11 @@ li.arrangement1 {
   .senderOrderSum{
     font-size: 2.5vw;
   }
+  .checkout { 
+    width:90%;   
+  }
+  .checkoutSum p {
+    font-size:3.5vw;
+  }
+
 }

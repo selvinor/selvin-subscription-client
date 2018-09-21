@@ -174,7 +174,7 @@ export class SubscriptionAddForm extends React.Component {
         formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
         break;
       case 'checkout':
-        formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
+        formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>SUBSCRIBE!</button>);
         break;
       case 'confirm':
         formButton = ( <button className="jump"  onClick={() => this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
@@ -297,12 +297,12 @@ export class SubscriptionAddForm extends React.Component {
             </ul>
         : "" }
         { this.props.currentFormSection === "recipient" ?             
-            <ul>
+            <ul className="recipientForm">
               <li>         
                 <div className="orderSummary">
                   <h4>Order Summary</h4>
                   <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">PRICE: {thisPrice(this.props.currentProductCode)}</p>
+                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
                   <p className="recipient productPrice">DELIVERY CHARGE: $20</p>                 
                 </div>
               </li>
@@ -310,7 +310,7 @@ export class SubscriptionAddForm extends React.Component {
                 <h4>PLEASE ENTER RECIPIENT INFO</h4>
               </li>
               <li>            
-                <div className="form-input recipientFormFields1 span5">             
+                <div className="form-input recipientFormFields1 span6">             
                   <label htmlFor="recipientFirstName" className="recipientFirstName">
                     <Field
                       name="recipientFirstName"
@@ -523,7 +523,7 @@ export class SubscriptionAddForm extends React.Component {
           <div>
             <main>
               <header>
-                <h4>ORDER SUMMARY</h4>
+                <h4>Here's your subscription details!</h4>
               </header>
               <section>
               <div className="checkoutSum">
