@@ -8,7 +8,7 @@ Next, the user provides the recipient's delivery information - name, address, ph
 
 Once the contact information has been entered, the app presents users with a choice of monthly, biweekly, or weekly delivery frequency. Next, they choose the number of months the subscription should run. Choices are three months, six months, 12 months, or they may choose to have deliveries continue indefinitely on an ongoing basis. Lastly, the user picks a start date for the first delivery from a calendar.
 
-Planned upgrades include:
+Coming Soon:
  1) User accounts with the ability to edit one's own subscriptions.
  2) Ability to designate a different recipient for each delivery in a subscription set.
  3) Field validation to ensure data integrity.
@@ -64,3 +64,19 @@ paths:
             recipientZipcode :  {type: String, default: ''},
             recipientPhone :  {type: String, default: ''},
             recipientMessage :  {type: String, default: ''}
+
+            
+            TECH 
+
+            HTML5
+            CSS3
+            JavaScript
+            React
+            Redux
+            Node.JS
+            Express.js
+            MongoDB
+            Heroku
+          
+            
+            SCREENSHOTS

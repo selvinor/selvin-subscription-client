@@ -367,8 +367,7 @@ export class SubscriptionAddForm extends React.Component {
                       cols="50"
                       component={Input}
                       placeholder="Why are you sending?"
-                    />
-                    
+                    />                    
                 </div>
               </li>
               <li>

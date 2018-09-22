@@ -11,7 +11,8 @@ body {
   font-size: 100%;
    font-size: 16px;
    font-size: 1em;
- 
+ background-size: "contain";
+
 }
 div, span, p {
 	margin: 0;
@@ -294,21 +295,17 @@ display:inline-block;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
   padding: 1.0416667%;
   border-radius:0.72916667%;
-  width:21%;
   display:inline-block;
 }
 .confirm h2 {
-  font-size: 4vw;
+  font-size: 2vw;
 }
 .senderOrderSum{
   font-size:2vw;
 }
 
-.confirm h2 {
-  font-size:4vw;
-}
  .confirm p {
-   font-size: 1.5vw;
+   font-size: 1.3vw;
  }
 .senderHeader {
   font-size:1vw;
@@ -323,8 +320,8 @@ li.arrangement1 {
   margin-top:5px;
 }
 .recipientFormFields1{
-  width:18%; 
-}
+  width:100%;
+}  
 .productPrice {
   text-align:right;
 }
@@ -366,6 +363,30 @@ li.arrangement1 {
     width:19%; 
   }
   .landing {margin-left:1%;}
+  input {
+    width: 100%;
+    max-width:800px;
+    height:40px;
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    padding: 1.0416667%;
+    border-radius:0.72916667%;
+  
+  }
+  textarea {
+    width: 100%;
+    max-width:800px;
+    height:80px;
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    padding: 1.0416667%;
+    border-radius:0.72916667%;
+
+  }
 @media only screen and (max-width: 1366px) {
 
   .arrangementName {
@@ -404,14 +425,14 @@ li.arrangement1 {
     margin-left:5px;
   }
   .recipientFormFields1{
-    width:20%;
+    width:100%;
   }
   .confirm h1 {
     font-size:2.2vw;
   }
 
   .confirm h2 {
-    font-size:4vw;
+    font-size:2vw;
   }
    .confirm p {
      font-size: 1.5vw;
@@ -448,6 +469,14 @@ li.arrangement1 {
     .checkout { 
       width:17%; 
     }
+    input {
+      width:100%;
+      height:40px;
+    }
+    textarea {
+      width:100%;
+      height:40px;
+    }
 }
 @media only screen and (max-width: 1280px) {
   .arrangementName {
@@ -476,7 +505,7 @@ li.arrangement1 {
     font-size:1.3vw;
   }
   .recipientFormFields1{
-    width:22%;
+    width:100%;
   }  
   .orderSummary {
     width:21%;
@@ -510,6 +539,15 @@ li.arrangement1 {
     .checkout p{
       font-size:1.3vw;
     }
+  
+    input {
+      width:100%;
+      height:40px;
+    }
+    textarea {
+      width:100%;
+      height:40px;
+    }
 }
 @media only screen and (max-width: 1024px) {
   .arrangementName {
@@ -540,8 +578,8 @@ li.arrangement1 {
     width:28%;
   }
   .recipientFormFields1{
-    width:28%;
-  }
+    width:100%;
+  }  
 
   .confirm p {
     font-size:2.3vw;
@@ -561,6 +599,14 @@ li.arrangement1 {
   }
   .checkout p{
     font-size:1.5vw;
+  }
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+    height:40px;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -592,8 +638,8 @@ li.arrangement1 {
     width:34%;
   }
   .recipientFormFields1{
-    width:32%;
-  }
+    width:100%;
+  }  
 
   .confirm p {
     font-size:1.8vw;
@@ -615,6 +661,15 @@ li.arrangement1 {
   }
   .checkout p{
     font-size:1.9vw;
+  }
+
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+    height:40px;
   }
 }
 @media only screen and (max-width: 680px) {
@@ -650,8 +705,8 @@ li.arrangement1 {
     display:inline-block;
   }
   .recipientFormFields1{
-    width:35%;
-  }
+    width:100%;
+  }  
 
   .confirm p {
     font-size:2.1vw;
@@ -676,66 +731,16 @@ li.arrangement1 {
   .checkout p{
     font-size:2vw;
   }
-}
-@media only screen and (max-width: 680px) {
-  .arrangementName {
-    font-size: 3vw;  
-  }
-  h1 {
-    font-size:4.2vw;
-  }
-  h2 {
-    font-size:3vw;
-  }
-  h3 {
-    font-size:2.7vw;
-  }
-  h4 {
-    font-size:2.3vw;
-  }
-  h5 {
-    font-size:2.75vw;
-  }  
-  h6 {
-    font-size:2.5vw;
-  }
-  p{
-    font-size:1.5vw;
-  }    
-  .productSummary {
+  input {
     width:100%;
+    height:40px;
   }
-  .recipientFormFields1{
-    width:45%;
-  }
-  .orderSummary {
-    width:34%;
-    display:inline-block;
-  }
-
-  .confirm p {
-    font-size: 2vw;
-
-  }
-  .senderInfo {
-    display:inline-block;
+  textarea {
     width:100%;
-  }
-  .senderHeader {
-    font-size:2.1vw;
-    width:100%;
-  }
-  .checkout { 
-    width:41%;
-    
-  }
-  .checkout h5 {
-    font-size:4.0vw;
-  }
-  .checkout p{
-    font-size:2.0vw;
+    height:40px;
   }
 }
+
 @media only screen and (max-width: 640px) {
   .arrangementName {
     font-size: 3vw;  
@@ -764,7 +769,7 @@ li.arrangement1 {
     width:100%;
   }
   .recipientFormFields1{
-    width:35%;
+    width:100%;
   }
   .orderSummary {
     width:39%;
@@ -795,6 +800,14 @@ li.arrangement1 {
   }
   .checkout p{
     font-size:2.2vw;
+  }
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+    height:40px;
   }
 }
 
@@ -830,7 +843,7 @@ li.arrangement1 {
     width:100%;
   }
   .recipientFormFields1{
-    width:40%;
+    width:100%;
   }
   .orderSummary {
     width:46%;
@@ -855,6 +868,14 @@ li.arrangement1 {
   }
   .checkout p{
     font-size:2.2vw;
+  }
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+    height:40px;
   }
 }
 @media only screen and (max-width: 540px) {
@@ -887,7 +908,7 @@ li.arrangement1 {
   }
 
   .recipientFormFields1{
-    width:45%;
+    width:100%;
   }
   .orderSummary {
     width:50%;
@@ -906,6 +927,14 @@ li.arrangement1 {
   .checkout { 
     width:45%;
     
+  }
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+    height:40px;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -940,7 +969,7 @@ li.arrangement1 {
     width:56%;
   }
   .recipientFormFields1{
-    width:55%;
+    width:100%;
   }
 
 
@@ -956,6 +985,14 @@ li.arrangement1 {
   .checkout { 
     width:45%;
     
+  }
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+    height:40px;
   }
 }
 @media only screen and (max-width: 396px) {
@@ -990,7 +1027,7 @@ li.arrangement1 {
     width:63%;
   }
   .recipientFormFields1{
-    width:60%;
+    width:100%;
   }
   .senderInfo {
 
@@ -1005,7 +1042,14 @@ li.arrangement1 {
     font-size: 3.2vw;
 
   }
-
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+    height:40px;
+  }
 }
 
 @media only screen and (max-width: 368px) {
@@ -1041,7 +1085,7 @@ li.arrangement1 {
     width:64%;
   }
   .recipientFormFields1{
-    width:70%;
+    width:100%;
   }
   .senderInfo {
 
@@ -1055,6 +1099,14 @@ li.arrangement1 {
 
   .checkout p {
     font-size:3vw;
+  }
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+
   }
 }
 @media only screen and (max-width: 320px) {
@@ -1084,7 +1136,7 @@ li.arrangement1 {
     width:67%;
   }
   .recipientFormFields1{
-    width:90%;
+    width:100%;
 
   }
   .senderInfo {
@@ -1118,5 +1170,12 @@ li.arrangement1 {
   .checkoutSum p {
     font-size:3.5vw;
   }
-
+  input {
+    width:100%;
+    height:40px;
+  }
+  textarea {
+    width:100%;
+    height:40px;
+  }
 }
