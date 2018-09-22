@@ -298,7 +298,7 @@ display:inline-block;
   display:inline-block;
 }
 .confirm h2 {
-  font-size: 2vw;
+  font-size: 4.5vw;
 }
 .senderOrderSum{
   font-size:2vw;
@@ -446,7 +446,7 @@ li.arrangement1 {
   border-radius:0.72916667%;
   }
   .orderSummary {
-  width:19%;
+    width:100%;
   }
   .orderSummary .productName {
     margin-top: 5px;
@@ -508,7 +508,7 @@ li.arrangement1 {
     width:100%;
   }  
   .orderSummary {
-    width:21%;
+    width:100%;
   }
 
 
@@ -575,7 +575,7 @@ li.arrangement1 {
     font-size:1.2vw;
   }
   .orderSummary {
-    width:28%;
+    width:100%;
   }
   .recipientFormFields1{
     width:100%;
@@ -617,7 +617,7 @@ li.arrangement1 {
     font-size:3.5vw;
   }
   h2 {
-    font-size:3vw;
+    font-size:4.5vw;
   }
   h3 {
     font-size:2.6vw;
@@ -635,7 +635,7 @@ li.arrangement1 {
     font-size:1.5vw;
   }
    .orderSummary {
-    width:34%;
+    width:100%;
   }
   .recipientFormFields1{
     width:100%;
@@ -680,7 +680,7 @@ li.arrangement1 {
     font-size:4vw;
   }
   h2 {
-    font-size:3vw;
+    font-size:4.5vw;
   }
   h3 {
     font-size:2.5vw;
@@ -701,8 +701,7 @@ li.arrangement1 {
     width:100%;
   }
   .orderSummary {
-    width:40%;
-    display:inline-block;
+    width:100%;
   }
   .recipientFormFields1{
     width:100%;
@@ -772,8 +771,7 @@ li.arrangement1 {
     width:100%;
   }
   .orderSummary {
-    width:39%;
-    display:inline-block;
+    width:100%;
   }
   .senderInfo{
     width:45%;
@@ -846,8 +844,7 @@ li.arrangement1 {
     width:100%;
   }
   .orderSummary {
-    width:46%;
-
+    width:100%;
   }
 
   .confirm p {
@@ -911,8 +908,7 @@ li.arrangement1 {
     width:100%;
   }
   .orderSummary {
-    width:50%;
-
+    width:100%;
   }
 
   .confirm p {
@@ -966,7 +962,7 @@ li.arrangement1 {
     width:100%;
   }
   .orderSummary {
-    width:56%;
+    width:100%;
   }
   .recipientFormFields1{
     width:100%;
@@ -1003,13 +999,13 @@ li.arrangement1 {
     font-size:5vw;
   }
   h2 {
-    font-size:4vw;
+    font-size:5vw;
   }
   h3 {
-    font-size:3.75vw;
+    font-size:4.5vw;
   }
   h4 {
-    font-size:3.5vw;
+    font-size:4.5vw;
   }
   h5 {
     font-size:3.25vw;
@@ -1018,23 +1014,22 @@ li.arrangement1 {
     font-size:3vw;
   }
   p{
-    font-size:2.7vw;
+    font-size:3.2vw;
+  }
+  .senderOrderSum {
+    font-size:4.5vw;
   }
   .productSummary {
     width:100%;
   }
   .orderSummary {
-    width:63%;
+    width:100%;
   }
   .recipientFormFields1{
     width:100%;
   }
   .senderInfo {
 
-    width:100%;
-  }
-  .senderHeader {
-    font-size:2.5vw;
     width:100%;
   }
  
@@ -1059,6 +1054,9 @@ li.arrangement1 {
   h1 {
     font-size:5vw;
   }
+  h2 {
+    font-size:4.5vw;
+  }
   h4 {
     font-size:4vw;
   }
@@ -1069,7 +1067,7 @@ li.arrangement1 {
     font-size:3vw;
   }
   h3 {
-    font-size:3.2vw;
+    font-size:4.5vw;
   }  
   p{
     font-size:2.7vw;
@@ -1116,24 +1114,27 @@ li.arrangement1 {
   h1 {
     font-size:5vw;
   }
+  h2 {
+    font-size:4.5vw;
+  }
   h4 {
     font-size:3.5vw;
   }
   h3 {
-    font-size:3vw;
+    font-size:4.5vw;
   }
   h5 {
     font-size:4.5vw;
   }
   p{
-    font-size:3.6vw;
+    font-size:3.4vw;
   }
 
   .productSummary {
     width:100%;
   }
   .orderSummary {
-    width:67%;
+    width:100%;
   }
   .recipientFormFields1{
     width:100%;
@@ -1151,7 +1152,7 @@ li.arrangement1 {
   }
 
   .senderHeader {
-    font-size:3.5vw;
+    font-size:4vw;
     width:100%;
   }
   li.arrangement2 {
@@ -1161,9 +1162,7 @@ li.arrangement1 {
   li.arrangement1 {
     margin-bottom:5px;
   }
-  .senderOrderSum{
-    font-size: 2.5vw;
-  }
+
   .checkout { 
     width:90%;   
   }
