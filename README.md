@@ -1,6 +1,6 @@
 # BLOOMS SUBSCRIPTION SERVICE
 
-This app enables a user to send flowers to to a recipient at a residence or business on a recurring schedule.
+This app enables a user to send flowers to to a recipient at a residence or business according to a schedule.
 
 Users are presented with a choice of three different sizes of floral arrangements representing small, medium and large. 
 
@@ -17,6 +17,7 @@ Coming Soon:
  6) Integration with Square payment processing API
  7) Ability for user to Pause or Resume service
  8) Ability for user to Cancel service at will
+ 9) Ability to send reminders to the customer when deliveries are impending.
 
 
 API INFORMATION

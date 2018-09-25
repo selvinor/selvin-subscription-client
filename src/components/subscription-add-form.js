@@ -2,7 +2,7 @@ import React from 'react';
 import {Field, SubmissionError, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import Input from './input';
-//import {required, pristine, submitting} from '../validators';
+import {required, nonEmpty} from '../validators';
 import './subscription-add-form.css'; 
 import { jumpToSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
 import {REACT_APP_BASE_URL} from '../config';
@@ -222,18 +222,18 @@ export class SubscriptionAddForm extends React.Component {
             {successMessage}
             {errorMessage} 
             { this.props.currentFormSection === "onboarding" ?   
-            <div className="confirm landing">
+            <div>
               <nav role="menu">
               </nav>
               <section>
+              <div className="landing">
                 <h2>Welcome to Blooms Subscription Service!</h2> 
                 <p>Blooms provides an easy way to brighten up and beautify your home or office on a regular basis.</p>
                 <p>We will deliver beautiful, fresh, custom flower arrangements straight to your home or office on a regular schedule!</p>
                 <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
                 <p>Click the button, and we'll get you set up right away!!</p>
-              </section>
-              <section>
                 <div className="entry">{formButton}</div>
+              </div>
               </section>
             </div>                
             : ""  }
@@ -243,56 +243,63 @@ export class SubscriptionAddForm extends React.Component {
               <li>
                 <h4>CHOOSE THE ARRANGEMENT TYPE!</h4>
               </li>
-              <li className="arrangement3">         
-                <div className="thumb">
-                    <img className="thumbnail" src="../img/_DSC3098.png" alt=""/>
-                </div>                                   
-                <div className="selectArr">
-                  <p className="arrangementName ">{thisProductName('3')}</p>
-                  <button className="arrangeButton" onClick={() => dispatchArrangement('3')}  type="button">SELECT</button><span className="price"> ${thisPrice('3')}</span>                 
+              <li className="arrangement">
+                <div className="arrangement3">         
+                  <div className="thumb">
+                      <img className="thumbnail"  onClick={() => dispatchArrangement('3')} src="../img/_DSC3098.png" alt=""/>
+                  </div>                                   
+                  <div className="pickArr3">
+                    <p className="arrangementName ">{thisProductName('3')}</p>
+                    <button className="arrangeButton" onClick={() => dispatchArrangement('3')}  type="button">SELECT</button><span className="price"></span>                 
+                  </div>
                 </div>
               </li>
-              <li className="arrangement2">         
+              <li className="arrangement"> 
+              <div className="arrangement2">          
                 <div className="thumb">
-                  <img className="thumbnail" src="../img/_DSC2980.png" alt=""/>                  
+                  <img className="thumbnail"  onClick={() => dispatchArrangement('2')} src="../img/_DSC2980.png" alt=""/>                  
                 </div>
-                <div className="selectArr">
+                <div className="pickArr2">
                   <p className="arrangementName">{thisProductName('2')}</p>
-                  <button className="arrangeButton" onClick={() => dispatchArrangement('2')}  type="button">SELECT</button><span className="price"> ${thisPrice('2')}</span> 
+                  <button className="arrangeButton" onClick={() => dispatchArrangement('2')}  type="button">SELECT</button><span className="price"></span> 
+                </div>
                 </div>
               </li>
-              <li className="arrangement1">         
-                <div className="thumb">
-                  <img className="thumbnail" src="../img/_DSC3345.png" alt=""/>                 
-                </div>
-                <div className="selectArr">
-                  <p className="arrangementName">{thisProductName('1')}</p>
-                  <button className="arrangeButton" onClick={() => dispatchArrangement('1')}  type="button">SELECT</button><span className="price"> ${thisPrice('1')}</span>  
+              <li className="arrangement">     
+                <div className="arrangement1">   
+                  <div className="thumb">
+                    <img className="thumbnail" onClick={() => dispatchArrangement('1')} src="../img/_DSC3345.png" alt=""/>                 
+                  </div>
+                  <div className="pickArr1">
+                    <p className="arrangementName">{thisProductName('1')}</p>
+                    <button className="arrangeButton" onClick={() => dispatchArrangement('1')}  type="button">SELECT</button><span className="price"></span>  
+                  </div>
                 </div>
               </li>
             </ul>
         : "" }
         { this.props.currentFormSection === "recipient" ?             
-            <ul className="recipientForm">
+            <ul className="recipientInfo">
               <li>         
                 <div className="orderSummary">
-                  <h4>Order Summary</h4>
+                  <h5>Order Details</h5>
                   <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
                   <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">DELIVERY CHARGE: $20</p>                 
+                  <p className="recipient productPrice">Delivery: $20</p>                 
                 </div>
               </li>
               <li>
                 <h4>PLEASE ENTER RECIPIENT INFO</h4>
               </li>
               <li>            
-                <div className="form-input recipientFormFields1 span6">             
+                <div className="form-input recipientInfoFields1 span6">             
                   <label htmlFor="recipientFirstName" className="recipientFirstName">
                     <Field
                       name="recipientFirstName"
                       type="text"
                       component={Input}
                       placeholder="FIRST NAME"
+                      validate={[required, nonEmpty]}
                     />
                   </label>
                   <label htmlFor="recipientLastName" className="recipientLastName">                           
@@ -301,6 +308,7 @@ export class SubscriptionAddForm extends React.Component {
                       type="text"
                       component={Input}
                       placeholder="LAST NAME" 
+                      validate={[required, nonEmpty]}
                     />
                   </label>                            
                   <label htmlFor="recipientCompany" className="recipientCompany">                           
@@ -317,6 +325,7 @@ export class SubscriptionAddForm extends React.Component {
                       type="text"
                       component={Input}
                       placeholder="STREET ADDRESS" 
+                      validate={[required, nonEmpty]}
                     />
                   </label>                            
                   <label htmlFor="RecipientAptSuite" className="RecipientAptSuite">                            
@@ -333,6 +342,7 @@ export class SubscriptionAddForm extends React.Component {
                       type="text"
                       component={Input}
                       placeholder="CITY"
+                      validate={[required, nonEmpty]}
                     />
                   </label>                            
                   <label htmlFor=">recipientState" className="recipientState">                            
@@ -341,6 +351,7 @@ export class SubscriptionAddForm extends React.Component {
                       type="text"
                       component={Input}
                       placeholder="STATE"
+                      validate={[required, nonEmpty]}
                     />
                   </label>                            
                   <label htmlFor="recipientZipcode" className="recipientZipcode">                          
@@ -349,6 +360,7 @@ export class SubscriptionAddForm extends React.Component {
                       type="text"
                       component={Input}
                       placeholder="ZIP CODE"
+                      validate={[required, nonEmpty]}
                     />
                   </label>             
                   <label htmlFor="recipientPhone" className="recipientPhone">                           
@@ -357,6 +369,7 @@ export class SubscriptionAddForm extends React.Component {
                       type="text"
                       component={Input}
                       placeholder="CELL PHONE"
+                      validate={[required, nonEmpty]}
                     />
                   </label>             
                   <label htmlFor="recipientMessage" className="recipientMessage">Write a message</label>                              
@@ -369,8 +382,6 @@ export class SubscriptionAddForm extends React.Component {
                       placeholder="Why are you sending?"
                     />                    
                 </div>
-              </li>
-              <li>
                 <div className="formButton recipientData">
                   {formButton}
                 </div>
@@ -379,26 +390,25 @@ export class SubscriptionAddForm extends React.Component {
         : ""  }
         { this.props.currentFormSection === "sender" ?   
             <ul className="senderData">
-              <li>           
+              <li>         
                 <div className="orderSummary">
-                <h4 className="senderOrderSum">Order Summary</h4>
+                  <h5>Order Details</h5>
                   <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
                   <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">DELIVERY CHARGE: ${deliveryCharge}</p>
-                  <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p>
-                  
+                  <p className="recipient productPrice">Delivery: $20</p>                 
+                  <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p>                  
                 </div>
               </li>
-                <li>
-                
+              <li>                
                 <div className="senderInfo">
-                <h3 className="senderHeader">PLEASE ENTER SENDER INFORMATION</h3>
+                <h4>PLEASE ENTER SENDER INFORMATION</h4>
                   <label htmlFor="senderEmail" className="senderEmail"/>                     
                     <Field
                       name="senderEmail"
                       type="email"
                       component={Input}
                       placeholder="EMAIL"
+                      validate={[required, nonEmpty]}
                     />
                                               
                   <label htmlFor="senderFirstName" className="senderFirstName" />
@@ -407,6 +417,7 @@ export class SubscriptionAddForm extends React.Component {
                       name="senderFirstName" 
                       type="text"
                       component={Input}
+                      validate={[required, nonEmpty]}
                       
                     />
                   
@@ -416,6 +427,7 @@ export class SubscriptionAddForm extends React.Component {
                       placeholder="LAST NAME" 
                       type="text"
                       component={Input}
+                      validate={[required, nonEmpty]}
                       
                     />
                                             
@@ -425,6 +437,7 @@ export class SubscriptionAddForm extends React.Component {
                       type="text"
                       component={Input}
                       placeholder="PHONE"  
+                      validate={[required, nonEmpty]}
                     />                                      
                 </div>
 
@@ -441,7 +454,7 @@ export class SubscriptionAddForm extends React.Component {
         : ""  }  
         { this.props.currentFormSection === "schedule" ?  
           
-            <ul>
+            <ul className="scheduleInfo">
               <li>
                 <div className="scheduleBlock">
                   <ul>
@@ -449,88 +462,102 @@ export class SubscriptionAddForm extends React.Component {
                     <h3>SCHEDULE DELIVERY</h3> 
                   </li>
                 <li>
-                
-                  <div className="scheduleFormFields">
-                    <ul>  
-                      <li>
+
+
+
+
+
+                  <div className="scheduleFormFields">              
+                    <div className="orderSummary">
+                      <h5>Order Details</h5>
+                      <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
+                      <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
+                      <p className="recipient productPrice">Delivery: $20</p>                 
+                      <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
+                      <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
+                    </div>
+                    <div className="leftSide">
+                      <div className="checkout span6">
+                        <h5>Frequency</h5>
                         <Field name="frequency" component="select">
                           <option>How Often</option>
                           <option value="monthly">monthly</option>
                           <option value="bi-weekly">bi-weekly</option>
                           <option value="weekly">weekly</option>
+                          validate={[required, nonEmpty]}
                         </Field>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="scheduleFormFields">
-                    <ul>  
-                      <li>
+                      </div>
+                    </div>    
+                    <div className="rightSide">
+                      <div className="checkout span6">
+                        <h5>Duration</h5>
                         <Field name="duration" component="select">
                           <option>How Long</option>
                           <option value="3 months">3 months</option>
                           <option value="6 months">6 months</option>
                           <option value="12 months">12 months</option>
                           <option value="ongoing">ongoing</option>
+                          validate={[required, nonEmpty]}
                         </Field>
-                      </li>
-                      <li className="datePicking">
-                  <h2>Choose Delivery Start Date</h2>
+                      </div>                  
+                    </div>  
+                  </div>
+                </li>
+                <li className="datePicking">
+                  <h4>Choose Delivery Start Date</h4>
                   <Field
                     name="startDate"
                     type="date"
                     component={Input}
+                    validate={[required, nonEmpty]}
                   />
                 </li>    
-
-                  </ul>
-                </div>
-              </li>
-                    <li>
-                      {formButton}
-                    </li>
-                  </ul>
-                </div>
-              </li>
-            </ul> 
+                <li>
+                  {formButton}
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul> 
           
         : ""  }  
         { this.props.currentFormSection === "checkout" ?   
-          <div>
+          <div className="checkout">
             <main>
               <header>
                 <h4>Here's your subscription details!</h4>
               </header>
               <section>
-              <div className="checkoutSum">
-
-              
-                <header>
-                    <h5>SENDER INFO</h5>
-                </header>
-                <div className="checkout left span6">
-                  <p className="sender name">NAME: {theForm.senderFirstName} {theForm.senderLastName}</p>
-                  <p className="sender email">EMAIL: {theForm.senderEmail}</p>
-                  <p className="sender phone">PHONE: {theForm.senderPhone}</p>
-                  <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                
-                  <p className="recipient productName">SELECTION: {thisProductName(this.props.currentProductCode)}</p>                
-                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">DELIVERY: ${20}</p>
-                  <p className="recipient productPrice">TOTAL: ${+20 + +thisPrice(this.props.currentProductCode)}</p>
-                </div>
-
-                <header>
-                  <h5>RECIPIENT INFO</h5>
-                </header>
-                <div className="checkout right span6">
-                  <p className="recipient name">NAME: {theForm.recipientFirstName} {theForm.recipientLastName}</p>
-                  <p className="recipient company">COMPANY: {theForm.recipientCompany} {theForm.recipientCompany}</p>
-                  <p className="recipient phone">PHONE: {theForm.recipientPhone}</p>
-                  <p className="recipient streetAddress">STREET ADDRESS: {theForm.recipientAddress}</p>
-                  <p className="recipient aptSuite">APT/SUITE: {theForm.recipientAptSuite}</p>
-                  <p className="recipient cityStateZip">CITY, STATE, ZIPCODE: {theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
-                  <p className="recipient message">GIFT MESSAGE: {theForm.recipientMessage}</p>
-                </div>
-                </div>
+                <div className="checkoutSum">              
+                  <div className="orderSummary">
+                    <h5>Order Details</h5>
+                    <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
+                    <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
+                    <p className="recipient productPrice">Delivery: $20</p>                 
+                    <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
+                    <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
+                  </div>
+                  <div className="leftSide">
+                    <div className="senderBlock">
+                      <h5>Sender Info</h5>
+                      <p className="sender name">NAME: {theForm.senderFirstName} {theForm.senderLastName}</p>
+                      <p className="sender email">EMAIL: {theForm.senderEmail}</p>
+                      <p className="sender phone">PHONE: {theForm.senderPhone}</p>      
+                    </div>
+                  </div>    
+                  <div className="rightSide">
+                    <div className="receiverBlock">
+                      <h5>Recipient Info</h5>
+                      <p className="recipient name">NAME: {theForm.recipientFirstName} {theForm.recipientLastName}</p>
+                      <p className="recipient company">COMPANY: {theForm.recipientCompany} {theForm.recipientCompany}</p>
+                      <p className="recipient phone">PHONE: {theForm.recipientPhone}</p>
+                      <p className="recipient streetAddress">STREET ADDRESS: {theForm.recipientAddress}</p>
+                      <p className="recipient aptSuite">APT/SUITE: {theForm.recipientAptSuite}</p>
+                      <p className="recipient cityStateZip">CITY, STATE, ZIPCODE: {theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
+                      <p className="recipient message">GIFT MESSAGE: {theForm.recipientMessage}</p>
+                    </div>                  
+                  </div>  
+                  </div>
                 <div className="checkoutButton">{formButton}</div>
               </section>        
             </main>
