@@ -10,13 +10,13 @@ export class SubscriptionAddForm extends React.Component {
   //POST section starts here
   onSubmit(values) {
     values['productCode'] = this.props.currentProductCode;
-    if (this.props.currentProductCode === '1') {
+    if (this.props.currentProductCode === 'p1') {
       values['productName'] = "Designer's Bouquet";
     } else {
-      if (this.props.currentProductCode === '2') {
+      if (this.props.currentProductCode === 'p2') {
         values['productName'] = "Designer's Choice Arrangement";
       } else {
-        if (this.props.currentProductCode === '3') {
+        if (this.props.currentProductCode === 'p3') {
           values['productName'] = "Designer's Lobby Arrangement";
         }
       }
@@ -86,9 +86,6 @@ export class SubscriptionAddForm extends React.Component {
       errorMessage = (
         <div className="message message-error">{this.props.error}</div>
       );
-    }
-    const dispatchArrangement = (choice) => {
-      this.props.dispatch(setProductChoice(choice)) ;
     }
     const dispatchFrequency = (frequency) => {
       this.props.dispatch(setFrequency(frequency));
@@ -181,41 +178,45 @@ export class SubscriptionAddForm extends React.Component {
       
     const deliveryDate = mm + '/' + dd + '/' + yyyy;
     const deliveryCharge = 20;
-    //SET THE PRODUCT NAME
-    const theForm = this.props.currentValues;
-    const thisProductName = pCode => {
-      if (pCode === '1') {
-        return "Designer's Bouquet";
-      } else {
-        if (pCode === '2') {
-          return "Designer's Choice Arrangement";
-        } else {
-          if (pCode === '3') {
-            return "Designer's Lobby Arrangement";
-          }
-        }  
-      }
-    }
 
-  //SET THE PRODUCT PRICE
-    const thisPrice = pCode => {
-      if (pCode === '1') {
-        return "35";
-      } else {
-        if (pCode === '2') {
-          return "65";
-        } else {
-          if (pCode === '3') {
-            return "125";
+    //Current values from the form
+    const theForm = this.props.currentValues;
+
+     //  PRODUCT OBJECT
+    const productObj = {
+      p1: { productName : "Designer's Bouquet",
+              productPrice : "35",
+              productDesc : "See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.",
+              productImg : "../img/dbouquet.jpg",
+              productThumb : "../img/_DSC3345.png",
+              productDispatch : function() {
+                return this.props.dispatch(setProductChoice('p1'));
+              }          
+          },
+      p2: { productName : "Designer's Choice Arrangement",
+              productPrice : "75",
+              productDesc : "See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.",
+              productImg : "'../img/dbouquet.jpg",
+              productThumb : "../img/_DSC2980.png",
+              productDispatch : function() {
+                return this.props.dispatch(setProductChoice('p2'));
+              }
+          },
+      p3: { productName : "Designer's Lobby Arrangement",
+              productPrice : "150",
+              productDesc : "See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.",
+              productImg : "'../img/dbouquet.jpg",
+              productThumb : "../img/_DSC3098.png",
+              productDispatch : function() {
+                return this.props.dispatch(setProductChoice('p3'));
+              }
           }
-        }  
-      }
     }
 
     return (
       <div>
         <header role="heading">
-          <h1>BLOOMS SUBSCRIPTIONS</h1>
+          <h1>Blooms PDX Floral Subscription Service</h1>
         </header>
         <main role="main">
           <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
@@ -227,11 +228,11 @@ export class SubscriptionAddForm extends React.Component {
               </nav>
               <section>
               <div className="landing">
-                <h2>Welcome to Blooms Subscription Service!</h2> 
+                <h2>Welcome to Blooms PDX Floral Subscription Service!</h2> 
                 <p>Blooms provides an easy way to brighten up and beautify your home or office on a regular basis.</p>
                 <p>We will deliver beautiful, fresh, custom flower arrangements straight to your home or office on a regular schedule!</p>
                 <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
-                <p>Click the button, and we'll get you set up right away!!</p>
+                <p>Click the button, and we'll get you set up right away!</p>
                 <div className="entry">{formButton}</div>
               </div>
               </section>
@@ -246,45 +247,63 @@ export class SubscriptionAddForm extends React.Component {
               <li className="arrangement">
                 <div className="arrangement3">         
                   <div className="thumb">
-                      <img className="thumbnail"  onClick={() => dispatchArrangement('3')} src="../img/_DSC3098.png" alt=""/>
+                  <p>{console.log('productObj.p3: ', productObj.p3)}</p>
+                      <img className="thumbnail"  onClick={productObj.p3.productDispatch} src={productObj.p3.productThumb} alt=""/>
                   </div>                                   
                   <div className="pickArr3">
-                    <p className="arrangementName ">{thisProductName('3')}</p>
-                    <button className="arrangeButton" onClick={() => dispatchArrangement('3')}  type="button">SELECT</button><span className="price"></span>                 
+                    <p className="arrangementName ">{productObj.p3.productName}</p>
+                    <button className="arrangeButton" onClick={productObj.p3.productDispatch}  type="button">SELECT</button><span className="price"></span>                 
                   </div>
                 </div>
               </li>
               <li className="arrangement"> 
               <div className="arrangement2">          
                 <div className="thumb">
-                  <img className="thumbnail"  onClick={() => dispatchArrangement('2')} src="../img/_DSC2980.png" alt=""/>                  
+                  <img className="thumbnail"  onClick={productObj.p2.productDispatch} src={productObj.p2.productThumb} alt=""/>                  
                 </div>
                 <div className="pickArr2">
-                  <p className="arrangementName">{thisProductName('2')}</p>
-                  <button className="arrangeButton" onClick={() => dispatchArrangement('2')}  type="button">SELECT</button><span className="price"></span> 
+                  <p className="arrangementName">{productObj.p2.productName}</p>
+                  <button className="arrangeButton" onClick={productObj.p2.productDispatch}  type="button">SELECT</button><span className="price"></span> 
                 </div>
                 </div>
               </li>
               <li className="arrangement">     
                 <div className="arrangement1">   
                   <div className="thumb">
-                    <img className="thumbnail" onClick={() => dispatchArrangement('1')} src="../img/_DSC3345.png" alt=""/>                 
+                    <img className="thumbnail" onClick={productObj.p1.productDispatch} src={productObj.p1.productThumb} alt=""/>                 
                   </div>
                   <div className="pickArr1">
-                    <p className="arrangementName">{thisProductName('1')}</p>
-                    <button className="arrangeButton" onClick={() => dispatchArrangement('1')}  type="button">SELECT</button><span className="price"></span>  
+                    <p className="arrangementName">{productObj.p1.productName}</p>
+                    <button className="arrangeButton" onClick={productObj.p1.productDispatch}  type="button">SELECT</button><span className="price"></span>  
                   </div>
                 </div>
               </li>
             </ul>
         : "" }
+        { this.props.currentFormSection === "detail" ?             
+            <ul>
+              <li>
+                <div className="productDetail">
+                  <h5>{productObj.this.props.currentProductCode.productName}</h5>
+                  <div className="productPhoto">
+                    <img src={productObj.this.props.currentProductCode.productPhoto} alt="img"/>
+                  </div>
+                  <p className="productPrice">Starting at: ${productObj.this.props.currentProductCode.productThumb}</p>
+                  <p className="productDesc">{productObj.this.props.currentProductCode.productDesc}</p>                 
+                </div>
+                <div className="chooser">
+                  <button className="chooseButton" onClick={productObj.this.props.currentProductCode.productDispatch}  type="button">SELECT</button><span className="price"></span>  
+                </div>
+              </li>
+            </ul>
+        : ""  }
         { this.props.currentFormSection === "recipient" ?             
             <ul className="recipientInfo">
               <li>         
                 <div className="orderSummary">
                   <h5>Order Details</h5>
-                  <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
+                  <p className="recipient productName">PRODUCT: {productObj.this.props.currentProductCode.productName} </p>
+                  <p className="recipient productPrice">PRICE: ${productObj.this.props.currentProductCode.productPrice} </p>
                   <p className="recipient productPrice">Delivery: $20</p>                 
                 </div>
               </li>
@@ -393,10 +412,10 @@ export class SubscriptionAddForm extends React.Component {
               <li>         
                 <div className="orderSummary">
                   <h5>Order Details</h5>
-                  <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">Delivery: $20</p>                 
-                  <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p>                  
+                  <p className="recipient productName">PRODUCT: {productObj.this.props.currentProductCode.productName} </p>
+                  <p className="recipient productPrice">PRICE: ${productObj.this.props.currentProductCode.productPrice} </p>
+                  <p className="recipient productPrice">Delivery: ${deliveryCharge}</p>                 
+                  <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +productObj.this.props.currentProductCode.productPrice}</p>                  
                 </div>
               </li>
               <li>                
@@ -470,10 +489,10 @@ export class SubscriptionAddForm extends React.Component {
                   <div className="scheduleFormFields">              
                     <div className="orderSummary">
                       <h5>Order Details</h5>
-                      <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
-                      <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
-                      <p className="recipient productPrice">Delivery: $20</p>                 
-                      <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
+                      <p className="recipient productName">PRODUCT: {productObj.this.props.currentProductCode.productName}</p>
+                      <p className="recipient productPrice">PRICE: ${productObj.this.props.currentProductCode.productPrice}</p>
+                      <p className="recipient productPrice">Delivery: ${deliveryCharge}</p>                 
+                      <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +productObj.this.props.currentProductCode.productPrice}</p>                  
                       <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
                     </div>
                     <div className="leftSide">
@@ -531,11 +550,11 @@ export class SubscriptionAddForm extends React.Component {
                 <div className="checkoutSum">              
                   <div className="orderSummary">
                     <h5>Order Details</h5>
-                    <p className="recipient checkout"><span>Product: </span>{thisProductName(this.props.currentProductCode)}</p>
-                    <p className="recipient checkout"><span>Price: </span>${thisPrice(this.props.currentProductCode)}</p>
-                    <p className="recipient checkout"><span>Delivery: </span>$20</p>                 
-                    <p className="recipient checkout"><span>TOTAL: </span>${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
-                    <p className="recipient checkout"><span>START DELIVERY ON: </span>{deliveryDate}</p>                   
+                    <p className="recipient productName">PRODUCT: {productObj.this.props.currentProductCode.productName}</p>
+                    <p className="recipient productPrice">PRICE: ${productObj.this.props.currentProductCode.productPrice}</p>
+                    <p className="recipient productPrice">Delivery: ${deliveryCharge}</p>                 
+                    <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +productObj.this.props.currentProductCode.productPrice}</p>                  
+                    <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
                   </div>
                   <div className="leftSide">
                     <div className="senderBlock">
