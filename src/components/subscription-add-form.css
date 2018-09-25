@@ -327,7 +327,15 @@ display:inline-block;
 .frequency button, .duration button { 
   margin-top:1.0416667%;
 }
-
+div.checkout {
+  max-width:98%;
+}
+.checkout span{
+  font-weight:bold;
+}
+.checkout .jump {
+  margin-top:10px;
+}
 .jump {
   background-color:green;
   color:white;
@@ -415,9 +423,10 @@ font-size: 2vw;
 
 
 .checkout { 
-  width:100%;
-  margin-left:10px;
+  width:100%;;
   display:block;
+  min-width:300px;
+  text-align:center;
 }
 .checkoutSum{
   padding:0;
@@ -427,20 +436,19 @@ font-size: 2vw;
   background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
 }
-.checkout {
-  margin-left:10px;
-}
+
 .scheduleBlock {
-  margin-left:10px;
+  margin-left:0px;
 }
 .scheduleInfo {
-  border: 1px black solid;
+
   padding:10px;
-  width:280px;
+  width:80%;
+  min-width:280px;
   padding-bottom: 800px;
   overflow: hidden;
-  margin:0 auto;
-  
+  margin:30% auto;
+  text-align:center;
 
 
   }
@@ -474,7 +482,13 @@ font-size: 2vw;
   .arrangementName {
     font-size: 2vw;  
   }
-
+  h3 {
+    font-size:3vw;
+    padding:0px;
+  }
+  p{
+    font-size:2.5vw;
+  }
   .checkoutSum h5 {
     font-size:1.8vw;
   }
@@ -615,4 +629,8 @@ font-size: 2vw;
     padding:0px;
     font-weight: bold;
   }
+  p.recipient {
+    font-size: 4vw;
+  }
+
 }

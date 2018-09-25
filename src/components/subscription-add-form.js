@@ -477,7 +477,7 @@ export class SubscriptionAddForm extends React.Component {
                       <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
                     </div>
                     <div className="leftSide">
-                      <div className="checkout span6">
+                      <div className="schedule span6">
                         <h5>Frequency</h5>
                         <Field name="frequency" component="select">
                           <option>How Often</option>
@@ -489,7 +489,7 @@ export class SubscriptionAddForm extends React.Component {
                       </div>
                     </div>    
                     <div className="rightSide">
-                      <div className="checkout span6">
+                      <div className="schedule span6">
                         <h5>Duration</h5>
                         <Field name="duration" component="select">
                           <option>How Long</option>
@@ -525,17 +525,17 @@ export class SubscriptionAddForm extends React.Component {
           <div className="checkout">
             <main>
               <header>
-                <h4>Here's your subscription details!</h4>
+                <h4>Please review your subscription details. If everything looks good, click the 'subscribe' button to start your subscription!</h4>
               </header>
               <section>
                 <div className="checkoutSum">              
                   <div className="orderSummary">
                     <h5>Order Details</h5>
-                    <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
-                    <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
-                    <p className="recipient productPrice">Delivery: $20</p>                 
-                    <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
-                    <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
+                    <p className="recipient checkout"><span>Product: </span>{thisProductName(this.props.currentProductCode)}</p>
+                    <p className="recipient checkout"><span>Price: </span>${thisPrice(this.props.currentProductCode)}</p>
+                    <p className="recipient checkout"><span>Delivery: </span>$20</p>                 
+                    <p className="recipient checkout"><span>TOTAL: </span>${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
+                    <p className="recipient checkout"><span>START DELIVERY ON: </span>{deliveryDate}</p>                   
                   </div>
                   <div className="leftSide">
                     <div className="senderBlock">
