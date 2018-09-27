@@ -21,7 +21,7 @@ export const fetchSubscriptionSuccess = (subscriptions) => ({
     subscriptions
 });
 export const JUMP_TO_SECTION = 'JUMP_TO_SECTION';
-export const jumpToSection = (section) => ({
+export const setSection = (section) => ({
     type: JUMP_TO_SECTION, 
     section
 });

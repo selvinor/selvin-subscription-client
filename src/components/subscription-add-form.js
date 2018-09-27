@@ -4,19 +4,19 @@ import {connect} from 'react-redux';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 import './subscription-add-form.css'; 
-import { jumpToSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
+import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
 import {REACT_APP_BASE_URL} from '../config';
 export class SubscriptionAddForm extends React.Component {
   //POST section starts here
   onSubmit(values) {
     values['productCode'] = this.props.currentProductCode;
-    if (this.props.currentProductCode === 'p1') {
+    if (this.props.currentProductCode === '1') {
       values['productName'] = "Designer's Bouquet";
     } else {
-      if (this.props.currentProductCode === 'p2') {
+      if (this.props.currentProductCode === '2') {
         values['productName'] = "Designer's Choice Arrangement";
       } else {
-        if (this.props.currentProductCode === 'p3') {
+        if (this.props.currentProductCode === '3') {
           values['productName'] = "Designer's Lobby Arrangement";
         }
       }
@@ -47,7 +47,7 @@ export class SubscriptionAddForm extends React.Component {
           message: res.statusText
         });
       }
-      this.props.dispatch(jumpToSection('confirm'));
+      this.props.dispatch(setSection('confirm'));
       return res.json();
     })
     .then((values) => {
@@ -87,11 +87,18 @@ export class SubscriptionAddForm extends React.Component {
         <div className="message message-error">{this.props.error}</div>
       );
     }
+
+    const dispatchProductChoice = (choice) => {
+      this.props.dispatch(setProductChoice(choice)) ;
+    }
     const dispatchFrequency = (frequency) => {
       this.props.dispatch(setFrequency(frequency));
     }    
     const dispatchDuration = (duration) => {
       this.props.dispatch(setDuration(duration)) ;
+    }        
+    const dispatchSection = (section) => {
+      this.props.dispatch(setSection(section)) ;
     }        
     const dispatchNumberOfDeliveries = () => {
       let numberOfDeliveries; 
@@ -110,8 +117,6 @@ export class SubscriptionAddForm extends React.Component {
         subscriptionTerm = 12;
         break;
       }   
-
-
       switch (this.props.currentFrequency) {
         case 'monthly':
           numberOfDeliveries = subscriptionTerm; 
@@ -129,9 +134,23 @@ export class SubscriptionAddForm extends React.Component {
           numberOfDeliveries = 12;
         break;
       }   
-      this.props.dispatch(setNumberOfDeliveries(numberOfDeliveries));
-      
+      dispatchNumberOfDeliveries(numberOfDeliveries);      
     }
+    
+ 
+   const validateFields = function(){
+     console.log('validateFields');
+      const check = document.getElementById("recipients").getElementsByTagName("input");
+      let len = check.length;
+      console.log('validateFields length', len);
+      for(let  i=0;i<len;i++) {
+        if (check[i].value ==='')
+        {
+           console.log('required', i);
+           return false;
+        }; 
+      };
+   }
     
 
     //  custom button for each section
@@ -141,25 +160,22 @@ export class SubscriptionAddForm extends React.Component {
         formButton = ( <button className="jump" onClick={() => { dispatchFrequency(this.props.currentValues.frequency);  dispatchDuration(this.props.currentValues.duration); dispatchNumberOfDeliveries()}}  type="button">NEXT</button>); 
         break;
       case 'recipient':
-        formButton = (<button className="jump"  onClick={() => this.props.dispatch(jumpToSection('sender'))}  type="button">NEXT</button>);
+        formButton = (<button className="jump"  onClick={() => {validateFields('recipient');dispatchSection('sender')}}  type="button">NEXT</button>);
         break;
         case 'sender':
-        formButton = (<button className="jump"  onClick={() => this.props.dispatch(jumpToSection('schedule'))}  type="button">NEXT</button>);
-        break;
-      case 'receiver':
-        formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>Submit</button>);
+        formButton = (<button className="jump"  onClick={() => dispatchSection('schedule')}  type="button">NEXT</button>);
         break;
       case 'checkout':
         formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>SUBSCRIBE!</button>);
         break;
       case 'confirm':
-        formButton = ( <button className="jump"  onClick={() => this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
+        formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
         break;
       case 'onboarding':
-        formButton = ( <button className="jump"  onClick={() => this.props.dispatch(jumpToSection('arrangement'))}  type="button">Get Started</button>); 
+        formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Get Started</button>); 
         break;
       default:
-        formButton = ( <button className="jump"  onClick={() => this.props.dispatch(jumpToSection('arrangement'))}  type="button">Finish</button>); 
+        formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
       break;
     }   
 // GET Today's DATE
@@ -178,45 +194,55 @@ export class SubscriptionAddForm extends React.Component {
       
     const deliveryDate = mm + '/' + dd + '/' + yyyy;
     const deliveryCharge = 20;
-
-    //Current values from the form
+    //SET THE PRODUCT NAME
     const theForm = this.props.currentValues;
-
-     //  PRODUCT OBJECT
-    const productObj = {
-      p1: { productName : "Designer's Bouquet",
-              productPrice : "35",
-              productDesc : "See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.",
-              productImg : "../img/dbouquet.jpg",
-              productThumb : "../img/_DSC3345.png",
-              productDispatch : function() {
-                return this.props.dispatch(setProductChoice('p1'));
-              }          
-          },
-      p2: { productName : "Designer's Choice Arrangement",
-              productPrice : "75",
-              productDesc : "See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.",
-              productImg : "'../img/dbouquet.jpg",
-              productThumb : "../img/_DSC2980.png",
-              productDispatch : function() {
-                return this.props.dispatch(setProductChoice('p2'));
-              }
-          },
-      p3: { productName : "Designer's Lobby Arrangement",
-              productPrice : "150",
-              productDesc : "See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.",
-              productImg : "'../img/dbouquet.jpg",
-              productThumb : "../img/_DSC3098.png",
-              productDispatch : function() {
-                return this.props.dispatch(setProductChoice('p3'));
-              }
+    const thisProductName = pCode => {
+      if (pCode === 'p1') {
+        return "Designer's Bouquet";
+      } else {
+        if (pCode === 'p2') {
+          return "Designer's Choice Arrangement";
+        } else {
+          if (pCode === 'p3') {
+            return "Designer's Lobby Arrangement";
           }
+        }  
+      }
+    }
+
+  //SET THE PRODUCT PRICE
+    const thisPrice = pCode => {
+      if (pCode === 'p1') {
+        return "35";
+      } else {
+        if (pCode === 'p2') {
+          return "65";
+        } else {
+          if (pCode === 'p3') {
+            return "150";
+          }
+        }  
+      }
+    }
+    const thisProductDesc = pCode => { 
+      if (pCode === 'p1') {
+        return "An easy way to brighten up and beautify your home or office, plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions. ";
+      } else {
+        if (pCode === 'p2') {
+          return "Beautiful, fresh, custom flower arrangements for your home or office, delivered on a weekly or monthly basis. Plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions. ";
+        } else {
+          if (pCode === 'p3') {
+            return "See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.";
+          }
+        }  
+      }
+
     }
 
     return (
       <div>
         <header role="heading">
-          <h1>Blooms PDX Floral Subscription Service</h1>
+          <h1>Blooms PDX Floral Subscriptions</h1>
         </header>
         <main role="main">
           <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
@@ -247,34 +273,51 @@ export class SubscriptionAddForm extends React.Component {
               <li className="arrangement">
                 <div className="arrangement3">         
                   <div className="thumb">
-                  <p>{console.log('productObj.p3: ', productObj.p3)}</p>
-                      <img className="thumbnail"  onClick={productObj.p3.productDispatch} src={productObj.p3.productThumb} alt=""/>
+                      <img className="thumbnail"  onClick={() => {
+                        dispatchProductChoice('p3');
+                        dispatchSection('detail');
+                      }} src="../img/_DSC3098.png" alt=""/>
                   </div>                                   
                   <div className="pickArr3">
-                    <p className="arrangementName ">{productObj.p3.productName}</p>
-                    <button className="arrangeButton" onClick={productObj.p3.productDispatch}  type="button">SELECT</button><span className="price"></span>                 
+                    <p className="arrangementName ">{thisProductName('3')}</p>
+                    <button className="arrangeButton" onClick={() => {
+                        dispatchProductChoice('p3');
+                        dispatchSection('detail');
+                    }}  type="button">SELECT</button><span className="price"></span>                 
                   </div>
                 </div>
               </li>
               <li className="arrangement"> 
-              <div className="arrangement2">          
-                <div className="thumb">
-                  <img className="thumbnail"  onClick={productObj.p2.productDispatch} src={productObj.p2.productThumb} alt=""/>                  
-                </div>
-                <div className="pickArr2">
-                  <p className="arrangementName">{productObj.p2.productName}</p>
-                  <button className="arrangeButton" onClick={productObj.p2.productDispatch}  type="button">SELECT</button><span className="price"></span> 
-                </div>
+                <div className="arrangement2">          
+                  <div className="thumb">             
+                    <img className="thumbnail"  onClick={() => {
+                      dispatchProductChoice('p2');
+                      dispatchSection('detail');
+                    }} src="../img/_DSC2980.png" alt=""/>
+                  </div>
+                  <div className="pickArr2">
+                    <p className="arrangementName">{thisProductName('2')}</p>
+                    <button className="arrangeButton" onClick={() => {
+                      dispatchProductChoice('p2');
+                      dispatchSection('detail');
+                    }}  type="button">SELECT</button><span className="price"></span>                 
+                  </div>
                 </div>
               </li>
               <li className="arrangement">     
                 <div className="arrangement1">   
-                  <div className="thumb">
-                    <img className="thumbnail" onClick={productObj.p1.productDispatch} src={productObj.p1.productThumb} alt=""/>                 
+                  <div className="thumb">             
+                    <img className="thumbnail"  onClick={() => {
+                      dispatchProductChoice('p1');
+                      dispatchSection('detail');
+                    }} src="../img/_DSC3345.png" alt=""/>
                   </div>
                   <div className="pickArr1">
-                    <p className="arrangementName">{productObj.p1.productName}</p>
-                    <button className="arrangeButton" onClick={productObj.p1.productDispatch}  type="button">SELECT</button><span className="price"></span>  
+                    <p className="arrangementName">{thisProductName('1')}</p>
+                    <button className="arrangeButton" onClick={() => {
+                      dispatchProductChoice('p1');
+                      dispatchSection('detail');
+                    }}  type="button">SELECT</button><span className="price"></span>                 
                   </div>
                 </div>
               </li>
@@ -283,27 +326,26 @@ export class SubscriptionAddForm extends React.Component {
         { this.props.currentFormSection === "detail" ?             
             <ul>
               <li>
+              <button className="jumpBack"  onClick={() => dispatchSection('arrangement')}  type="button">BACK</button>              
                 <div className="productDetail">
-                  <h5>{productObj.this.props.currentProductCode.productName}</h5>
-                  <div className="productPhoto">
-                    <img src={productObj.this.props.currentProductCode.productPhoto} alt="img"/>
+                  <h5>{thisProductName(this.props.currentProductCode)}</h5> 
+                  <div className={'productPhoto_' + this.props.currentProductCode}>
                   </div>
-                  <p className="productPrice">Starting at: ${productObj.this.props.currentProductCode.productThumb}</p>
-                  <p className="productDesc">{productObj.this.props.currentProductCode.productDesc}</p>                 
-                </div>
-                <div className="chooser">
-                  <button className="chooseButton" onClick={productObj.this.props.currentProductCode.productDispatch}  type="button">SELECT</button><span className="price"></span>  
+                  <p className="productDetailPrice">Starting at: ${thisPrice(this.props.currentProductCode)}</p>
+                  <p className="productDetailDesc">{thisProductDesc(this.props.currentProductCode)}</p> 
+                  <button className="chooseButton" onClick={() => dispatchProductChoice(this.props.currentProductCode)}  type="button">SELECT</button><span className="price"></span>                
                 </div>
               </li>
             </ul>
         : ""  }
         { this.props.currentFormSection === "recipient" ?             
-            <ul className="recipientInfo">
+            <ul id="recipients" className="recipientInfo">
               <li>         
+              <button className="jumpBack"  onClick={() => dispatchSection('arrangement')}  type="button">BACK</button>              
                 <div className="orderSummary">
                   <h5>Order Details</h5>
-                  <p className="recipient productName">PRODUCT: {productObj.this.props.currentProductCode.productName} </p>
-                  <p className="recipient productPrice">PRICE: ${productObj.this.props.currentProductCode.productPrice} </p>
+                  <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
+                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
                   <p className="recipient productPrice">Delivery: $20</p>                 
                 </div>
               </li>
@@ -410,12 +452,13 @@ export class SubscriptionAddForm extends React.Component {
         { this.props.currentFormSection === "sender" ?   
             <ul className="senderData">
               <li>         
+              <button className="jumpBack"  onClick={() => dispatchSection('recipient')}  type="button">BACK</button>              
                 <div className="orderSummary">
                   <h5>Order Details</h5>
-                  <p className="recipient productName">PRODUCT: {productObj.this.props.currentProductCode.productName} </p>
-                  <p className="recipient productPrice">PRICE: ${productObj.this.props.currentProductCode.productPrice} </p>
-                  <p className="recipient productPrice">Delivery: ${deliveryCharge}</p>                 
-                  <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +productObj.this.props.currentProductCode.productPrice}</p>                  
+                  <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
+                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
+                  <p className="recipient productPrice">Delivery: $20</p>                 
+                  <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p>                  
                 </div>
               </li>
               <li>                
@@ -475,24 +518,20 @@ export class SubscriptionAddForm extends React.Component {
           
             <ul className="scheduleInfo">
               <li>
+              <button className="jumpBack"  onClick={() => dispatchSection('sender')}  type="button">BACK</button>              
                 <div className="scheduleBlock">
                   <ul>
                   <li className="schedule">
                     <h3>SCHEDULE DELIVERY</h3> 
                   </li>
                 <li>
-
-
-
-
-
                   <div className="scheduleFormFields">              
                     <div className="orderSummary">
                       <h5>Order Details</h5>
-                      <p className="recipient productName">PRODUCT: {productObj.this.props.currentProductCode.productName}</p>
-                      <p className="recipient productPrice">PRICE: ${productObj.this.props.currentProductCode.productPrice}</p>
-                      <p className="recipient productPrice">Delivery: ${deliveryCharge}</p>                 
-                      <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +productObj.this.props.currentProductCode.productPrice}</p>                  
+                      <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
+                      <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
+                      <p className="recipient productPrice">Delivery: $20</p>                 
+                      <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
                       <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
                     </div>
                     <div className="leftSide">
@@ -544,17 +583,18 @@ export class SubscriptionAddForm extends React.Component {
           <div className="checkout">
             <main>
               <header>
+              <button className="jumpBack"  onClick={() => dispatchSection('schedule')}  type="button">BACK</button>              
                 <h4>Please review your subscription details. If everything looks good, click the 'subscribe' button to start your subscription!</h4>
               </header>
               <section>
                 <div className="checkoutSum">              
                   <div className="orderSummary">
                     <h5>Order Details</h5>
-                    <p className="recipient productName">PRODUCT: {productObj.this.props.currentProductCode.productName}</p>
-                    <p className="recipient productPrice">PRICE: ${productObj.this.props.currentProductCode.productPrice}</p>
-                    <p className="recipient productPrice">Delivery: ${deliveryCharge}</p>                 
-                    <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +productObj.this.props.currentProductCode.productPrice}</p>                  
-                    <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
+                    <p className="recipient checkout"><span>Product: </span>{thisProductName(this.props.currentProductCode)}</p>
+                    <p className="recipient checkout"><span>Price: </span>${thisPrice(this.props.currentProductCode)}</p>
+                    <p className="recipient checkout"><span>Delivery: </span>$20</p>                 
+                    <p className="recipient checkout"><span>TOTAL: </span>${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
+                    <p className="recipient checkout"><span>START DELIVERY ON: </span>{deliveryDate}</p>                   
                   </div>
                   <div className="leftSide">
                     <div className="senderBlock">
@@ -611,8 +651,8 @@ const mapStateToProps = state => {
 
   const mapDispatchToProps = dispatch => {
     return {
-      jumpToSection: () => {
-        dispatch(jumpToSection())
+      setSection: () => {
+        dispatch(setSection())
       },
       setNumberOfDeliveries: () => {
         dispatch(setNumberOfDeliveries())
