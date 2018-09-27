@@ -133,8 +133,8 @@ export class SubscriptionAddForm extends React.Component {
         default:
           numberOfDeliveries = 12;
         break;
-      }   
-      dispatchNumberOfDeliveries(numberOfDeliveries);      
+      }    
+      setNumberOfDeliveries(numberOfDeliveries);       
     }
     
  
@@ -242,7 +242,7 @@ export class SubscriptionAddForm extends React.Component {
     return (
       <div>
         <header role="heading">
-          <h1>Blooms PDX Floral Subscriptions</h1>
+          <h1>Blooms Subscriptions</h1>
         </header>
         <main role="main">
           <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
@@ -254,7 +254,7 @@ export class SubscriptionAddForm extends React.Component {
               </nav>
               <section>
               <div className="landing">
-                <h2>Welcome to Blooms PDX Floral Subscription Service!</h2> 
+                <h2>Welcome to Blooms Floral Subscription Service!</h2> 
                 <p>Blooms provides an easy way to brighten up and beautify your home or office on a regular basis.</p>
                 <p>We will deliver beautiful, fresh, custom flower arrangements straight to your home or office on a regular schedule!</p>
                 <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
@@ -279,7 +279,7 @@ export class SubscriptionAddForm extends React.Component {
                       }} src="../img/_DSC3098.png" alt=""/>
                   </div>                                   
                   <div className="pickArr3">
-                    <p className="arrangementName ">{thisProductName('3')}</p>
+                    <p className="arrangementName ">{thisProductName('p3')}</p>
                     <button className="arrangeButton" onClick={() => {
                         dispatchProductChoice('p3');
                         dispatchSection('detail');
@@ -296,7 +296,7 @@ export class SubscriptionAddForm extends React.Component {
                     }} src="../img/_DSC2980.png" alt=""/>
                   </div>
                   <div className="pickArr2">
-                    <p className="arrangementName">{thisProductName('2')}</p>
+                    <p className="arrangementName">{thisProductName('p2')}</p>
                     <button className="arrangeButton" onClick={() => {
                       dispatchProductChoice('p2');
                       dispatchSection('detail');
@@ -313,7 +313,7 @@ export class SubscriptionAddForm extends React.Component {
                     }} src="../img/_DSC3345.png" alt=""/>
                   </div>
                   <div className="pickArr1">
-                    <p className="arrangementName">{thisProductName('1')}</p>
+                    <p className="arrangementName">{thisProductName('p1')}</p>
                     <button className="arrangeButton" onClick={() => {
                       dispatchProductChoice('p1');
                       dispatchSection('detail');
@@ -329,7 +329,7 @@ export class SubscriptionAddForm extends React.Component {
               <button className="jumpBack"  onClick={() => dispatchSection('arrangement')}  type="button">BACK</button>              
                 <div className="productDetail">
                   <h5>{thisProductName(this.props.currentProductCode)}</h5> 
-                  <div className={'productPhoto_' + this.props.currentProductCode}>
+                  <div className={'productPhoto_' + this.props.currentProductCode} onClick={() => dispatchProductChoice(this.props.currentProductCode)} >
                   </div>
                   <p className="productDetailPrice">Starting at: ${thisPrice(this.props.currentProductCode)}</p>
                   <p className="productDetailDesc">{thisProductDesc(this.props.currentProductCode)}</p> 
