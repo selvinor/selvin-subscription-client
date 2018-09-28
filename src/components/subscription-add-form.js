@@ -249,20 +249,7 @@ export class SubscriptionAddForm extends React.Component {
         formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
       break;
     }   
-// GET Today's DATE
-      let today = new Date();
-      let dd = today.getDate()+1;
-      let mm = today.getMonth()+1; //January is 0!
-      let yyyy = today.getFullYear();
-      
-      if(dd<10) {
-          dd = '0'+dd
-      } 
-      
-      if(mm<10) {
-          mm = '0'+mm
-      } 
-      
+
    // const deliveryDate = mm + '/' + dd + '/' + yyyy;
     const deliveryCharge = 20;
     //SET THE PRODUCT NAME
