@@ -64,10 +64,12 @@ export const subscriptionReducer = (state=initialState, action) => {
       currentFormSection: 'recipient'
     });
     case 'SET_FREQUENCY':
+    console.log('SET_FREQUENCY: ', action.frequency);
     return Object.assign({}, state, {
       currentFrequency: action.frequency      
     });
     case 'SET_DURATION':
+      console.log('SET_DURATION: ', action.duration);
     return Object.assign({}, state, {
       currentDuration: action.duration
     });
@@ -77,6 +79,7 @@ export const subscriptionReducer = (state=initialState, action) => {
     });
 
     case 'JUMP_TO_SECTION':
+    console.log('JUMP_TO_SECTION: ', action.section);
     return Object.assign({}, state, {
       currentFormSection: action.section
     });

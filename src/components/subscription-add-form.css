@@ -9,16 +9,17 @@ html, body  {
 }
 body {
   /*padding:0 20px;*/
-  /*background: #e8e9ed url(../images/backgroundLilies.jpg); */
-  background: transparent url(../images/_DSC1478.jpg); 
-  background-repeat: no-repeat;
-  background-position: calc(60% - 0px) calc(0% - 0px); 
+ /*background: #e8e9ed url(../images/backgroundLilies.jpg); */
+  background-position: calc(50% - 0px) calc(0% - 0px); 
+  background-repeat: no-repeat;  
   font-family: 'Oxygen', sans-serif;
   font-size: 100%;
   font-size: 16px;
   font-size: 1em;
+  background-size: "contain"; 
   padding:0;
   margin: 0;
+  background: transparent url(../images/_DSC7675.jpg); 
 }
 div, span, p {
 	margin: 0;
@@ -29,8 +30,8 @@ div, span, p {
 #root {
   min-height: 100%;
   height: 100%;
-  padding:20px 5px 0;
-  margin-top:-20px;
+  padding-top:5px;
+  margin:0;
   width: 100%; /* Holding outermost DIV */
   background: -moz-linear-gradient(left, rgba(255,255,255,1) 45%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, rgba(255,255,255,1) 45%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -154,6 +155,11 @@ ul {
 li  {
   list-style-type: none;
 }
+.formButton {
+  width:60px;
+  padding:2px 3px;
+  margin:0 auto;
+}
  .arrangements li {
 
   text-align:center;
@@ -184,17 +190,54 @@ ul.arrangements {
   /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */  
   border-radius:0.72916667%;
 }
+.formbutton {
+  text-align:center;
+}
+.jump {
+  background-color:green;
+  color:white;
+  padding:0.72916667% 1.0416667%;
+  font-weight:bold;
+  font-size:3.5vw;
+  margin: 5px auto 0;
 
+}
+.entry {
+  text-align: center;
+}
+.entry .jump {
+  width:75px;
+  margin:0 auto;
+}
 .checkout h5 {
   padding:0;
   margin:0;
+}
+
+.jumpBack {
+  background-color:yellow;
+  font-size:3.5vw;
+  padding:0.72916667% 1.0416667%;
+  font-weight:bold;
+  width:50px;
+  border: .5px #ccc solid;
+  margin-left:5px;
+}
+.arrangeButton {
+  border: .5px #ccc solid;
+  background-color:green;  
+  color: #fafafa;
+  font-weight:bold;
+  margin: 2% 0;
+  padding:0.72916667% 1.0416667%;
+  width: 100px;
 }
  label.frequency , label.duration,  label.recipientMessage   {
   font-weight:bold;
  }
  input {
   margin-top:10px;
-  width: 99%;
+  width: 100%;
   height:30px;
   background: -moz-linear-gradient(left, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -204,13 +247,14 @@ ul.arrangements {
   border-radius:0.72916667%;
 }
 #startDate {
-  width:50%;
+  width:120px;
+  text-align:center;
 }
 
 textarea {
   margin-top:21;
-  width: 99%;
-  height:60px;
+  width: 100%;
+  height:50px;
   background: -moz-linear-gradient(left, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -219,7 +263,9 @@ textarea {
   border-radius:0.72916667%;
 
 }
-
+#scheduleInfo .jumpBack {
+  margin-bottom:5px;
+}
  button {
    border:none;   
 
@@ -228,7 +274,10 @@ textarea {
   cursor: pointer;
  }
 
-
+.datePicking h4 {
+  padding:0;
+  margin:5px 0 0;
+}
  .thumb  {
   display:inline-block;
 }
@@ -238,7 +287,7 @@ textarea {
   max-height: 100%;
 }
 
-.thumbnail:hover, .productPhoto_p1:hover, .productPhoto_p2:hover, .productPhoto_p3:hover{
+.thumbnail{
   cursor:pointer;
 }
 .pickArr3 {
@@ -315,14 +364,21 @@ display:inline-block;
 .frequency input, .duration input, {
   display:inline-block;
 }
-#recipients, .landing {
+#recipients {
   margin-top:0;
   font-weight:bold;
   border-radius:10px;
+  padding: 0px 5px;
+}
+ .landing {
+  margin-top:0;
+  font-weight:bold;
+  border-radius:10px;
+  padding: 0px;
 }
 .arrangements  {
 
-  padding:10px;
+  padding:0px 0px;
   font-weight:bold;
   border-radius:10px;
   width:100%
@@ -335,20 +391,22 @@ display:inline-block;
   padding-bottom: 300px;
   overflow: hidden;
 }
- .productDetailDesc {
-   font-weight:bold;
- }
 
-.senderInfo {
-  background: -moz-linear-gradient(left, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 75%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255,255,255,1) 75%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+.productDetailDesc {
+  background: -moz-linear-gradient(left, rgba(255,255,255,.65) 100%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(255,255,255,.65) 100%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(255,255,255,.65) 100%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
   border-radius:0.72916667%;
-
+  padding:5px;
 }
 .senderInfo h4 {
   padding:0;
+  margin:0;
+}
+.senderInfo  {
+  padding:0 5px;
   margin:0;
 }
 .scheduleFormFields {
@@ -375,37 +433,7 @@ div.checkout {
 .checkout .jump {
   margin-top:10px;
 }
-.jump {
-  background-color:green;
-  color:white;
-  padding:0.72916667% 1.0416667%;
-  font-weight:bold;
-}
-.jumpBack {
-  background-color:yellow;
-  font-size:2.5vw;
-  padding:0.72916667% 1.0416667%;
-  font-weight:bold;
 
-}
-.chooseButton {
-  margin-top:10px;
-  background-color:green;
-  color:white;
-  font-size:2.5vw;
-  padding:0.72916667% 1.0416667%;
-  font-weight:bold;
-
-}
-.arrangeButton {
-  
-  background-color:green;  
-  color: #fafafa;
-  font-weight:bold;
-  margin: 2% 0;
-  padding:0.72916667% 1.0416667%;
-  width: 100px;
-}
 .arrangementName {
   margin-top: - .520833%;
   font-weight:bold;
@@ -413,7 +441,9 @@ div.checkout {
   font-size: 1.4vw;
 }
 
-
+p.recipients  {
+  font-size:1vw;
+}
  
 .recipientInfoFields1{
   width:100%;
@@ -426,20 +456,11 @@ div.checkout {
 
 .orderSummary {
   text-align:center;
-  border-radius:0.72916667%;
   display:inline-block;
   width: 100%;
+  font-size:2vw;
 }
-.senderData {
-  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-  padding:0px 0 0 10px;
-  border-radius:0.72916667%;
-  padding-bottom: 800px;
-  overflow: hidden;
-}
+
 .senderOrderSum{
   font-size:2vw;
 }
@@ -451,10 +472,11 @@ li.arrangement2 {
 }
   
 .orderSummary {
+  margin-bottom: 5px;
   text-align:center;
 }
 .orderSummary p{
-font-size: 2vw;
+font-size: 1.5vw;
 
 }
 .leftSide {
@@ -488,7 +510,7 @@ font-size: 2vw;
 .scheduleBlock {
   margin-left:0px;
 }
-.scheduleInfo {
+#scheduleInfo {
 
   padding:10px;
   width:80%;
@@ -498,13 +520,14 @@ font-size: 2vw;
   margin:30% auto;
   text-align:center;
 
-
   }
   .landing {
     min-width:280px;
     width: 80%;
-    margin:40% auto;
-
+    margin:35% auto;
+  }
+  .landing h2{
+    font-size:4vw;
   }
   .productPhoto-p2 {
     text-align:center;
@@ -584,11 +607,9 @@ font-size: 2vw;
   .productDetailPrice {
     margin: 0 auto;
   }
-  .jumpBack {
-    font-size:2vw;
-    border: .5px #ccc solid;
-  }
+
   .chooseButton {
+    border: .5px #ccc solid;
     font-size:2vw;
     margin-top:10px;
     background-color:green;
@@ -626,10 +647,7 @@ font-size: 2vw;
   .productDetailPrice {
     margin: 0 auto;
   }
-  .jumpBack {
-    font-size:2vw;
-    border: .5px #ccc solid;
-  }
+
   .chooseButton {
     font-size:2vw;
     margin-top:10px;
@@ -637,6 +655,7 @@ font-size: 2vw;
     color:white;
     font-weight:bold;
     margin: 0 auto;
+    border: .5px #ccc solid;
   }
 }
 @media only screen and (max-width: 680px) {
@@ -651,7 +670,7 @@ font-size: 2vw;
     font-size: 3vw;  
   }
   input {
-    width:98%;
+    width:100%;
   }
 
 }
@@ -661,7 +680,7 @@ font-size: 2vw;
     font-size: 3.5vw;  
   }
   input {
-    width:98%;
+    width:100%;
   }
   .productPhoto_p1 {
     background-image: url('../images/_DSC3345_480.png');
@@ -684,22 +703,6 @@ font-size: 2vw;
     margin: 0 auto;
 
   }
-  .landing {
-    margin: 30px auto;
-    text-align:center;
-  }
-
-  #root {
-    min-height: 100%;
-    height: 100%;
-    padding:10px 5px 0;
-    margin-top:-20px;
-    width: 100%; /* Holding outermost DIV */
-    background: -moz-linear-gradient(left, rgba(255,255,255,1) 45%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 45%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, rgba(255,255,255,1) 45%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-  }
 }
 
 @media only screen and (max-width: 540px) {
@@ -707,7 +710,7 @@ font-size: 2vw;
     font-size: 3.5vw;  
   }
   input {
-    width:98%;
+    width:100%;
   }
   .productPhoto_p1 {
     background-image: url('../images/_DSC3345_480.png');
@@ -738,7 +741,7 @@ font-size: 2vw;
   }
 
   input {
-    width:98%;
+    width:100%;
   }
   h1 {
     font-size:5vw;
@@ -795,11 +798,6 @@ font-size: 2vw;
       margin-top:20px;
   }
 
-  .entry .jump {
-      width:100px;
-      margin:0 auto;
-      display:block;
-  }
   .productPhoto_p1 {
     background-image: url('../images/_DSC3345_360.png');
     background-repeat:no-repeat;
@@ -853,7 +851,9 @@ font-size: 2vw;
   input { 
     height:25px;
   }
-
+  form {
+    padding:0;
+  }
  .thumb > img {
     object-fit: cover;
     width: 85%;
@@ -865,7 +865,7 @@ font-size: 2vw;
     font-weight: bold;
   }
   p.recipient {
-    font-size: 4vw;
+    font-size: 3vw;
   }
   .productPhoto_p1 {
     background-image: url('../images/_DSC3345_280.png');
@@ -896,16 +896,13 @@ font-size: 2vw;
     font-size:4vw;
   }
   .chooseButton {
-    font-size:3vw;
+    font-size:3.5vw;
     margin-top:10px;
     background-color:green;
     color:white;
     font-weight:bold;
     margin: 0 auto;
-  }
-  .landing {
-    margin: 40% auto;
-    text-align:center;
+    border: .5px #ccc solid;
   }
 
 }

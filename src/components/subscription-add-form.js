@@ -138,32 +138,103 @@ export class SubscriptionAddForm extends React.Component {
     }
     
  
-   const validateFields = function(){
-     console.log('validateFields');
-      const check = document.getElementById("recipients").getElementsByTagName("input");
-      let len = check.length;
-      console.log('validateFields length', len);
-      for(let  i=0;i<len;i++) {
-        if (check[i].value ==='')
-        {
-           console.log('required', i);
-           return false;
-        }; 
-      };
-   }
+  const validateFields = function(section){
+    console.log('validateFields');
+    let fieldsToCheck;
+    let destination;
+    let formSection;
+
+    switch (section) {
+      case 'recipient':
+        fieldsToCheck = [0,1,3,5,6,7,8];
+        destination = 'sender';
+        formSection = 'recipients';
+      break;
+      case 'sender':
+        fieldsToCheck = [0,1,2,3];
+        destination = 'schedule';
+        formSection = 'senderData';
+      break;
+      case 'schedule':
+        fieldsToCheck = [0,1,2];
+        destination = 'checkout';
+        formSection = 'scheduleInfo';
+      break;
+      default:
+        fieldsToCheck = [0,1,3,5,6,7,8];
+        destination = 'sender';
+        formSection = 'recipients';
+      break;
+    }  
+    console.log('formSection ', formSection);
+    const check = document.getElementById(formSection).getElementsByTagName("input");
+    let len = check.length;
+    let badFieldCount = 0;
+    let badFields = [];
+
+
+    //dispatchFrequency(this.props.currentValues.frequency);  dispatchDuration(this.props.currentValues.duration); dispatchNumberOfDeliveries()
+    
+    for(let  i=0; i<len; i++) {
+      console.log('i: ', i);
+      let e = document.getElementById("frequency");
+      console.log('e: ', e);
+      // if (e.options[e.selectedIndex]) {
+      //   let strFreq = e.options[e.selectedIndex].value;
+      //   console.log('strFreq: ', strFreq);
+      // }
+      // let f = document.getElementById("duration");
+      // if (f.options[f.selectedIndex]) {
+      //   let strDur = f.options[f.selectedIndex].value;
+      //   console.log('strDur: ', strDur);
+      // }
+      
+      if (section === 'schedule') {
+        console.log('frequency: ', document.getElementById('scheduleInfo').getElementsByTagName("option").value);
+        console.log('duration: ', document.getElementById('scheduleInfo').getElementsByTagName("option").value);
+      }
+      console.log('validateFields value: ', check[i].value, 'length: ', len);
+      if (check[i].value === '' && fieldsToCheck.includes(i)) {
+        badFieldCount++;
+        badFields.push(i);
+        console.log('bad Field in field# ', i, ' of ', badFieldCount, ' ', check[i].name);        
+        if (section === 'recipient') {
+          check[i].placeholder = check[i].name.substring(9) + " is required";
+        } else {
+          if (section === 'sender') {
+            check[i].placeholder = check[i].name.substring(6) + " is required";
+          }else {
+            if (section === 'schedule') {
+              check[i].placeholder = check[i].name + " is required";
+              
+            }
+          }
+        }        
+      } 
+    } 
+    console.log('Went through all the fields. badFieldCount = ', badFieldCount, 'badFields = ', badFields, ' Section = ', section);
+    console.log('destination: ',  destination); 
+    if (badFieldCount === 0 ) {
+      console.log('dispatching: ', destination);
+      dispatchSection(destination);
+    }  else {
+      badFieldCount = 0;
+    }    
+};
+
     
 
     //  custom button for each section
     formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">NEXT</button>); 
     switch (this.props.currentFormSection) {
       case 'schedule':
-        formButton = ( <button className="jump" onClick={() => { dispatchFrequency(this.props.currentValues.frequency);  dispatchDuration(this.props.currentValues.duration); dispatchNumberOfDeliveries()}}  type="button">NEXT</button>); 
+        formButton = ( <button className="jump" onClick={() => {validateFields('schedule') }}  type="button">NEXT</button>); 
         break;
       case 'recipient':
-        formButton = (<button className="jump"  onClick={() => {validateFields('recipient');dispatchSection('sender')}}  type="button">NEXT</button>);
+        formButton = (<button className="jump"  onClick={() => {validateFields('recipient')}}  type="button">NEXT</button>);
         break;
         case 'sender':
-        formButton = (<button className="jump"  onClick={() => dispatchSection('schedule')}  type="button">NEXT</button>);
+        formButton = (<button className="jump"  onClick={() => validateFields('sender')}  type="button">NEXT</button>);
         break;
       case 'checkout':
         formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>SUBSCRIBE!</button>);
@@ -192,7 +263,7 @@ export class SubscriptionAddForm extends React.Component {
           mm = '0'+mm
       } 
       
-    const deliveryDate = mm + '/' + dd + '/' + yyyy;
+   // const deliveryDate = mm + '/' + dd + '/' + yyyy;
     const deliveryCharge = 20;
     //SET THE PRODUCT NAME
     const theForm = this.props.currentValues;
@@ -450,7 +521,7 @@ export class SubscriptionAddForm extends React.Component {
             </ul>
         : ""  }
         { this.props.currentFormSection === "sender" ?   
-            <ul className="senderData">
+            <ul id="senderData">
               <li>         
               <button className="jumpBack"  onClick={() => dispatchSection('recipient')}  type="button">BACK</button>              
                 <div className="orderSummary">
@@ -466,11 +537,11 @@ export class SubscriptionAddForm extends React.Component {
                 <h4>PLEASE ENTER SENDER INFORMATION</h4>
                   <label htmlFor="senderEmail" className="senderEmail"/>                     
                     <Field
-                      name="senderEmail"
+                      name="+"
                       type="email"
                       component={Input}
                       placeholder="EMAIL"
-                      validate={[required, nonEmpty]}
+                      
                     />
                                               
                   <label htmlFor="senderFirstName" className="senderFirstName" />
@@ -515,8 +586,7 @@ export class SubscriptionAddForm extends React.Component {
 
         : ""  }  
         { this.props.currentFormSection === "schedule" ?  
-          
-            <ul className="scheduleInfo">
+        <ul id="scheduleInfo">
               <li>
               <button className="jumpBack"  onClick={() => dispatchSection('sender')}  type="button">BACK</button>              
                 <div className="scheduleBlock">
@@ -532,30 +602,26 @@ export class SubscriptionAddForm extends React.Component {
                       <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
                       <p className="recipient productPrice">Delivery: $20</p>                 
                       <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
-                      <p className="sender deliveryDate"> START DELIVERY ON: {deliveryDate}</p>                   
+               
                     </div>
                     <div className="leftSide">
                       <div className="schedule span6">
                         <h5>Frequency</h5>
-                        <Field name="frequency" component="select">
-                          <option>How Often</option>
+                        <Field name="frequency" id="frequency" component="select">
                           <option value="monthly">monthly</option>
                           <option value="bi-weekly">bi-weekly</option>
                           <option value="weekly">weekly</option>
-                          validate={[required, nonEmpty]}
                         </Field>
                       </div>
                     </div>    
                     <div className="rightSide">
                       <div className="schedule span6">
                         <h5>Duration</h5>
-                        <Field name="duration" component="select">
-                          <option>How Long</option>
+                        <Field name="duration" id="duration" component="select">
                           <option value="3 months">3 months</option>
                           <option value="6 months">6 months</option>
                           <option value="12 months">12 months</option>
                           <option value="ongoing">ongoing</option>
-                          validate={[required, nonEmpty]}
                         </Field>
                       </div>                  
                     </div>  
@@ -567,7 +633,6 @@ export class SubscriptionAddForm extends React.Component {
                     name="startDate"
                     type="date"
                     component={Input}
-                    validate={[required, nonEmpty]}
                   />
                 </li>    
                 <li>
@@ -577,7 +642,8 @@ export class SubscriptionAddForm extends React.Component {
             </div>
           </li>
         </ul> 
-          
+       
+   
         : ""  }  
         { this.props.currentFormSection === "checkout" ?   
           <div className="checkout">
@@ -594,7 +660,7 @@ export class SubscriptionAddForm extends React.Component {
                     <p className="recipient checkout"><span>Price: </span>${thisPrice(this.props.currentProductCode)}</p>
                     <p className="recipient checkout"><span>Delivery: </span>$20</p>                 
                     <p className="recipient checkout"><span>TOTAL: </span>${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
-                    <p className="recipient checkout"><span>START DELIVERY ON: </span>{deliveryDate}</p>                   
+                  
                   </div>
                   <div className="leftSide">
                     <div className="senderBlock">
