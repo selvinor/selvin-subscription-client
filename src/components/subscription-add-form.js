@@ -137,7 +137,10 @@ export class SubscriptionAddForm extends React.Component {
       setNumberOfDeliveries(numberOfDeliveries);       
     }
     
- 
+  const validateEmail =function (email) {
+      var re = /\S+@\S+/;
+      return re.test(email);
+  }
   const validateFields = function(section){
     console.log('validateFields');
     let fieldsToCheck;
@@ -172,14 +175,53 @@ export class SubscriptionAddForm extends React.Component {
     let badFieldCount = 0;
     let badFields = [];
 
-
     //dispatchFrequency(this.props.currentValues.frequency);  dispatchDuration(this.props.currentValues.duration); dispatchNumberOfDeliveries()
     
     for(let  i=0; i<len; i++) {
       console.log('i: ', i);
       let e = document.getElementById("frequency");
-      console.log('e: ', e);
-      // if (e.options[e.selectedIndex]) {
+      //console.log('e: ', e);    
+      switch (section) {
+        case 'recipient':
+          if (check[i].value === '' && fieldsToCheck.includes(i)) {
+            badFieldCount++;
+            badFields.push(i);
+            check[i].placeholder = check[i].name.substring(9) + " is required";
+          }
+          break;
+        case 'sender':
+          if (check[i].name === 'email' ) {
+            console.log('***check[i].name: ', check[i].name,  check[i].value, validateEmail(check[i].value));
+            if (check[i].value === '' || validateEmail(check[i].value) === false) {
+              check[i].value = '';
+              check[i].placeholder = "Valid email is required";
+              console.log('check[i].placeholder ',check[i].placeholder);
+              badFieldCount++;
+              badFields.push(i);
+            }
+          } else {
+            if (check[i].value === '' && fieldsToCheck.includes(i)) {
+              badFieldCount++;
+              badFields.push(i);
+              check[i].placeholder = check[i].name.substring(6) + " is required";
+            }            
+          }
+          break;
+        case 'schedule':
+        console.log('schedule check[i].name ', check[i].name);
+        console.log('schedule check[i].placeholder ', check[i].placeholder);
+        console.log('schedule check[i].value ', check[i].value);
+        console.log('schedule fieldsToCheck ', fieldsToCheck);
+          if (check[i].value === '') {
+            badFieldCount++;
+            badFields.push(i);
+            console.log('empty field ');
+            console.log("document.getElementById('deliveryMsg').innerText ", document.getElementById('deliveryMsg').innerText);
+            document.getElementById('deliveryMsg').innerText = '*** Delivery Start Date is required ***';
+            console.log("document.getElementById('deliveryMsg').innerText ", document.getElementById('deliveryMsg').innerText);
+            check[i].placeholder = check[i].name + " is required";
+
+                  // if (e.options[e.selectedIndex]) {
       //   let strFreq = e.options[e.selectedIndex].value;
       //   console.log('strFreq: ', strFreq);
       // }
@@ -188,30 +230,12 @@ export class SubscriptionAddForm extends React.Component {
       //   let strDur = f.options[f.selectedIndex].value;
       //   console.log('strDur: ', strDur);
       // }
-      
-      if (section === 'schedule') {
-        console.log('frequency: ', document.getElementById('scheduleInfo').getElementsByTagName("option").value);
-        console.log('duration: ', document.getElementById('scheduleInfo').getElementsByTagName("option").value);
-      }
-      console.log('validateFields value: ', check[i].value, 'length: ', len);
-      if (check[i].value === '' && fieldsToCheck.includes(i)) {
-        badFieldCount++;
-        badFields.push(i);
-        console.log('bad Field in field# ', i, ' of ', badFieldCount, ' ', check[i].name);        
-        if (section === 'recipient') {
-          check[i].placeholder = check[i].name.substring(9) + " is required";
-        } else {
-          if (section === 'sender') {
-            check[i].placeholder = check[i].name.substring(6) + " is required";
-          }else {
-            if (section === 'schedule') {
-              check[i].placeholder = check[i].name + " is required";
-              
-            }
-          }
-        }        
-      } 
-    } 
+          } 
+          break;
+        default:
+          break;
+      }   
+    }
     console.log('Went through all the fields. badFieldCount = ', badFieldCount, 'badFields = ', badFields, ' Section = ', section);
     console.log('destination: ',  destination); 
     if (badFieldCount === 0 ) {
@@ -220,35 +244,32 @@ export class SubscriptionAddForm extends React.Component {
     }  else {
       badFieldCount = 0;
     }    
-};
-
-    
-
-    //  custom button for each section
-    formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">NEXT</button>); 
-    switch (this.props.currentFormSection) {
-      case 'schedule':
-        formButton = ( <button className="jump" onClick={() => {validateFields('schedule') }}  type="button">NEXT</button>); 
-        break;
-      case 'recipient':
-        formButton = (<button className="jump"  onClick={() => {validateFields('recipient')}}  type="button">NEXT</button>);
-        break;
-        case 'sender':
-        formButton = (<button className="jump"  onClick={() => validateFields('sender')}  type="button">NEXT</button>);
-        break;
-      case 'checkout':
-        formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>SUBSCRIBE!</button>);
-        break;
-      case 'confirm':
-        formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
-        break;
-      case 'onboarding':
-        formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Get Started</button>); 
-        break;
-      default:
-        formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
+  };
+   //  custom button for each section
+  formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">NEXT</button>); 
+  switch (this.props.currentFormSection) {
+    case 'schedule':
+      formButton = ( <button className="jump" onClick={() => {validateFields('schedule') }}  type="button">NEXT</button>); 
       break;
-    }   
+    case 'recipient':
+      formButton = (<button className="jump"  onClick={() => {validateFields('recipient')}}  type="button">NEXT</button>);
+      break;
+      case 'sender':
+      formButton = (<button className="jump"  onClick={() => validateFields('sender')}  type="button">NEXT</button>);
+      break;
+    case 'checkout':
+      formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>SUBSCRIBE!</button>);
+      break;
+    case 'confirm':
+      formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
+      break;
+    case 'onboarding':
+      formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Get Started</button>); 
+      break;
+    default:
+      formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
+    break;
+  }   
 
    // const deliveryDate = mm + '/' + dd + '/' + yyyy;
     const deliveryCharge = 20;
@@ -296,7 +317,7 @@ export class SubscriptionAddForm extends React.Component {
       }
 
     }
-
+    let deliveryMsg = '';
     return (
       <div>
         <header role="heading">
@@ -524,7 +545,7 @@ export class SubscriptionAddForm extends React.Component {
                 <h4>PLEASE ENTER SENDER INFORMATION</h4>
                   <label htmlFor="senderEmail" className="senderEmail"/>                     
                     <Field
-                      name="+"
+                      name="email"
                       type="email"
                       component={Input}
                       placeholder="EMAIL"
@@ -565,7 +586,7 @@ export class SubscriptionAddForm extends React.Component {
 
 
               <li>
-              <div className="formbutton">
+              <div className="formButton senderData">
                   {formButton}
                 </div>
               </li>
@@ -616,6 +637,7 @@ export class SubscriptionAddForm extends React.Component {
                 </li>
                 <li className="datePicking">
                   <h4>Choose Delivery Start Date</h4>
+                  <p id="deliveryMsg">{deliveryMsg}</p>
                   <Field
                     name="startDate"
                     type="date"
@@ -652,21 +674,21 @@ export class SubscriptionAddForm extends React.Component {
                   <div className="leftSide">
                     <div className="senderBlock">
                       <h5>Sender Info</h5>
-                      <p className="sender name">NAME: {theForm.senderFirstName} {theForm.senderLastName}</p>
-                      <p className="sender email">EMAIL: {theForm.senderEmail}</p>
-                      <p className="sender phone">PHONE: {theForm.senderPhone}</p>      
+                      <p className="sender name"><span>NAME: </span>{theForm.senderFirstName} {theForm.senderLastName}</p>
+                      <p className="sender email"><span>EMAIL: </span>{theForm.email}</p>
+                      <p className="sender phone"><span>PHONE: </span>{theForm.senderPhone}</p>      
                     </div>
                   </div>    
                   <div className="rightSide">
                     <div className="receiverBlock">
                       <h5>Recipient Info</h5>
-                      <p className="recipient name">NAME: {theForm.recipientFirstName} {theForm.recipientLastName}</p>
-                      <p className="recipient company">COMPANY: {theForm.recipientCompany} {theForm.recipientCompany}</p>
-                      <p className="recipient phone">PHONE: {theForm.recipientPhone}</p>
-                      <p className="recipient streetAddress">STREET ADDRESS: {theForm.recipientAddress}</p>
-                      <p className="recipient aptSuite">APT/SUITE: {theForm.recipientAptSuite}</p>
-                      <p className="recipient cityStateZip">CITY, STATE, ZIPCODE: {theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
-                      <p className="recipient message">GIFT MESSAGE: {theForm.recipientMessage}</p>
+                      <p className="recipient name"><span>NAME: </span>{theForm.recipientFirstName} {theForm.recipientLastName}</p>
+                      <p className="recipient company"><span>COMPANY: </span>{theForm.recipientCompany} {theForm.recipientCompany}</p>
+                      <p className="recipient phone"><span>PHONE: </span>{theForm.recipientPhone}</p>
+                      <p className="recipient streetAddress"><span>STREET ADDRESS: </span>{theForm.recipientAddress}</p>
+                      <p className="recipient aptSuite"><span>APT/SUITE: </span>{theForm.recipientAptSuite}</p>
+                      <p className="recipient cityStateZip"><span>CITY, STATE, ZIPCODE: </span>{theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
+                      <p className="recipient message"><span>GIFT MESSAGE: </span>{theForm.recipientMessage}</p>
                     </div>                  
                   </div>  
                   </div>
