@@ -778,6 +778,7 @@ export class SubscriptionAddForm extends React.Component {
               <h2>Thank You!</h2>
               <p className="byebye">Your order will be delivered {this.props.currentDeliveryDate}.</p>               
             </main>
+            <div className="confirmButton">{formButton}</div>
           </div>
         : ""  }
       </form> 

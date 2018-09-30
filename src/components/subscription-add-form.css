@@ -547,7 +547,18 @@ font-size: 1.5vw;
     width:100px;
     margin:10px auto 0; 
   }
-
+  .confirmButton {
+    width:100%;  
+    text-align:center;
+  }
+  .confirmButton button{
+  font-size:2vw;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  margin:0 auto;
+  width:10%;
+  }
 @media only screen and (max-width: 1366px) {
   h1 {
     font-size: 4vw;
@@ -1662,4 +1673,5 @@ h1 {
     margin: 0 auto;
 
   }
+  
 }
