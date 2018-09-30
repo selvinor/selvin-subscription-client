@@ -100,6 +100,9 @@ export class SubscriptionAddForm extends React.Component {
     const dispatchSection = (section) => {
       this.props.dispatch(setSection(section)) ;
     }        
+    const dispatchStartDate = (begin) => {
+      this.props.dispatch(setDeliveryDate(begin)) ;
+    }        
     const dispatchNumberOfDeliveries = () => {
       let numberOfDeliveries; 
       let subscriptionTerm;
@@ -179,7 +182,7 @@ export class SubscriptionAddForm extends React.Component {
     
     for(let  i=0; i<len; i++) {
       console.log('i: ', i);
-      let e = document.getElementById("frequency");
+      //let e = document.getElementById("frequency");
       //console.log('e: ', e);    
       switch (section) {
         case 'recipient':
@@ -212,6 +215,19 @@ export class SubscriptionAddForm extends React.Component {
         console.log('schedule check[i].placeholder ', check[i].placeholder);
         console.log('schedule check[i].value ', check[i].value);
         console.log('schedule fieldsToCheck ', fieldsToCheck);
+        
+          let today = new Date();
+          let dayOfWeek = today.setDate(today.getDate() + 7);
+          if (dayOfWeek === 6) {
+            today.setDate(today.getDate() + 2);
+          } else {
+            if (dayOfWeek === 7) {
+             today.setDate(today.getDate() + 1);        
+            }
+          }
+          let todayPlus7 = today.toISOString().substring(0,10);
+          dispatchStartDate(todayPlus7);
+        
           if (check[i].value === '') {
             badFieldCount++;
             badFields.push(i);
@@ -238,6 +254,7 @@ export class SubscriptionAddForm extends React.Component {
     }
     console.log('Went through all the fields. badFieldCount = ', badFieldCount, 'badFields = ', badFields, ' Section = ', section);
     console.log('destination: ',  destination); 
+    
     if (badFieldCount === 0 ) {
       console.log('dispatching: ', destination);
       dispatchSection(destination);
@@ -249,7 +266,7 @@ export class SubscriptionAddForm extends React.Component {
   formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">NEXT</button>); 
   switch (this.props.currentFormSection) {
     case 'schedule':
-      formButton = ( <button className="jump" onClick={() => {validateFields('schedule') }}  type="button">NEXT</button>); 
+      formButton = ( <button className="jump" onClick={() => {validateFields('schedule');console.log('this.props: ', this.props); }}  type="button">NEXT</button>); 
       break;
     case 'recipient':
       formButton = (<button className="jump"  onClick={() => {validateFields('recipient')}}  type="button">NEXT</button>);
@@ -317,6 +334,7 @@ export class SubscriptionAddForm extends React.Component {
       }
 
     }
+
     let deliveryMsg = '';
     return (
       <div>
@@ -612,18 +630,18 @@ export class SubscriptionAddForm extends React.Component {
                       <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
                
                     </div>
-                    <div className="leftSide">
-                      <div className="schedule span6">
+                    <div className="leftSide schedule">
+
                         <h5>Frequency</h5>
                         <Field name="frequency" id="frequency" component="select">
                           <option value="monthly">monthly</option>
                           <option value="bi-weekly">bi-weekly</option>
                           <option value="weekly">weekly</option>
                         </Field>
-                      </div>
+
                     </div>    
-                    <div className="rightSide">
-                      <div className="schedule span6">
+                    <div className="rightSide schedule">
+
                         <h5>Duration</h5>
                         <Field name="duration" id="duration" component="select">
                           <option value="3 months">3 months</option>
@@ -631,7 +649,7 @@ export class SubscriptionAddForm extends React.Component {
                           <option value="12 months">12 months</option>
                           <option value="ongoing">ongoing</option>
                         </Field>
-                      </div>                  
+                 
                     </div>  
                   </div>
                 </li>
@@ -641,7 +659,10 @@ export class SubscriptionAddForm extends React.Component {
                   <Field
                     name="startDate"
                     type="date"
+                    min={this.props.currentDeliveryDate}
                     component={Input}
+                    onKeyDown="return false"
+
                   />
                 </li>    
                 <li>
@@ -701,7 +722,7 @@ export class SubscriptionAddForm extends React.Component {
           <div className="confirm">
             <main>
               <h2>Thank You!</h2>
-              <p className="byebye">Your order will be delivered {this.props.currentDeliveryDate}.</p>              
+              <p className="byebye">Your order will be delivered {this.props.currentDeliveryDate}.</p>               
             </main>
           </div>
         : ""  }
