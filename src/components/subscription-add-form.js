@@ -107,6 +107,7 @@ export class SubscriptionAddForm extends React.Component {
       this.props.dispatch(setDeliveryDate(begin)) ;
     }        
     const dispatchNumberOfDeliveries = () => {
+      console.log('dispatchNumberOfDeliveries')
       let numberOfDeliveries; 
       let subscriptionTerm;
       switch (this.props.currentDuration) {
@@ -181,7 +182,10 @@ export class SubscriptionAddForm extends React.Component {
       break;
       case 'schedule':
         dispatchStartDate(firstAvailableDate());
-        dispatchNumberOfDeliveries();
+        
+        // dispatchDuration();
+        // dispatchFrequency();
+        // dispatchNumberOfDeliveries();
         fieldsToCheck = [0,1,2];
         destination = 'checkout';
         formSection = 'scheduleInfo';
@@ -206,6 +210,7 @@ export class SubscriptionAddForm extends React.Component {
       //console.log('e: ', e);    
       switch (section) {
         case 'recipient':
+        console.log('validating recipient');
           if (check[i].value === '' && fieldsToCheck.includes(i)) {
             badFieldCount++;
             badFields.push(i);
@@ -234,22 +239,19 @@ export class SubscriptionAddForm extends React.Component {
         console.log('schedule check[i].name ', check[i].name);
         console.log('schedule check[i].placeholder ', check[i].placeholder);
         console.log('schedule check[i].value ', check[i].value);
-        console.log('schedule fieldsToCheck ', fieldsToCheck);
-        // dispatchFrequency(this.props.currentFrequency);  
-        // dispatchDuration(this.props.currentDuration); 
+        //console.log('this.props.currentValues ', this.props.currentValues);
+        // dispatchFrequency(this.props.currentValues.frequency);  
+        // dispatchDuration(this.props.currentValues.duration); 
         // dispatchNumberOfDeliveries();     
-
-          dispatchStartDate(firstAvailableDate());
-        
-          if (check[i].value === '') {
+        if (check[i].name === 'startDate') {
+          if (check[i].value < check[i].min) {
             badFieldCount++;
             badFields.push(i);
-            console.log('empty field ');
-            console.log("document.getElementById('startDate').min ", document.getElementById('startDate').min);
-            document.getElementById('startDate').value = document.getElementById('startDate').min;
+            check[i].value = check[i].min
             document.getElementById('deliveryMsg').innerText = 'First available date:';
-            console.log("document.getElementById('deliveryMsg').innerText ", document.getElementById('deliveryMsg').innerText);
-            check[i].placeholder = check[i].name + " is required";
+            dispatchNumberOfDeliveries();
+          }
+        }
             let e = document.getElementById("frequency");
             if (e.options[e.selectedIndex]) {
               let strFreq = e.options[e.selectedIndex].value;
@@ -260,6 +262,18 @@ export class SubscriptionAddForm extends React.Component {
               let strDur = f.options[f.selectedIndex].value;
               console.log('strDur: ', strDur);
             }
+            dispatchNumberOfDeliveries();
+          // dispatchStartDate(firstAvailableDate());
+        
+          if (check[i].value === '') {
+            badFieldCount++;
+            badFields.push(i);
+            console.log('empty field ');
+            console.log("document.getElementById('startDate').min ", document.getElementById('startDate').min);
+            document.getElementById('startDate').value = document.getElementById('startDate').min;
+            document.getElementById('deliveryMsg').innerText = 'First available date:';
+            console.log("document.getElementById('deliveryMsg').innerText ", document.getElementById('deliveryMsg').innerText);
+            check[i].placeholder = check[i].name + " is required";
           } 
           break;
         default:
@@ -348,6 +362,20 @@ export class SubscriptionAddForm extends React.Component {
       }
 
     }
+
+
+    // let e = document.getElementById("frequency");
+    // if (e.options[e.selectedIndex]) {
+    //   let strFreq = e.options[e.selectedIndex].value;
+    //   console.log('strFreq: ', strFreq);
+    // }
+    // let f = document.getElementById("duration");
+    // if (f.options[f.selectedIndex]) {
+    //   let strDur = f.options[f.selectedIndex].value;
+    //   console.log('strDur: ', strDur);
+    // }
+
+
 
     let deliveryMsg = '';
 
@@ -450,6 +478,8 @@ export class SubscriptionAddForm extends React.Component {
                   <p className="productDetailDesc">{thisProductDesc(this.props.currentProductCode)}</p> 
                   <button className="chooseButton" onClick={() => {
                     this.props.dispatch(setDeliveryDate(firstAvailableDate()));
+                    dispatchFrequency('monthly');
+                    dispatchDuration('3 months');
                     dispatchProductChoice(this.props.currentProductCode);
                   }}  type="button">SELECT</button><span className="price"></span>                
                 </div>
@@ -654,10 +684,10 @@ export class SubscriptionAddForm extends React.Component {
                     <div className="leftSide schedule">
 
                         <h5>Frequency</h5>
-                        <Field name="frequency" id="frequency" component="select" onChange={console.log('selected frequency: ', this.value)}>
-                          <option value="monthly">monthly</option>
-                          <option value="bi-weekly">bi-weekly</option>
-                          <option value="weekly">weekly</option>
+                        <Field name="frequency" id="frequency" component="select">
+                          <option key="monthly" value="monthly">monthly</option>
+                          <option key="bi-weekly" value="bi-weekly">bi-weekly</option>
+                          <option key="weekly" value="weekly">weekly</option>
                         </Field>
 
                     </div>    
@@ -665,10 +695,10 @@ export class SubscriptionAddForm extends React.Component {
 
                         <h5>Duration</h5>
                         <Field name="duration" id="duration" component="select">
-                          <option value="3 months">3 months</option>
-                          <option value="6 months">6 months</option>
-                          <option value="12 months">12 months</option>
-                          <option value="ongoing">ongoing</option>
+                          <option key="3 months" value="3 months">3 months</option>
+                          <option key="6 months" value="6 months">6 months</option>
+                          <option key="12 months" value="12 months">12 months</option>
+                          <option key="ongoing" value="ongoing">ongoing</option>
                         </Field>
                  
                     </div>  
@@ -686,7 +716,7 @@ export class SubscriptionAddForm extends React.Component {
                   />
                 </li>    
                 <li>
-                <button className="jump" onClick={() => {console.log('this.props.currentValues: ',this.props.currentValues);
+                <button className="jump" onClick={() => {
                   this.props.dispatch(setDeliveryDate(firstAvailableDate()));
                   validateFields('schedule');
                   console.log('this.props: ', this.props); }}  type="button">NEXT</button>
@@ -703,7 +733,7 @@ export class SubscriptionAddForm extends React.Component {
             <main>
               <header>
               <button className="jumpBack"  onClick={() => dispatchSection('schedule')}  type="button">BACK</button>              
-                <h4>Please review your subscription details. If everything looks good, click the 'subscribe' button to start your subscription!</h4>
+                <h4>If everything looks good, please click the 'subscribe' button to start your subscription!</h4>
               </header>
               <section>
                 <div className="checkoutSum">              
@@ -720,7 +750,8 @@ export class SubscriptionAddForm extends React.Component {
                       <h5>Sender Info</h5>
                       <p className="sender name"><span>NAME: </span>{theForm.senderFirstName} {theForm.senderLastName}</p>
                       <p className="sender email"><span>EMAIL: </span>{theForm.email}</p>
-                      <p className="sender phone"><span>PHONE: </span>{theForm.senderPhone}</p>      
+                      <p className="sender phone"><span>PHONE: </span>{theForm.senderPhone}</p>  
+                      <p className="recipient message"><span>GIFT MESSAGE: </span>{theForm.recipientMessage}</p>    
                     </div>
                   </div>    
                   <div className="rightSide">
@@ -732,7 +763,7 @@ export class SubscriptionAddForm extends React.Component {
                       <p className="recipient streetAddress"><span>STREET ADDRESS: </span>{theForm.recipientAddress}</p>
                       <p className="recipient aptSuite"><span>APT/SUITE: </span>{theForm.recipientAptSuite}</p>
                       <p className="recipient cityStateZip"><span>CITY, STATE, ZIPCODE: </span>{theForm.recipientCity} {theForm.recipientState} {theForm.recipientZipcode}</p>
-                      <p className="recipient message"><span>GIFT MESSAGE: </span>{theForm.recipientMessage}</p>
+
                     </div>                  
                   </div>  
                   </div>

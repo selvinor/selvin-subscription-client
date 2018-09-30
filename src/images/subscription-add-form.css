@@ -496,14 +496,6 @@ font-size: 1.5vw;
   min-width:300px;
   text-align:center;
 }
-.checkoutSum{
-  padding:0;
-  border-radius:0.72916667%; 
-  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-}
 
 .scheduleBlock {
   margin-left:0px;
@@ -1350,6 +1342,10 @@ h1 {
   }
 }
 @media only screen and (max-width: 320px) {
+  #root {
+    min-height: 100%;
+    height: 100%;
+  }
   input { 
     height:25px;
   }

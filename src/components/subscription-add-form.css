@@ -8,7 +8,7 @@ html, body  {
   margin:0;
 }
 body {
-  background: transparent url(../images/_DSC7675_1024.jpg); 
+  background: transparent url(../images/_DSC7675_grad_1366.jpg); 
   background-position: calc(30% - 0px) calc(0% - 0px); 
   background-repeat: no-repeat;  
   font-family: 'Oxygen', sans-serif;
@@ -488,18 +488,15 @@ font-size: 1.5vw;
 
 
 .checkout { 
-  width:100%;;
+  width:100%;
   display:block;
   min-width:300px;
   text-align:center;
+  margin:0 auto;
 }
 .checkoutSum{
   padding:0;
-  border-radius:0.72916667%; 
-  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+
 }
 
 .scheduleBlock {
@@ -621,8 +618,11 @@ font-size: 1.5vw;
   .productDetailPrice {
     font-size:1.5vw;
   }
+
   .productDetailDesc {
     width:500px;
+    margin: 0 auto;
+    font-size:2vw;
   }
   .jumpBack {
     background-color: yellow;
@@ -645,8 +645,46 @@ font-size: 1.5vw;
     border: .5px #ccc solid;
     margin-top:10px;
   }
+  .productPrice {
+    font-size: 2vw;
+}
+  .orderSummary h5 {
+    width:200px;
+    margin: 10px auto 0;
+  }
+  .leftSide  h5, .rightSide  h5 {
+    width:100px;
+    margin: 10px auto 0;
+  }
+  #deliveryMsg {
+    font-size: 2vw;
+    font-weight: bold;
+}
+.leftSide {
+  display: inline-block;
+  vertical-align: top;
+  width: 280px;
+}
+.rightSide {
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+}
+.receiverBlock h5{
+  font-size:2vw;
+  padding:0px;
+  font-weight: bold;
+  width:200px;
+  text-decoration:underline;
 
-
+}
+.senderBlock h5 {
+  font-size:2vw;
+  padding:0px;
+  font-weight: bold;
+  width:200px;
+  text-decoration:underline;
+}
 }
 @media only screen and (max-width: 1280px) {
   .arrangementName {
@@ -792,6 +830,31 @@ font-size: 1.5vw;
   .pickArr1, .pickArr2, .pickArr3 {
     width: 400px;
   }
+  .leftSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 280px;
+  }
+  .rightSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+  }
+  .receiverBlock h5{
+    font-size:2vw;
+    padding:0px;
+    font-weight: bold;
+    width:200px;
+    text-decoration:underline;
+
+  }
+  .senderBlock h5 {
+    font-size:2vw;
+    padding:0px;
+    font-weight: bold;
+    width:200px;
+    text-decoration:underline;
+  }
 }
 @media only screen and (max-width: 900px) {
   .arrangementName {
@@ -831,6 +894,12 @@ font-size: 1.5vw;
     margin:0 auto;
 
   }
+  h3 {
+    font-size:2.2vw;
+    width: 550px;
+    margin:0 auto;
+
+  }
  .jumpBack{
     font-size:2vw;
   }
@@ -861,6 +930,50 @@ font-size: 1.5vw;
   }
   .pickArr1, .pickArr2, .pickArr3 {
     width: 350px;
+  }
+  #deliveryMsg {
+    font-size:1.8vw;
+  }
+  #scheduleInfo h5 {
+    width: 100px;
+    margin: 10px auto 0;
+    font-size:2vw;
+  }
+  .checkoutSum p {
+    font-size:1.8vw;
+  }
+  .checkout h4 {
+    padding:0;
+    margin:0;
+    font-size:2vw;
+  }
+  input {
+    height: 25px;
+  }
+  .leftSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 280px;
+  }
+  .rightSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+  }
+  .receiverBlock h5{
+    font-size:2vw;
+    padding:0px;
+    font-weight: bold;
+    width:200px;
+    text-decoration:underline;
+
+  }
+  .senderBlock h5 {
+    font-size:2vw;
+    padding:0px;
+    font-weight: bold;
+    width:200px;
+    text-decoration:underline;
   }
 }
 @media only screen and (max-width: 770px) {
@@ -907,7 +1020,14 @@ font-size: 1.5vw;
     font-size: 3vw;
     margin-top:10px;
   }
-
+  #scheduleInfo h5 {
+    width: 100px;
+    margin: 10px auto 0;
+    font-size:3vw;
+}
+  .scheduleFormFields p, input, select{
+    font-size:2vw;
+  }
 }
 @media only screen and (max-width: 750px) {
   .arrangementName {
@@ -956,6 +1076,30 @@ font-size: 1.5vw;
 
   .pickArr1, .pickArr2, .pickArr3 {
     width: 320px;
+  }
+  #deliveryMsg {
+    font-size:2vw;
+  }
+  .checkoutSum p {
+    font-size:2vw;
+  }
+  .checkout h4 {
+    padding:0;
+    margin:0;
+    font-size:2vw;
+  }
+  input {
+    height: 25px;
+  }
+  .leftSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+  }
+  .rightSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
   }
 }
 @media only screen and (max-width: 680px) {
@@ -1008,6 +1152,27 @@ font-size: 1.5vw;
     width:100px;
     margin:10px auto 0; 
   }
+  .checkoutSum p {
+    font-size:2vw;
+  }
+  .checkout h4 {
+    padding:0;
+    margin:0;
+    font-size:2vw;
+  }
+  input {
+    height: 25px;
+  }
+  .leftSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+  }
+  .rightSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+  }
 }
 
 @media only screen and (max-width: 640px) {
@@ -1016,8 +1181,11 @@ font-size: 1.5vw;
   }
   input {
     width:100%;
+    height:25px;
   }
-
+  #deliveryMsg {
+    font-size:2vw;
+  }
 
 }
 
@@ -1302,8 +1470,23 @@ h1 {
     margin: 0 auto;
     font-size:3.2vw;
   }
+  #deliveryMsg {
+    font-size:2.5vw;
+  }
 }
 @media only screen and (max-width: 400px) {
+
+  .senderBlock h5, .receiverBlock h5 {
+    font-size:3.5vw;
+    padding:3px 0;
+    margin:10px 0 5px 0px;
+    border:1px #999 solid;
+    font-weight: bold;
+    width:100px;
+    border-radius:5px;
+    background:#eee;
+    color:#000;
+  }
   .productPhoto_p1 {
     background-image: url('../images/_DSC3345_280.png');
     background-repeat:no-repeat;
@@ -1357,11 +1540,12 @@ h1 {
     margin: 0 auto;
     font-size:3vw;
   }
+  #deliveryMsg {
+    font-size:2.5vw;
+  }
 }
 @media only screen and (max-width: 320px) {
-form {
-  width:320px;
-}
+
   input { 
     height:25px;
   }
@@ -1374,10 +1558,20 @@ form {
     width: 85%;
     max-height: 85%;
   }
-  .receiverBlock h5, .senderBlock h5 {
+  .receiverBlock h5{
     font-size:4vw;
     padding:0px;
     font-weight: bold;
+    width:100px;
+    text-decoration:underline;
+
+  }
+  .senderBlock h5 {
+    font-size:4vw;
+    padding:0px;
+    font-weight: bold;
+    width:100px;
+    text-decoration:underline;
   }
   p.recipient {
     font-size: 3vw;
@@ -1464,7 +1658,7 @@ form {
     float:left;
   }
   .checkoutButton button{
-    width:80px;
+
     margin: 0 auto;
 
   }
