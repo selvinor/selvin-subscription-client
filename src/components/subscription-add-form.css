@@ -165,12 +165,8 @@ li  {
   border: .25px #eee solid;
 }
 
-#deliveryMsg {
-  font-size:4vw;
-  font-weight:bold;
-  color:red;
-  text-decoration:underline;
-}
+
+
 ul.arrangements {
 
   width:100%;
@@ -240,8 +236,12 @@ ul.arrangements {
 #startDate {
   width:150px;
   text-align:center;
+  margin-top:0;
 }
-
+#deliveryMsg {
+  font-size:3vw;
+  font-weight:bold;
+}
 textarea {
   margin-top:21;
   width: 100%;
@@ -1359,6 +1359,9 @@ h1 {
   }
 }
 @media only screen and (max-width: 320px) {
+form {
+  width:320px;
+}
   input { 
     height:25px;
   }

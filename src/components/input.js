@@ -42,6 +42,7 @@ export default class Input extends React.Component {
       );
     } else {
       if (this.props.type === 'date') {
+        console.log('this.props: ', this.props);
         return (
           <div className="form-input">
             <label htmlFor={this.props.input.name}>
@@ -57,6 +58,7 @@ export default class Input extends React.Component {
                 placeholder={this.props.placeholder}
                 min={this.props.min}
                 columns={this.props.columns}
+                value={this.props.currentDeliveryDate}
               >
                 {this.props.children}
               </Element>

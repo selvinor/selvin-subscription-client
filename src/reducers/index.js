@@ -79,7 +79,6 @@ export const subscriptionReducer = (state=initialState, action) => {
     });
 
     case 'JUMP_TO_SECTION':
-    console.log('JUMP_TO_SECTION: ', action.section);
     return Object.assign({}, state, {
       currentFormSection: action.section
     });

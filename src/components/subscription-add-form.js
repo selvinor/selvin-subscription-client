@@ -51,7 +51,7 @@ export class SubscriptionAddForm extends React.Component {
       return res.json();
     })
     .then((values) => {
-      this.props.dispatch(setDeliveryDate(values.startDate))})
+      console.log('values: ', values)})
     .catch(err => {
       const {reason, message, location} = err;
       if (reason === 'ValidationError') {
@@ -88,6 +88,8 @@ export class SubscriptionAddForm extends React.Component {
       );
     }
 
+
+
     const dispatchProductChoice = (choice) => {
       this.props.dispatch(setProductChoice(choice)) ;
     }
@@ -101,6 +103,7 @@ export class SubscriptionAddForm extends React.Component {
       this.props.dispatch(setSection(section)) ;
     }        
     const dispatchStartDate = (begin) => {
+      console.log('dispatchStartDate', begin)
       this.props.dispatch(setDeliveryDate(begin)) ;
     }        
     const dispatchNumberOfDeliveries = () => {
@@ -144,6 +147,21 @@ export class SubscriptionAddForm extends React.Component {
       var re = /\S+@\S+/;
       return re.test(email);
   }
+  const firstAvailableDate = function() {
+    const today = new Date();
+    const dayOfWeek = today.setDate(today.getDate() + 7);
+    if (dayOfWeek === 6) {
+      today.setDate(today.getDate() + 2);
+    } else {
+      if (dayOfWeek === 7) {
+      today.setDate(today.getDate() + 1);        
+      }
+    }
+    return today.toISOString().substring(0,10);
+  }
+
+
+  
   const validateFields = function(section){
     console.log('validateFields');
     let fieldsToCheck;
@@ -162,6 +180,8 @@ export class SubscriptionAddForm extends React.Component {
         formSection = 'senderData';
       break;
       case 'schedule':
+        dispatchStartDate(firstAvailableDate());
+        dispatchNumberOfDeliveries();
         fieldsToCheck = [0,1,2];
         destination = 'checkout';
         formSection = 'scheduleInfo';
@@ -178,7 +198,7 @@ export class SubscriptionAddForm extends React.Component {
     let badFieldCount = 0;
     let badFields = [];
 
-    //dispatchFrequency(this.props.currentValues.frequency);  dispatchDuration(this.props.currentValues.duration); dispatchNumberOfDeliveries()
+
     
     for(let  i=0; i<len; i++) {
       console.log('i: ', i);
@@ -215,37 +235,31 @@ export class SubscriptionAddForm extends React.Component {
         console.log('schedule check[i].placeholder ', check[i].placeholder);
         console.log('schedule check[i].value ', check[i].value);
         console.log('schedule fieldsToCheck ', fieldsToCheck);
-        
-          let today = new Date();
-          let dayOfWeek = today.setDate(today.getDate() + 7);
-          if (dayOfWeek === 6) {
-            today.setDate(today.getDate() + 2);
-          } else {
-            if (dayOfWeek === 7) {
-             today.setDate(today.getDate() + 1);        
-            }
-          }
-          let todayPlus7 = today.toISOString().substring(0,10);
-          dispatchStartDate(todayPlus7);
+        // dispatchFrequency(this.props.currentFrequency);  
+        // dispatchDuration(this.props.currentDuration); 
+        // dispatchNumberOfDeliveries();     
+
+          dispatchStartDate(firstAvailableDate());
         
           if (check[i].value === '') {
             badFieldCount++;
             badFields.push(i);
             console.log('empty field ');
-            console.log("document.getElementById('deliveryMsg').innerText ", document.getElementById('deliveryMsg').innerText);
-            document.getElementById('deliveryMsg').innerText = '*** Delivery Start Date is required ***';
+            console.log("document.getElementById('startDate').min ", document.getElementById('startDate').min);
+            document.getElementById('startDate').value = document.getElementById('startDate').min;
+            document.getElementById('deliveryMsg').innerText = 'First available date:';
             console.log("document.getElementById('deliveryMsg').innerText ", document.getElementById('deliveryMsg').innerText);
             check[i].placeholder = check[i].name + " is required";
-
-                  // if (e.options[e.selectedIndex]) {
-      //   let strFreq = e.options[e.selectedIndex].value;
-      //   console.log('strFreq: ', strFreq);
-      // }
-      // let f = document.getElementById("duration");
-      // if (f.options[f.selectedIndex]) {
-      //   let strDur = f.options[f.selectedIndex].value;
-      //   console.log('strDur: ', strDur);
-      // }
+            let e = document.getElementById("frequency");
+            if (e.options[e.selectedIndex]) {
+              let strFreq = e.options[e.selectedIndex].value;
+              console.log('strFreq: ', strFreq);
+            }
+            let f = document.getElementById("duration");
+            if (f.options[f.selectedIndex]) {
+              let strDur = f.options[f.selectedIndex].value;
+              console.log('strDur: ', strDur);
+            }
           } 
           break;
         default:
@@ -336,6 +350,7 @@ export class SubscriptionAddForm extends React.Component {
     }
 
     let deliveryMsg = '';
+
     return (
       <div>
         <header role="heading">
@@ -426,11 +441,17 @@ export class SubscriptionAddForm extends React.Component {
               <button className="jumpBack"  onClick={() => dispatchSection('arrangement')}  type="button">BACK</button>              
                 <div className="productDetail">
                   <h5>{thisProductName(this.props.currentProductCode)}</h5> 
-                  <div className={'productPhoto_' + this.props.currentProductCode} onClick={() => dispatchProductChoice(this.props.currentProductCode)} >
+                  <div className={'productPhoto_' + this.props.currentProductCode} onClick={() => { 
+                    this.props.dispatch(setDeliveryDate(firstAvailableDate()));
+                    dispatchProductChoice(this.props.currentProductCode);
+                  }} >
                   </div>
                   <p className="productDetailPrice">Starting at: ${thisPrice(this.props.currentProductCode)}</p>
                   <p className="productDetailDesc">{thisProductDesc(this.props.currentProductCode)}</p> 
-                  <button className="chooseButton" onClick={() => dispatchProductChoice(this.props.currentProductCode)}  type="button">SELECT</button><span className="price"></span>                
+                  <button className="chooseButton" onClick={() => {
+                    this.props.dispatch(setDeliveryDate(firstAvailableDate()));
+                    dispatchProductChoice(this.props.currentProductCode);
+                  }}  type="button">SELECT</button><span className="price"></span>                
                 </div>
               </li>
             </ul>
@@ -633,7 +654,7 @@ export class SubscriptionAddForm extends React.Component {
                     <div className="leftSide schedule">
 
                         <h5>Frequency</h5>
-                        <Field name="frequency" id="frequency" component="select">
+                        <Field name="frequency" id="frequency" component="select" onChange={console.log('selected frequency: ', this.value)}>
                           <option value="monthly">monthly</option>
                           <option value="bi-weekly">bi-weekly</option>
                           <option value="weekly">weekly</option>
@@ -659,14 +680,16 @@ export class SubscriptionAddForm extends React.Component {
                   <Field
                     name="startDate"
                     type="date"
-                    min={this.props.currentDeliveryDate}
+                    min={firstAvailableDate()}
                     component={Input}
-                    onKeyDown="return false"
-
+                    value={firstAvailableDate}
                   />
                 </li>    
                 <li>
-                  {formButton}
+                <button className="jump" onClick={() => {console.log('this.props.currentValues: ',this.props.currentValues);
+                  this.props.dispatch(setDeliveryDate(firstAvailableDate()));
+                  validateFields('schedule');
+                  console.log('this.props: ', this.props); }}  type="button">NEXT</button>
                 </li>
               </ul>
             </div>
@@ -742,7 +765,7 @@ const mapStateToProps = state => {
   currentFrequency: state.subscription.currentFrequency,
   currentDuration: state.subscription.currentDuration,
   currentValues: values,
-  currentDeliveryDate: state.subscription.currentDeliveryDate.substring(0, 10)
+  currentDeliveryDate: state.subscription.currentDeliveryDate
 })}
 
   const mapDispatchToProps = dispatch => {
