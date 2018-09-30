@@ -178,7 +178,14 @@ li  {
 .arrangement2 {
   border: .25px #eee solid;
 }
-
+.landing {
+  min-width:280px;
+  width: 80%;
+  margin:10px auto 0;
+}
+.landing h2{
+  font-size:3vw;
+}
 
 
 ul.arrangements {
@@ -1511,7 +1518,7 @@ h1 {
   }
 
   .landing {
-    margin-top:35%;
+    margin-top:5px;
   }
   .landing p{
     font-size: 4vw;
@@ -1663,7 +1670,7 @@ input {
     text-align:center;
   }
   .landing {
-    margin-top:35%;
+    margin-top:5px;
   }
   .landing p{
     font-size: 4vw;
@@ -1860,7 +1867,7 @@ width:50px;
   .landing {
     min-width:280px;
     width: 80%;
-    margin: 35% auto 0;
+    margin: 5px auto 0;
     font-size:3vw;
   }
   .landing p{
