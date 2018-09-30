@@ -1473,6 +1473,9 @@ h1 {
     margin: 0 auto;
     font-size:3vw;
   }
+  input{
+    font-size:1.1em;
+    }
 }
 @media only screen and (max-width: 411px) {
 
@@ -1483,6 +1486,9 @@ h1 {
   }
   #deliveryMsg {
     font-size:2.5vw;
+  }
+  input{
+  font-size:1.1em;
   }
 }
 @media only screen and (max-width: 400px) {
@@ -1554,11 +1560,14 @@ h1 {
   #deliveryMsg {
     font-size:2.5vw;
   }
+  input{
+    font-size:1.1em;
+    }
 }
 @media only screen and (max-width: 320px) {
-
   input { 
     height:25px;
+    font-size:1.5em;
   }
   form {
     padding:0;
@@ -1585,7 +1594,7 @@ h1 {
     text-decoration:underline;
   }
   p.recipient {
-    font-size: 3vw;
+    font-size: 30vw;
   }
 
 
