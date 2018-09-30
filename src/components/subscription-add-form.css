@@ -459,7 +459,7 @@ p.recipients  {
 
 }
 .message-success {
-  margin-top:30%;
+  margin-top:10px;
   text-align:center;
 }
 .orderSummary {
@@ -609,7 +609,7 @@ li.arrangement2 {
     margin: 0 auto;
   }
   .message-success {
-    margin-top:20%;
+    margin-top:10px;
     text-align:center;
     font-size:4vw;
   }
@@ -952,7 +952,7 @@ li.arrangement2 {
     margin: 0 auto;
   }
   .message-success {
-    margin-top:10%;
+    margin-top:10px;
     text-align:center;
   }
   .pickArr1, .pickArr2, .pickArr3 {
@@ -980,12 +980,12 @@ li.arrangement2 {
   .leftSide {
     display: inline-block;
     vertical-align: top;
-    width: 280px;
+    width: 100px;
   }
   .rightSide {
     display: inline-block;
     vertical-align: top;
-    width: 400px;
+    width: 100px;
   }
   .receiverBlock h5{
     font-size:2vw;
@@ -1021,6 +1021,26 @@ li.arrangement2 {
     text-align: center;
     font-size: 1.8vw;
     margin-top: 15px;
+}
+h3 {
+  font-size: 2vw;
+  width: 550px;
+  margin: 0 auto;
+}
+.scheduleFormFields {
+  margin-top: 0px;
+}
+#scheduleInfo {
+  padding: 0px;
+  width: 80%;
+  min-width: 280px;
+  margin: 0px auto 0;
+  text-align: center;
+}
+#scheduleInfo  {
+  width: 100px;
+  margin: 10px auto 0;
+  font-size: 2vw;
 }
 }
 @media only screen and (max-width: 770px) {
@@ -1138,15 +1158,16 @@ li.arrangement2 {
   input {
     height: 25px;
   }
+
   .leftSide {
     display: inline-block;
     vertical-align: top;
-    width: 200px;
+    width: 100px;
   }
   .rightSide {
     display: inline-block;
     vertical-align: top;
-    width: 200px;
+    width: 100px;
   }
 }
 @media only screen and (max-width: 680px) {
@@ -1177,7 +1198,7 @@ li.arrangement2 {
     margin: 0 auto;
   }
   .message-success {
-    margin-top:10%;
+    margin-top:10px;
     text-align:center;
   }
   .landing {
@@ -1192,7 +1213,16 @@ li.arrangement2 {
   .landing p{
     font-size:2.4vw;
   }
-
+  .leftSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+  }
+  .rightSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+  }
 }
 @media only screen and (max-width: 667px) {
   #scheduleInfo h5 {
@@ -1213,12 +1243,12 @@ li.arrangement2 {
   .leftSide {
     display: inline-block;
     vertical-align: top;
-    width: 200px;
+    width: 100px;
   }
   .rightSide {
     display: inline-block;
     vertical-align: top;
-    width: 200px;
+    width: 100px;
   }
 }
 
@@ -1533,6 +1563,38 @@ h1 {
     width: 110px;
     margin: 5px auto 0;
   }
+  .schedule h3 {
+    width: 280px;
+  
+  }
+  .leftSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+  }
+  .rightSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+  }
+  select {
+    font-size: 4vw;
+  }
+  .datePicking h4 {
+    font-size:3vw;
+    padding:0;
+    margin:15px 0 0;
+  }
+  #startDate {
+    font-size:3.5vw;
+    text-align: center;
+    margin-top: 0;
+  }
+  #scheduleInfo h5 {
+    font-size:4vw;
+    margin: 10px auto 0;
+  }
+  
 }
 @media only screen and (max-width: 411px) {
 
@@ -1597,7 +1659,7 @@ input {
     margin: 0 auto;
   }
   .message-success {
-    margin-top:30%;
+    margin-top:10px;
     text-align:center;
   }
   .landing {
@@ -1648,6 +1710,79 @@ input {
     width: 110px;
     margin: 5px auto 0;
   }
+  .leftSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+  }
+  .rightSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+  }
+  .scheduleFormFields p {
+    font-size: 3.5vw;
+  }
+  select {
+    font-size: 4vw;
+  }
+  .datePicking h4 {
+    font-size:3vw;
+    padding:0;
+    margin:15px 0 0;
+  }
+  #startDate {
+    font-size:3.5vw;
+    text-align: center;
+    margin-top: 0;
+  }
+.jump {
+  margin-top:5px;
+}
+.formButton {
+  width: 110px;
+  margin: 5px auto 0;
+}
+.leftSide {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+}
+.rightSide {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+}
+select {
+  font-size: 4vw;
+}
+.datePicking h4 {
+  font-size:3vw;
+  padding:0;
+  margin:15px 0 0;
+}
+#startDate {
+  font-size:3.5vw;
+  text-align: center;
+  margin-top: 0;
+}
+#scheduleInfo h5 {
+  font-size:4vw;
+  margin: 10px auto 0;
+}
+h3 {
+  font-size: 3vw;
+  width: 250px;
+  margin: 0 auto;
+}
+.confirmButton button {
+  font-size: 3vw;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  margin: 0 auto;
+width:50px;
+}
 }
 @media only screen and (max-width: 320px) {
   input { 
@@ -1781,4 +1916,32 @@ input {
   width: 110px;
   margin: 5px auto 0;
 }
+.leftSide {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+}
+.rightSide {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+}
+select {
+  font-size: 4vw;
+}
+.datePicking h4 {
+  font-size:3vw;
+  padding:0;
+  margin:15px 0 0;
+}
+#startDate {
+  font-size:3.5vw;
+  text-align: center;
+  margin-top: 0;
+}
+#scheduleInfo h5 {
+  font-size:4vw;
+  margin: 10px auto 0;
+}
+
 }
