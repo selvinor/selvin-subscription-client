@@ -411,7 +411,7 @@ display:inline-block;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
   border-radius:0.72916667%;
   padding:5px;
-  width:90%;
+  width:100%;
 }
 .senderInfo h4 {
   padding:0;
