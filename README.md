@@ -81,5 +81,5 @@ paths:
           
             
             SCREENSHOTS
-![GitHub Logo](/screenshots/landing.png)
+![GitHub Logo](/screenshots/screenshot.jpg)
 Format: ![Alt Text](url)
