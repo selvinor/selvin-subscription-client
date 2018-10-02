@@ -270,7 +270,7 @@ export class SubscriptionAddForm extends React.Component {
   formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">NEXT</button>); 
   switch (this.props.currentFormSection) {
     case 'schedule':
-      formButton = ( <button className="jump" onClick={() => validateFields('schedule');}  type="button">NEXT</button>); 
+      formButton = ( <button className="jump" onClick={() => validateFields('schedule')}  type="button">NEXT</button>); 
       break;
     case 'recipient':
       formButton = (<button className="jump"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>);
