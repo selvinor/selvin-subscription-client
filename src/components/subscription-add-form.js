@@ -210,7 +210,7 @@ export class SubscriptionAddForm extends React.Component {
           }
           break;
         case 'sender':
-          if (check[i].name === 'email' ) {
+          if (check[i].name === 'senderEmail' ) {
             if (check[i].value === '' || validateEmail(check[i].value) === false) {
               check[i].value = '';
               check[i].placeholder = "Valid email is required";
@@ -568,7 +568,7 @@ export class SubscriptionAddForm extends React.Component {
                 <h4>PLEASE ENTER SENDER INFORMATION</h4>
                   <label htmlFor="senderEmail" className="senderEmail"/>                     
                     <Field
-                      name="email"
+                      name="senderEmail"
                       type="email"
                       component={Input}
                       placeholder="EMAIL"
@@ -702,7 +702,7 @@ export class SubscriptionAddForm extends React.Component {
                     <div className="senderBlock">
                       <h5>Sender Info</h5>
                       <p className="sender name"><span>NAME: </span>{theForm.senderFirstName} {theForm.senderLastName}</p>
-                      <p className="sender email"><span>EMAIL: </span>{theForm.email}</p>
+                      <p className="sender senderEmail"><span>EMAIL: </span>{theForm.senderEmail}</p>
                       <p className="sender phone"><span>PHONE: </span>{theForm.senderPhone}</p>  
                       <p className="recipient message"><span>GIFT MESSAGE: </span>{theForm.recipientMessage}</p>    
                     </div>
