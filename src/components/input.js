@@ -42,7 +42,6 @@ export default class Input extends React.Component {
       );
     } else {
       if (this.props.type === 'date') {
-        console.log('this.props: ', this.props);
         return (
           <div className="form-input">
             <label htmlFor={this.props.input.name}>

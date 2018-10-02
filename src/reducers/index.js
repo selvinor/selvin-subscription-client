@@ -37,17 +37,19 @@ export const subscriptionReducer = (state=initialState, action) => {
     case 'SUBSCRIPTIONS_HAS_ERRORED':
       return Object.assign({}, state, {
         hasErrored: action.hasErrored
-      });  
+    });  
+
     case 'SUBSCRIPTIONS_IS_LOADING':
       return Object.assign({}, state, {
         isLoading: action.isLoading
-      }); 
+    }); 
+
     case 'FETCH_SUBSCRIPTION_SUCCESS':
       return Object.assign({}, state, {
         subscriptions: action.subscriptions
-      });
+    });
+
     case 'ADD_SUBSCRIPTION_SUCCESS':
-    // Do some stuff to create the subscription from the payload 
     return Object.assign({}, state, {
       subscriptions: [...state.subscriptions, action.newSubscription]
     });
@@ -63,16 +65,17 @@ export const subscriptionReducer = (state=initialState, action) => {
       currentProductCode: action.productCode,
       currentFormSection: 'recipient'
     });
+
     case 'SET_FREQUENCY':
-    console.log('SET_FREQUENCY: ', action.frequency);
     return Object.assign({}, state, {
       currentFrequency: action.frequency      
     });
+
     case 'SET_DURATION':
-      console.log('SET_DURATION: ', action.duration);
     return Object.assign({}, state, {
       currentDuration: action.duration
     });
+
     case 'SET_DELIVERY_DATE':
     return Object.assign({}, state, {
       currentDeliveryDate: action.deliveryDate
@@ -82,6 +85,7 @@ export const subscriptionReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       currentFormSection: action.section
     });
+
     case 'ADD_RECEIVER_TO_SUBSCRIPTION':
       // Do some stuff to add the receiver to the receiver array in subscription 
       return Object.assign({}, state, {
