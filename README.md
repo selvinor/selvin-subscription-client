@@ -81,5 +81,12 @@ paths:
           
             
             SCREENSHOTS
-![GitHub Logo](/screenshots/screenshot.jpg)
-Format: ![Alt Text](url)
+![Landing](/screenshots/screen0.PNG)
+![Choose Arrangement](/screenshots/screen1.PNG)
+![Arrangement Details](/screenshots/screen2.PNG)
+![Add Recipient Info](/screenshots/screen3.PNG)
+![Add Sender Info](/screenshots/screen4.PNG)
+![Set Schedule](/screenshots/screen5.PNG)
+![Checkout](/screenshots/screen6.PNG)
+![Confirmation](/screenshots/screen7.PNG)
+Format: ![Blooms Subscription Service](https://blooms-pdx.herokuapp.com/)
