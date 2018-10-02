@@ -235,16 +235,8 @@ export class SubscriptionAddForm extends React.Component {
             dispatchNumberOfDeliveries();
           }
         }
-            let e = document.getElementById("frequency");
-            if (e.options[e.selectedIndex]) {
-              let strFreq = e.options[e.selectedIndex].value;
-            }
-            let f = document.getElementById("duration");
-            if (f.options[f.selectedIndex]) {
-              let strDur = f.options[f.selectedIndex].value;
-            }
             dispatchNumberOfDeliveries();
-          // dispatchStartDate(firstAvailableDate());
+
         
           if (check[i].value === '') {
             badFieldCount++;
