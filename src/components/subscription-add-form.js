@@ -103,11 +103,9 @@ export class SubscriptionAddForm extends React.Component {
       this.props.dispatch(setSection(section)) ;
     }        
     const dispatchStartDate = (begin) => {
-      console.log('dispatchStartDate', begin)
       this.props.dispatch(setDeliveryDate(begin)) ;
     }        
     const dispatchNumberOfDeliveries = () => {
-      console.log('dispatchNumberOfDeliveries')
       let numberOfDeliveries; 
       let subscriptionTerm;
       switch (this.props.currentDuration) {
@@ -164,7 +162,6 @@ export class SubscriptionAddForm extends React.Component {
 
   
   const validateFields = function(section){
-    console.log('validateFields');
     let fieldsToCheck;
     let destination;
     let formSection;
@@ -196,7 +193,6 @@ export class SubscriptionAddForm extends React.Component {
         formSection = 'recipients';
       break;
     }  
-    console.log('formSection ', formSection);
     const check = document.getElementById(formSection).getElementsByTagName("input");
     let len = check.length;
     let badFieldCount = 0;
@@ -204,13 +200,9 @@ export class SubscriptionAddForm extends React.Component {
 
 
     
-    for(let  i=0; i<len; i++) {
-      console.log('i: ', i);
-      //let e = document.getElementById("frequency");
-      //console.log('e: ', e);    
+    for(let  i=0; i<len; i++) {  
       switch (section) {
         case 'recipient':
-        console.log('validating recipient');
           if (check[i].value === '' && fieldsToCheck.includes(i)) {
             badFieldCount++;
             badFields.push(i);
@@ -219,11 +211,9 @@ export class SubscriptionAddForm extends React.Component {
           break;
         case 'sender':
           if (check[i].name === 'email' ) {
-            console.log('***check[i].name: ', check[i].name,  check[i].value, validateEmail(check[i].value));
             if (check[i].value === '' || validateEmail(check[i].value) === false) {
               check[i].value = '';
               check[i].placeholder = "Valid email is required";
-              console.log('check[i].placeholder ',check[i].placeholder);
               badFieldCount++;
               badFields.push(i);
             }
@@ -235,14 +225,7 @@ export class SubscriptionAddForm extends React.Component {
             }            
           }
           break;
-        case 'schedule':
-        console.log('schedule check[i].name ', check[i].name);
-        console.log('schedule check[i].placeholder ', check[i].placeholder);
-        console.log('schedule check[i].value ', check[i].value);
-        //console.log('this.props.currentValues ', this.props.currentValues);
-        // dispatchFrequency(this.props.currentValues.frequency);  
-        // dispatchDuration(this.props.currentValues.duration); 
-        // dispatchNumberOfDeliveries();     
+        case 'schedule':   
         if (check[i].name === 'startDate') {
           if (check[i].value < check[i].min) {
             badFieldCount++;
@@ -255,12 +238,10 @@ export class SubscriptionAddForm extends React.Component {
             let e = document.getElementById("frequency");
             if (e.options[e.selectedIndex]) {
               let strFreq = e.options[e.selectedIndex].value;
-              console.log('strFreq: ', strFreq);
             }
             let f = document.getElementById("duration");
             if (f.options[f.selectedIndex]) {
               let strDur = f.options[f.selectedIndex].value;
-              console.log('strDur: ', strDur);
             }
             dispatchNumberOfDeliveries();
           // dispatchStartDate(firstAvailableDate());
@@ -268,11 +249,8 @@ export class SubscriptionAddForm extends React.Component {
           if (check[i].value === '') {
             badFieldCount++;
             badFields.push(i);
-            console.log('empty field ');
-            console.log("document.getElementById('startDate').min ", document.getElementById('startDate').min);
             document.getElementById('startDate').value = document.getElementById('startDate').min;
             document.getElementById('deliveryMsg').innerText = 'First available date:';
-            console.log("document.getElementById('deliveryMsg').innerText ", document.getElementById('deliveryMsg').innerText);
             check[i].placeholder = check[i].name + " is required";
           } 
           break;
@@ -280,11 +258,9 @@ export class SubscriptionAddForm extends React.Component {
           break;
       }   
     }
-    console.log('Went through all the fields. badFieldCount = ', badFieldCount, 'badFields = ', badFields, ' Section = ', section);
-    console.log('destination: ',  destination); 
+
     
     if (badFieldCount === 0 ) {
-      console.log('dispatching: ', destination);
       dispatchSection(destination);
     }  else {
       badFieldCount = 0;
@@ -294,10 +270,10 @@ export class SubscriptionAddForm extends React.Component {
   formButton = ( <button onClick={() => console.log('state: ', this.props)}  type="button">NEXT</button>); 
   switch (this.props.currentFormSection) {
     case 'schedule':
-      formButton = ( <button className="jump" onClick={() => {validateFields('schedule');console.log('this.props: ', this.props); }}  type="button">NEXT</button>); 
+      formButton = ( <button className="jump" onClick={() => validateFields('schedule');}  type="button">NEXT</button>); 
       break;
     case 'recipient':
-      formButton = (<button className="jump"  onClick={() => {validateFields('recipient')}}  type="button">NEXT</button>);
+      formButton = (<button className="jump"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>);
       break;
       case 'sender':
       formButton = (<button className="jump"  onClick={() => validateFields('sender')}  type="button">NEXT</button>);
@@ -362,20 +338,6 @@ export class SubscriptionAddForm extends React.Component {
       }
 
     }
-
-
-    // let e = document.getElementById("frequency");
-    // if (e.options[e.selectedIndex]) {
-    //   let strFreq = e.options[e.selectedIndex].value;
-    //   console.log('strFreq: ', strFreq);
-    // }
-    // let f = document.getElementById("duration");
-    // if (f.options[f.selectedIndex]) {
-    //   let strDur = f.options[f.selectedIndex].value;
-    //   console.log('strDur: ', strDur);
-    // }
-
-
 
     let deliveryMsg = '';
 
@@ -718,8 +680,7 @@ export class SubscriptionAddForm extends React.Component {
                 <li>
                 <button className="jump" onClick={() => {
                   this.props.dispatch(setDeliveryDate(firstAvailableDate()));
-                  validateFields('schedule');
-                  console.log('this.props: ', this.props); }}  type="button">NEXT</button>
+                  validateFields('schedule');}}  type="button">NEXT</button>
                 </li>
               </ul>
             </div>
