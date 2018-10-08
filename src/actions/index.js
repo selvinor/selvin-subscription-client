@@ -57,12 +57,21 @@ export const setDeliveryDate = (deliveryDate) => ({
     deliveryDate
 });
 
+export const LOAD_TEST_DATA = 'LOAD_TEST_DATA';
+export const loadTestData = (testData) => ({
+    type: LOAD_TEST_DATA,
+    testData
+});
+
 export const fetchSubscriptions = () => dispatch => {
+  console.log('fetch subscriptions fired!');
   fetch(`${REACT_APP_BASE_URL}/api/subscriptions`)
   .then(res => {
       if (!res.ok) {
+        console.log('!!!PROBLEM!!!');
           return Promise.reject(res.statusText);
       }
+      console.log(res.json());
       return res.json();
   }).then(subscriptions => {
       dispatch(fetchSubscriptionSuccess(subscriptions));

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 import './subscription-add-form.css'; 
-import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
+import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate, fetchSubscriptions } from '../actions';
 import {REACT_APP_BASE_URL} from '../config';
 export class SubscriptionAddForm extends React.Component {
   //POST section starts here
@@ -348,13 +348,18 @@ export class SubscriptionAddForm extends React.Component {
               </nav>
               <section>
               <div className="landing">
-                <h2>Welcome to Blooms Floral Subscription Service!</h2> 
-                <p>Blooms provides an easy way to brighten up and beautify your home or office on a regular basis.</p>
-                <p>We will deliver beautiful, fresh, custom flower arrangements straight to your home or office on a regular schedule!</p>
+                <h2>Subscriptions</h2> 
+                <p>Blooms provides an easy way to keep your home or office bright and beautiful!</p>
+                <p>We will prepare gorgeous, fresh flower arrangements and deliver them straight to your home or office on a regular schedule!</p>
                 <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
                 <p>Click the button, and we'll get you set up right away!</p>
                 <div className="entry">{formButton}</div>
               </div>
+              </section>
+              <section>
+                <div className="subscriptions">
+
+                </div>
               </section>
             </div>                
             : ""  }
@@ -744,6 +749,7 @@ const mapStateToProps = state => {
   const form = state.form.subscriptionAddForm || {values:{}};
   const values = form.values || {};
   return ({
+    subscriptionList: state.subscription.subscriptions,
   currentFormSection: state.subscription.currentFormSection,
   currentNumberOfDeliveries: state.subscription.currentNumberOfDeliveries,
   currentProductCode: state.subscription.currentProductCode,
@@ -755,6 +761,9 @@ const mapStateToProps = state => {
 
   const mapDispatchToProps = dispatch => {
     return {
+      fetchSubscriptions: () => {
+        dispatch(fetchSubscriptions())
+      },
       setSection: () => {
         dispatch(setSection())
       },

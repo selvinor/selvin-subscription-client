@@ -1,27 +1,6 @@
 //import * as actions from '../actions'; 
 const initialState = {
-  subscriptions: [{
-      productCode: '',
-      productName: '',
-      productSize: '',
-      status: 'active',
-      frequency: '',
-      duration: '',
-      startDate: null,
-      color: true,
-      senderEmail: '',
-      senderFirstName: '',
-      senderLastName: '',
-      senderPhone: '',
-      firstName : '',
-      lastName : '',
-      streetAddress : '',
-      aptSuite : '',
-      recipientCity : '',
-      state : '',
-      zipcode : '',
-      phone : ''   
-  }],
+  subscriptions: [],
   hasErrored : false,
   isLoading : false,
   currentFormSection: "onboarding",
@@ -43,9 +22,14 @@ export const subscriptionReducer = (state=initialState, action) => {
       return Object.assign({}, state, {
         isLoading: action.isLoading
     }); 
+    case  'LOAD_TEST_DATA':
+    return Object.assign({}, state, {
+      subscriptions: action.testData
+  }); 
 
     case 'FETCH_SUBSCRIPTION_SUCCESS':
-      return Object.assign({}, state, {
+    console.log('subscription success action.subscriptions: ', action.subscriptions);
+      return Object.assign({}, state, {        
         subscriptions: action.subscriptions
     });
 

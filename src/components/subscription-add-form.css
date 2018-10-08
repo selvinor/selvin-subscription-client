@@ -1632,7 +1632,11 @@ input {
 }
 }
 @media only screen and (max-width: 400px) {
-
+  body {
+    background: transparent url(../images/tulip-master-417-667.jpg); 
+    background-position: calc(0% - 00px) calc(0% - 0px); 
+    background-repeat: no-repeat; 
+  } 
   .senderBlock h5, .receiverBlock h5 {
     font-size:3.5vw;
     padding:3px 0;
@@ -1682,6 +1686,191 @@ input {
   .landing h2{
     font-size: 4vw;
   }
+
+  .chooseButton {
+    width:80px;
+    height: 35px;
+    margin:10px auto 0;
+    font-size:4vw;
+  }
+  .productDetailPrice {
+    font-size:3vw;
+  }
+  .productDetailDesc {
+    width:280px;
+    margin: 0 auto;
+    font-size:3vw;
+  }
+  #deliveryMsg {
+    font-size:2.5vw;
+  }
+  input{
+    font-size:1.1em;
+    }
+    .orderSummary h5 {
+      width: 200px;
+      margin: 0px auto 0;
+  }
+  input {
+    height:25px;
+  }
+  .jump {
+    margin-top:5px;
+  }
+  .formButton {
+    width: 110px;
+    margin: 5px auto 0;
+  }
+  .leftSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+  }
+  .rightSide {
+    display: inline-block;
+    vertical-align: top;
+    width: 100px;
+  }
+  .scheduleFormFields p {
+    font-size: 3.5vw;
+  }
+  select {
+    font-size: 4vw;
+  }
+  .datePicking h4 {
+    font-size:3vw;
+    padding:0;
+    margin:15px 0 0;
+  }
+  #startDate {
+    font-size:3.5vw;
+    text-align: center;
+    margin-top: 0;
+  }
+.jump {
+  margin-top:5px;
+}
+.formButton {
+  width: 110px;
+  margin: 5px auto 0;
+}
+.leftSide {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+}
+.rightSide {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+}
+select {
+  font-size: 4vw;
+}
+.datePicking h4 {
+  font-size:3vw;
+  padding:0;
+  margin:15px 0 0;
+}
+#startDate {
+  font-size:3.5vw;
+  text-align: center;
+  margin-top: 0;
+}
+#scheduleInfo h5 {
+  font-size:4vw;
+  margin: 10px auto 0;
+}
+h3 {
+  font-size: 3vw;
+  width: 250px;
+  margin: 0 auto;
+}
+.confirmButton button {
+  font-size: 3vw;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  margin: 0 auto;
+width:50px;
+}
+}
+@media only screen and (max-width: 375px) {
+  body {
+    background: transparent url(../images/tulip-master-417-667.jpg); 
+    background-position: calc(50% - 00px) calc(0% - 0px); 
+    background-repeat: no-repeat; 
+  } 
+
+  #root{
+    background: -moz-linear-gradient(bottom, rgba(255,255,255,.7) 57%, rgba(255,255,255,0) 70%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(bottom, rgba(255,255,255,.7) 57%,rgba(255,255,255,0) 70%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to top, rgba(255,255,255,.7) 57%,rgba(255,255,255,0) 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background-position: calc(0% - 0px) calc(0% - 0px); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+    
+  }
+  h1 {
+    display:none;
+  }
+  .title {
+    font-weight:bold;
+  }
+  .senderBlock h5, .receiverBlock h5 {
+    font-size:3.5vw;
+    padding:3px 0;
+    margin:10px 0 5px 0px;
+    border:1px #999 solid;
+    font-weight: bold;
+    width:100px;
+    border-radius:5px;
+    background:#eee;
+    color:#000;
+  }
+  .productPhoto_p1 {
+    background-image: url('../images/_DSC3345_280.png');
+    background-repeat:no-repeat;
+    height:280px;
+    width:280px;
+    margin: 0 auto;
+  }
+  .productPhoto_p2 {
+    background-image: url('../images/_DSC2980_280.png');
+    background-repeat:no-repeat;
+    height:280px;
+    width:280px;
+    margin: 0 auto;
+  }
+  .productPhoto_p3 {
+    background-image: url('../images/_DSC3098_280.png');
+    background-repeat:no-repeat;
+    height:373px;
+    width:280px;
+    margin: 0 auto;
+  }
+  .message-success {
+    margin-top:10px;
+    text-align:center;
+  }
+  .landing {
+    margin-top:230px;
+    text-align: center;
+  }
+  .landing p{
+    font-size: 4vw;
+    text-align: justify;
+    font-weight:normal;
+    width:90%;
+    margin:5px auto 0;
+  }
+  .landing h2{
+    font-size: 4vw;
+    background:#a10f22;
+    padding: 10px 0px;
+    color:white;
+    width:90%;
+    margin:0 auto 0;
+    }
 
   .chooseButton {
     width:80px;
