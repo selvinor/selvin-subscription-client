@@ -1,8 +1,8 @@
 import React from 'react';
-export default class UserBlock extends React.Component {
+export default class SenderBlock extends React.Component {
   render() {
     return (
-      <div className="userBlock">
+      <div className="senderBlock">
         
         <ul>
           <li><h2>SENDER</h2></li>

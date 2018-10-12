@@ -11,6 +11,7 @@ body {
   background: transparent url(../images/_DSC7675_grad.jpg); 
   background-position: calc(50% - 00px) calc(20% - 0px); 
   background-repeat: no-repeat;  
+  background-attachment: fixed;
   font-family: 'Oxygen', sans-serif;
   font-size: 100%;
   font-size: 16px;
@@ -157,6 +158,8 @@ li  {
   text-align: center;
   font-size:1.8vw;
   margin-top:15px;
+  padding:10px;
+  border-radius:10px;
 }
 .entry  {
   margin-top:50px;
@@ -190,7 +193,6 @@ li  {
 
 ul.arrangements {
   width:100%;
-  border-radius:0.72916667%;
 }
 .jumpBack {
   background-color:yellow;
@@ -227,14 +229,32 @@ ul.arrangements {
 }
 
 
-.arrangeButton {
+.arrangement3 .arrangeButton {
   border: .5px #ccc solid;
   background-color:green;  
   color: #fafafa;
   font-weight:bold;
-  margin: 2% 0;
-  padding:0.72916667% 1.0416667%;
-  width: 100px;
+  margin: 5px 0 0 30px;
+  padding:10px;
+  border-radius: 10px;
+}
+.arrangement2 .arrangeButton {
+  border: .5px #ccc solid;
+  background-color:green;  
+  color: #fafafa;
+  font-weight:bold;
+  margin: 5px 0 0 30px;
+  padding:10px;
+  border-radius: 10px;
+}
+.arrangement1 .arrangeButton {
+  border: .5px #ccc solid;
+  background-color:green;  
+  color: #fafafa;
+  font-weight:bold;
+  margin: 5px 0 0 20px;
+  padding:10px;
+  border-radius: 10px;
 }
  label.frequency , label.duration,  label.recipientMessage   {
   font-weight:bold;
@@ -293,11 +313,7 @@ textarea {
   display:inline-block;
   cursor:pointer;
 }
- .thumb > img {
-  object-fit: cover;
-  width: 100%;
-  max-height: 100%;
-}
+
 
 .thumbnail{
   cursor:pointer;
@@ -305,26 +321,37 @@ textarea {
 .pickArr3 {
   display:inline-block;
   vertical-align: bottom;
+  height:90px;
+  margin-left:20px;
   padding:0;
-  width:100%;
-  margin: 0 auto;
 }
 .pickArr2 {
   display:inline-block;
   vertical-align: bottom;
   padding:0;
-  width:100%;
-  margin: 0 auto;
+  height:90px;
+  margin-left:20px;
 }.pickArr1 {
   display:inline-block;
   vertical-align: bottom;
+  height:90px;
   padding:0;
-  width:100%;
-  margin: 0 auto;
+  margin-left:20px;
 }
-.arrangement1, .arrangement2, .arrangement3{
+.arrangement3 {
   width:100%;
-  text-align: center;
+  text-align: left;
+  margin-left:10px;
+}
+.arrangement2{
+  width:100%;
+  text-align: left;
+  margin-left:10px;
+}
+.arrangement1{
+  width:100%;
+  text-align: left;
+  margin-left:20px;
 }
 p.arrangementName {
   width:100%;
@@ -391,10 +418,9 @@ display:inline-block;
   padding: 0px;
 }
 .arrangements  {
-
+  margin-top: 200px;
   padding:0px 0px;
   font-weight:bold;
-  border-radius:10px;
   width:100%
 }
 .recipientInfo h4 {
@@ -451,6 +477,7 @@ div.checkout {
   font-weight:bold;
   color:#333;
   font-size: 1.4vw;
+  width:100%;
 }
 
 p.recipients  {
@@ -860,9 +887,10 @@ li.arrangement2 {
     border: .5px #ccc solid;
     margin-top:10px;
   }
-  .pickArr1, .pickArr2, .pickArr3 {
+  /*.pickArr1, .pickArr2, .pickArr3 {
     width: 400px;
   }
+  */
   .leftSide {
     display: inline-block;
     vertical-align: top;
@@ -962,9 +990,10 @@ li.arrangement2 {
     margin-top:10px;
     text-align:center;
   }
-  .pickArr1, .pickArr2, .pickArr3 {
+  /*.pickArr1, .pickArr2, .pickArr3 {
     width: 350px;
   }
+  */
   #deliveryMsg {
     font-size:1.8vw;
   }
@@ -1147,10 +1176,11 @@ h3 {
   .landing p{
     font-size: 2.5vw;
   }
-
+/*
   .pickArr1, .pickArr2, .pickArr3 {
     width: 320px;
   }
+  */
   #deliveryMsg {
     font-size:2vw;
   }
@@ -1800,6 +1830,7 @@ width:50px;
     background: transparent url(../images/tulip-master-417-667.jpg); 
     background-position: calc(50% - 00px) calc(0% - 0px); 
     background-repeat: no-repeat; 
+    background-attachment: fixed;
   } 
 
   #root{
@@ -1853,7 +1884,7 @@ width:50px;
     text-align:center;
   }
   .landing {
-    margin-top:230px;
+    margin-top:240px;
     text-align: center;
   }
   .landing p{
@@ -1870,6 +1901,7 @@ width:50px;
     color:white;
     width:90%;
     margin:0 auto 0;
+    border-radius: 10px;
     }
 
   .chooseButton {
@@ -1989,11 +2021,6 @@ width:50px;
     padding:0;
   }
 
- .thumb > img {
-    object-fit: cover;
-    width: 85%;
-    max-height: 85%;
-  }
   .receiverBlock h5{
     font-size:4vw;
     padding:0px;
@@ -2138,6 +2165,9 @@ select {
 #scheduleInfo h5 {
   font-size:4vw;
   margin: 10px auto 0;
+}
+form-input {
+  margin-top:250px;
 }
 
 }

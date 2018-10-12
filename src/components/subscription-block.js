@@ -1,5 +1,5 @@
 import React from 'react';
-import UserBlock from './user-block';
+import SenderBlock from './sender-block';
 import OrderBlock from './order-block';
 
 export default class SubscriptionBlock extends React.Component {
@@ -53,7 +53,7 @@ export default class SubscriptionBlock extends React.Component {
       return (
         <div className="subscriptionBlock">
         <h2>SUBSCRIPTION</h2>
-          <UserBlock user={user} />
+          <SenderBlock user={user} />
           <OrderBlock orders={orders} />
         </div>
       );
