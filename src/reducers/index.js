@@ -8,7 +8,8 @@ const initialState = {
   currentFrequency: "monthly",
   currentDuration: "3 months",
   currentNumberOfDeliveries : "0",   
-  currentDeliveryDate : ''
+  currentDeliveryDate : '',
+  showLogin : false
 }
 
 export const subscriptionReducer = (state=initialState, action) => {
@@ -75,6 +76,12 @@ export const subscriptionReducer = (state=initialState, action) => {
       return Object.assign({}, state, {
         subscriptions: [...state.subscriptions, action.addReceiver]
     });
+
+    case 'SHOW_LOGIN':
+      return Object.assign({}, state, {
+        showLogin: true
+    });
+    
       
     default:
         return state;

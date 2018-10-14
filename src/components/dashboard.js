@@ -10,7 +10,7 @@ export class Dashboard extends React.Component {
 
   render() {
     // Only render the log out button if we are logged in
-    console.log('this.props: ' , this.props);
+    console.log('Logged in - this.props: ' , this.props);
     let stayLoggedInButton;
     if (this.props.showWarning) {
       stayLoggedInButton = (

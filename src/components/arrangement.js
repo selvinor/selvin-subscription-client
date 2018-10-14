@@ -8,16 +8,16 @@ export default function Arrangement(props) {
       <li>
       <button className="jumpBack"  onClick={() => dispatchSection('arrangement')}  type="button">BACK</button>              
         <div className="productDetail">
-          <h5>{this.props.productName}</h5> 
-          <div className={this.props.productPhoto} onClick={() => { 
+          <h5>{props.productName}</h5> 
+          <div className={props.productPhoto} onClick={() => { 
             this.props.dispatch(setDeliveryDate(firstAvailableDate()));
             dispatchProductChoice('p3');
           }} >
           </div>
-          <p className="productDetailPrice">Starting at: ${this.props.productPrice}</p>
-          <p className="productDetailDesc">{this.props.productDesc}</p> 
+          <p className="productDetailPrice">Starting at: ${props.productPrice}</p>
+          <p className="productDetailDesc">{props.productDesc}</p> 
           <button className="chooseButton" onClick={() => {
-            dispatchProductChoice(this.props.productCode);
+            dispatchProductChoice(props.productCode);
             <Redirect to="/subscriptionAdd" />
           }}  type="button">SELECT</button><span className="price"></span>                
         </div>

@@ -21,7 +21,7 @@ export default function Arrangements(props) {
           <Link to="/arrangement"><img className="thumbnail" src="../img/_DSC3098.png" alt=""/></Link>
           </div>                                   
           <div className="pickArr3">
-            <p className="arrangementName ">{this.props.ProductName3)}</p>
+            <p className="arrangementName ">{props.ProductName3)}</p>
             {WrappedLink}<span className="price"></span>                 
           </div>
         </div>
@@ -32,7 +32,7 @@ export default function Arrangements(props) {
         <Link to="/arrangement"><img className="thumbnail" src="../img/_DSC2980.png" alt=""/></Link>                  
         </div>
         <div className="pickArr2">
-          <p className="arrangementName">{this.props.ProductName2}</p>
+          <p className="arrangementName">{props.ProductName2}</p>
           {WrappedLink}<span className="price"></span>                 
         </div>
         </div>
@@ -43,7 +43,7 @@ export default function Arrangements(props) {
           <Link to="/arrangement"><img className="thumbnail" src="../img/_DSC3345.png" alt=""/></Link>                 
           </div>
           <div className="pickArr1">
-            <p className="arrangementName">{this.props.ProductName1}</p>
+            <p className="arrangementName">{props.ProductName1}</p>
             {WrappedLink}<span className="price"></span>                 
           </div>
         </div>

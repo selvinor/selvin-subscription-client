@@ -40,6 +40,7 @@ export class RegistrationForm extends React.Component {
                     component={Input}
                     type="password"
                     name="password"
+                    autocomplete="new-password"
                     validate={[required, passwordLength, isTrimmed]}
                 />
                 <label htmlFor="passwordConfirm">Confirm password</label>
@@ -47,6 +48,7 @@ export class RegistrationForm extends React.Component {
                     component={Input}
                     type="password"
                     name="passwordConfirm"
+                    autocomplete="new-password"
                     validate={[required, nonEmpty, matchesPassword]}
                 />
                 <button

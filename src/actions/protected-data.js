@@ -13,16 +13,43 @@ export const fetchProtectedDataError = error => ({
     error
 });
 
-export const fetchProtectedData = () => (dispatch, getState) => {
+
+export const fetchProtectedData = () => (dispatch, getState)  => {
+  console.log('fetch subscriptions fired!');
+  const authToken = getState().auth.authToken;
+  fetch(`${REACT_APP_BASE_URL}/protected/subscriptions`, {
+    method: 'GET',
+    headers: {
+        // Provide our auth token as credentials
+        Authorization: `Bearer ${authToken}`
+    }
+})
+  .then(res => {
+      if (!res.ok) {
+        console.log('!!!PROBLEM!!!');
+          return Promise.reject(res.statusText);
+      }
+      console.log('res.json:', res.json());
+      return res.json();
+  }).then(({data}) => dispatch(fetchProtectedDataSuccess(data)));
+  
+  
+  // .then(subscriptions => {
+  //     dispatch(fetchProtectedDataSuccess(subscriptions));
+  // });
+};
+
+
+export const xfetchProtectedData = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    return fetch(`${REACT_APP_BASE_URL}/protected`, {
+    return fetch(`${REACT_APP_BASE_URL}/protected/subscriptions/`, {
         method: 'GET',
         headers: {
             // Provide our auth token as credentials
             Authorization: `Bearer ${authToken}`
         }
     })
-        .then(res => normalizeResponseErrors(res))
+        //.then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(({data}) => dispatch(fetchProtectedDataSuccess(data)))
         .catch(err => {

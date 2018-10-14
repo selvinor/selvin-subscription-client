@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 import './subscription-add-form.css'; 
-import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate, fetchSubscriptions } from '../actions';
+import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate, fetchProtectedData } from '../actions';
 import {REACT_APP_BASE_URL} from '../config';
 export class SubscriptionAddForm extends React.Component {
   //POST section starts here
@@ -23,7 +23,7 @@ export class SubscriptionAddForm extends React.Component {
     }
     values['frequency'] = this.props.currentFrequency;
     values['duration'] = this.props.currentDuration;
-    return fetch(`${REACT_APP_BASE_URL}/api/subscriptions`, {
+    return fetch(`${REACT_APP_BASE_URL}/subscriptions`, {
       method:'POST',
       body: JSON.stringify(values),
       headers: {
@@ -335,116 +335,10 @@ export class SubscriptionAddForm extends React.Component {
 
     return (
       <div>
-        <header role="heading">
-          <h1>Blooms Subscriptions</h1>
-        </header>
         <main role="main">
           <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             {successMessage}
             {errorMessage} 
-            { this.props.currentFormSection === "onboarding" ?   
-            <div>
-              <nav role="menu">
-              </nav>
-              <section>
-              <div className="landing">
-                <h2>Subscriptions</h2> 
-                <p>Blooms provides an easy way to keep your home or office bright and beautiful!</p>
-                <p>We will prepare gorgeous, fresh flower arrangements and deliver them straight to your home or office on a regular schedule!</p>
-                <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
-                <p>Click the button, and we'll get you set up right away!</p>
-                <div className="entry">{formButton}</div>
-              </div>
-              </section>
-              <section>
-                <div className="subscriptions">
-
-                </div>
-              </section>
-            </div>                
-            : ""  }
-
-            { this.props.currentFormSection === "arrangement" ?             
-            <ul className="arrangements">
-              <li>
-                <h4>CHOOSE THE ARRANGEMENT TYPE!</h4>
-              </li>
-              <li className="arrangement">
-                <div className="arrangement3">         
-                  <div className="thumb">
-                      <img className="thumbnail"  onClick={() => {
-                        dispatchProductChoice('p3');
-                        dispatchSection('detail');
-                      }} src="../img/_DSC3098.png" alt=""/>
-                  </div>                                   
-                  <div className="pickArr3">
-                    <p className="arrangementName ">{thisProductName('p3')}</p>
-                    <button className="arrangeButton" onClick={() => {
-                        dispatchProductChoice('p3');
-                        dispatchSection('detail');
-                    }}  type="button">SELECT</button><span className="price"></span>                 
-                  </div>
-                </div>
-              </li>
-              <li className="arrangement"> 
-                <div className="arrangement2">          
-                  <div className="thumb">             
-                    <img className="thumbnail"  onClick={() => {
-                      dispatchProductChoice('p2');
-                      dispatchSection('detail');
-                    }} src="../img/_DSC2980.png" alt=""/>
-                  </div>
-                  <div className="pickArr2">
-                    <p className="arrangementName">{thisProductName('p2')}</p>
-                    <button className="arrangeButton" onClick={() => {
-                      dispatchProductChoice('p2');
-                      dispatchSection('detail');
-                    }}  type="button">SELECT</button><span className="price"></span>                 
-                  </div>
-                </div>
-              </li>
-              <li className="arrangement">     
-                <div className="arrangement1">   
-                  <div className="thumb">             
-                    <img className="thumbnail"  onClick={() => {
-                      dispatchProductChoice('p1');
-                      dispatchSection('detail');
-                    }} src="../img/_DSC3345.png" alt=""/>
-                  </div>
-                  <div className="pickArr1">
-                    <p className="arrangementName">{thisProductName('p1')}</p>
-                    <button className="arrangeButton" onClick={() => {
-                      dispatchProductChoice('p1');
-                      dispatchSection('detail');
-                    }}  type="button">SELECT</button><span className="price"></span>                 
-                  </div>
-                </div>
-              </li>
-            </ul>
-        : "" }
-        { this.props.currentFormSection === "detail" ?             
-            <ul>
-              <li>
-              <button className="jumpBack"  onClick={() => dispatchSection('arrangement')}  type="button">BACK</button>              
-                <div className="productDetail">
-                  <h5>{thisProductName(this.props.currentProductCode)}</h5> 
-                  <div className={'productPhoto_' + this.props.currentProductCode} onClick={() => { 
-                    this.props.dispatch(setDeliveryDate(firstAvailableDate()));
-                    dispatchProductChoice(this.props.currentProductCode);
-                  }} >
-                  </div>
-                  <p className="productDetailPrice">Starting at: ${thisPrice(this.props.currentProductCode)}</p>
-                  <p className="productDetailDesc">{thisProductDesc(this.props.currentProductCode)}</p> 
-                  <button className="chooseButton" onClick={() => {
-                    this.props.dispatch(setDeliveryDate(firstAvailableDate()));
-                    dispatchFrequency('monthly');
-                    dispatchDuration('3 months');
-                    dispatchProductChoice(this.props.currentProductCode);
-                  }}  type="button">SELECT</button><span className="price"></span>                
-                </div>
-              </li>
-            </ul>
-        : ""  }
         { this.props.currentFormSection === "recipient" ?             
             <ul id="recipients" className="recipientInfo">
               <li>         
@@ -761,8 +655,8 @@ const mapStateToProps = state => {
 
   const mapDispatchToProps = dispatch => {
     return {
-      fetchSubscriptions: () => {
-        dispatch(fetchSubscriptions())
+      fetchProtectedData: () => {
+        dispatch(fetchProtectedData())
       },
       setSection: () => {
         dispatch(setSection())
