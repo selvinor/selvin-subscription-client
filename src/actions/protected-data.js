@@ -28,11 +28,15 @@ export const fetchProtectedData = () => (dispatch, getState)  => {
       if (!res.ok) {
         console.log('!!!PROBLEM!!!');
           return Promise.reject(res.statusText);
-      }
-      console.log('res.json:', res.json());
+      }      
       return res.json();
-  }).then(({data}) => dispatch(fetchProtectedDataSuccess(data)));
+  }).then(data => {
+    let  subscription_data = data;
+    console.log('subscription_data[10]: ', subscription_data[10]);
+    //subscription_data = Object.keys(data); 
+
   
+    dispatch(fetchProtectedDataSuccess(subscription_data[10]))});
   
   // .then(subscriptions => {
   //     dispatch(fetchProtectedDataSuccess(subscriptions));
