@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
 import './subscription-add-form.css'; 
-import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate, fetchProtectedData } from '../actions';
+import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
 import {REACT_APP_BASE_URL} from '../config';
 export class SubscriptionAddForm extends React.Component {
   //POST section starts here
@@ -643,7 +643,7 @@ const mapStateToProps = state => {
   const form = state.form.subscriptionAddForm || {values:{}};
   const values = form.values || {};
   return ({
-    subscriptionList: state.subscription.subscriptions,
+   subscriptionList: state.subscription.subscriptions,
   currentFormSection: state.subscription.currentFormSection,
   currentNumberOfDeliveries: state.subscription.currentNumberOfDeliveries,
   currentProductCode: state.subscription.currentProductCode,
@@ -655,9 +655,9 @@ const mapStateToProps = state => {
 
   const mapDispatchToProps = dispatch => {
     return {
-      fetchProtectedData: () => {
-        dispatch(fetchProtectedData())
-      },
+      // fetchProtectedData: () => {
+      //   dispatch(fetchProtectedData())
+      // },
       setSection: () => {
         dispatch(setSection())
       },
