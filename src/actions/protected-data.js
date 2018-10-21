@@ -32,7 +32,7 @@ export const fetchProtectedData = () => (dispatch, getState)  => {
       return res.json();
   }).then(data => {
     let  subscription_data = data;
-    console.log('subscription_data: ', subscription_data);
+    console.log('***** subscription_data: ', subscription_data);
     //subscription_data = Object.keys(data);   
     dispatch(fetchProtectedDataSuccess(data));
   });

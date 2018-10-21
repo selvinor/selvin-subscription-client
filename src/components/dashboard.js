@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {refreshAuthToken} from '../actions/auth';
+import SubscriptionList from './subscription-list';
 export class Dashboard extends React.Component {
-  componentDidMount() {
-      this.props.dispatch(fetchProtectedData());
-  }
+  // componentDidMount() {
+  //     this.props.dispatch(fetchProtectedData());
+  // }
 
   render() {
     // Only render the log out button if we are logged in
@@ -25,7 +26,7 @@ export class Dashboard extends React.Component {
         <div className="dashboard-name">Name: {this.props.name}</div>
         <div className="dashboard-subscriptions">
             {console.log('this.props.subscriptions: ', this.props.subscriptions)}
-            {this.props.subscriptions[0]}
+            <SubscriptionList subscriptions={this.props.subscriptions} />
         </div>
         <div className="dashboard-warning">
             {stayLoggedInButton}

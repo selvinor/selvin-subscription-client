@@ -9,7 +9,7 @@ export class SubscriptionList extends React.Component {
     while (i < this.props.subscriptions.length) {
         // format subscription items
       subsList.push(
-        <li key={this.props.subscriptions[i].userId}>
+        <li key={i}>
           <SubscriptionBlock  subscription={this.props.subscriptions[i]}/> 
         </li>
       );  
