@@ -42,8 +42,8 @@ export default class SubscriptionBlock extends React.Component {
       
       return (
         <div className="subscriptionBlock">
-        <h2>SUBSCRIPTION</h2>
-          <OrderBlock orders={order} />
+          <h5>Order</h5>
+          <OrderBlock order={order} />
         </div>
       );
     

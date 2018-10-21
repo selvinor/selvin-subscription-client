@@ -5,7 +5,7 @@ export default class SchedluleBlock extends React.Component {
     return (
       
       <ul className="recipientBlock">
-        <li><h2>RECIPIENT</h2></li>
+        <li><h5>RECIPIENT</h5></li>
         <li><span className="title">Name: </span>{this.props.recipient.name}</li>
         <li><span className="title">Company: </span>{this.props.recipient.company}</li>
         <li><span className="title">Address: </span>{this.props.recipient.address}</li>
