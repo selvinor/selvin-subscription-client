@@ -1,33 +1,28 @@
 import React from 'react';
 import OrderBlock from './order-block';
-
+import './styles/subscription-block.css'
 export default class SubscriptionBlock extends React.Component {
 
   render() {
-    const user = {};
+
     const product = {};
     const schedule= {};
     const recipient = {};
     const order={product, schedule, recipient};
     
     console.log('subscriptionBlock - this.props.subscription:', this.props.subscription);
-
-      user.userId = this.props.subscription.userId;
-      user.username = this.props.subscription.username;
-      user.userFirstName = this.props.subscription.userFirstName;
-      user.userLastName = this.props.subscription.userLastName;
-      user.userEmail = this.props.subscription.userEmail;
-      user.userPhone = this.props.subscription.userPhone;
-      console.log('user: ', user); 
      
       product['code'] = this.props.subscription.productCode;
-      product['desc'] = this.props.subscription.productDesc;
+      product['desc'] = this.props.subscription.productName;
       product['image'] = this.props.subscription.productImage;
       product['price'] = this.props.subscription.productPrice;
-      schedule['frequency'] = this.props.subscription.frequency;
+      product['status'] = this.props.subscription.status;
+      schedule['startDate'] = this.props.subscription.startDate;
       schedule['duration'] = this.props.subscription.duration;
-      schedule['deliveryDate'] = this.props.subscription.deliveryDate;
-      recipient['name'] = this.props.subscription.recipientName;
+      schedule['frequency'] = this.props.subscription.frequency;
+      schedule['startDate'] = this.props.subscription.startDate;
+      recipient['firstName'] = this.props.subscription.recipientFirstName;
+      recipient['lastName'] = this.props.subscription.recipientLastName;
       recipient['address'] = this.props.subscription.recipientAddress;
       recipient['aptSuite'] = this.props.subscription.recipientAptSuite;
       recipient['city'] = this.props.subscription.recipientCity;
@@ -42,8 +37,7 @@ export default class SubscriptionBlock extends React.Component {
       
       return (
         <div className="subscriptionBlock">
-          <h5>Order</h5>
-          <OrderBlock order={order} />
+          <OrderBlock orderNum={this.props.order} order={order} />
         </div>
       );
     

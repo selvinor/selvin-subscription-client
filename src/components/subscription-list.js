@@ -1,6 +1,6 @@
 import  React from 'react';
 import SubscriptionBlock from './subscription-block';
-
+import './styles/subscription-list.css'
 export class SubscriptionList extends React.Component {
   render() { 
     const subsList = [];
@@ -10,7 +10,7 @@ export class SubscriptionList extends React.Component {
         // format subscription items
       subsList.push(
         <li key={i}>
-          <SubscriptionBlock  subscription={this.props.subscriptions[i]}/> 
+          <SubscriptionBlock  order={i+1} subscription={this.props.subscriptions[i]}/> 
         </li>
       );  
       console.log('subsList.length: ', subsList.length); 
@@ -18,7 +18,7 @@ export class SubscriptionList extends React.Component {
     }
     console.log('ready to return');    
     return (
-      <ul>
+      <ul classname="subslist">
         {subsList}
       </ul>      
     );

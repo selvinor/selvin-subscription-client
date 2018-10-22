@@ -1,20 +1,22 @@
 import React from 'react';
+import './styles/recipient-block.css';
+
 export default class SchedluleBlock extends React.Component {
   render() {
 
     return (
-      
-      <ul className="recipientBlock">
-        <li><h5>RECIPIENT</h5></li>
-        <li><span className="title">Name: </span>{this.props.recipient.name}</li>
-        <li><span className="title">Company: </span>{this.props.recipient.company}</li>
-        <li><span className="title">Address: </span>{this.props.recipient.address}</li>
-        <li><span className="title">Apt/Suite: </span>{this.props.recipient.aptSuite}</li>
-        <li><span className="title">City: </span>{this.props.recipient.city}</li>
-        <li><span className="title">State: </span>{this.props.recipient.state}</li>
-        <li><span className="title">Zipcode: </span>{this.props.recipient.zipcode}</li>
-        <li><span className="title">Message: </span>{this.props.recipient.message}</li>
-      </ul>
+      <div className="recipientBlock">
+        <h5 className="recipientTitle">RECIPIENT</h5>
+        <ul>
+          <li>{this.props.recipient.firstName} {this.props.recipient.lastName}</li>
+          <li>{this.props.recipient.company ? !null : ""}</li>
+          <li>{this.props.recipient.address} {this.props.recipient.aptSuite ? !null : ""}</li>
+          <li>
+            {this.props.recipient.city},  {this.props.recipient.state} {this.props.recipient.zipcode}
+          </li>
+          <li><span className="title">Message: </span>{this.props.recipient.message}</li>
+        </ul>
+      </div>
     );
   }
 }
