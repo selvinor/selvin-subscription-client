@@ -12,13 +12,13 @@ console.log('props: ', props)
     if (props.loggedIn) {
       return <Redirect to="/dashboard" />;
     }
-    const formButton = (<button className="jump" onClick={() => <Redirect to="/arrangements" />} type="button">Get Started</button>);
-    const loginButton = (<button className="jump" onClick={() => props.dispatch(showLogin())} type="button">Sign in</button>);
+    const formButton = (<button className="jump" onClick={() => <Redirect to="/arrangements" />} type="button">New Subscription</button>);
+    const loginButton = (<button className="jump" onClick={() => props.dispatch(showLogin())} type="button">My Account</button>);
     const landing = (                <section>
       <div className="landing">
         <h2>Welcome!</h2> 
-        <p>Blooms provides an easy way to keep your home or office bright and beautiful!</p>
-        <p>We will prepare gorgeous, fresh flower arrangements and deliver them straight to your home or office on a regular schedule!</p>
+        <p>Blooms Subscriptions provide an easy way to keep your home or office bright and beautiful!</p>
+        <p>We will deliver freshly prepared, gorgeous flower arrangements straight to your home or office on a regular schedule!</p>
         <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
         <p>Click the button, and we'll get you set up right away!</p>
         <div className="entry">{formButton} {loginButton}</div>

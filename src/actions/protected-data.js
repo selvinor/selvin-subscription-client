@@ -52,7 +52,7 @@ export const xfetchProtectedData = () => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`
         }
     })
-        //.then(res => normalizeResponseErrors(res))
+        .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(({data}) => dispatch(fetchProtectedDataSuccess(data)))
         .catch(err => {
