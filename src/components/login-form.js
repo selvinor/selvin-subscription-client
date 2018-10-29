@@ -25,25 +25,26 @@ export class LoginForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 {error}
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Sign In</label>
                 <Field
                     component={Input}
                     type="text"
                     name="username"
                     id="username"
+                    placeholder="username"
                     autocomplete="username"
                     validate={[required, nonEmpty]}
                 />
-                <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
                     type="password"
                     name="password"
                     id="password"
+                    placeholder="enter password"
                     autocomplete="current-password"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button className="login" disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
             </form>
