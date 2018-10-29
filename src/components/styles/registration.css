@@ -1,0 +1,44 @@
+h2 {
+  text-align:center;
+}
+
+.home {
+  width:100%;
+  margin-top:70%;
+}
+.login-form {
+  width:100%;
+}
+input {
+  border-radius:6px;
+  margin-bottom:5px;
+}
+button {
+  margin: 0 auto;
+  background-color: rgb(23, 146, 218);
+  color:white;
+  padding:1% 2%;
+  border-radius:8px;
+  margin-top:3px;
+  font-size:4vw;
+}
+
+button.login {
+  background-color: rgb(15, 161, 35); 
+}
+
+label {
+  display:none;
+}
+
+.loginLink{
+  margin: 0 auto;
+  background-color: rgb(23, 146, 218);
+  color:white;
+  padding:1%;
+  border-radius:8px;
+  margin-top:3px;
+  font-size:4vw;
+  text-decoration:none;
+  margin:10px;
+}

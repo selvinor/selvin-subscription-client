@@ -1,10 +1,10 @@
 body {
-  background: transparent url(../../images/tulip-windmill_with_logo_1280_1920.jpg); 
+  background: transparent url(../../images/tulip-master_with_logo_1920_1280.jpg); 
   background-position: calc(50% - 00px) calc(0% - 0px); 
   background-repeat: no-repeat; 
   background-attachment: fixed;
-  height:768px;
-  background-size: cover;
+
+
 } 
 
 #root {
@@ -12,9 +12,31 @@ body {
   height:100%;
   position:fixed;
 }
+.entry {
+  text-align:center;
+}
+.login-form {
+  float:right;
+  margin:-150px 15px 0 0;
+  padding:0px;
+  font-size:1.6vw;
+  text-align:center;
+}
 input {
   border-radius:5px;
  
+}
+.landing {
+  width:80%;
+  margin:28% auto 0;
+}
+.landing h2 {
+  font-size:2.5vw;
+
+}
+p{
+  font-size:1.6vw;
+  margin:1%;
 }
 .mainTitle {
   display:none;
@@ -22,36 +44,29 @@ input {
   text-align:center;
   margin:0 auto;
 }
-.landing {
-  width:80%;
-  margin:50% auto 0;
-}
-.entry {
-  text-align:center;
-}
 button.jump {
 
   margin-right: 5%;
   background-color: rgb(23, 146, 218);
   color:white;
-  padding:2%;
+  padding:1%;
   border-radius:8px;
-  font-size:2.5vw;
+  font-size:1.6vw;
 }
 .login-form {
-  margin-top:-60px;
+  margin-top:10px;
   padding:0px;
-  font-size:3vw;
+  font-size:1.5vw;
   text-align:center;
 }
 button.login {
   margin: 0 auto;
   background-color: rgb(23, 146, 218);
   color:white;
-  padding:2%;
+  padding:1%;
   border-radius:8px;
   margin-top:3px;
-  font-size:3vw;
+  font-size:1.8vw;
 }
 input {
   border-radius:3px;
@@ -59,8 +74,8 @@ input {
   height:20px;
   padding:1% 2%;
   margin-top:2px;
+  font-size:2vw;
 }
-
 @media only screen and (max-height: 1366px) and (max-width: 1024px) {
   body {
     background: transparent url(../../images/tulip-master_with_logo_1024_1638.jpg); 

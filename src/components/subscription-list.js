@@ -18,7 +18,7 @@ export class SubscriptionList extends React.Component {
     }
     console.log('ready to return');    
     return (
-      <ul classname="subslist">
+      <ul className="subslist">
         {subsList}
       </ul>      
     );

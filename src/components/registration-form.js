@@ -25,15 +25,16 @@ export class RegistrationForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" />
+                <Field component={Input} type="text" name="firstName" placeholder="firstName" />
                 <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName" />
+                <Field component={Input} type="text" name="lastName"  placeholder="lastName" />
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
                     type="text"
                     name="username"
                     validate={[required, nonEmpty, isTrimmed]}
+                    placeholder="username"
                 />
                 <label htmlFor="password">Password</label>
                 <Field
@@ -42,6 +43,7 @@ export class RegistrationForm extends React.Component {
                     name="password"
                     autocomplete="new-password"
                     validate={[required, passwordLength, isTrimmed]}
+                    placeholder="password"
                 />
                 <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
@@ -50,6 +52,7 @@ export class RegistrationForm extends React.Component {
                     name="passwordConfirm"
                     autocomplete="new-password"
                     validate={[required, nonEmpty, matchesPassword]}
+                    placeholder="confirm password"
                 />
                 <button
                     type="submit"
