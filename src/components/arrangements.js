@@ -1,6 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
+//import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import './styles/arrangements.css';
 
 export default function Arrangements(props) {
   const WrappedLink = () => {
@@ -13,7 +14,7 @@ export default function Arrangements(props) {
     return (
       <ul className="arrangements">
       <li>
-        <h4>CHOOSE THE ARRANGEMENT TYPE!</h4>
+        <h5>CHOOSE THE ARRANGEMENT TYPE!</h5>
       </li>
       <li className="arrangement">
         <div className="arrangement3">         
@@ -21,7 +22,7 @@ export default function Arrangements(props) {
           <Link to="/arrangement"><img className="thumbnail" src="../img/_DSC3098.png" alt=""/></Link>
           </div>                                   
           <div className="pickArr3">
-            <p className="arrangementName ">{props.ProductName3)}</p>
+            <p className="arrangementName">{props.ProductName3}</p>
             {WrappedLink}<span className="price"></span>                 
           </div>
         </div>
@@ -52,4 +53,3 @@ export default function Arrangements(props) {
 
     );
 };
-export default connect(mapStateToProps)(Arrangements);

@@ -1,11 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, withRouter} from 'react-router-dom';
+import {Route, Redirect, withRouter, Switch} from 'react-router-dom';
 
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
+import Arrangements from './arrangements';
+import Arrangement from './arrangement';
 import {refreshAuthToken} from '../actions/auth';
 //import {deleteAuthToken} from '../actions/auth';
 import {showLogoutWarning} from '../actions/auth';
@@ -64,12 +66,29 @@ export class App extends React.Component {
   }
 
   render() {
+    console.log(' app.js this.props: ', this.props);
     return (
       <div className="app">
         <HeaderBar />
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/register" component={RegistrationPage} />
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/register" component={RegistrationPage} />
+          <Route exact path="/arrangements" component={Arrangements} 
+                      render={(props) => <Arrangement {...props} 
+              isAuthed={true} 
+              productName={this.props.subscription.productName} 
+              productPhoto={this.props.subscription.productPhoto}
+              productPrice={this.props.subscription.productPrice}
+              productDesc={this.props.subscription.productDesc}
+              productCode={this.props.subscription.productCode}
+            />}/>
+          <Route 
+            exact path="/arrangement" 
+            component={Arrangement} 
+
+          />
+       </Switch>
       </div>
     );
   }

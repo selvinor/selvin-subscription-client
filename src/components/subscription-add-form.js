@@ -90,7 +90,7 @@ export class SubscriptionAddForm extends React.Component {
 
 
 
-    const dispatchProductChoice = (choice) => {
+    const setProductChoice = (choice) => {
       this.props.dispatch(setProductChoice(choice)) ;
     }
     const dispatchFrequency = (frequency) => {

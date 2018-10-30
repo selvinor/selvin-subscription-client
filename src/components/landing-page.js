@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { showLogin } from '../actions';
 import LoginForm from './login-form';
 import './styles/landing.css';
@@ -12,16 +12,17 @@ console.log('props: ', props)
     if (props.loggedIn) {
       return <Redirect to="/dashboard" />;
     }
-    const formButton = (<button className="jump" onClick={() => <Redirect to="/arrangements" />} type="button">New Subscription</button>);
+    const WrappedLink = (<button className="jump"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'white'}} to="/arrangements" >New Subscription</Link></button>);  
     const loginButton = (<button className="jump" onClick={() => props.dispatch(showLogin())} type="button">My Account</button>);
-    const landing = (                <section>
+    const landing = (
+    <section>
       <div className="landing">
         <h2>Welcome!</h2> 
         <p>Blooms Subscriptions provide an easy way to keep your home or office bright and beautiful!</p>
         <p>We will deliver freshly prepared, gorgeous flower arrangements straight to your home or office on a regular schedule!</p>
         <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
         <p>Click the button, and we'll get you set up right away!</p>
-        <div className="entry">{formButton} {loginButton}</div>
+        <div className="entry">{WrappedLink} {loginButton}</div>
       </div>
     </section>);
     console.log('props: ', props);

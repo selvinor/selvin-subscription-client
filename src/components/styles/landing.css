@@ -10,11 +10,11 @@ body {
 #root {
   width:100%;
   height:100%;
-  position:fixed;
-}
+}  
 .entry {
   text-align:center;
 }
+
 .login-form {
   float:right;
   margin:-150px 15px 0 0;
@@ -293,7 +293,7 @@ input {
     background-position: calc(50% - 00px) calc(0% - 0px); 
     background-repeat: no-repeat; 
     background-attachment: fixed;
-    height:375;
+    height:375px;
     background-size: cover;
   } 
   .login-form {
@@ -404,7 +404,7 @@ input {
     background-position: calc(50% - 00px) calc(0% - 0px); 
     background-repeat: no-repeat; 
     background-attachment: fixed;
-    height:375;
+    height:375px;
     background-size: cover;
   } 
   .login-form {
@@ -453,7 +453,7 @@ input {
     background-position: calc(50% - 00px) calc(0% - 0px); 
     background-repeat: no-repeat; 
     background-attachment: fixed;
-    height:375;
+    height:375px;
     background-size: cover;
   } 
   .login-form {
@@ -502,7 +502,7 @@ input {
     background-position: calc(50% - 00px) calc(0% - 0px); 
     background-repeat: no-repeat; 
     background-attachment: fixed;
-    height:375;
+    height:375px;
     background-size: cover;
   } 
 
@@ -521,7 +521,7 @@ input {
     font-size:2vw;
   }
   p{
-    font-size:2vw;
+    font-size:1.8vw;
     padding:0px;
     margin:5px;
   }
@@ -822,9 +822,20 @@ input {
     background-repeat: no-repeat; 
     background-attachment: fixed;
     height:667px;
-    background-size: cover;
   } 
-
+  .home { 
+    width: 375px;
+    padding: 0 15px;
+  }
+  #username {
+    width: 80%;
+  }
+  #password {
+    width: 80%;
+  }
+  .entry {
+    margin-top:5px;
+  }
   .landing {
     margin-top:60%;
     width:80%;
@@ -834,6 +845,15 @@ input {
     font-size:4vw;
 
   }
+
+  .login-form {
+   
+    margin: 0 auto;
+    padding: 10px 15px 0 0px;
+    font-size: 3vw;
+
+}
+
   p{
     font-size:3.8vw;
   }
@@ -913,7 +933,7 @@ input {
     background: transparent url(../../images/tulip-master_with_logo_355_568.jpg); 
     background-position: calc(50% - 00px) calc(0% - 0px); 
     background-repeat: no-repeat; 
-    background-attachment: fixed;
+    background-attachment: setProductChoice;
   } 
 
   .landing {
