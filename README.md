@@ -2,7 +2,7 @@
 
 This app enables a user to send flowers to to a recipient at a residence or business according to a schedule.
 
-Users are presented with a choice of three different sizes of floral arrangements representing small, medium and large. 
+Users are presented with a choice of three different sizes of floral products representing small, medium and large. 
 
 Next, the user provides the recipient's delivery information - name, address, phone, a gift message and a Company name, if applicable. Contact information for the sender includes name, phone number and email address.
 
@@ -82,8 +82,8 @@ paths:
             
             SCREENSHOTS
 ![Landing](/screenshots/screen0.PNG)
-![Choose Arrangement](/screenshots/screen1.PNG)
-![Arrangement Details](/screenshots/screen2.PNG)
+![Choose Product](/screenshots/screen1.PNG)
+![Product Details](/screenshots/screen2.PNG)
 ![Add Recipient Info](/screenshots/screen3.PNG)
 ![Add Sender Info](/screenshots/screen4.PNG)
 ![Set Schedule](/screenshots/screen5.PNG)

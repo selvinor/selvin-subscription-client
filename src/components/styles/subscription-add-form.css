@@ -164,19 +164,19 @@ li  {
 }
 
 
- .arrangements li {
+ .products li {
 
   text-align:center;
   padding:0px;
   font-weight:bold;
   color:#000000;
 }
-.arrangements h4 {
+.products h4 {
   padding:0;
   margin:0;
 }
 
-.arrangement2 {
+.product2 {
   border: .25px #eee solid;
 }
 /* .landing {
@@ -189,7 +189,7 @@ li  {
 }
  */
 
-ul.arrangements {
+ul.products {
   width:100%;
 }
 .jumpBack {
@@ -227,7 +227,7 @@ ul.arrangements {
 }
 
 
-.arrangement3 .arrangeButton {
+.product3 .arrangeButton {
   border: .5px #ccc solid;
   background-color:green;  
   color: #fafafa;
@@ -236,7 +236,7 @@ ul.arrangements {
   padding:10px;
   border-radius: 10px;
 }
-.arrangement2 .arrangeButton {
+.product2 .arrangeButton {
   border: .5px #ccc solid;
   background-color:green;  
   color: #fafafa;
@@ -245,7 +245,7 @@ ul.arrangements {
   padding:10px;
   border-radius: 10px;
 }
-.arrangement1 .arrangeButton {
+.product1 .arrangeButton {
   border: .5px #ccc solid;
   background-color:green;  
   color: #fafafa;
@@ -336,22 +336,22 @@ textarea {
   padding:0;
   margin-left:20px;
 }
-.arrangement3 {
+.product3 {
   width:100%;
   text-align: left;
   margin-left:10px;
 }
-.arrangement2{
+.product2{
   width:100%;
   text-align: left;
   margin-left:10px;
 }
-.arrangement1{
+.product1{
   width:100%;
   text-align: left;
   margin-left:20px;
 }
-p.arrangementName {
+p.productName {
   width:100%;
   padding:0;
 }
@@ -415,7 +415,7 @@ display:inline-block;
   border-radius:10px;
   padding: 0px;
 } */
-.arrangements  {
+.products  {
   margin-top: 200px;
   padding:0px 0px;
   font-weight:bold;
@@ -470,7 +470,7 @@ div.checkout {
   margin-top:10px;
 }
 
-.arrangementName {
+.productName {
   margin-top: - .520833%;
   font-weight:bold;
   color:#333;
@@ -506,7 +506,7 @@ p.recipients  {
 }
 
 
-li.arrangement2 {
+li.product2 {
   margin-top:20px;
   margin-bottom:20px;
 }
@@ -617,7 +617,7 @@ li.arrangement2 {
     font-size: 2.5vw;
     margin:0;
   }
-  .arrangementName {
+  .productName {
     font-size: 1.5vw;  
   }
   .productPhoto_p1 {
@@ -746,7 +746,7 @@ li.arrangement2 {
 }
 }
 @media only screen and (max-width: 1280px) {
-  .arrangementName {
+  .productName {
     font-size: 2vw;  
   }
 
@@ -810,7 +810,7 @@ li.arrangement2 {
 }
 
 @media only screen and (max-width: 1024px) {
-  .arrangementName {
+  .productName {
     font-size: 2.5vw;  
   }
 
@@ -915,7 +915,7 @@ li.arrangement2 {
   }
 }
 @media only screen and (max-width: 900px) {
-  .arrangementName {
+  .productName {
     font-size: 3vw;  
   }
 
@@ -1077,7 +1077,7 @@ h3 {
 }
 }
 @media only screen and (max-width: 770px) {
-  .arrangementName {
+  .productName {
     font-size: 3vw;  
   }
   .productPhoto_p1 {
@@ -1130,7 +1130,7 @@ h3 {
   }
 }
 @media only screen and (max-width: 750px) {
-  .arrangementName {
+  .productName {
     font-size: 3vw;  
   }
 
@@ -1205,7 +1205,7 @@ h3 {
   }
 }
 @media only screen and (max-width: 680px) {
-  .arrangementName {
+  .productName {
     font-size: 3vw;  
   }
 
@@ -1287,7 +1287,7 @@ h3 {
 }
 
 @media only screen and (max-width: 640px) {
-  .arrangementName {
+  .productName {
     font-size: 3vw;  
   }
   input {
@@ -1301,7 +1301,7 @@ h3 {
 }
 
 @media only screen and (max-width: 600px) {
-  .arrangementName {
+  .productName {
     font-size: 3.5vw;  
   }
   input {
@@ -1344,7 +1344,7 @@ h3 {
     margin: 5px auto 0;
     padding: 0;
 }
-  .arrangementName {
+  .productName {
     font-size: 3.5vw;  
   }
   input {
@@ -1404,7 +1404,7 @@ h3 {
 
 
 @media only screen and (max-width: 480px) {
-  .arrangementName {
+  .productName {
     font-size: 3.5vw;    
   }
 

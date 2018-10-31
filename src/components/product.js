@@ -1,16 +1,16 @@
 import React from 'react';
 //import {connect} from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import './styles/arrangement.css';
+import './styles/product.css';
 
 import { setDeliveryDate, setProductChoice } from '../actions'
-export default function Arrangement(props) {
+export default function Product(props) {
   console.log('props: ', props)
 
     return (
-      <ul classname="arrangement">
+      <ul classname="product">
       <li>
-      <button className="jumpBack"  onClick={() => {return <Redirect to="/arrangements" />}}  type="button">BACK</button>              
+      <button className="jumpBack"  onClick={() => {return <Redirect to="/products" />}}  type="button">BACK</button>              
         <div className="productDetail">
           <h5>{props.productName}</h5> 
           <div className={props.productPhoto} onClick={() => { 

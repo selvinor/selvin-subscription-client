@@ -45,7 +45,7 @@ const Subscriptions = [
   {userId: 'u0002', username: 'bar474', userFirstName: 'bar', userLastName: 'dax', userEmail: 'foo123@fakeemail.com', userPhone: '555-555-1212', 
     orders: [{
       orderNum: 'ord0003', productCode: 'p3', productPrice: '$150', productImage: '../img/_DSC3098.png', 
-      productDesc: 'See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.', 
+      productDesc: 'See your lobby transformed by each successive flower product. As the season changes, so does the theme.', 
       frequency: 'weekly', duration: '3 months', deliveryDate: '11-18-2018', 
       recipientName: 'Aaf Doh', recipientAddress: '433 Spruce Ave.', recipientAptSuite: 'Suite 2500', recipientCity: 'Portland', recipientState: 'OR', 
       recipientZipcode: '97202', recipientPhone: '555-555-7643'
@@ -54,7 +54,7 @@ const Subscriptions = [
   {userId: 'u0003', username: 'bif5555', userFirstName: 'bif', userLastName: 'bof', userEmail: 'foo123@fakeemail.com', userPhone: '555-555-9755', 
     orders: [{
       orderNum: 'ord0004', productCode: 'p2', productPrice: '$75', productImage: '../img/_DSC2980.png',  
-      productDesc: 'Beautiful, fresh, custom flower arrangements for your home or office, delivered on a weekly or monthly basis', 
+      productDesc: 'Beautiful, fresh, custom flower products for your home or office, delivered on a weekly or monthly basis', 
       frequency: 'monthly', duration: '6 months', deliveryDate: '11-07-2018', 
       recipientName: 'Myr Rif', recipientAddress: '8678 Glenn Ln.', recipientAptSuite: '', recipientCity: 'Portland', recipientState: 'OR', 
       recipientZipcode: '97213', recipientPhone: '555-555-5677'
@@ -70,7 +70,7 @@ const Subscriptions = [
     },
     {
       orderNum: 'ord0006', productCode: 'p2', productPrice: '$75', productImage: '../img/_DSC2980.png', 
-      productDesc: 'Beautiful, fresh, custom flower arrangements for your home or office, delivered on a weekly or monthly basis',  
+      productDesc: 'Beautiful, fresh, custom flower products for your home or office, delivered on a weekly or monthly basis',  
       frequency: 'bi-weekly', duration: '6 months', deliveryDate: '11-12-2018', 
       recipientName: 'Har Har', recipientAddress: '324 Rock Rd.', recipientAptSuite: '', recipientCity: 'Portland', recipientState: 'OR', 
       recipientZipcode: '97203', recipientPhone: '555-555-6660'}
@@ -86,7 +86,7 @@ const Subscriptions = [
   {userId: 'u0006', username: 'xag999', userFirstName: 'xag', userLastName: 'joz', userEmail: 'foo123@fakeemail.com', userPhone: '555-555-3745', 
     orders: [
       {orderNum: 'ord0008', productCode: 'p3', productPrice: '$150', productImage: '../img/_DSC3098.png', 
-      productDesc: 'See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.', 
+      productDesc: 'See your lobby transformed by each successive flower product. As the season changes, so does the theme.', 
       frequency: 'monthly', duration: 'on-going', deliveryDate: '11-02-2018', 
       recipientName: 'Laj Narf', recipientAddress: '6454 U Rd.', recipientAptSuite: 'Apt A', recipientCity: 'Portland', recipientState: 'OR', 
       recipientZipcode: '97201', recipientPhone: '555-555-7773'}

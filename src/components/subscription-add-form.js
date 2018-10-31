@@ -14,10 +14,10 @@ export class SubscriptionAddForm extends React.Component {
       values['productName'] = "Designer's Bouquet";
     } else {
       if (this.props.currentProductCode === '2') {
-        values['productName'] = "Designer's Choice Arrangement";
+        values['productName'] = "Designer's Choice Product";
       } else {
         if (this.props.currentProductCode === '3') {
-          values['productName'] = "Designer's Lobby Arrangement";
+          values['productName'] = "Designer's Lobby Product";
         }
       }
     }
@@ -274,13 +274,13 @@ export class SubscriptionAddForm extends React.Component {
       formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>SUBSCRIBE!</button>);
       break;
     case 'confirm':
-      formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
+      formButton = ( <button className="jump"  onClick={() => dispatchSection('product')}  type="button">Finish</button>); 
       break;
     case 'onboarding':
-      formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Get Started</button>); 
+      formButton = ( <button className="jump"  onClick={() => dispatchSection('product')}  type="button">Get Started</button>); 
       break;
     default:
-      formButton = ( <button className="jump"  onClick={() => dispatchSection('arrangement')}  type="button">Finish</button>); 
+      formButton = ( <button className="jump"  onClick={() => dispatchSection('product')}  type="button">Finish</button>); 
     break;
   }   
 
@@ -293,10 +293,10 @@ export class SubscriptionAddForm extends React.Component {
         return "Designer's Bouquet";
       } else {
         if (pCode === 'p2') {
-          return "Designer's Choice Arrangement";
+          return "Designer's Choice Product";
         } else {
           if (pCode === 'p3') {
-            return "Designer's Lobby Arrangement";
+            return "Designer's Lobby Product";
           }
         }  
       }
@@ -321,10 +321,10 @@ export class SubscriptionAddForm extends React.Component {
         return "An easy way to brighten up and beautify your home or office, plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions. ";
       } else {
         if (pCode === 'p2') {
-          return "Beautiful, fresh, custom flower arrangements for your home or office, delivered on a weekly or monthly basis. Plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions. ";
+          return "Beautiful, fresh, custom flower products for your home or office, delivered on a weekly or monthly basis. Plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions. ";
         } else {
           if (pCode === 'p3') {
-            return "See your lobby transformed by each successive flower arrangement. As the season changes, so does the theme.";
+            return "See your lobby transformed by each successive flower product. As the season changes, so does the theme.";
           }
         }  
       }
@@ -342,7 +342,7 @@ export class SubscriptionAddForm extends React.Component {
         { this.props.currentFormSection === "recipient" ?             
             <ul id="recipients" className="recipientInfo">
               <li>         
-              <button className="jumpBack"  onClick={() => dispatchSection('arrangement')}  type="button">BACK</button>              
+              <button className="jumpBack"  onClick={() => dispatchSection('product')}  type="button">BACK</button>              
                 <div className="orderSummary">
                   <h5>Order Details</h5>
                   <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>

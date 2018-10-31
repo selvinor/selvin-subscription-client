@@ -5,10 +5,10 @@ body {
 #root {
 
   height:100%;
-  margin-top:-22px;
+  margin-top: 0px;
   padding:0;
 }
-.arrangements {
+.product {
 
 margin:0;
 background:rebeccapurple;

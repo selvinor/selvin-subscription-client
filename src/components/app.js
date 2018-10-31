@@ -6,8 +6,8 @@ import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
-import Arrangements from './arrangements';
-import Arrangement from './arrangement';
+import Products from './products';
+import Product from './product';
 import {refreshAuthToken} from '../actions/auth';
 //import {deleteAuthToken} from '../actions/auth';
 import {showLogoutWarning} from '../actions/auth';
@@ -74,8 +74,8 @@ export class App extends React.Component {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register" component={RegistrationPage} />
-          <Route exact path="/arrangements" component={Arrangements} 
-                      render={(props) => <Arrangement {...props} 
+          <Route exact path="/products" component={Products} 
+                      render={(props) => <Product {...props} 
               isAuthed={true} 
               productName={this.props.subscription.productName} 
               productPhoto={this.props.subscription.productPhoto}
@@ -84,8 +84,8 @@ export class App extends React.Component {
               productCode={this.props.subscription.productCode}
             />}/>
           <Route 
-            exact path="/arrangement" 
-            component={Arrangement} 
+            exact path="/product" 
+            component={Product} 
 
           />
        </Switch>
