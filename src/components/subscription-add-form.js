@@ -9,14 +9,14 @@ import {REACT_APP_BASE_URL} from '../config';
 export class SubscriptionAddForm extends React.Component {
   //POST section starts here
   onSubmit(values) {
-    values['productCode'] = this.props.currentProductCode;
-    if (this.props.currentProductCode === '1') {
+    values['productCode'] = this.props.currentProductChoice;
+    if (this.props.currentProductChoice === '1') {
       values['productName'] = "Designer's Bouquet";
     } else {
-      if (this.props.currentProductCode === '2') {
+      if (this.props.currentProductChoice === '2') {
         values['productName'] = "Designer's Choice Product";
       } else {
-        if (this.props.currentProductCode === '3') {
+        if (this.props.currentProductChoice === '3') {
           values['productName'] = "Designer's Lobby Product";
         }
       }
@@ -345,8 +345,8 @@ export class SubscriptionAddForm extends React.Component {
               <button className="jumpBack"  onClick={() => dispatchSection('product')}  type="button">BACK</button>              
                 <div className="orderSummary">
                   <h5>Order Details</h5>
-                  <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
+                  <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductChoice)}</p>
+                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductChoice)}</p>
                   <p className="recipient productPrice">Delivery: $20</p>                 
                 </div>
               </li>
@@ -456,10 +456,10 @@ export class SubscriptionAddForm extends React.Component {
               <button className="jumpBack"  onClick={() => dispatchSection('recipient')}  type="button">BACK</button>              
                 <div className="orderSummary">
                   <h5>Order Details</h5>
-                  <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
-                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
+                  <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductChoice)}</p>
+                  <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductChoice)}</p>
                   <p className="recipient productPrice">Delivery: $20</p>                 
-                  <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p>                  
+                  <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductChoice)}</p>                  
                 </div>
               </li>
               <li>                
@@ -528,10 +528,10 @@ export class SubscriptionAddForm extends React.Component {
                   <div className="scheduleFormFields">              
                     <div className="orderSummary">
                       <h5>Order Details</h5>
-                      <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductCode)}</p>
-                      <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductCode)}</p>
+                      <p className="recipient productName">PRODUCT: {thisProductName(this.props.currentProductChoice)}</p>
+                      <p className="recipient productPrice">PRICE: ${thisPrice(this.props.currentProductChoice)}</p>
                       <p className="recipient productPrice">Delivery: $20</p>                 
-                      <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
+                      <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +thisPrice(this.props.currentProductChoice)}</p> 
                
                     </div>
                     <div className="leftSide schedule">
@@ -591,10 +591,10 @@ export class SubscriptionAddForm extends React.Component {
                 <div className="checkoutSum">              
                   <div className="orderSummary">
                     <h5>Order Details</h5>
-                    <p className="recipient checkout"><span>Product: </span>{thisProductName(this.props.currentProductCode)}</p>
-                    <p className="recipient checkout"><span>Price: </span>${thisPrice(this.props.currentProductCode)}</p>
+                    <p className="recipient checkout"><span>Product: </span>{thisProductName(this.props.currentProductChoice)}</p>
+                    <p className="recipient checkout"><span>Price: </span>${thisPrice(this.props.currentProductChoice)}</p>
                     <p className="recipient checkout"><span>Delivery: </span>$20</p>                 
-                    <p className="recipient checkout"><span>TOTAL: </span>${+deliveryCharge + +thisPrice(this.props.currentProductCode)}</p> 
+                    <p className="recipient checkout"><span>TOTAL: </span>${+deliveryCharge + +thisPrice(this.props.currentProductChoice)}</p> 
                   
                   </div>
                   <div className="leftSide">
@@ -646,7 +646,7 @@ const mapStateToProps = state => {
    subscriptionList: state.subscription.subscriptions,
   currentFormSection: state.subscription.currentFormSection,
   currentNumberOfDeliveries: state.subscription.currentNumberOfDeliveries,
-  currentProductCode: state.subscription.currentProductCode,
+  currentProductChoice: state.subscription.currentProductChoice,
   currentFrequency: state.subscription.currentFrequency,
   currentDuration: state.subscription.currentDuration,
   currentValues: values,

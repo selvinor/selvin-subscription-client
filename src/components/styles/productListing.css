@@ -8,9 +8,11 @@ body {
   margin-top:0px;
   padding:0;
 }
-.productLink {
-  margin-top:265px;
-
+.products {
+  position:fixed;
+  width:100%;
+  margin:100% 0 0 0;
+  background:rebeccapurple;
 }
 .thumbnail {
   width:20%;
@@ -23,4 +25,6 @@ body {
 .thumb{
   padding:1px;
   border:1px #333 solid;
+
+
 }

@@ -4,7 +4,11 @@ const initialState = {
   hasErrored : false,
   isLoading : false,
   currentFormSection: "onboarding",
-  currentProductCode: "2",
+  currentProductName: "",
+  currentProductPhoto: "",
+  currentProductPrice: "",
+  currentProductDesc: "",
+  currentProductCode: "",
   currentFrequency: "monthly",
   currentDuration: "3 months",
   currentNumberOfDeliveries : "0",   
@@ -47,7 +51,7 @@ export const subscriptionReducer = (state=initialState, action) => {
 
     case 'SET_PRODUCT_CHOICE':
     return Object.assign({}, state, {
-      currentProductCode: action.productCode,
+      currentProductChoice: action.productCode,
       currentFormSection: 'recipient'
     });
 

@@ -1,14 +1,14 @@
 import React from 'react';
 //import {connect} from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './styles/product.css';
 
-import { setDeliveryDate, setProductChoice } from '../actions'
+import { setProductChoice } from '../actions'
 export default function Product(props) {
-  console.log('props: ', props)
+  console.log('product.js line 8 props: ', props)
 
     return (
-      <ul classname="product">
+      <ul className="product">
       <li>
       <button className="jumpBack"  onClick={() => {return <Redirect to="/products" />}}  type="button">BACK</button>              
         <div className="productDetail">

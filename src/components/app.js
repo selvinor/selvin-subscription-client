@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, Redirect, withRouter, Switch} from 'react-router-dom';
+import {Route, withRouter, Switch} from 'react-router-dom';
 
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
@@ -8,9 +8,8 @@ import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import Products from './products';
 import Product from './product';
-import {refreshAuthToken} from '../actions/auth';
+import {refreshAuthToken, showLogoutWarning} from '../actions/auth';
 //import {deleteAuthToken} from '../actions/auth';
-import {showLogoutWarning} from '../actions/auth';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
@@ -74,20 +73,8 @@ export class App extends React.Component {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register" component={RegistrationPage} />
-          <Route exact path="/products" component={Products} 
-                      render={(props) => <Product {...props} 
-              isAuthed={true} 
-              productName={this.props.subscription.productName} 
-              productPhoto={this.props.subscription.productPhoto}
-              productPrice={this.props.subscription.productPrice}
-              productDesc={this.props.subscription.productDesc}
-              productCode={this.props.subscription.productCode}
-            />}/>
-          <Route 
-            exact path="/product" 
-            component={Product} 
-
-          />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/product" component={Product}/>
        </Switch>
       </div>
     );
@@ -96,7 +83,8 @@ export class App extends React.Component {
 
 const mapStateToProps = state => ({
   hasAuthToken: state.auth.authToken !== null,
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  subscription:  state.subscription
 });
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
