@@ -50,8 +50,44 @@ export const subscriptionReducer = (state=initialState, action) => {
     });
 
     case 'SET_PRODUCT_CHOICE':
+      switch (action.productCode) {
+        case 'p1':
+          action.productName = "Designer's Wrap";
+          action.productDesc = "Perfect for arranging in a favorite vase";
+          action.productPhoto = "../../img/_DSC3345_400.png";
+          action.productName = "Designer's Wrap";
+          action.productPrice = "$75";
+          break;
+        case 'p2':
+          action.productName = "Designer's Choice";
+          action.productDesc = "Perfect for beautifying a room";
+          action.productPhoto = "../../img/_DSC2980_400.png";
+          action.productName = "Designer's Wrap";
+          action.productPrice = "$40";
+          break;
+          case 'p3':
+          action.productName = "Designer's Lobby";
+          action.productDesc = "Perfectly accents an entryway or lobby";
+          action.productPhoto = "../../img/_DSC3098_400.png";
+          action.productName = "Designer's Wrap";
+          action.productPrice = "$140";
+          break;
+        default:
+          action.productName = "Designer's Wrap";
+          action.productDesc = "Perfect for arranging in a favorite vase";
+          action.productPhoto = "../../img/_DSC3345_400.png";
+          action.productName = "Designer's Wrap";
+          action.productPrice = "$40";
+      }
+      
+
     return Object.assign({}, state, {
       currentProductChoice: action.productCode,
+      currentProductCode: action.productCode,
+      currentProductName: action.productName,
+      currentProductPhoto: action.productPhoto,
+      currentProductPrice: action.productPrice,
+      currentProductDesc: action.productDesc,
       currentFormSection: 'recipient'
     });
 

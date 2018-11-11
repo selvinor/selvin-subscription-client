@@ -12,17 +12,17 @@ class Products extends React.Component {
     return (
       <Fragment>
         <section className="product3">
-        <h5>DESIGNER'S LOBBY</h5>
-          <div className="thumb">
-            <Link to="/product"><img className="thumbnail" src="../img/_DSC3098_square.jpg" alt=""/></Link>
+        <h5>Designer's lobby</h5>
+          <div className="thumb" onClick={this.props.setChoiceP3 }>
+            <Link to="/product"><img className="thumbnail" src="../img/_DSC3098_square.jpg" alt="" /></Link>
           </div> 
           <button className="arrangeButton">
             <Link style={{display: 'block', height: '100%'}} to="/product/" onClick={this.props.setChoiceP3 } >SELECT</Link>
           </button>
         </section>
         <section className="product2">
-          <h5>DESIGNER'S CHOICE</h5>
-          <div className="thumb">
+          <h5>Designer's Choice</h5>
+          <div className="thumb" onClick={this.props.setChoiceP2}>
             <Link to="/product"><img className="thumbnail" src="../img/_DSC2980.png" alt=""/></Link>
           </div> 
           <button className="arrangeButton">
@@ -30,8 +30,8 @@ class Products extends React.Component {
           </button>
         </section>
         <section className="product1">
-          <h5>DESIGNER'S BOUQUET</h5>
-          <div className="thumb">
+          <h5>Designer's Wrap</h5>
+          <div className="thumb" onClick={this.props.setChoiceP1 }>
             <Link to="/product"><img className="thumbnail" src="../img/_DSC3345.png" alt=""/></Link>
           </div> 
           <button className="arrangeButton">
@@ -47,31 +47,13 @@ const mapDispatchToProps = dispatch => {
 
   return {
     setChoiceP3: () => {
-      const productObj = {};
-      productObj.productCode = 'p3';
-      productObj.productName = "DESIGNER'S LOBBY";
-      productObj.productPhoto = "../img/_DSC3098_square.jpg";
-      productObj.productPrice = "$40";
-      productObj.productDesc = "Our Wrap is a great choice for arranging in a favorite vase";
-      dispatch(setProductChoice('productObj'))
+      dispatch(setProductChoice('p3'))
     },
     setChoiceP2: () => {
-      const productObj = {};
-      productObj.productCode = 'p2';
-      productObj.productName = "DESIGNER'S CHOICE";
-      productObj.productPhoto = "../img/_DSC29890.png";
-      productObj.productPrice = "$40";
-      productObj.productDesc = "Our Wrap is a great choice for arranging in a favorite vase";
-      dispatch(setProductChoice('productObj'))
+      dispatch(setProductChoice('p2'))
     },
     setChoiceP1: () => {
-      const productObj = {};
-      productObj.productCode = 'p1';
-      productObj.productName = "DESIGNER'S WRAP";
-      productObj.productPhoto = "../img/_DSC3345.png";
-      productObj.productPrice = "$40";
-      productObj.productDesc = "Our Wrap is a great choice for arranging in a favorite vase";
-      dispatch(setProductChoice('productObj'))
+      dispatch(setProductChoice('p1'))
     }
   };
 };
