@@ -8,7 +8,7 @@ html, body  {
   margin:0;
 }
 body {
-  background: transparent url(../../images/_DSC7675_grad.jpg); 
+  background: transparent url(../../images/tulip-master_with_logo_515_823.jpg); 
   background-position: calc(50% - 00px) calc(0% - 0px); 
   background-repeat: no-repeat;  
   background-attachment: fixed;
@@ -24,6 +24,11 @@ body {
 
 }
 #root{
+  background: -moz-linear-gradient(top, rgba(255,255,255,.7) 80%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,.7) 80%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to top, rgba(255,255,255,.7) 80%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+
   padding-top:0px;
 }
 div, span, p {
@@ -313,8 +318,13 @@ textarea {
 }
 
 
-.thumbnail{
+.thumbnail {
+  padding:5px;
+  border:1px #666 solid;
+  margin:10px;
+  background:#fff;
   cursor:pointer;
+  width:160px;
 }
 .pickArr3 {
   display:inline-block;
@@ -339,17 +349,17 @@ textarea {
 .product3 {
   width:100%;
   text-align: left;
-  margin-left:10px;
+  margin-left:0px;
 }
 .product2{
   width:100%;
   text-align: left;
-  margin-left:10px;
+  margin-left:0px;
 }
 .product1{
   width:100%;
   text-align: left;
-  margin-left:20px;
+  margin-left:0px;
 }
 p.productName {
   width:100%;
@@ -429,12 +439,8 @@ display:inline-block;
 
 
 .productDetailDesc {
-  background: -moz-linear-gradient(left, rgba(255,255,255,.65) 90%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255,255,255,.65) 90%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255,255,255,.65) 90%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
   border-radius:0.72916667%;
-  padding:5px;
+  padding:10px;
   width:100%;
 }
 .senderInfo h4 {
@@ -1667,7 +1673,7 @@ input {
 @media only screen and (max-width: 400px) {
   body {
     background: transparent url(../../images/tulip-master-417-667.jpg); 
-    background-position: calc(0% - 00px) calc(0% - 0px); 
+    background-position: calc(50% - 00px) calc(0% - 0px); 
     background-repeat: no-repeat; 
   } 
   .senderBlock h5, .receiverBlock h5 {

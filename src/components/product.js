@@ -15,7 +15,7 @@ class Product extends React.Component {
             BACK
           </button>              
           <div className="productDetail">
-            <h5>{this.props.subscription.currentProductName}</h5> 
+            <h3>{this.props.subscription.currentProductName}</h3> 
             <div>
             <img src={this.props.subscription.currentProductPhoto} onClick={() => {setProductChoice('p3')} } alt=""/>
             </div>

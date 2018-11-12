@@ -12,28 +12,35 @@ class Products extends React.Component {
     return (
       <Fragment>
         <section className="product3">
-        <h5>Designer's lobby</h5>
+        
           <div className="thumb" onClick={this.props.setChoiceP3 }>
             <Link to="/product"><img className="thumbnail" src="../img/_DSC3098_square.jpg" alt="" /></Link>
           </div> 
-          <button className="arrangeButton">
-            <Link style={{display: 'block', height: '100%'}} to="/product/" onClick={this.props.setChoiceP3 } >SELECT</Link>
-          </button>
+          <div className="productInfo">
+            <h5>Designer's lobby</h5>
+            <button className="arrangeButton">
+              <Link style={{display: 'block', height: '100%'}} to="/product/" onClick={this.props.setChoiceP3 } >SELECT</Link>
+            </button>
+          </div>
         </section>
         <section className="product2">
-          <h5>Designer's Choice</h5>
+         
           <div className="thumb" onClick={this.props.setChoiceP2}>
             <Link to="/product"><img className="thumbnail" src="../img/_DSC2980.png" alt=""/></Link>
           </div> 
-          <button className="arrangeButton">
-            <Link style={{display: 'block', height: '100%'}} to="/product/" onClick={this.props.setChoiceP2} >SELECT</Link>
-          </button>
+          <div className="productInfo">
+            <h5>Designer's Choice</h5>
+            <button className="arrangeButton">
+              <Link style={{display: 'block', height: '100%'}} to="/product/" onClick={this.props.setChoiceP2} >SELECT</Link>
+            </button>
+          </div> 
         </section>
         <section className="product1">
-          <h5>Designer's Wrap</h5>
+         
           <div className="thumb" onClick={this.props.setChoiceP1 }>
             <Link to="/product"><img className="thumbnail" src="../img/_DSC3345.png" alt=""/></Link>
           </div> 
+          <h5>Designer's Wrap</h5>
           <button className="arrangeButton">
             <Link style={{display: 'block', height: '100%'}} to="/product/" onClick={this.props.setChoiceP1 } >SELECT</Link>
           </button>
