@@ -2,7 +2,7 @@ import React from 'react';
 import ProductBlock from './product-block';
 import ScheduleBlock from './schedule-block';
 import RecipientBlock from './recipient-block';
-import './styles/order-block.css';
+//import './styles/order-block.css';
 
 export default class OrderBlock extends React.Component {
 

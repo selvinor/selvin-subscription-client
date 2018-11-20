@@ -9,6 +9,7 @@ import RegistrationPage from './registration-page';
 import Products from './products';
 import Product from './product';
 import SubscriptionAddForm from './subscription-add-form'
+//import './styles/subscriptions.css';
 
 import {refreshAuthToken, showLogoutWarning} from '../actions/auth';
 //import {deleteAuthToken} from '../actions/auth';
@@ -76,7 +77,7 @@ export class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register" component={RegistrationPage} />
           <Route exact path="/products" component={Products} />
-          <Route exact path="/product" component={Product}/>
+          <Route       path="/product" component={Product}/>
           <Route exact path="/subscriptionAdd" component={SubscriptionAddForm}/>
           
        </Switch>

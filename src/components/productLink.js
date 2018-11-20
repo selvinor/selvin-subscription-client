@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import './styles/productListing.css';
+//import './styles/productListing.css';
 
 export default function ProductLink(props) {
   console.log('props: ', props)

@@ -1,6 +1,6 @@
 import  React from 'react';
 import SubscriptionBlock from './subscription-block';
-import './styles/subscription-list.css'
+//import './styles/subscription-list.css'
 export class SubscriptionList extends React.Component {
   render() { 
     const subsList = [];

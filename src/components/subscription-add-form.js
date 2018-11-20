@@ -3,7 +3,7 @@ import {Field, SubmissionError, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
-import './styles/subscription-add-form.css'; 
+//import './styles/subscription-add-form.css'; 
 import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
 import {REACT_APP_BASE_URL} from '../config';
 export class SubscriptionAddForm extends React.Component {

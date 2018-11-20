@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { showLogin } from '../actions';
 import LoginForm from './login-form';
-import './styles/landing.css';
+//import './styles/landing.css';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard

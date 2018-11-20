@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/product-block.css';
+//import './styles/product-block.css';
 
 export default class ProductBlock extends React.Component {
   render() {

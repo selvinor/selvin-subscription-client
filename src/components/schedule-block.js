@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/schedule-block.css';
+//import './styles/schedule-block.css';
 
 export default class ScheduleBlock extends React.Component {
   render() {

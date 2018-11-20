@@ -1,30 +1,31 @@
 import React, { Fragment } from 'react';
 import {connect} from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import './styles/product.css';
+import { Link } from 'react-router-dom';
+//import './styles/product.css';
 import { setProductChoice } from '../actions'
 
 class Product extends React.Component { 
   render() {
   console.log('product.js line 8 props: ', (this.props.subscription));
-
+  // decide which dispatch to issue
+  const choice = this.props.subscription.currentProductCode;
     return (
       <Fragment>
         <section className="product">
-          <button className="jumpBack"  onClick={() => {return <Redirect to="/products" />}}  type="button">
-            BACK
-          </button>              
+        <button className="arrangeButton">
+          <Link style={{display: 'block', height: '100%'}} to="/products/">BACK</Link>
+        </button>
           <div className="productDetail">
             <h3>{this.props.subscription.currentProductName}</h3> 
             <div>
-            <img src={this.props.subscription.currentProductPhoto} onClick={() => {setProductChoice('p3')} } alt=""/>
+              <Link style={{display: 'block', height: '100%'}} to="/subscriptionAdd/"><img src={this.props.subscription.currentProductPhoto} alt=""/></Link>              
             </div>
             <p className="productDetailPrice">Starting at: ${this.props.subscription.currentProductPrice}</p>
             <p className="productDetailDesc">{this.props.subscription.currentProductDesc}</p> 
-            <button className="chooseButton" onClick={() => {
-              setProductChoice(this.props.subscription.currentProductCode)
-              return <Redirect to="/subscriptionAdd" />}}  
-              type="button">SELECT</button><span className="price"></span>
+              <button className="arrangeButton">
+                <Link style={{display: 'block', height: '100%'}} to="/subscriptionAdd/" >Choose</Link>
+              </button>
+              <span className="price"></span>
           </div>                
         </section>
       </Fragment>
@@ -34,15 +35,10 @@ class Product extends React.Component {
 const mapDispatchToProps = dispatch => {
 
   return {
-    setChoiceP3: () => {
-      dispatch(setProductChoice('p3'))
-    },
-    setChoiceP2: () => {
-      dispatch(setProductChoice('p2'))
-    },
-    setChoiceP1: () => {
-      dispatch(setProductChoice('p1'))
+    setChoice: () => {
+      dispatch(setProductChoice())
     }
+
   };
 };
 const mapStateToProps = state => ({

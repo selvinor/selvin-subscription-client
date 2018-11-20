@@ -1,6 +1,6 @@
 import React from 'react';
 import OrderBlock from './order-block';
-import './styles/subscription-block.css'
+//import './styles/subscription-block.css'
 export default class SubscriptionBlock extends React.Component {
 
   render() {
