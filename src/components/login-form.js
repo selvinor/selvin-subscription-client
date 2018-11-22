@@ -3,6 +3,7 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
+import { Link } from 'react-router-dom';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -18,6 +19,8 @@ export class LoginForm extends React.Component {
                 </div>
             );
         }
+        const registerButton = (<button className="jump" type="button"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'black'}} to="/register" >Register</Link></button>);
+
         return (
             <form
                 className="login-form"
@@ -47,6 +50,8 @@ export class LoginForm extends React.Component {
                 <button className="login" disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
+                {registerButton}
+
             </form>
         );
     }

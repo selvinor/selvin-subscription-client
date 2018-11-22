@@ -3,20 +3,21 @@ const initialState = {
   subscriptions: [],
   hasErrored : false,
   isLoading : false,
-  currentFormSection: "onboarding",
-  currentProductName: "",
-  currentProductPhoto: "",
-  currentProductPrice: "",
-  currentProductDesc: "",
-  currentProductCode: "",
-  currentFrequency: "monthly",
-  currentDuration: "3 months",
-  currentNumberOfDeliveries : "0",   
-  currentDeliveryDate : '',
+  formSection: "recipient",
+  productName: "",
+  productPhoto: "",
+  productPrice: "",
+  productDesc: "",
+  productCode: "",
+  frequency: "monthly",
+  duration: "3 months",
+  numberOfDeliveries : "0",   
+  deliveryDate : '',
   showLogin : false
 }
 
 export const subscriptionReducer = (state=initialState, action) => {
+  
   switch (action.type) {
     case 'SUBSCRIPTIONS_HAS_ERRORED':
       return Object.assign({}, state, {
@@ -45,70 +46,71 @@ export const subscriptionReducer = (state=initialState, action) => {
 
     case 'SET_NUMBER_OF_DELIVERIES':
     return Object.assign({}, state, {
-      currentNumberOfDeliveries: action.numberOfDeliveries,
-      currentFormSection: 'checkout'
+      numberOfDeliveries: action.numberOfDeliveries,
+      formSection: 'checkout'
     });
 
     case 'SET_PRODUCT_CHOICE':
+    console.log('SET_PRODUCT_CHOICE action.productCode: ',action.productCode);
       switch (action.productCode) {
         case 'p1':
+          action.productCode = "p1";
           action.productName = "Designer's Wrap";
-          action.productDesc = "Perfect for arranging in a favorite vase";
+          action.productDesc = "Perfect for arranging in a favorite vase. An easy way to brighten up and beautify your home or office, plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions.";
           action.productPhoto = "../../img/_DSC3345_400.png";
-          action.productName = "Designer's Wrap";
-          action.productPrice = "$75";
+          action.productPrice = "40";
           break;
         case 'p2':
+          action.productCode = "p2";
           action.productName = "Designer's Choice";
-          action.productDesc = "Perfect for beautifying a room";
+          action.productDesc = "Beautiful, fresh, custom flower arrangement for your home or office, perfect for beautifying a room. Delivered on a weekly or monthly basis. Plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions. ";
           action.productPhoto = "../../img/_DSC2980_400.png";
-          action.productName = "Designer's Wrap";
-          action.productPrice = "$40";
+          action.productPrice = "85";
           break;
-          case 'p3':
+        case 'p3':
+          action.productCode = "p3";
           action.productName = "Designer's Lobby";
-          action.productDesc = "Perfectly accents an entryway or lobby";
+          action.productDesc = "Perfectly accents an entryway or lobby. See your lobby transformed by each successive flower product. As the season changes, so does the theme.";
           action.productPhoto = "../../img/_DSC3098_400.png";
-          action.productName = "Designer's Wrap";
-          action.productPrice = "$140";
+          action.productPrice = "140";
           break;
         default:
+          action.productCode = "p1";
           action.productName = "Designer's Wrap";
-          action.productDesc = "Perfect for arranging in a favorite vase";
+          action.productDesc = "Perfect for arranging in a favorite vase. An easy way to brighten up and beautify your home or office, plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions.";
           action.productPhoto = "../../img/_DSC3345_400.png";
-          action.productName = "Designer's Wrap";
-          action.productPrice = "$40";
+          action.productPrice = "40";
       }
       
 
     return Object.assign({}, state, {
-      currentProductChoice: action.productCode,
-      currentProductCode: action.productCode,
-      currentProductName: action.productName,
-      currentProductPhoto: action.productPhoto,
-      currentProductPrice: action.productPrice,
-      currentProductDesc: action.productDesc,
-      currentFormSection: 'recipient'
+      productChoice: action.productCode,
+      productCode: action.productCode,
+      productName: action.productName,
+      productPhoto: action.productPhoto,
+      productPrice: action.productPrice,
+      productDesc: action.productDesc,
+      formSection: 'recipient'
     });
 
     case 'SET_FREQUENCY':
     return Object.assign({}, state, {
-      currentFrequency: action.frequency      
+      frequency: action.frequency      
     });
 
     case 'SET_DURATION':
     return Object.assign({}, state, {
-      currentDuration: action.duration
+      duration: action.duration
     });
 
     case 'SET_DELIVERY_DATE':
     return Object.assign({}, state, {
-      currentDeliveryDate: action.deliveryDate
+      deliveryDate: action.deliveryDate
     });
 
     case 'JUMP_TO_SECTION':
     return Object.assign({}, state, {
-      currentFormSection: action.section
+      formSection: action.section
     });
 
     case 'ADD_RECEIVER_TO_SUBSCRIPTION':

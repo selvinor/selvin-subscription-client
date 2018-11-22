@@ -12,7 +12,7 @@ console.log('props: ', props)
     if (props.loggedIn) {
       return <Redirect to="/dashboard" />;
     }
-    const WrappedLink = (<button className="jump"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'white'}} to="/products" >New Subscription</Link></button>);  
+    const WrappedLink = (<button className="jump"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'black'}} to="/products" >New Subscription</Link></button>);  
     const loginButton = (<button className="jump" onClick={() => props.dispatch(showLogin())} type="button">My Account</button>);
     const landing = (
     <section>

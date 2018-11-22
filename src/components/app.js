@@ -77,8 +77,8 @@ export class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register" component={RegistrationPage} />
           <Route exact path="/products" component={Products} />
-          <Route       path="/product" component={Product}/>
-          <Route exact path="/subscriptionAdd" component={SubscriptionAddForm}/>
+          <Route       path="/products/:pCode" component={Product}/>
+          <Route       path="/subscriptionAdd" component={SubscriptionAddForm}/>
           
        </Switch>
       </div>

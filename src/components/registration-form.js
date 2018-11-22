@@ -9,8 +9,8 @@ const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
-        const {username, password, firstName, lastName} = values;
-        const user = {username, password, firstName, lastName};
+        const {username, password, firstName, lastName, email} = values;
+        const user = {username, password, firstName, lastName, email};
         console.log('user:' , user);
         return this.props
             .dispatch(registerUser(user))
@@ -25,16 +25,24 @@ export class RegistrationForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" placeholder="firstName" />
+                <Field component={Input} type="text" name="firstName" placeholder="required" />
                 <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName"  placeholder="lastName" />
+                <Field component={Input} type="text" name="lastName"  placeholder="required" />
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
                     type="text"
                     name="username"
                     validate={[required, nonEmpty, isTrimmed]}
-                    placeholder="username"
+                    placeholder="required"
+                />
+                <label htmlFor="email">Email</label>
+                <Field
+                    component={Input}
+                    type="email"
+                    name="email"
+                    validate={[required, nonEmpty, isTrimmed]}
+                    placeholder="required"
                 />
                 <label htmlFor="password">Password</label>
                 <Field
@@ -43,7 +51,7 @@ export class RegistrationForm extends React.Component {
                     name="password"
                     autocomplete="new-password"
                     validate={[required, passwordLength, isTrimmed]}
-                    placeholder="password"
+                    placeholder="required"
                 />
                 <label htmlFor="passwordConfirm">Confirm password</label>
                 <Field
@@ -52,7 +60,7 @@ export class RegistrationForm extends React.Component {
                     name="passwordConfirm"
                     autocomplete="new-password"
                     validate={[required, nonEmpty, matchesPassword]}
-                    placeholder="confirm password"
+                    placeholder="required"
                 />
                 <button
                     type="submit"
