@@ -1,9 +1,9 @@
 import React from 'react';
 //import {connect} from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './styles/product.css';
 
-import { setDeliveryDate, setProductChoice } from '../actions'
+import { setProductChoice } from '../actions'
 export default function Product(props) {
   console.log('props: ', props)
 

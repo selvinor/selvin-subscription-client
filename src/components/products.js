@@ -1,6 +1,6 @@
 import React from 'react';
 //import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './styles/products.css';
 
 export default function Products(props) {

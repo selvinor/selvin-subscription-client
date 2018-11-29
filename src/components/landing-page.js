@@ -15,7 +15,7 @@ console.log('props: ', props)
     const WrappedLink = (<button className="jump"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'white'}} to="/products" >New Subscription</Link></button>);  
     const loginButton = (<button className="jump" onClick={() => props.dispatch(showLogin())} type="button">My Account</button>);
     const landing = (
-    <section>
+    <section className="landing-section">
       <div className="landing">
         <h2>Welcome!</h2> 
         <p>Blooms Subscriptions provide an easy way to keep your home or office bright and beautiful!</p>
