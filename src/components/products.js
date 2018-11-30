@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-//import './styles/products.css';
+import './styles/products.css';
 import { setProductChoice } from '../actions'
 
 class Products extends React.Component { 
@@ -11,41 +11,64 @@ class Products extends React.Component {
     console.log('+++++++++++++this.props: ', this.props);
 
     return (
-      
-        <section className="products">
-          <div className="productChoice">       
-            <div className="thumb" onClick={this.props.setChoiceP3 }>
-              <Link to="/products/p3"><img className="thumbnail" src="../img/_DSC3098_square.jpg" alt="" /></Link>
+      <Fragment>
+      <section id="main"></section>
+        <section id="productChoice">
+          <div className="products product3">   
+            <div className="productSel thumb">
+              <div id="p3Thumb" onClick={this.props.setChoiceP3 }>
+                <Link to="/products"></Link>
+              </div> 
             </div> 
-            <div className="productInfo">
-              <h5>Designer's lobby</h5>
-              <button className="arrangeButton">
-                <Link style={{display: 'block', height: '100%'}} to="/products/p3" onClick={this.props.setChoiceP3 } >SELECT</Link>
-              </button>
-            </div>
+            <div className="productSel description">
+              <div className="productInfo">
+                <h3>Designer's Lobby</h3>
+              </div>
+              <div className="productSel">
+                <button className="arrangeButton selectButton">
+                  <Link style={{display: 'block', height: '100%'}} to="/products/p3" onClick={this.props.setChoiceP3 } >SELECT</Link>
+                </button>
+              </div>
+            </div>  
           </div>
-          <div className="products">         
-            <div className="thumb" onClick={this.props.setChoiceP2}>
-              <Link to="/products/p2"><img className="thumbnail" src="../img/_DSC2980.png" alt=""/></Link>
+          <div className="products product2">   
+            <div className="productSel thumb">
+              <div id="p2Thumb" onClick={this.props.setChoiceP2 }>
+                <Link to="/products"></Link>
+              </div> 
             </div> 
-            <div className="productInfo">
-              <h5>Designer's Choice</h5>
-              <button className="arrangeButton">
-                <Link style={{display: 'block', height: '100%'}} to="/products/p2" onClick={this.props.setChoiceP2} >SELECT</Link>
-              </button>
+            <div className="productSel description">
+              <div className="productInfo">
+                <h3>Designer's Choice</h3>
+              </div>
+              <div className="productSel">
+                <button className="arrangeButton  selectButton">
+                  <Link style={{display: 'block', height: '100%'}} to="/products/p2" onClick={this.props.setChoiceP2 } >SELECT</Link>
+                </button>
+              </div> 
             </div> 
+
           </div>
-          <div className="products">         
-            <div className="thumb" onClick={this.props.setChoiceP1 }>
-              <Link to="/products/p1"><img className="thumbnail" src="../img/_DSC3345.png" alt=""/></Link>
+          <div className="products product1">   
+            <div className="productSel thumb">
+              <div id="p1Thumb" onClick={this.props.setChoiceP1 }>
+                <Link to="/products"></Link>
+              </div> 
             </div> 
-            <h5>Designer's Wrap</h5>
-            <button className="arrangeButton">
-              <Link style={{display: 'block', height: '100%'}} to="/products/p1" onClick={this.props.setChoiceP1 } >SELECT</Link>
-            </button>
+            <div className="productSel description">
+              <div className="productInfo">
+                <h3>Designer's Wrap</h3>
+              </div>
+              <div className="productSel">
+                <button className="arrangeButton selectButton">
+                  <Link style={{display: 'block', height: '100%'}} to="/products/p1" onClick={this.props.setChoiceP1 } >SELECT</Link>
+                </button>
+              </div> 
+            </div> 
+
           </div>
         </section>
-  
+        </Fragment>
     );
   }
 }

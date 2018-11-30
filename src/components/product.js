@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import {connect} from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-//import './styles/product.css';
+import './styles/product.css';
 import { setProductChoice } from '../actions'
 
 class Product extends React.Component { 
@@ -26,40 +26,31 @@ class Product extends React.Component {
   } else {
     to = '/login';
   }
-  
-
-  // if (pCode === '1') {
-  //   const productName = "Designer's Bouquet";
-  // } else {
-  //   if (pCode === '2') {
-  //     const productName = "Designer's Choice Product";
-  //   } else {
-  //     if (pCode === '3') {
-  //       const productName = "Designer's Lobby Product";
-  //     }
-  //   }
-  // }
-//  const frequency = this.props.frequency;
-//  const duration = this.props.duration;
 
     return (
       <Fragment>
-        <section className="product">
-        <button className="arrangeButton">
-          <Link style={{display: 'block', height: '100%'}} to="/products/">BACK</Link>
-        </button>
-          <div className="productDetail">
-            <h3>{this.props.current.productName}</h3> 
-            <div>
-              <Link style={{display: 'block', height: '100%'}} to={to}><img src={this.props.current.productPhoto} alt=""/></Link>              
-            </div>
-            <p className="productDetailPrice">Starting at: ${this.props.current.productPrice}</p>
-            <p className="productDetailDesc">{this.props.current.productDesc}</p> 
-              <button className="arrangeButton">
-               { <Link style={{display: 'block', height: '100%'}} to={to} >Choose</Link>}
-              </button>
-              $<span className="price"></span>
-          </div>                
+
+        <section id="product-section">
+        
+          <div className="product">
+          
+          <span className="logo"></span>
+            <button className="arrangeButton">
+              <Link style={{display: 'block', height: '100%'}} to="/products/">BACK</Link>
+            </button>
+
+            <div className="productDetail">
+              <h2>{this.props.current.productName}</h2> 
+              <div className="product-shot">
+                <Link style={{display: 'block', height: '100%'}} to={to}><img src={this.props.current.productPhoto} alt=""/></Link>              
+              </div>
+              <p className="productDetailPrice">Starting at: ${this.props.current.productPrice}</p>
+              <p className="productDetailDesc">{this.props.current.productDesc}</p> 
+                <button className="arrangeButton">
+                { <Link style={{display: 'block', height: '100%'}} to={to} >Choose</Link>}
+                </button>
+            </div>  
+          </div>              
         </section>
       </Fragment>
     )

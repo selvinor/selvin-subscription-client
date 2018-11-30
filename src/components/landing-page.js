@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { showLogin } from '../actions';
 import LoginForm from './login-form';
-//import './styles/landing.css';
+import './styles/landing.css';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
@@ -12,10 +12,10 @@ console.log('props: ', props)
     if (props.loggedIn) {
       return <Redirect to="/dashboard" />;
     }
-    const WrappedLink = (<button className="jump"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'black'}} to="/products" >New Subscription</Link></button>);  
+    const WrappedLink = (<button className="jump"><Link to="/products" >New Subscription</Link></button>);  
     const loginButton = (<button className="jump" onClick={() => props.dispatch(showLogin())} type="button">My Account</button>);
     const landing = (
-    <section>
+    <section className="landing-section">
       <div className="landing">
         <h2>Welcome!</h2> 
         <p>Blooms Subscriptions provide an easy way to keep your home or office bright and beautiful!</p>

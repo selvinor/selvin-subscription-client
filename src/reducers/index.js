@@ -57,28 +57,28 @@ export const subscriptionReducer = (state=initialState, action) => {
           action.productCode = "p1";
           action.productName = "Designer's Wrap";
           action.productDesc = "Perfect for arranging in a favorite vase. An easy way to brighten up and beautify your home or office, plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions.";
-          action.productPhoto = "../../img/_DSC3345_400.png";
+          action.productPhoto = "../../img/_DSC3345_280.png";
           action.productPrice = "40";
           break;
         case 'p2':
           action.productCode = "p2";
           action.productName = "Designer's Choice";
           action.productDesc = "Beautiful, fresh, custom flower arrangement for your home or office, perfect for beautifying a room. Delivered on a weekly or monthly basis. Plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions. ";
-          action.productPhoto = "../../img/_DSC2980_400.png";
+          action.productPhoto = "../../img/_DSC2980_280.png";
           action.productPrice = "85";
           break;
         case 'p3':
           action.productCode = "p3";
           action.productName = "Designer's Lobby";
           action.productDesc = "Perfectly accents an entryway or lobby. See your lobby transformed by each successive flower product. As the season changes, so does the theme.";
-          action.productPhoto = "../../img/_DSC3098_400.png";
+          action.productPhoto = "../../img/_DSC3098_280.png";
           action.productPrice = "140";
           break;
         default:
           action.productCode = "p1";
           action.productName = "Designer's Wrap";
           action.productDesc = "Perfect for arranging in a favorite vase. An easy way to brighten up and beautify your home or office, plus, you can even schedule deliveries throughout the year based on birthdays, holidays, and special occasions.";
-          action.productPhoto = "../../img/_DSC3345_400.png";
+          action.productPhoto = "../../img/_DSC3345_280.png";
           action.productPrice = "40";
       }
       

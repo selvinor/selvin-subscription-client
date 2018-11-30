@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {Field, SubmissionError, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -256,7 +256,7 @@ console.log('validating');
     let deliveryMsg = '';
 
     return (
-      <div>
+      <Fragment>
         <main role="main">
           <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             {successMessage}
@@ -490,7 +490,7 @@ console.log('validating');
         : ""  }
       </form> 
     </main>
-  </div>
+  </Fragment>
     )
   }
 }   
