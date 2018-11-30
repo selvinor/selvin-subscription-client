@@ -21,17 +21,16 @@ body {
 .entry {
   text-align:center;
   display:flex;
+  margin-top:20px;
 }
 button.jump {
 
-  margin-right: 5%;
-  background-color: rgb(23, 146, 218);
+  margin:0 auto;
+  background-color: steelblue;
   color:white;
-  padding:1%;
-  border-radius:8px;
+  padding:10px;
+  border-radius:10px;
   font-size:1.6vw;
-  flex: 1;
-  max-width: 180px;
   text-align:center;
 }
 .jump a{
@@ -69,9 +68,12 @@ input {
   border-radius:5px;
  
 }
+.landing p {
+  font-size:1.8vw;
+}
 .landing-section {
   display:flex;
-  height:1280px;
+  height:1200px; 
 }
 .landing {
   width:55%;
@@ -92,7 +94,9 @@ p{
   margin:0 auto;
 }
 .login-form {
-  margin-top:10px;
+  width:40%;
+position:relative;
+top:-400px;
   padding:0px;
   font-size:1.5vw;
   text-align:center;
@@ -105,7 +109,10 @@ input {
   margin-top:2px;
   font-size:1vw;
 }
-
+.landing {
+  width:55%;
+  margin:auto;
+}
 @media only screen and (max-width: 1366px) {
 
 
@@ -133,11 +140,12 @@ input {
   }
   button.login {
     margin: 0 auto;
-    background-color: rgb(23, 146, 218);
+    background-color: steelblue;
     color:white;
     padding:1%;
     border-radius:8px;
-    margin-top:3px;
+    margin:5px auto;
+    text-align:center;
     font-size:1.8vw;
   }
   input {
@@ -167,12 +175,7 @@ input {
     font-size:2.4vw;
     margin:1%;
   }
-  button.jump, button.login {
-    padding:1%;
-    border-radius:8px;
-    margin-top:8px;
-    font-size:2vw;
-  }
+
 }
 
 @media only screen and (max-width: 768px){
@@ -194,7 +197,7 @@ input {
   } 
   .landing-section {
     display:flex;
-    height:1120px;
+    /* height:1280px; */
   }
   .landing {
     width:55%;
@@ -214,16 +217,9 @@ input {
     font-size: 2.6vw;
     margin:1.5%;
   }
-  button.jump {
 
-    margin-right: 5%;
-    background-color: rgb(23, 146, 218);
-    color:white;
-    padding:2%;
-    border-radius:8px;
-    font-size:2.2vw;
-  }
   .login-form {
+    width:60%;
     margin-top:10px;
     padding:0px;
     font-size:3vw;
@@ -231,11 +227,11 @@ input {
   }
   button.login {
     margin: 0 auto;
-    background-color: rgb(23, 146, 218);
+    background-color: steelblue;
     color:white;
     padding:1.2% 2%;
     border-radius:8px;
-    margin-top:3px;
+    margin:10px 0px;
     font-size:2.2vw;
   }
   input {
@@ -251,7 +247,7 @@ input {
 @media only screen and (max-width: 600px){
   .landing-section {
     display:flex;
-    height:1024px;
+    /* height:1024px; */
   }
   .landing {
     width:60%;
@@ -273,7 +269,7 @@ input {
 
   .landing-section {
     display:flex;
-    height:1024px;
+    /* height:1024px; */
   }
   .landing {
     width:55%;
@@ -297,15 +293,7 @@ input {
     font-size:3vw;
     text-align:center;
   }
-  button.jump {
 
-    margin-right: 5%;
-    background-color: rgb(23, 146, 218);
-    color:white;
-    padding:2%;
-    border-radius:8px;
-    font-size:3.2vw;
-  }
     input {
     font-size: 3.5vw;
     border-radius:3px;

@@ -15,3 +15,26 @@ ul {
   background: #efefef;
   margin:0 auto;
 }
+.recipientInfoFields1 {
+  max-width:500px;
+  border-radius:10px;
+  margin:auto;
+}
+.recipientInfoFields2{
+  /* width:100%; */
+
+}
+.recipient-main {
+   background: transparent url(../../images/pastelBack.jpg); 
+  background-position: calc(50% - 00px) calc(0% - 0px); 
+  background-repeat: no-repeat;  
+  background-attachment: fixed;
+  font-family: 'Oxygen', sans-serif;
+  font-size: 100%;
+  font-size: 16px;
+  font-size: 1em;
+
+  padding:0;
+  margin: 0;
+  height: 1280px;
+}

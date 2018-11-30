@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import Input from './input';
 import {required, nonEmpty} from '../validators';
-//import './styles/subscription-add-form.css'; 
+import './styles/subscription-add-form.css'; 
+import './styles/recipient-block.css'; 
 import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
 import {REACT_APP_BASE_URL} from '../config';
 export class SubscriptionAddForm extends React.Component {
@@ -237,7 +238,7 @@ console.log('validating');
       formButton = ( <button className="jump" onClick={() => validateFields('schedule')}  type="button">NEXT</button>); 
       break;
     case 'recipient':
-      formButton = (<button className="jump"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>);
+      formButton = (<button className="jump formButton"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>);
       break;
     case 'checkout':
       formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>SUBSCRIBE!</button>);
@@ -256,8 +257,13 @@ console.log('validating');
     let deliveryMsg = '';
 
     return (
-      <Fragment>
-        <main role="main">
+    <Fragment>
+      <main role="main" className="recipient-main">
+      <Link to={`/`} >
+        <div className="logo"></div>
+      </Link>
+
+        <section id="subscription-form">
           <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
             {successMessage}
             {errorMessage} 
@@ -267,13 +273,13 @@ console.log('validating');
               <button className="jumpBack" type="button"> <Link style={{display: 'block', height: '100%'}} to={`/products/${this.props.current.productCode}`} >BACK</Link></button>              
                 <div className="orderSummary">
                   <h5>Order Details</h5>
-                  <p className="recipient productName">PRODUCT: {this.props.current.productName}</p>
-                  <p className="recipient productPrice">PRICE: {this.props.current.productPrice}</p>
+                  <p className="recipient productName">Product: {this.props.current.productName}</p>
+                  <p className="recipient productPrice">Price: {this.props.current.productPrice}</p>
                   <p className="recipient productPrice">Delivery: $20</p>                 
                 </div>
               </li>
               <li>
-                <h4>PLEASE ENTER RECIPIENT INFO</h4>
+                <h5>PLEASE ENTER RECIPIENT INFO</h5>
               </li>
               <li>            
                 <div className="form-input recipientInfoFields1">             
@@ -366,30 +372,28 @@ console.log('validating');
                       placeholder="Why are you sending?"
                     />                    
                 </div>
-                <div className="formButton recipientData">
-                  <button className="jump"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>
+                <div className=" recipientData">
+                  <button className="formButton jump"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>
                 </div>
               </li>
             </ul>
         : ""  } 
         { this.props.current.formSection === "schedule" ?  
         <ul id="scheduleInfo">
-              <li>
-              <button className="jumpBack"  onClick={() => dispatchSection('recipient')}  type="button">BACK</button>              
-                <div className="scheduleBlock">
-                  <ul>
-                  <li className="schedule">
-                    <h3>SCHEDULE DELIVERY</h3> 
-                  </li>
+          <li>                          
+            <div className="scheduleBlock">
+              <ul>
+                <li className="schedule">
+                  <h3>SCHEDULE DELIVERY</h3> 
+                </li>
                 <li>
                   <div className="scheduleFormFields">              
                     <div className="orderSummary">
                       <h5>Order Details</h5>
-                      <p className="recipient productName">PRODUCT: {this.props.current.productName}</p>
-                      <p className="recipient productPrice">PRICE: {this.props.current.productPrice}</p>
+                      <p className="recipient productName">Product: {this.props.current.productName}</p>
+                      <p className="recipient productPrice">Price: {this.props.current.productPrice}</p>
                       <p className="recipient productPrice">Delivery: $20</p>                 
-                      <p className="recipient productPrice">TOTAL: ${+deliveryCharge + +this.props.current.productPrice}</p> 
-               
+                      <p className="recipient productPrice">Total: ${+deliveryCharge + +this.props.current.productPrice}</p>               
                     </div>
                     <div className="leftSide schedule">
 
@@ -435,62 +439,58 @@ console.log('validating');
           </li>
         </ul> 
         : ""  }  
-        { this.props.current.formSection === "checkout" ?   
+        { this.props.current.formSection === "checkout" ? 
+        <Fragment>               
+          <header>
+            <button className="jumpBack"  onClick={() => dispatchSection('schedule')}  type="button">BACK</button>              
+            <h4>If everything looks good, please click the 'subscribe' button to start your subscription!</h4>
+          </header>
           <div className="checkout">
-            <main>
-              <header>
-              <button className="jumpBack"  onClick={() => dispatchSection('schedule')}  type="button">BACK</button>              
-                <h4>If everything looks good, please click the 'subscribe' button to start your subscription!</h4>
-              </header>
-              <section>
-                <div className="checkoutSum">              
-                  <div className="orderSummary">
-                    <h5>Order Details</h5>
-                    <p className="recipient productName">PRODUCT: {this.props.current.productName}</p>
-                    <p className="recipient productPrice">PRICE: {this.props.current.productPrice}</p>
-                    <p className="recipient checkout"><span>Delivery: </span>$20</p>                 
-                    <p className="recipient checkout"><span>TOTAL: </span>${+deliveryCharge + +this.props.current.productPrice}</p> 
-                  
-                  </div>
-                  <div className="leftSide">
-                    <div className="senderBlock">
-                      <h5>Sender Info</h5>
-                      <p className="sender name"><span>NAME: </span>{this.props.currentValues.senderFirstName} {this.props.currentValues.senderLastName}</p>
-                      <p className="sender senderEmail"><span>EMAIL: </span>{this.props.currentValues.senderEmail}</p>
-                      <p className="sender phone"><span>PHONE: </span>{this.props.currentValues.senderPhone}</p>  
-                      <p className="recipient message"><span>GIFT MESSAGE: </span>{this.props.currentValues.recipientMessage}</p>    
-                    </div>
-                  </div>    
-                  <div className="rightSide">
-                    <div className="receiverBlock">
-                      <h5>Recipient Info</h5>
-                      <p className="recipient name"><span>NAME: </span>{this.props.currentValues.recipientFirstName} {this.props.currentValues.recipientLastName}</p>
-                      <p className="recipient company"><span>COMPANY: </span>{this.props.currentValues.recipientCompany} {this.props.currentValues.recipientCompany}</p>
-                      <p className="recipient phone"><span>PHONE: </span>{this.props.currentValues.recipientPhone}</p>
-                      <p className="recipient streetAddress"><span>STREET ADDRESS: </span>{this.props.currentValues.recipientAddress}</p>
-                      <p className="recipient aptSuite"><span>APT/SUITE: </span>{this.props.currentValues.recipientAptSuite}</p>
-                      <p className="recipient cityStateZip"><span>CITY, STATE, ZIPCODE: </span>{this.props.currentValues.recipientCity} {this.props.currentValues.recipientState} {this.props.currentValues.recipientZipcode}</p>
-
-                    </div>                  
-                  </div>  
-                  </div>
+              <section className="orderSummary">            
+                <div className="orderBlock">
+                  <h5>Order Details</h5>
+                  <p className="order productName">Product: {this.props.current.productName}</p>
+                  <p className="order productPrice">Price: {this.props.current.productPrice}</p>
+                  <p className="order delivery"><span>Delivery: </span>$20</p>                 
+                  <p className="order total"><span>Total: </span>${+deliveryCharge + +this.props.current.productPrice}</p> 
+                
+                </div>
+              </section>
+              <section className="checkoutSummary">
+                <div className="senderBlock">
+                  <h5>Sender Info</h5>
+                  <p className="sender name"><span>NAME: </span>{this.props.currentValues.senderFirstName} {this.props.currentValues.senderLastName}</p>
+                  <p className="sender senderEmail"><span>EMAIL: </span>{this.props.currentValues.senderEmail}</p>
+                  <p className="sender phone"><span>PHONE: </span>{this.props.currentValues.senderPhone}</p>  
+                  <p className="recipient message"><span>GIFT MESSAGE: </span>{this.props.currentValues.recipientMessage}</p>    
+                </div>  
+                <div className="receiverBlock">
+                  <h5>Recipient Info</h5>
+                  <p className="recipient name"><span>NAME: </span>{this.props.currentValues.recipientFirstName} {this.props.currentValues.recipientLastName}</p>
+                  <p className="recipient company"><span>COMPANY: </span>{this.props.currentValues.recipientCompany} {this.props.currentValues.recipientCompany}</p>
+                  <p className="recipient phone"><span>PHONE: </span>{this.props.currentValues.recipientPhone}</p>
+                  <p className="recipient streetAddress"><span>STREET ADDRESS: </span>{this.props.currentValues.recipientAddress}</p>
+                  <p className="recipient aptSuite"><span>APT/SUITE: </span>{this.props.currentValues.recipientAptSuite}</p>
+                  <p className="recipient cityStateZip"><span>CITY, STATE, ZIPCODE:                     
+                    </span>{this.props.currentValues.recipientCity} {this.props.currentValues.recipientState} {this.props.currentValues.recipientZipcode}
+                  </p>
+                </div>                  
                 <div className="checkoutButton">{formButton}</div>
               </section>        
-            </main>
           </div>
+        </Fragment> 
         : ""  }
         { this.props.current.formSection === "confirm" ?   
           <div className="confirm">
-            <main>
               <h2>Thank You!</h2>
               <p className="byebye">Your order will be delivered {this.props.current.deliveryDate}.</p>               
-            </main>
             <div className="confirmButton">{formButton}</div>
           </div>
         : ""  }
       </form> 
-    </main>
-  </Fragment>
+    </section>
+  </main>
+</Fragment>
     )
   }
 }   

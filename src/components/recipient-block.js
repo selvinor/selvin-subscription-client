@@ -1,7 +1,7 @@
 import React from 'react';
 //import './styles/recipient-block.css';
 
-export default class SchedluleBlock extends React.Component {
+export default class RecipientBlock extends React.Component {
   render() {
 
     return (

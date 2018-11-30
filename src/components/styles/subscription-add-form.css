@@ -8,7 +8,8 @@ html, body  {
   margin:0;
 }
 body {
-  background: transparent url(../../images/tulip-master_with_logo_515_823.jpg); 
+  /* background: transparent url(../../images/
+  Back.jpg); 
   background-position: calc(50% - 00px) calc(0% - 0px); 
   background-repeat: no-repeat;  
   background-attachment: fixed;
@@ -20,22 +21,31 @@ body {
   padding:0;
   margin: 0;
   min-height: 100%;
-  height: 100%;
+  height: 100%; */
 
 }
-#root{
-  background: -moz-linear-gradient(top, rgba(255,255,255,.7) 80%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(255,255,255,.7) 80%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to top, rgba(255,255,255,.7) 80%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
 
-  padding-top:0px;
-}
 div, span, p {
 	margin: 0;
 	padding: 0;
 }
 
+label {
+  margin:0;
+  padding:0;
+  font-size:1.5vw;
+}
+#subscription-form {
+  margin-top:12%;
+  max-height:1280px;
+  display:flex;
+}
+
+div.form-input{
+  padding:0;
+  /* width:70%; */
+  margin:auto;
+}
 #navigation {
   padding-bottom: 25px;
   margin-top: 0px;
@@ -97,7 +107,15 @@ div, span, p {
   width: 6.25%;
 }
 header{
-  text-align: center;
+  width:70%;
+  margin:20px auto auto;
+}
+header h4 {
+  font-size:2.5vw;
+  margin:auto;
+}
+header .jumpBack {
+  margin-right:20px;
 }
 main {
   margin: 0;
@@ -116,7 +134,7 @@ h1 {
   }
 
   h3 {
-    font-size:2.7vw;
+    font-size:2vw;
     padding:0px;
   }
   h4 {
@@ -152,10 +170,11 @@ ul {
 li  {
   list-style-type: none;
 }
-.formButton{
+.formButton {
 
-  width:110px;
-  margin: 50px auto 0;
+  padding:10px;
+  background-color:steelblue;
+  margin: 5px auto 0;
 }
 .jump{
   background-color: green;
@@ -184,6 +203,9 @@ li  {
 .product2 {
   border: .25px #eee solid;
 }
+.orderBlock{
+  text-align: center;
+}
 /* .landing {
   min-width:280px;
   width: 80%;
@@ -196,9 +218,14 @@ li  {
 
 ul.products {
   width:100%;
+
+}
+#recipients h5 {
+  margin:10px auto 20px;
+  font-size:1.6vw;
 }
 .jumpBack {
-  background-color:yellow;
+  background-color:steelblue;
   font-size:1.5vw;
   padding:0.72916667% 1.0416667%;
   font-weight:bold;
@@ -232,51 +259,20 @@ ul.products {
 }
 
 
-.product3 .arrangeButton {
-  border: .5px #ccc solid;
-  background-color:green;  
-  color: #fafafa;
-  font-weight:bold;
-  margin: 5px 0 0 30px;
-  padding:10px;
-  border-radius: 10px;
-}
-.product2 .arrangeButton {
-  border: .5px #ccc solid;
-  background-color:green;  
-  color: #fafafa;
-  font-weight:bold;
-  margin: 5px 0 0 30px;
-  padding:10px;
-  border-radius: 10px;
-}
-.product1 .arrangeButton {
-  border: .5px #ccc solid;
-  background-color:green;  
-  color: #fafafa;
-  font-weight:bold;
-  margin: 5px 0 0 20px;
-  padding:10px;
-  border-radius: 10px;
-}
+
  label.frequency , label.duration,  label.recipientMessage   {
   font-weight:bold;
  }
  input {
-  margin-top:10px;
-  width: 100%;
+  /* margin-top:10px;*/
+  width: 100%; 
   height:30px;
-  background: -moz-linear-gradient(left, rgba(255,255,255,1) 80%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-  padding: 1.0416667%;
-  border-radius:0.72916667%;
-}
+ }
 #startDate {
-  width:150px;
+  width:175px;
   text-align:center;
-  margin-top:0;
+  margin:0 auto;
+  font-size:1.2vw;
 }
 #deliveryMsg {
   font-size:.8vw;
@@ -308,7 +304,7 @@ textarea {
  }
 
 .datePicking h4 {
-  font-size:1vw;
+  font-size:3vw;
   padding:0;
   margin:15px 0 0;
 }
@@ -417,9 +413,13 @@ display:inline-block;
   margin-top:0;
   font-weight:bold;
   border-radius:10px;
-  padding: 0px 5px;
+  padding: 0px 20%;
 }
- /* .landing {
+#recipients input{
+  margin:5px 0px;
+
+}
+/* .landing {
   margin-top:0;
   font-weight:bold;
   border-radius:10px;
@@ -434,9 +434,9 @@ display:inline-block;
 
 
 .productDetailDesc {
-  border-radius:0.72916667%;
+
   padding:10px;
-  width:100%;
+  width:60%;
 }
 .senderInfo h4 {
   padding:0;
@@ -462,7 +462,9 @@ display:inline-block;
   margin-top:1.0416667%;
 }
 div.checkout {
-  max-width:98%;
+  margin-top:100px;
+  padding:0 50px;
+  display:flex;
 }
 .checkout span{
   font-weight:bold;
@@ -472,7 +474,6 @@ div.checkout {
 }
 
 .productName {
-  margin-top: - .520833%;
   font-weight:bold;
   color:#333;
   font-size: 1.4vw;
@@ -482,26 +483,17 @@ div.checkout {
 p.recipients  {
   font-size:1vw;
 }
- 
-.recipientInfoFields1{
-  width:100%;
-  border-radius:0.72916667%;
-}
-.recipientInfoFields2{
-  width:100%;
 
-}
 .message-success {
   margin-top:10px;
   text-align:center;
 }
 .orderSummary {
   text-align:center;
-  display:inline-block;
-  width: 100%;
+  width: 45%;
   font-size:2vw;
+  margin: auto;
 }
-
 .senderOrderSum{
   font-size:2vw;
 }
@@ -512,29 +504,28 @@ li.product2 {
   margin-bottom:20px;
 }
   
-.orderSummary {
-  margin-bottom: 5px;
-  text-align:center;
-}
+
 .orderSummary p{
-  font-size: 1.5vw;
+  font-size: 1.8vw;
 }
 
 
 
 .checkout { 
-  width:100%;
-  display:block;
-  min-width:300px;
-  text-align:center;
-  margin:0 auto;
+  max-height:1280px;
+  display:flex;
 }
 
-.checkoutSum{
-  padding:0;
-
+.checkoutSummary{
+  width: 45%;
+  margin: auto;
 }
-
+.checkoutSummary h5{
+  font-size:2.8vw;
+  }
+.checkoutSummary p{
+font-size:2vw;
+}
 .scheduleBlock {
   margin-left:0px;
 }
@@ -545,16 +536,8 @@ li.product2 {
   min-width:280px;
   margin:10px auto 0;
   text-align:center;
+  }
 
-  }
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin:50px auto 0;
-  }
-  .landing h2{
-    font-size:3vw;
-  } */
   .productPhoto-p2 {
     text-align:center;
   }
@@ -580,8 +563,7 @@ li.product2 {
     margin: 0 auto;
   }
   #scheduleInfo h5 {
-    width:100px;
-    margin:10px auto 0; 
+    margin:auto; 
   }
   .confirmButton {
     width:100%;  
@@ -597,17 +579,20 @@ li.product2 {
   }
 
 .leftSide {
-  display: inline-block;
+  margin:auto;
   vertical-align:top;
-  width:500px;
 }
 .rightSide {
-  width:500px;
-  display: inline-block;
+  margin:auto;
   vertical-align:top;
-  margin-left : 7%;
 }
-
+.orderSummary h5 {
+  text-align:center;
+  font-size:3vw;
+}
+#recipients h5 {
+  font: size 1.8vw;
+}
 @media only screen and (max-width: 1366px) {
   h1 {
     font-size: 4vw;
@@ -615,8 +600,8 @@ li.product2 {
     padding:0;
   }
   h5 {
-    font-size: 2.5vw;
-    margin:0;
+    font-size: 1.5vw;
+    text-align:center;
   }
   .productName {
     font-size: 1.5vw;  
@@ -680,12 +665,12 @@ li.product2 {
   }
 
   .productDetailDesc {
-    width:500px;
-    margin: 0 auto;
+    
+    width:60%;
     font-size:2vw;
   }
   .jumpBack {
-    background-color: yellow;
+    background-color: steelblue;
     font-size: 2.2vw;
     padding: 0.72916667% 1.0416667%;
     font-weight: bold;
@@ -708,376 +693,55 @@ li.product2 {
   .productPrice {
     font-size: 2vw;
 }
-  .orderSummary h5 {
-    width:200px;
-    margin: 10px auto 0;
-  }
-  .leftSide  h5, .rightSide  h5 {
-    width:100px;
-    margin: 10px auto 0;
-  }
+
+
   #deliveryMsg {
     font-size: 2vw;
     font-weight: bold;
 }
 .leftSide {
-  display: inline-block;
+  margin:auto;
   vertical-align: top;
-  width: 280px;
+
 }
 .rightSide {
-  display: inline-block;
+  margin:auto;
   vertical-align: top;
-  width: 400px;
+
 }
 .receiverBlock h5{
-  font-size:2vw;
+  font-size:2.8vw;
   padding:0px;
   font-weight: bold;
-  width:200px;
   text-decoration:underline;
+  margin-top:10px;
 
 }
 .senderBlock h5 {
-  font-size:2vw;
+  font-size:2.8vw;
   padding:0px;
   font-weight: bold;
-  width:200px;
   text-decoration:underline;
 }
+
+
+
 }
-@media only screen and (max-width: 1280px) {
-  .productName {
-    font-size: 2vw;  
-  }
 
-  h3 {
-    font-size:3vw;
-    padding:0px;
-  }
-  p{
-    font-size:2.2vw;
-  }
-  .checkoutSum h5 {
-    font-size:1.8vw;
-  }
 
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_640.png');
-    background-repeat:no-repeat;
-    height:640px;
-    width:640px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_640.png');
-    background-repeat:no-repeat;
-    height:640px;
-    width:640px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_640.png');
-    background-repeat:no-repeat;
-    height:860px;
-    width:640px;
-    margin: 0 auto;
-  }
-  .productDetailPrice {
-    margin: 0 auto;
-  }
-
-  .chooseButton {
-    border: .5px #ccc solid;
-    font-size:2vw;
-    margin-top:10px;
-    background-color:green;
-    color:white;
+@media only screen and (max-width: 768px) {
+  #recipients {
+    margin-top:0;
     font-weight:bold;
-    margin: 0 auto;
+    border-radius:10px;
+    padding: 0px 10%;
   }
-
-  
-    /* .landing {
-      min-width:280px;
-      width: 80%;
-      margin: 5px auto 0;
-      font-weight: normal;
-    }
-    .landing h2{
-      font-size:3vw;
-    }
-   */
-}
-
-@media only screen and (max-width: 1024px) {
-  .productName {
-    font-size: 2.5vw;  
-  }
-
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_480.png');
-    background-repeat:no-repeat;
-    height:480px;
-    width:480px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_480.png');
-    background-repeat:no-repeat;
-    height:480px;
-    width:480px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_480.png');
-    background-repeat:no-repeat;
-  
-    width:480px;
-    margin: 0 auto;
-  }
-  .productDetailPrice {
-    margin: 0 auto;
-    font-size:2vw;
-  }
-
-  .chooseButton {
-    font-size:2vw;
-    margin-top:10px;
-    background-color:green;
-    color:white;
-    font-weight:bold;
-    margin: 0 auto;
-    border: .5px #ccc solid;
-  }
-  
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin: 10% auto 0;
-    font-weight: normal;
-    font-size: 2.5vw;
-  }
-  .landing h2{
-    font-size:2.8vw;
-  }
-  .landing p{
-    font-size: 3vw;
-  } */
-
-  .jumpBack {
-    background-color: yellow;
-    font-size: 2vw;
-    padding: 0.72916667% 1.0416667%;
-    font-weight: bold;
-    border: .5px #ccc solid;
-    margin-left: 5px;
-    float:left;
-  }
-  .chooseButton {
-    font-size: 2vw;
-    background-color:green;
-    color:white;
-    font-weight:bold;
-    padding: 0.72916667% 1.0416667%;
-    width: 100px;
-    margin: 0 auto;
-    border: .5px #ccc solid;
-    margin-top:10px;
-  }
-  /*.pickArr1, .pickArr2, .pickArr3 {
-    width: 400px;
-  }
-  */
-  .leftSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 280px;
-  }
-  .rightSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 400px;
-  }
-  .receiverBlock h5{
-    font-size:2vw;
-    padding:0px;
-    font-weight: bold;
-    width:200px;
-    text-decoration:underline;
-
-  }
-  .senderBlock h5 {
-    font-size:2vw;
-    padding:0px;
-    font-weight: bold;
-    width:200px;
-    text-decoration:underline;
-  }
-}
-@media only screen and (max-width: 900px) {
-  .productName {
-    font-size: 3vw;  
-  }
-
-
-
-
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin: 20% auto 0;
-    font-weight: normal;
-  }
-  .landing h2{
-    font-size:3vw;
-  } */
-
-}
-@media only screen and (max-width: 823px) {
-  #root {
-    min-height: 100%;
-    height: 100%;
-  }
-  .productDetailDesc {
-    width:500px;
-    margin: 0 auto;
-    font-size:2vw;
-  }
-  h1 {
-    margin-top:5px;
-  }
-  h5 {
-    font-size:2.2vw;
-    width: 360px;
-    margin:0 auto;
-
-  }
-  h3 {
-    font-size:2.2vw;
-    width: 550px;
-    margin:0 auto;
-
-  }
-  
- .jumpBack{
-    font-size:2vw;
-  }
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_120.png');
-    background-repeat:no-repeat;
-    height:120px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_120.png');
-    background-repeat:no-repeat;
-    height:120px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_120_160.png');
-    background-repeat:no-repeat;
-    height:160px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .message-success {
-    margin-top:10px;
+  #startDate {
+    width:175px;
     text-align:center;
-  }
-  /*.pickArr1, .pickArr2, .pickArr3 {
-    width: 350px;
-  }
-  */
-  #deliveryMsg {
-    font-size:1.8vw;
-  }
-  #scheduleInfo h5 {
-    width: 100px;
-    margin: 10px auto 0;
+    margin:0 auto;
     font-size:2vw;
   }
-  .checkoutSum p {
-    font-size:1.8vw;
-  }
-  .checkout h4 {
-    padding:0;
-    margin:0;
-    font-size:2vw;
-  }
-  input {
-    height: 25px;
-  }
-  .leftSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .rightSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .receiverBlock h5{
-    font-size:2vw;
-    padding:0px;
-    font-weight: bold;
-    width:200px;
-    text-decoration:underline;
-
-  }
-  .senderBlock h5 {
-    font-size:2vw;
-    padding:0px;
-    font-weight: bold;
-    width:200px;
-    text-decoration:underline;
-  }
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin: 20px auto 0;
-    font-weight: normal;
-    font-size: 2.5vw;
-  }
-  .landing h2{
-    font-size:3vw;
-    padding:0;
-    margin:5px 0;
-  } */
-  .jump {
-    background-color: green;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.8vw;
-    margin-top: 15px;
-}
-h3 {
-  font-size: 2vw;
-  width: 550px;
-  margin: 0 auto;
-}
-.scheduleFormFields {
-  margin-top: 0px;
-}
-#scheduleInfo {
-  padding: 0px;
-  width: 80%;
-  min-width: 280px;
-  margin: 0px auto 0;
-  text-align: center;
-}
-#scheduleInfo  {
-  width: 100px;
-  margin: 10px auto 0;
-  font-size: 2vw;
-}
-}
-@media only screen and (max-width: 770px) {
   .productName {
     font-size: 3vw;  
   }
@@ -1103,9 +767,26 @@ h3 {
     margin: 0 auto;
   }
   .productDetailDesc {
-    width:500px;
     margin: 0 auto;
     font-size:3vw;
+  }
+  h3 {
+    font-size:2.7vw;
+    padding:0px;
+  }
+  .orderSummary h5 {
+    text-align:center;
+    font-size:3vw;
+  }
+  .orderSummary p {
+    text-align:center;
+    font-size:3vw;
+  }
+  .orderSummary {
+    text-align:center;
+    width: 45%;
+    font-size:3vw;
+    margin: auto;
   }
   /* .landing {
     min-width:280px;
@@ -1122,1056 +803,8 @@ h3 {
     margin-top:10px;
   } */
   #scheduleInfo h5 {
-    width: 100px;
-    margin: 10px auto 0;
+    margin:auto;
     font-size:3vw;
-}
-  .scheduleFormFields p, input, select{
-    font-size:2vw;
-  }
-}
-@media only screen and (max-width: 750px) {
-  .productName {
-    font-size: 3vw;  
-  }
-
-
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_120.png');
-    background-repeat:no-repeat;
-    height:120px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_120.png');
-    background-repeat:no-repeat;
-    height:120px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_120_160.png');
-    background-repeat:no-repeat;
-    width:120px;
-    height:160px;
-    margin: 0 auto;
-  }
-  .productDetailDesc {
-    width:500px;
-    margin: 0 auto;
-  }
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin: 5px auto 0;
-    font-weight: normal;
-  }
-  .landing h2{
-    font-size:3vw;
-  }
-
-  .landing p{
-    font-size: 2.5vw;
-  } */
-/*
-  .pickArr1, .pickArr2, .pickArr3 {
-    width: 320px;
-  }
-  */
-  #deliveryMsg {
-    font-size:2vw;
-  }
-  .checkoutSum p {
-    font-size:2vw;
-  }
-  .checkout h4 {
-    padding:0;
-    margin:0;
-    font-size:2vw;
-  }
-  input {
-    height: 25px;
-  }
-
-  .leftSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .rightSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-}
-@media only screen and (max-width: 680px) {
-  .productName {
-    font-size: 3vw;  
-  }
-
-
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_120.png');
-    background-repeat:no-repeat;
-    height:120px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_120.png');
-    background-repeat:no-repeat;
-    height:120px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_120_160.png');
-    background-repeat:no-repeat;
-    width:120px;
-    height:160px;
-    margin: 0 auto;
-  }
-  .message-success {
-    margin-top:10px;
-    text-align:center;
-  }
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin: 5px auto 0;
-    font-weight: normal;
-  }
-  .landing h2{
-    font-size:3vw;
-  }
-  .landing p{
-    font-size:2.4vw;
-  } */
-  .leftSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .rightSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-}
-@media only screen and (max-width: 667px) {
-  #scheduleInfo h5 {
-    width:100px;
-    margin:10px auto 0; 
-  }
-  .checkoutSum p {
-    font-size:2vw;
-  }
-  .checkout h4 {
-    padding:0;
-    margin:0;
-    font-size:2vw;
-  }
-  input {
-    height: 25px;
-  }
-  .leftSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .rightSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .productName {
-    font-size: 3vw;  
-  }
-  input {
-    width:100%;
-    height:25px;
-  }
-  #deliveryMsg {
-    font-size:2vw;
-  }
-
-}
-
-@media only screen and (max-width: 600px) {
-  .productName {
-    font-size: 3.5vw;  
-  }
-  input {
-    width:100%;
-  }
-
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_480.png');
-    background-repeat:no-repeat;
-    height:480px;
-    width:480px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_480.png');
-    background-repeat:no-repeat;
-    width:480px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_480.png');
-    background-repeat:no-repeat;
-    width:480px;
-    margin: 0 auto;
-  }
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin: 5px auto 0;
-    font-weight: normal;
-  }
-  .landing h2{
-    font-size:3vw;
-  } */
-
-}
-@media only screen and (max-width: 575px) {
-  h1 {
-    font-size: 4vw;
-    margin: 5px auto 0;
-    padding: 0;
-}
-  .productName {
-    font-size: 3.5vw;  
-  }
-  input {
-    width:100%;
-  }
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_120.png');
-    background-repeat:no-repeat;
-    height:120px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_120.png');
-    background-repeat:no-repeat;
-    height:120px;
-    width:120px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_120_160.png');
-    background-repeat:no-repeat;
-    width:120px;
-    height:160px;
-    margin: 0 auto;
-  }
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin: 5px auto 0;
-    font-weight: normal;
-  }
-  .landing h2{
-    font-size:3vw;
-  }
-  .landing p{
-    font-size: 2.5vw;
-    margin-top:5px;
-  } */
-
-  .jumpBack {
-    background-color:yellow;
-    font-size:2vw;
-    padding:0.72916667% 1.0416667%;
-    font-weight:bold;
-
-    border: .5px #ccc solid;
-    margin-left:5px;
-    float:left;
-  }
-.productDetail {
-  margin-top: -10px;
-}
-
-
-}
-
-
-@media only screen and (max-width: 480px) {
-  .productName {
-    font-size: 3.5vw;    
-  }
-
-h1 { 
-  margin:20px auto 0px;
-}
-  input {
-    width:100%;
-  }
-  h1 {
-    font-size:5vw;
-    margin:0px 0 0px 10px;
-    padding:0px;
-  }
-    h1 {
-    font-size:1.5vw;
-    width:340px;
-    margin:0 auto;
-  }
-  h2 {
-    font-size:3.5vw;
-    padding:0px;
-  }
-
-  h3 {
-    font-size:4vw;
-    padding:0px;
-  }
-  h4 {
-    font-size:3.5vw;
-    padding:0px;
-  }
-  h5 {
-    font-size:4vw;
-    padding:0px;
-    font-weight: bold;
-}
-  h6 {
-    font-size:1.8vw;
-    padding:0px;
-  }
-  p{
-    font-size:4vw;
-  }
-  .checkout h4 {
-    font: size 4.5vw;
-  }
-  .checkoutSum h5 {
-    font: size 4vw;
-  }
-  .productPrice {
-    font-size:2vw;
-  }
-  input {
-    height:35px;
-  }
-  label {
-    font-size: 3vw
-  }
-  p.recipient, p.sender {
-    font-size:3vw;
-  }
-  .checkout .sender, .checkout .recipient  {
-    font-size:3.5vw;
-  }
-  .orderSummary h5{
-    font-size: 3.5vw;
-    }
-
-
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_360.png');
-    background-repeat:no-repeat;
-    height:360px;
-    width:360px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_360.png');
-    background-repeat:no-repeat;
-    height:360px;
-    width:360px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_280.png');
-    background-repeat:no-repeat;
-    height: 373px;
-    width: 280px;
-    margin: 0 auto;
-    margin: 0 auto;
-  }
-
-  /* .landing {
-    margin-top:30%;
-  }
-  .landing p{
-    font-size: 4vw;
-    text-align: justify;
-    font-weight:normal;
-    width:98%;
-    margin-top:5px;
-  }
-  .landing h2{
-    font-size: 4vw;
-  } */
-  .jump {
-    background-color: green;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    font-size: 4vw;
-    margin-top: 15px;
-}
-}
-
-
-@media only screen and (max-width: 420px) {
-  .mainTitle {
-    font-size:1.5vw;
-    width:340px;
-    margin:0 auto;
-  }
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_280.png');
-    background-repeat:no-repeat;
-    height:280px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_280.png');
-    background-repeat:no-repeat;
-    height:280px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_280.png');
-    background-repeat:no-repeat;
-    height:373px;
-    width:280px;
-    margin: 0 auto;
-  }
-
-  /* .landing {
-    margin-top:5px;
-  }
-  .landing p{
-    font-size: 4vw;
-    text-align: justify;
-    font-weight:normal;
-    width:98%;
-    margin-top:5px;
-  }
-  .landing h2{
-    font-size: 4vw;
-  } */
-
-  .chooseButton {
-    width:80px;
-    height: 35px;
-    margin:10px auto 0;
-    font-size:4vw;
-  }
-  .productDetailPrice {
-    font-size:3vw;
-  }
-  .productDetailDesc {
-    width:280px;
-    margin: 0 auto;
-  }
-
-}
-@media only screen and (max-width: 414px) {
-
-  .productDetailDesc {
-    width:280px;
-    margin: 0 auto;
-    font-size:3vw;
-  }
-  input{
-    font-size:1.1em;
-    }
-    .orderSummary h5 {
-      width: 200px;
-      margin: 0px auto 0;
-  }
-  input {
-    height:25px;
-  }
-  .jump {
-    margin-top:5px;
-  }
-  .formButton {
-    width: 110px;
-    margin: 5px auto 0;
-  }
-  .schedule h3 {
-    width: 280px;
-  
-  }
-  .leftSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .rightSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  select {
-    font-size: 4vw;
-  }
-  .datePicking h4 {
-    font-size:3vw;
-    padding:0;
-    margin:15px 0 0;
-  }
-  #startDate {
-    font-size:3.5vw;
-    text-align: center;
-    margin-top: 0;
-  }
-  #scheduleInfo h5 {
-    font-size:4vw;
-    margin: 10px auto 0;
-  }
-  
-}
-@media only screen and (max-width: 411px) {
-
-  .productDetailDesc {
-    width:280px;
-    margin: 0 auto;
-    font-size:3.2vw;
-  }
-  #deliveryMsg {
-    font-size:2.5vw;
-  }
-  input{
-  font-size:1.1em;
-  }
-  .orderSummary h5 {
-    width: 200px;
-    margin: 0px auto 0;
-}
-input {
-  height:25px;
-}
-.jump {
-  margin-top:5px;
-}
-.formButton {
-  width: 110px;
-  margin: 5px auto 0;
-}
-}
-@media only screen and (max-width: 400px) {
-  body {
-    background: transparent url(../../images/tulip-master-417-667.jpg); 
-    background-position: calc(50% - 00px) calc(0% - 0px); 
-    background-repeat: no-repeat; 
-  } 
-  .senderBlock h5, .receiverBlock h5 {
-    font-size:3.5vw;
-    padding:3px 0;
-    margin:10px 0 5px 0px;
-    border:1px #999 solid;
-    font-weight: bold;
-    width:100px;
-    border-radius:5px;
-    background:#eee;
-    color:#000;
-  }
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_280.png');
-    background-repeat:no-repeat;
-    height:280px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_280.png');
-    background-repeat:no-repeat;
-    height:280px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_280.png');
-    background-repeat:no-repeat;
-    height:373px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .message-success {
-    margin-top:10px;
-    text-align:center;
-  }
-  /* .landing {
-    margin-top:5px;
-  }
-  .landing p{
-    font-size: 4vw;
-    text-align: justify;
-    font-weight:normal;
-    width:98%;
-    margin-top:5px;
-  }
-  .landing h2{
-    font-size: 4vw;
-  } */
-
-  .chooseButton {
-    width:80px;
-    height: 35px;
-    margin:10px auto 0;
-    font-size:4vw;
-  }
-  .productDetailPrice {
-    font-size:3vw;
-  }
-  .productDetailDesc {
-    width:280px;
-    margin: 0 auto;
-    font-size:3vw;
-  }
-  #deliveryMsg {
-    font-size:2.5vw;
-  }
-  input{
-    font-size:1.1em;
-    }
-    .orderSummary h5 {
-      width: 200px;
-      margin: 0px auto 0;
-  }
-  input {
-    height:25px;
-  }
-  .jump {
-    margin-top:5px;
-  }
-  .formButton {
-    width: 110px;
-    margin: 5px auto 0;
-  }
-  .leftSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .rightSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .scheduleFormFields p {
-    font-size: 3.5vw;
-  }
-  select {
-    font-size: 4vw;
-  }
-  .datePicking h4 {
-    font-size:3vw;
-    padding:0;
-    margin:15px 0 0;
-  }
-  #startDate {
-    font-size:3.5vw;
-    text-align: center;
-    margin-top: 0;
-  }
-.jump {
-  margin-top:5px;
-}
-.formButton {
-  width: 110px;
-  margin: 5px auto 0;
-}
-.leftSide {
-  display: inline-block;
-  vertical-align: top;
-  width: 100px;
-}
-.rightSide {
-  display: inline-block;
-  vertical-align: top;
-  width: 100px;
-}
-select {
-  font-size: 4vw;
-}
-.datePicking h4 {
-  font-size:3vw;
-  padding:0;
-  margin:15px 0 0;
-}
-#startDate {
-  font-size:3.5vw;
-  text-align: center;
-  margin-top: 0;
-}
-#scheduleInfo h5 {
-  font-size:4vw;
-  margin: 10px auto 0;
-}
-h3 {
-  font-size: 3vw;
-  width: 250px;
-  margin: 0 auto;
-}
-.confirmButton button {
-  font-size: 3vw;
-  background-color: green;
-  color: white;
-  font-weight: bold;
-  margin: 0 auto;
-width:50px;
-}
-}
-@media only screen and (max-width: 375px) {
-  body {
-    background: transparent url(../../images/tulip-master-417-667.jpg); 
-    background-position: calc(50% - 00px) calc(0% - 0px); 
-    background-repeat: no-repeat; 
-    background-attachment: fixed;
-  } 
-
-  #root{
-    background: -moz-linear-gradient(bottom, rgba(255,255,255,.7) 57%, rgba(255,255,255,0) 70%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(bottom, rgba(255,255,255,.7) 57%,rgba(255,255,255,0) 70%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to top, rgba(255,255,255,.7) 57%,rgba(255,255,255,0) 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    background-position: calc(0% - 0px) calc(0% - 0px); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
-    
-  }
-  h1 {
-    display:none;
-  }
-  .title {
-    font-weight:bold;
-  }
-  .senderBlock h5, .receiverBlock h5 {
-    font-size:3.5vw;
-    padding:3px 0;
-    margin:10px 0 5px 0px;
-    border:1px #999 solid;
-    font-weight: bold;
-    width:100px;
-    border-radius:5px;
-    background:#eee;
-    color:#000;
-  }
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_280.png');
-    background-repeat:no-repeat;
-    height:280px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_280.png');
-    background-repeat:no-repeat;
-    height:280px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_280.png');
-    background-repeat:no-repeat;
-    height:373px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .message-success {
-    margin-top:10px;
-    text-align:center;
-  }
-  /* .landing {
-    margin-top:240px;
-    text-align: center;
-  }
-  .landing p{
-    font-size: 4vw;
-    text-align: justify;
-    font-weight:normal;
-    width:90%;
-    margin:5px auto 0;
-  }
-  .landing h2{
-    font-size: 4vw;
-    background:#a10f22;
-    padding: 10px 0px;
-    color:white;
-    width:90%;
-    margin:0 auto 0;
-    border-radius: 10px;
-    } */
-
-  .chooseButton {
-    width:80px;
-    height: 35px;
-    margin:10px auto 0;
-    font-size:4vw;
-  }
-  .productDetailPrice {
-    font-size:3vw;
-  }
-  .productDetailDesc {
-    width:280px;
-    margin: 0 auto;
-    font-size:3vw;
-  }
-  #deliveryMsg {
-    font-size:2.5vw;
-  }
-  input{
-    font-size:1.1em;
-    }
-    .orderSummary h5 {
-      width: 200px;
-      margin: 0px auto 0;
-  }
-  input {
-    height:25px;
-  }
-  .jump {
-    margin-top:5px;
-  }
-  .formButton {
-    width: 110px;
-    margin: 5px auto 0;
-  }
-  .leftSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .rightSide {
-    display: inline-block;
-    vertical-align: top;
-    width: 100px;
-  }
-  .scheduleFormFields p {
-    font-size: 3.5vw;
-  }
-  select {
-    font-size: 4vw;
-  }
-  .datePicking h4 {
-    font-size:3vw;
-    padding:0;
-    margin:15px 0 0;
-  }
-  #startDate {
-    font-size:3.5vw;
-    text-align: center;
-    margin-top: 0;
-  }
-.jump {
-  margin-top:5px;
-}
-.formButton {
-  width: 110px;
-  margin: 5px auto 0;
-}
-.leftSide {
-  display: inline-block;
-  vertical-align: top;
-  width: 100px;
-}
-.rightSide {
-  display: inline-block;
-  vertical-align: top;
-  width: 100px;
-}
-select {
-  font-size: 4vw;
-}
-.datePicking h4 {
-  font-size:3vw;
-  padding:0;
-  margin:15px 0 0;
-}
-#startDate {
-  font-size:3.5vw;
-  text-align: center;
-  margin-top: 0;
-}
-#scheduleInfo h5 {
-  font-size:4vw;
-  margin: 10px auto 0;
-}
-h3 {
-  font-size: 3vw;
-  width: 250px;
-  margin: 0 auto;
-}
-.confirmButton button {
-  font-size: 3vw;
-  background-color: green;
-  color: white;
-  font-weight: bold;
-  margin: 0 auto;
-width:50px;
-}
-}
-@media only screen and (max-width: 320px) {
-  input { 
-    height:25px;
-    font-size:1.5em;
-  }
-  form {
-    padding:0;
-  }
-
-  .receiverBlock h5{
-    font-size:4vw;
-    padding:0px;
-    font-weight: bold;
-    width:100px;
-    text-decoration:underline;
-
-  }
-  .senderBlock h5 {
-    font-size:4vw;
-    padding:0px;
-    font-weight: bold;
-    width:100px;
-    text-decoration:underline;
-  }
-  p.recipient {
-    font-size: 30vw;
-  }
-
-
-  .productPhoto_p1 {
-    background-image: url('../../images/_DSC3345_280.png');
-    background-repeat:no-repeat;
-    height:280px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .productPhoto_p2 {
-    background-image: url('../../images/_DSC2980_280.png');
-    background-repeat:no-repeat;
-    height:280px;
-    width:280px;
-    margin: 0 auto;
-  }
-  .productPhoto_p3 {
-    background-image: url('../../images/_DSC3098_280.png');
-    background-repeat:no-repeat;
-    height:373px;
-    width:280px;
-    margin: 0 auto;
-
-  }
-  .productDetailDesc {
-    margin:5px auto;
-    width:80%;
-    font-size:3vw;
-  }
-  p.productDetailPrice {
-    font-size:4vw;
-  }
-  .chooseButton {
-    font-size:3.5vw;
-    margin-top:10px;
-    background-color:green;
-    color:white;
-    font-weight:bold;
-    margin: 0 auto;
-    border: .5px #ccc solid;
-  }
-  /* .landing {
-    min-width:280px;
-    width: 80%;
-    margin: 5px auto 0;
-    font-size:3vw;
-  }
-  .landing p{
-    font-size: 4vw;
-    text-align: justify;
-    font-weight:normal;
-    width:98%;
-    margin-top:5px;
-  }
-  .landing h2{
-    font-size: 4vw;
-  } */
-
-  #scheduleInfo .jumpBack{
-    font-size:3vw;
-  }
-  .scheduleBlock .jump{
-    width:50px;
-  }
-  p.recipient{
-    font-size:3.5vw;
-  }
-  .schedule h3 {
-    width: 200px;
-  
-  }
-  .jumpBack {
-    background-color:yellow;
-    font-size:2.5vw;
-    padding:0.72916667% 1.0416667%;
-    font-weight:bold;
-
-    border: .5px #ccc solid;
-    margin-left:5px;
-    float:left;
-  }
-  .checkoutButton button{
-
-    margin: 0 auto;
-
-  }
-  .orderSummary h5 {
-    width: 200px;
-    margin: 0px auto 0;
-}
-input {
-  height:25px;
-}
-.jump {
-  margin-top:5px;
-}
-.formButton {
-  width: 110px;
-  margin: 5px auto 0;
-}
-.leftSide {
-  display: inline-block;
-  vertical-align: top;
-  width: 100px;
-}
-.rightSide {
-  display: inline-block;
-  vertical-align: top;
-  width: 100px;
-}
-select {
-  font-size: 4vw;
-}
-.datePicking h4 {
-  font-size:3vw;
-  padding:0;
-  margin:15px 0 0;
-}
-#startDate {
-  font-size:3.5vw;
-  text-align: center;
-  margin-top: 0;
-}
-#scheduleInfo h5 {
-  font-size:4vw;
-  margin: 10px auto 0;
-}
-form-input {
-  margin-top:250px;
 }
 
 }

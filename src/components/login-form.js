@@ -19,7 +19,7 @@ export class LoginForm extends React.Component {
                 </div>
             );
         }
-        const registerButton = (<button className="jump" type="button"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'black'}} to="/register" >Register</Link></button>);
+        const registerButton = (<button className="jump" type="button"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'white', }} to="/register" >Register</Link></button>);
 
         return (
             <form

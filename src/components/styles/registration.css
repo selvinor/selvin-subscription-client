@@ -8,30 +8,38 @@ input {
 }
 button {
   margin: 0 auto;
-  background-color: rgb(23, 146, 218);
+  background-color: steelblue;
   color:white;
-  padding:1% 2%;
-  border-radius:8px;
+  padding:5px;
+  border-radius:10px;
   margin-top:3px;
-  font-size:4vw;
+  font-size:2vw;
 }
 
 button.login {
-  background-color: rgb(15, 161, 35); 
+  background-color: steelblue; 
 }
 
 label {
-  display:none;
+  font-size:2vw;
 }
 
 .loginLink{
   margin: 0 auto;
-  background-color: rgb(23, 146, 218);
+  background-color: steelblue;
   color:white;
-  padding:1%;
-  border-radius:8px;
+  padding:0px;
+  border-radius:10px;
   margin-top:3px;
-  font-size:4vw;
+  font-size:2vw;
   text-decoration:none;
   margin:10px;
+}
+div.register {
+margin-top:30%;
+}
+.registration-form {
+  width:40%;
+  margin:auto;
+  background-color:rgba(255, 255, 255, 0.15);
 }

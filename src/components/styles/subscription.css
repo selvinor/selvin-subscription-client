@@ -1,0 +1,23 @@
+#subscription-form {
+  background: url("../../images/pastelBack.jpg");
+  background-position: calc(50% - 00px) calc(0% - 0px); 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  display:flex;
+  max-height:1280px;
+}
+li {
+  list-style: none;
+}
+.logo {
+  background: transparent url("../../images/bloomsLogo_300.png");
+  background-repeat:no-repeat;
+  background-position: 0 0;
+  width:300px;
+  height:90px;
+  margin:auto;
+
+}
+input {
+  margin-bottom:10px;
+}
