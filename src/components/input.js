@@ -79,6 +79,7 @@ export default class Input extends React.Component {
               placeholder={this.props.placeholder}
               rows={this.props.rows}
               columns={this.props.columns}
+              autoComplete={this.props.autocomplete}
               >
               {this.props.children}
             </Element>

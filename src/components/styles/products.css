@@ -1,0 +1,81 @@
+#productChoice {
+  display:flex;
+  height:1280px;
+  flex-direction: column; 
+
+}
+#main {
+  display:flex;
+  min-height:350px;
+  flex-grow: 1;
+}
+#product-section {
+  height:1280px;
+}
+.products{
+
+  display: flex; 
+  flex-direction: row; 
+  margin-left:20px;
+  max-width:30%;
+}
+.arrangeButton {
+  text-align:center;
+  margin:20px auto auto;
+
+}
+.productSel  {
+  max-width:180px;
+  box-sizing: border-box;
+  flex: 1;
+  text-align:center;
+  margin:auto;
+}
+.productSel button {
+  margin:auto;
+}
+
+.selectButton:hover {
+  cursor: pointer;
+  background-color:red;
+}
+.thumb {
+  max-width:200px;
+}
+#p3Thumb{
+  background: url("../../images/_DSC3098_200.png");
+  height:200px;
+  width:200px;
+}
+#p2Thumb{
+  background: url("../../images/_DSC2980_200.png");
+  height:200px;
+  width:200px;
+}
+#p1Thumb{
+  background: url("../../images/_DSC3345_200.png");
+  height:200px;
+  width:200px;
+}
+.productInfo {
+  display: inline-flex; 
+  flex-direction: row; 
+  order: 2;
+}
+h5 {
+  display: flex; 
+  flex-direction: column; 
+  order: 1;
+}
+button {
+  display: flex; 
+  flex-direction: column; 
+  order: 2; 
+  padding:10px;
+  background-color:steelblue;
+  border-radius:10px;
+}
+a {
+  text-decoration:none;
+  color:white;
+}

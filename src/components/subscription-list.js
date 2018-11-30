@@ -1,42 +1,28 @@
 import  React from 'react';
-import { connect } from 'react-redux';
-import { fetchSubscriptions } from '../actions';
-//import './subscriptions.css';
+import SubscriptionBlock from './subscription-block';
+//import './styles/subscription-list.css'
 export class SubscriptionList extends React.Component {
-  componentDidMount() {
-    this.props.dispatch(fetchSubscriptions());
-  }
-
-  renderResults() {
-    const subscriptionList = this.props.subscriptions.map((subscription, index) => {
-      const {productCode, productName, frequency, duration, startDate, senderEmail, 
-        senderFirstName, senderLastName, senderPhone, recipientFirstName, recipientLastName, 
-        recipientCompany, recipientStreetAddress, recipientAptSuite, recipientCity, 
-        recipientState, recipientZipcode, recipientPhone, recipientMessage} = subscription;
-
-      return (<li key={index}> {productCode}, 
-      {productName}, {frequency}, {duration}, {startDate}, {senderEmail}, 
-      {senderFirstName}, {senderEmail}, {senderFirstName}, {senderLastName}, 
-      {senderPhone},  {recipientFirstName}, {recipientLastName}, {recipientCompany}, 
-      {recipientStreetAddress}, {recipientAptSuite}, {recipientCity}, {recipientState}, {recipientZipcode}, 
-      {senderFirstName}, {senderEmail}, {senderFirstName}, {senderLastName}, 
-      {recipientPhone},  {recipientMessage}</li>)
-    });
-    return subscriptionList;
-  }
-
-  render() {
+  render() { 
+    const subsList = [];
+    console.log('this.props.subscriptions.length', this.props.subscriptions.length); 
+    let i=0; 
+    while (i < this.props.subscriptions.length) {
+        // format subscription items
+      subsList.push(
+        <li key={i}>
+          <SubscriptionBlock  order={i+1} subscription={this.props.subscriptions[i]}/> 
+        </li>
+      );  
+      console.log('subsList.length: ', subsList.length); 
+      i++;  
+    }
+    console.log('ready to return');    
     return (
-      <ul>
-          {this.renderResults()}
-      </ul>
+      <ul className="subslist">
+        {subsList}
+      </ul>      
     );
   }
-}
- 
-const mapStateToProps = state => ({
-    subscriptions: state.subscriptions.subscriptions
-    // hasErrored: state.subscriptionsHasErrored,
-    // isLoading: state.subscriptionsIsLoading
-});
-export default connect(mapStateToProps)(SubscriptionList);
+} 
+
+export default SubscriptionList;

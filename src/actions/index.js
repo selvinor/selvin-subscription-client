@@ -57,20 +57,21 @@ export const setDeliveryDate = (deliveryDate) => ({
     deliveryDate
 });
 
-export const fetchSubscriptions = () => dispatch => {
-  fetch(`${REACT_APP_BASE_URL}/api/subscriptions`)
-  .then(res => {
-      if (!res.ok) {
-          return Promise.reject(res.statusText);
-      }
-      return res.json();
-  }).then(subscriptions => {
-      dispatch(fetchSubscriptionSuccess(subscriptions));
-  });
-};
+export const LOAD_TEST_DATA = 'LOAD_TEST_DATA';
+export const loadTestData = (testData) => ({
+    type: LOAD_TEST_DATA,
+    testData
+});
+
+export const SHOW_LOGIN = 'SHOW_LOGIN';
+export const showLogin = () => ({
+    type: SHOW_LOGIN
+});
+
+// Async actions
 
 export const addSubscription = () => dispatch => {
-  fetch(`${REACT_APP_BASE_URL}/api/subscriptions`)
+  fetch(`${REACT_APP_BASE_URL}/subscriptions`)
   .then(res => {
       if (!res.ok) {
           return Promise.reject(res.statusText);

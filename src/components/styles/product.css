@@ -1,0 +1,56 @@
+body {
+  padding:0;
+  margin:0;
+}
+#root {
+  height:100%;
+  margin-top: 0px;
+  padding:0;
+}
+#product-section {
+  background: url("../../images/pastelBack.jpg");
+  background-position: calc(50% - 00px) calc(0% - 0px); 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  background-size: cover;
+  display:flex;
+  max-height:1280px;
+}
+
+.productDetail {
+  text-align:center;
+}
+
+.logo {
+  background: transparent url("../../images/bloomsLogo_300.png");
+  background-repeat:no-repeat;
+  background-position: center center;
+  width:300px;
+  height:90px;
+  margin:auto;
+  padding:0;
+  display:flex;
+
+  
+}
+.product-shot {
+  margin:auto;
+  
+  padding:40px;
+  border-radius: 50%;
+  /* background-image: radial-gradient(circle, pink, white, purple); */
+
+}
+/* .product-shot img{
+  background-image: radial-gradient(circle, pink, white, purple);
+  padding:10px;
+  border-radius: 50%;
+} */
+.productDetailDesc {
+  text-align:center;
+
+  margin:auto;
+}
+button {
+  margin-left:20px;
+}

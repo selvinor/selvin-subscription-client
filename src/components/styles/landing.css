@@ -1,0 +1,305 @@
+body {
+  background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(255, 255, 255, 0), 
+      rgba(255, 255, 255, 1)
+    ),
+  url(../../images/tulip-master_with_logo_1920_1280.jpg); 
+  
+  background-position: calc(50% - 00px) calc(0% - 0px); 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  background-blend-mode: screen;
+} 
+
+#root {
+  width:100%;
+  height:100%;
+}  
+
+.entry {
+  text-align:center;
+  display:flex;
+  margin-top:20px;
+}
+button.jump {
+
+  margin:0 auto;
+  background-color: steelblue;
+  color:white;
+  padding:10px;
+  border-radius:10px;
+  font-size:1.6vw;
+  text-align:center;
+}
+.jump a{
+  text-decoration:none; 
+  color:white;
+}
+/* button.login {
+  margin: 0 auto;
+  background-color: rgb(23, 146, 218);
+  color:white;
+  padding:1%;
+  border-radius:8px;
+  margin-top:3px;
+  font-size:1vw;
+}
+
+button.jump {
+
+  margin-right: 5%;
+  background-color: rgb(23, 146, 218);
+  color:white;
+  padding:1%;
+  border-radius:8px;
+  font-size:1vw;
+} */
+
+.login-form {
+  float:right;
+  margin:-150px 15px 0 0;
+  padding:0px;
+  font-size:1.6vw;
+  text-align:center;
+}
+input {
+  border-radius:5px;
+ 
+}
+.landing p {
+  font-size:1.8vw;
+}
+.landing-section {
+  display:flex;
+  height:1200px; 
+}
+.landing {
+  width:55%;
+  margin:auto;
+}
+.landing h2 {
+  font-size:2vw;
+
+}
+p{
+  font-size:1.4vw;
+  margin:1%;
+}
+.mainTitle {
+  display:none;
+  font: size 4vw;
+  text-align:center;
+  margin:0 auto;
+}
+.login-form {
+  width:40%;
+position:relative;
+top:-400px;
+  padding:0px;
+  font-size:1.5vw;
+  text-align:center;
+}
+input {
+  border-radius:3px;
+  border:1px #ccc solid;
+  height:20px;
+  padding:1% 2%;
+  margin-top:2px;
+  font-size:1vw;
+}
+.landing {
+  width:55%;
+  margin:auto;
+}
+@media only screen and (max-width: 1366px) {
+
+
+  .landing h2 {
+    font-size:2.5vw;
+
+  }
+
+  .mainTitle {
+
+    font: size 4vw;
+    text-align:center;
+    margin:0 auto;
+  }
+  p{
+    font-size:1.7vw;
+    margin:1%;
+  }
+
+  .login-form {
+    margin-top:10px;
+    padding:0px;
+    font-size:1.5vw;
+    text-align:center;
+  }
+  button.login {
+    margin: 0 auto;
+    background-color: steelblue;
+    color:white;
+    padding:1%;
+    border-radius:8px;
+    margin:5px auto;
+    text-align:center;
+    font-size:1.8vw;
+  }
+  input {
+    border-radius:3px;
+    border:1px #ccc solid;
+    height:20px;
+    padding:1% 2%;
+    margin-top:2px;
+    font-size:2vw;
+  }
+}
+@media only screen and (max-width: 1024px) {
+ 
+  .login-form {
+    margin-top:10px;
+    padding:0px;
+    font-size:2vw;
+    text-align:center;
+  }
+
+  .mainTitle {
+    font: size 4vw;
+    text-align:center;
+    margin:0 auto;
+  }
+  p{
+    font-size:2.4vw;
+    margin:1%;
+  }
+
+}
+
+@media only screen and (max-width: 768px){
+
+  body {
+    background: 
+      /* top, transparent red, faked with gradient */ 
+      linear-gradient(
+        rgba(255, 255, 255, 0), 
+        rgba(255, 255, 255, 1)
+      ),
+    url(../../images/tulip-master_with_logo_768_1228.jpg); 
+    
+    background-position: calc(50% - 00px) calc(0% - 0px); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-blend-mode: screen;
+    height:1024px;
+  } 
+  .landing-section {
+    display:flex;
+    /* height:1280px; */
+  }
+  .landing {
+    width:55%;
+    margin:auto;
+  }
+  .landing h2 {
+    font-size:3vw;
+    margin:1.2%;
+  }
+
+  .mainTitle {
+    font: size 4vw;
+    text-align:center;
+    margin:0 auto;
+  }
+  p {
+    font-size: 2.6vw;
+    margin:1.5%;
+  }
+
+  .login-form {
+    width:60%;
+    margin-top:10px;
+    padding:0px;
+    font-size:3vw;
+    text-align:center;
+  }
+  button.login {
+    margin: 0 auto;
+    background-color: steelblue;
+    color:white;
+    padding:1.2% 2%;
+    border-radius:8px;
+    margin:10px 0px;
+    font-size:2.2vw;
+  }
+  input {
+    border-radius:3px;
+    border:1px #ccc solid;
+    height:20px;
+    padding:1% 2%;
+    margin-top:2px;
+    font-size:2.5vw;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .landing-section {
+    display:flex;
+    /* height:1024px; */
+  }
+  .landing {
+    width:60%;
+    margin:auto;
+  }
+}
+
+
+@media only screen and (max-width: 414px) and (max-height: 736px){
+  body {
+    background: rgba(247, 244, 244, 0.7)  url(../../images/tulip-master_with_logo_460_736.jpg); 
+    background-position: calc(50% - 00px) calc(0% - 0px); 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-blend-mode: screen;
+    height:736px;
+    background-size: cover;
+  } 
+
+  .landing-section {
+    display:flex;
+    /* height:1024px; */
+  }
+  .landing {
+    width:55%;
+    margin:auto;
+  }
+  .landing h2 {
+    font-size:3.5vw;
+
+  }
+  .mainTitle {
+    font: size 4vw;
+    text-align:center;
+    margin:0 auto;
+  }
+  p {
+    font-size: 3.7vw;
+  }
+  .login-form {
+    margin-top:10px;
+    padding:0px;
+    font-size:3vw;
+    text-align:center;
+  }
+
+    input {
+    font-size: 3.5vw;
+    border-radius:3px;
+    border:1px #ccc solid;
+    height:20px;
+    padding:1% 2%;
+    margin-top:2px;
+  }
+}

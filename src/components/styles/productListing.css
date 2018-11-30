@@ -1,0 +1,30 @@
+body {
+  margin:0;
+  padding:0;
+}
+#root {
+
+  height:100%;
+  margin-top:0px;
+  padding:0;
+}
+.products {
+  position:fixed;
+  width:100%;
+  margin:100% 0 0 0;
+  background:rebeccapurple;
+}
+.thumbnail {
+
+  padding:5px;
+  border:1px #666 solid;
+  margin-left:15px;
+  background:#fff;
+}
+
+.thumb{
+  padding:1px;
+  border:1px #333 solid;
+
+
+}

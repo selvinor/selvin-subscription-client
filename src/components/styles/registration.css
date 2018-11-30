@@ -1,0 +1,45 @@
+h2 {
+  text-align:center;
+}
+
+input {
+  border-radius:6px;
+  margin-bottom:5px;
+}
+button {
+  margin: 0 auto;
+  background-color: steelblue;
+  color:white;
+  padding:5px;
+  border-radius:10px;
+  margin-top:3px;
+  font-size:2vw;
+}
+
+button.login {
+  background-color: steelblue; 
+}
+
+label {
+  font-size:2vw;
+}
+
+.loginLink{
+  margin: 0 auto;
+  background-color: steelblue;
+  color:white;
+  padding:0px;
+  border-radius:10px;
+  margin-top:3px;
+  font-size:2vw;
+  text-decoration:none;
+  margin:10px;
+}
+div.register {
+margin-top:30%;
+}
+.registration-form {
+  width:40%;
+  margin:auto;
+  background-color:rgba(255, 255, 255, 0.15);
+}

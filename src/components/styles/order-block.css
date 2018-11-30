@@ -1,0 +1,16 @@
+ul {
+  list-style: none;
+}
+.orderBlock {
+  list-style: none;
+  width:100%;
+
+}
+.orderTitle  {
+  border-top:1px solid #999;
+  border-bottom:1px solid #999;
+  padding:5px;
+  text-align:center;
+  color:#eee;
+  background: rgb(102, 5, 110);
+}
