@@ -30,7 +30,7 @@ div, span, p {
 	padding: 0;
 }
 
-.recipient-page label {
+#recipient-page label {
   font-size: 1vw;
   margin: 0;
   padding: 0;
@@ -574,17 +574,17 @@ font-size:2vw;
 .scheduleFormFields .orderSummary{
   text-align:left;
 }
-.recipient-page {
+#recipient-page {
   display: flex;
   flex-flow: column nowrap;
   height: 100%;
 }
 
-.recipient-page  input {
+#recipient-page  input {
   margin:0px;
 
 }
-.recipient-page div{
+#recipient-page div{
   /* margin: 20px auto 0; */
 }
 .recipient-button {
@@ -593,7 +593,7 @@ font-size:2vw;
   display:flex;
   margin:20px;
 }
-.recipient-page button {
+#recipient-page button {
   font-size:1.2vw;
   padding:10px;
   margin:auto;
@@ -771,7 +771,7 @@ font-size:2vw;
   .orderSummary h5 {
     font-size:3vw;
   }
-  .recipient-page button {
+  #recipient-page button {
     font-size: 1.5vw;
     padding: 10px;
     margin: auto;
@@ -788,7 +788,7 @@ font-size:2vw;
     border-radius: 10px;
     margin: auto;
 }
-.recipient-page label {
+#recipient-page label {
   font-size: 2vw;
   margin: 0;
   padding: 0;
@@ -834,7 +834,7 @@ label {
   .orderSummary h5 {
     font-size:3vw;
   }
-  .recipient-page button {
+  #recipient-page button {
     font-size: 1.5vw;
     padding: 10px;
     margin: auto;
@@ -851,17 +851,17 @@ label {
     border-radius: 10px;
     margin: auto;
   }
-    .recipient-page label {
+    #recipient-page label {
       font-size: 2vw;
     margin: 0;
     padding: 0;
   }
-  .recipient-page button {
+  #recipient-page button {
     font-size: 3vw;
     padding: 10px;
     margin: auto;
   }
-  .recipient-page label {
+  #recipient-page label {
     font-size: 3vw;
     margin: 3px 0;
     padding: 0;
@@ -880,7 +880,7 @@ label {
   .orderSummary h5 {
     font-size:4vw;
   }
-  .recipient-page button {
+  #recipient-page button {
     font-size: 2.5vw;
     padding: 10px;
     margin: auto;
@@ -897,17 +897,17 @@ label {
     border-radius: 10px;
     margin: auto;
   }
-  .recipient-page label {
+  #recipient-page label {
       font-size: 3vw;
     margin: 0;
     padding: 0;
   }
-  .recipient-page button {
+  #recipient-page button {
     font-size: 4vw;
     padding: 10px;
     margin: auto;
   }
-  .recipient-page label {
+  #recipient-page label {
     font-size: 3vw;
     margin: 3px 0;
     padding: 0;

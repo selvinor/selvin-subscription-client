@@ -269,7 +269,7 @@ console.log('validating');
             {successMessage}
             {errorMessage} 
         { this.props.current.formSection === "recipient" ?             
-              <div className="recipient-page">
+              <div id="recipient-page">
               <div className="recipient-button">
                 <button className="jumpBack" type="button"> <Link style={{display: 'block', height: '100%'}} to={`/products/${this.props.current.productCode}`} >BACK</Link></button>            
               </div>
