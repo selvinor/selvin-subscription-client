@@ -1,0 +1,42 @@
+.header-bar{
+  background-color: transparent;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  color: white;
+}
+.mainTitle  {
+  padding:10px 0;
+  margin:auto;
+  text-align:center;
+}
+h1.mainTitle {
+  width:500px;
+  margin:0 auto;
+}
+.logo {
+  background: transparent url("/img/bloomsLogo_500.png");
+  background-repeat:no-repeat;
+  background-position: 0 0;
+  width:500px;
+  height:150px;
+  margin:auto;
+
+}
+@media screen and (max-width: 768px){
+  h1.mainTitle {
+    width:300px;
+    margin:0 auto;
+  }
+  .logo {
+    background: transparent url("/img/bloomsLogo_300.png");
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    width:300px;
+    height:90px;
+    margin:auto;
+    margin-top:10px;
+  
+  }
+}

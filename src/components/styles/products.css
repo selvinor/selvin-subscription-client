@@ -1,35 +1,49 @@
 #productChoice {
-  display:flex;
-  height:1280px;
-  flex-direction: column; 
+  /* display:flex;
+  height:100%;
+  flex-direction: column;  */
 
 }
 #main {
   display:flex;
-  min-height:350px;
+  height:100%;
   flex-grow: 1;
+  flex-direction: column;
 }
-#product-section {
-  height:1280px;
+
+#productChoice {
+  background:rgba(255, 255, 255, 0.67) ;
+  border-radius:15px;
+  margin:auto;
+
+  padding:20px;
+
+  width:60%;
+
+}
+.app {
+  display:flex;
+  height:100%;
+}
+.header {
+  margin-top:20%;
 }
 .products{
 
   display: flex; 
   flex-direction: row; 
   margin-left:20px;
-  max-width:30%;
+
 }
 .arrangeButton {
   text-align:center;
-  margin:20px auto auto;
+  margin:auto;
+  font-size:1.2vw;
 
 }
 .productSel  {
-  max-width:180px;
   box-sizing: border-box;
-  flex: 1;
   text-align:center;
-  margin:auto;
 }
 .productSel button {
   margin:auto;
@@ -40,7 +54,7 @@
   background-color:red;
 }
 .thumb {
-  max-width:200px;
+  max-width:120px;
 }
 #p3Thumb{
   background: url("../../images/_DSC3098_200.png");
@@ -78,4 +92,92 @@ button {
 a {
   text-decoration:none;
   color:white;
+}
+.products {
+  justify-content: space-evenly;
+}
+.products li {
+
+  text-align:center;
+  padding:0px;
+  font-weight:bold;
+  color:#000000;
+}
+.products h4 {
+  padding:0;
+  margin:0;
+}
+
+
+ul.products {
+  width:100%;
+
+}
+@media screen and (max-width: 1366px){
+  #p3Thumb{
+    background: url("../../images/_DSC3098_120_160.png");
+    height:160px;
+    width:120px;
+  }
+  #p2Thumb{
+    background: url("../../images/_DSC2980_120.png");
+    height:120px;
+    width:120px;
+  }
+  #p1Thumb{
+    background: url("../../images/_DSC3345_120.png");
+    height:120px;
+    width:120px;
+  }
+  
+}
+@media screen and (max-width: 768px){
+  #p3Thumb{
+    background: url("../../images/_DSC3098_120_160.png");
+    height:160px;
+    width:120px;
+  }
+  #p2Thumb{
+    background: url("../../images/_DSC2980_120.png");
+    height:120px;
+    width:120px;
+  }
+  #p1Thumb{
+    background: url("../../images/_DSC3345_120.png");
+    height:120px;
+    width:120px;
+  }
+
+  #productChoice {
+    background-color:rgba(255, 255, 255, 0.67) ;
+    border-radius:15px;
+    margin:auto;
+    padding:20px;
+    margin-top:0;
+  }
+  .arrangeButton {
+    text-align: center;
+    margin: auto;
+     font-size: 2vw; 
+  }
+
+}
+@media screen and (max-width: 415px){
+  #productChoice {
+    background-color:rgba(255, 255, 255, 0.67) ;
+    border-radius:15px;
+    margin:auto;
+    padding:20px;
+    margin-top:0;
+    width:80%;
+  }
+  .arrangeButton {
+    text-align: center;
+    margin: auto;
+     font-size: 2.8vw; 
+  }
+  .productInfo h3 {
+    font-size: 3.5vw;
+    padding: 0px;
+}
 }

@@ -3,22 +3,23 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import './styles/products.css';
 import { setProductChoice } from '../actions'
+import HeaderBar from './header-bar';
 
 class Products extends React.Component { 
 
   render() {
 
-    console.log('+++++++++++++this.props: ', this.props);
-
     return (
       <Fragment>
-      <section id="main"></section>
+      
+      <section id="main">
+        <HeaderBar />
         <section id="productChoice">
           <div className="products product3">   
             <div className="productSel thumb">
-              <div id="p3Thumb" onClick={this.props.setChoiceP3 }>
-                <Link to="/products"></Link>
-              </div> 
+            <Link to="/products/p3"><div id="p3Thumb" onClick={this.props.setChoiceP3 }></div></Link>
+                
+              
             </div> 
             <div className="productSel description">
               <div className="productInfo">
@@ -33,9 +34,7 @@ class Products extends React.Component {
           </div>
           <div className="products product2">   
             <div className="productSel thumb">
-              <div id="p2Thumb" onClick={this.props.setChoiceP2 }>
-                <Link to="/products"></Link>
-              </div> 
+              <Link to="/products/p2"><div id="p2Thumb" onClick={this.props.setChoiceP2 }></div></Link>             
             </div> 
             <div className="productSel description">
               <div className="productInfo">
@@ -51,9 +50,7 @@ class Products extends React.Component {
           </div>
           <div className="products product1">   
             <div className="productSel thumb">
-              <div id="p1Thumb" onClick={this.props.setChoiceP1 }>
-                <Link to="/products"></Link>
-              </div> 
+              <Link to="/products/p1"><div id="p1Thumb" onClick={this.props.setChoiceP1 }></div></Link>             
             </div> 
             <div className="productSel description">
               <div className="productInfo">
@@ -65,10 +62,10 @@ class Products extends React.Component {
                 </button>
               </div> 
             </div> 
-
           </div>
         </section>
-        </Fragment>
+      </section>
+    </Fragment>
     );
   }
 }

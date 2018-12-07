@@ -8,6 +8,7 @@ import './styles/subscription-add-form.css';
 import './styles/recipient-block.css'; 
 import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
 import {REACT_APP_BASE_URL} from '../config';
+
 export class SubscriptionAddForm extends React.Component {
   componentDidMount() {
     console.log('product is: ', this.props.match.params);
@@ -268,18 +269,19 @@ console.log('validating');
             {successMessage}
             {errorMessage} 
         { this.props.current.formSection === "recipient" ?             
-            <ul id="recipients" className="recipientInfo">
-              <li>         
-              <button className="jumpBack" type="button"> <Link style={{display: 'block', height: '100%'}} to={`/products/${this.props.current.productCode}`} >BACK</Link></button>              
-                <div className="orderSummary">
-                  <h5>Order Details</h5>
-                  <p className="recipient productName">Product: {this.props.current.productName}</p>
-                  <p className="recipient productPrice">Price: {this.props.current.productPrice}</p>
-                  <p className="recipient productPrice">Delivery: $20</p>                 
-                </div>
-              </li>
+              <div className="recipient-page">
+              <div className="recipient-button">
+                <button className="jumpBack" type="button"> <Link style={{display: 'block', height: '100%'}} to={`/products/${this.props.current.productCode}`} >BACK</Link></button>            
+              </div>
+              <div className="recipient-orderSummary">
+                <h5>Order Details</h5>
+                <p className="recipient-productName"><span className="bold">Product:</span> {this.props.current.productName}</p>
+                <p className="recipient-productPrice"></p>
+                <p className="recipient-productName"><span className="bold">Price:</span> ${this.props.current.productPrice}</p>
+              </div>
+              <ul className="recipients-info">
               <li>
-                <h5>PLEASE ENTER RECIPIENT INFO</h5>
+                <h5>PLEASE ENTER RECIPIENT INFO:</h5>
               </li>
               <li>            
                 <div className="form-input recipientInfoFields1">             
@@ -362,7 +364,7 @@ console.log('validating');
                       validate={[required, nonEmpty]}
                     />
                   </label>             
-                  <label htmlFor="recipientMessage" className="recipientMessage"></label>MESSAGE                              
+                  <label htmlFor="recipientMessage" className="recipientMessage">MESSAGE                              
                     <Field
                       name="recipientMessage"
                       type="textarea"
@@ -370,13 +372,15 @@ console.log('validating');
                       cols="50"
                       component={Input}
                       placeholder="Why are you sending?"
-                    />                    
+                    /> 
+                  </label>                    
                 </div>
-                <div className=" recipientData">
+                <div className="recipientData">
                   <button className="formButton jump"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>
                 </div>
               </li>
             </ul>
+            </div>
         : ""  } 
         { this.props.current.formSection === "schedule" ?  
         <ul id="scheduleInfo">
@@ -391,7 +395,7 @@ console.log('validating');
                     <div className="orderSummary">
                       <h5>Order Details</h5>
                       <p className="recipient productName">Product: {this.props.current.productName}</p>
-                      <p className="recipient productPrice">Price: {this.props.current.productPrice}</p>
+                      <p className="recipient productPrice">Price: ${this.props.current.productPrice}</p>
                       <p className="recipient productPrice">Delivery: $20</p>                 
                       <p className="recipient productPrice">Total: ${+deliveryCharge + +this.props.current.productPrice}</p>               
                     </div>

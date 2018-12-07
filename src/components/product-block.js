@@ -1,9 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 //import './styles/product-block.css';
 
-export default class ProductBlock extends React.Component {
+class ProductBlock extends React.Component {
   render() {
-console.log('productBlock - thus.props: ', this.props);
+console.log('productBlock - this.props: ', this.props);
     return (
       <div className="productBlock">
       <h5 className="productTitle">PRODUCT</h5>
@@ -17,3 +18,13 @@ console.log('productBlock - thus.props: ', this.props);
     );
   }
 }
+
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.User !== null,
+  current:  state.subscription
+});
+
+// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
+
+export default connect(mapStateToProps)(ProductBlock);

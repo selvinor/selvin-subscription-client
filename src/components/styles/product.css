@@ -7,7 +7,10 @@ body {
   margin-top: 0px;
   padding:0;
 }
-#product-section {
+.product {
+  margin:auto;
+}
+#product-main {
   background: url("../../images/pastelBack.jpg");
   background-position: calc(50% - 00px) calc(0% - 0px); 
   background-repeat: no-repeat; 
@@ -16,27 +19,18 @@ body {
   display:flex;
   max-height:1280px;
 }
-
+.product-back-button {
+  align-self: flex-start;
+}
 .productDetail {
   text-align:center;
 }
 
-.logo {
-  background: transparent url("../../images/bloomsLogo_300.png");
-  background-repeat:no-repeat;
-  background-position: center center;
-  width:300px;
-  height:90px;
-  margin:auto;
-  padding:0;
-  display:flex;
 
-  
-}
 .product-shot {
   margin:auto;
   
-  padding:40px;
+  padding:0px;
   border-radius: 50%;
   /* background-image: radial-gradient(circle, pink, white, purple); */
 
@@ -48,9 +42,44 @@ body {
 } */
 .productDetailDesc {
   text-align:center;
-
   margin:auto;
+  font-size: 3vw;
+}
+.productDetail {
+
+  width:100%;
+  text-align:center;
+}
+.productDetailPrice{
+  font-size:3vw;
 }
 button {
   margin-left:20px;
+}
+.header {
+  margin:auto;
+  display:flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px){
+  h1.mainTitle {
+    width:300px;
+    margin:0 auto;
+  }
+  .productDetail h3 {
+    font-size:4vw;
+    margin-bottom:5px;
+  }
+  button {
+   font-size:2vw;
+  }
+  .productDetailPrice{
+    font-size:3vw;
+  }
+  .productDetailDesc {
+    text-align:center;
+    margin:auto;
+    font-size:3.5vw;
+  padding:10px;
+  }
 }

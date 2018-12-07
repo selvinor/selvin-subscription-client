@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import './styles/product.css';
 import { setProductChoice } from '../actions'
+import HeaderBar from './header-bar';
 
 class Product extends React.Component { 
   componentDidMount() {
@@ -28,22 +29,21 @@ class Product extends React.Component {
   }
 
     return (
-      <Fragment>
+      <Fragment>  
+      <section id="product-main">
 
-        <section id="product-section">
-        
+        <section id="product-section">  
+
+          <button className="product-back-button">
+            <Link style={{display: 'block', height: '100%'}} to="/products/">BACK</Link>
+          </button>
+          <HeaderBar />
           <div className="product">
-          
-          <span className="logo"></span>
-            <button className="arrangeButton">
-              <Link style={{display: 'block', height: '100%'}} to="/products/">BACK</Link>
-            </button>
-
             <div className="productDetail">
-              <h2>{this.props.current.productName}</h2> 
               <div className="product-shot">
                 <Link style={{display: 'block', height: '100%'}} to={to}><img src={this.props.current.productPhoto} alt=""/></Link>              
               </div>
+              <h3>{this.props.current.productName}</h3> 
               <p className="productDetailPrice">Starting at: ${this.props.current.productPrice}</p>
               <p className="productDetailDesc">{this.props.current.productDesc}</p> 
                 <button className="arrangeButton">
@@ -51,6 +51,7 @@ class Product extends React.Component {
                 </button>
             </div>  
           </div>              
+        </section>
         </section>
       </Fragment>
     )

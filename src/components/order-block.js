@@ -1,19 +1,24 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import ProductBlock from './product-block';
-import ScheduleBlock from './schedule-block';
-import RecipientBlock from './recipient-block';
 //import './styles/order-block.css';
 
-export default class OrderBlock extends React.Component {
+class OrderBlock extends React.Component {
 
   render() {
+    console.log('order block props: ', this.props);
     return (
       <div className="orderBlock">
-      <h5 className="orderTitle">ORDER #{this.props.orderNum}</h5>
-        <RecipientBlock recipient={this.props.order.recipient}/>
-        <ProductBlock product={this.props.order.product}/>
-        <ScheduleBlock schedule={this.props.order.schedule}/>
+        <ProductBlock product={this.props.subscription.productCode}/>
       </div>
     );
   }
 }
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.User !== null,
+  subscription:  state.subscription
+});
+
+// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
+export default connect(mapStateToProps)(OrderBlock);
