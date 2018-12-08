@@ -23,7 +23,7 @@ export class SubscriptionAddForm extends React.Component {
     values['productName'] = this.props.current.productName;
     values['frequency'] = this.props.current.frequency;
     values['duration'] = this.props.current.duration;
-
+console.log('submitted');
     return fetch(`${REACT_APP_BASE_URL}/subscriptions`, {
       method:'POST',
       body: JSON.stringify(values),
@@ -166,10 +166,10 @@ export class SubscriptionAddForm extends React.Component {
     let formSection;
 console.log('validating');
     switch (section) {
-      case 'recipient':
+      case 'recipient-page':
         fieldsToCheck = [0,1,3,5,6,7,8];
         destination = 'schedule';
-        formSection = 'recipients';
+        formSection = 'recipient-page';
       break;
       case 'schedule':
         dispatchStartDate(firstAvailableDate());
@@ -184,7 +184,7 @@ console.log('validating');
       default:
         fieldsToCheck = [0,1,3,5,6,7,8];
         destination = 'sender';
-        formSection = 'recipients';
+        formSection = 'recipient-page';
       break;
     }  
     const check = document.getElementById(formSection).getElementsByTagName("input");
@@ -239,7 +239,7 @@ console.log('validating');
       formButton = ( <button className="jump" onClick={() => validateFields('schedule')}  type="button">NEXT</button>); 
       break;
     case 'recipient':
-      formButton = (<button className="jump formButton"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>);
+      formButton = (<button className="jump formButton"  onClick={() => validateFields('recipient-page')}  type="button">NEXT</button>);
       break;
     case 'checkout':
       formButton = (<button  className="jump" type="submit" disabled={this.props.pristine || this.props.submitting}>SUBSCRIBE!</button>);
@@ -376,13 +376,16 @@ console.log('validating');
                   </label>                    
                 </div>
                 <div className="recipientData">
-                  <button className="formButton jump"  onClick={() => validateFields('recipient')}  type="button">NEXT</button>
+                  <button className="formButton jump"  onClick={() => validateFields('recipient-page')}  type="button">NEXT</button>
                 </div>
               </li>
             </ul>
             </div>
         : ""  } 
-        { this.props.current.formSection === "schedule" ?  
+        { this.props.current.formSection === "schedule" ? 
+        <Fragment>
+        <button className="jumpBack"  onClick={() => dispatchSection('recipient')}  type="button">BACK</button> 
+     
         <ul id="scheduleInfo">
           <li>                          
             <div className="scheduleBlock">
@@ -442,46 +445,43 @@ console.log('validating');
             </div>
           </li>
         </ul> 
+        </Fragment> 
         : ""  }  
         { this.props.current.formSection === "checkout" ? 
         <Fragment>               
-          <header>
-            <button className="jumpBack"  onClick={() => dispatchSection('schedule')}  type="button">BACK</button>              
-            <h4>If everything looks good, please click the 'subscribe' button to start your subscription!</h4>
-          </header>
+          <button className="jumpBack"  onClick={() => dispatchSection('schedule')}  type="button">BACK</button>              
+          <h4>If everything looks good, please click the 'subscribe' button to start your subscription!</h4>
           <div className="checkout">
-              <section className="orderSummary">            
-                <div className="orderBlock">
+            <section className="checkoutSummary">
+              <div className="orderBlock">
                   <h5>Order Details</h5>
-                  <p className="order productName">Product: {this.props.current.productName}</p>
-                  <p className="order productPrice">Price: {this.props.current.productPrice}</p>
-                  <p className="order delivery"><span>Delivery: </span>$20</p>                 
-                  <p className="order total"><span>Total: </span>${+deliveryCharge + +this.props.current.productPrice}</p> 
-                
+                  <p className="order productName"><span className="bold">Product:</span> {this.props.current.productName}</p>
+                  <p className="order productPrice"><span className="bold">Price:</span> {this.props.current.productPrice}</p>
+                  <p className="order delivery"><span className="bold">Delivery: </span>$20</p>                 
+                  <p className="order total"><span className="bold">Total: </span>${+deliveryCharge + +this.props.current.productPrice}</p>                 
                 </div>
-              </section>
-              <section className="checkoutSummary">
                 <div className="senderBlock">
                   <h5>Sender Info</h5>
-                  <p className="sender name"><span>NAME: </span>{this.props.currentValues.senderFirstName} {this.props.currentValues.senderLastName}</p>
-                  <p className="sender senderEmail"><span>EMAIL: </span>{this.props.currentValues.senderEmail}</p>
-                  <p className="sender phone"><span>PHONE: </span>{this.props.currentValues.senderPhone}</p>  
-                  <p className="recipient message"><span>GIFT MESSAGE: </span>{this.props.currentValues.recipientMessage}</p>    
+                  <p className="sender name"><span className="bold">NAME: </span>{this.props.currentValues.senderFirstName} {this.props.currentValues.senderLastName}</p>
+                  <p className="sender senderEmail"><span className="bold">EMAIL: </span>{this.props.currentValues.senderEmail}</p>
+                  <p className="sender phone"><span className="bold">PHONE: </span>{this.props.currentValues.senderPhone}</p>  
+                  <p className="recipient message"><span className="bold">GIFT MESSAGE: </span>{this.props.currentValues.recipientMessage}</p>    
                 </div>  
                 <div className="receiverBlock">
                   <h5>Recipient Info</h5>
-                  <p className="recipient name"><span>NAME: </span>{this.props.currentValues.recipientFirstName} {this.props.currentValues.recipientLastName}</p>
-                  <p className="recipient company"><span>COMPANY: </span>{this.props.currentValues.recipientCompany} {this.props.currentValues.recipientCompany}</p>
-                  <p className="recipient phone"><span>PHONE: </span>{this.props.currentValues.recipientPhone}</p>
-                  <p className="recipient streetAddress"><span>STREET ADDRESS: </span>{this.props.currentValues.recipientAddress}</p>
-                  <p className="recipient aptSuite"><span>APT/SUITE: </span>{this.props.currentValues.recipientAptSuite}</p>
-                  <p className="recipient cityStateZip"><span>CITY, STATE, ZIPCODE:                     
+                  <p className="recipient name"><span className="bold">NAME: </span>{this.props.currentValues.recipientFirstName} {this.props.currentValues.recipientLastName}</p>
+                  <p className="recipient company"><span className="bold">COMPANY: </span>{this.props.currentValues.recipientCompany} {this.props.currentValues.recipientCompany}</p>
+                  <p className="recipient phone"><span className="bold">PHONE: </span>{this.props.currentValues.recipientPhone}</p>
+                  <p className="recipient streetAddress"><span className="bold">STREET ADDRESS: </span>{this.props.currentValues.recipientAddress}</p>
+                  <p className="recipient aptSuite"><span className="bold">APT/SUITE: </span>{this.props.currentValues.recipientAptSuite}</p>
+                  <p className="recipient cityStateZip"><span className="bold">CITY, STATE, ZIPCODE:                     
                     </span>{this.props.currentValues.recipientCity} {this.props.currentValues.recipientState} {this.props.currentValues.recipientZipcode}
                   </p>
-                </div>                  
-                <div className="checkoutButton">{formButton}</div>
+                </div>    
+                <div className="checkoutButton">{formButton}</div>              
               </section>        
           </div>
+
         </Fragment> 
         : ""  }
         { this.props.current.formSection === "confirm" ?   

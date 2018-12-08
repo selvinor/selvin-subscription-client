@@ -40,6 +40,14 @@ height:100%;
   display:flex;
 }
 
+#subscription-form h4{
+  width:60%;
+  text-align:center;
+  height:60px;
+  display:flex;
+  margin:20px auto;
+}
+
 div.form-input{
   margin:auto;
 }
@@ -418,9 +426,11 @@ display:inline-block;
   margin-top:1.0416667%;
 }
 div.checkout {
-  margin-top:100px;
-  padding:0 50px;
+
+ 
   display:flex;
+  height:100%;
+
 }
 .checkout span{
   font-weight:bold;
@@ -440,7 +450,7 @@ p.recipients  {
   font-size:1vw;
 }
 
-.message-success {
+.message-success, .message {
   margin-top:10px;
   text-align:center;
 }
@@ -466,23 +476,37 @@ li.product2 {
 
 
 
-.checkout { 
-  max-height:1280px;
-  display:flex;
-}
 
 .checkoutSummary{
-  width: 45%;
-  margin: auto;
+  display:flex;
+  width:100%;
+  align-items: flex-start;
+  justify-content:space-around;
 }
 .checkoutSummary h5{
-  font-size:2.8vw;
+  font-size:2vw;
   }
 .checkoutSummary p{
-font-size:2vw;
+  font-size:1.5vw;
+}
+.checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
+  width:30%;
+  height:300px;
+}
+.checkoutButton {
+
+  margin:auto;
 }
 .scheduleBlock {
   margin-left:0px;
+}
+
+.receiverBlock h5, .senderBlock h5, .orderBlock h5 {
+  font-size: 2vw;
+  padding: 0px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 10px;
 }
 #scheduleInfo {
 
@@ -589,9 +613,7 @@ font-size:2vw;
 }
 .recipient-button {
   width:100px;
-  height:40px;
   display:flex;
-  margin:20px;
 }
 #recipient-page button {
   font-size:1.2vw;
@@ -644,7 +666,7 @@ font-size:2vw;
     width:480px;
     margin: 0 auto;
   }
-  .message-success {
+  .message-success, .message {
     margin-top:10px;
     text-align:center;
     font-size:4vw;
@@ -719,10 +741,28 @@ font-size:2vw;
 
 
 
+
 }
 
 
 @media only screen and (max-width: 768px) {
+  .checkoutSummary{
+    flex-direction: column;
+    align-content: space-around;
+    height:60%;
+  }
+  .checkoutSummary h5{
+    font-size:3vw;
+    }
+  .checkoutSummary p{
+    font-size:2.5vw;
+  }
+  .checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
+    width: 500px;
+    margin:0 auto;
+    height:150px;
+  }
+  
   #recipients {
     margin-top:0;
     font-weight:bold;
@@ -822,6 +862,35 @@ label {
 }
 }
 @media only screen and (max-width:415px) {
+  .jumpBack {
+    margin-left: 5px;
+  }
+  .message-success, .message {
+    margin-top:10px;
+    text-align:center;
+    font-size:4vw;
+  }
+  #subscription-form h4 {
+    font-size: 3.5vw;
+    width:75%;
+}
+  .checkoutSummary{
+    flex-direction: column;
+    align-content: space-around;
+    height:60%;
+  }
+  .checkoutSummary h5{
+    font-size:4vw;
+    }
+  .checkoutSummary p{
+    font-size:3.5vw;
+  }
+  .checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
+    width: 300px;
+    margin:0 auto;
+    height:150px;
+  }
+
   .recipient-orderSummary h5 {
     font-size:3.5vw;
   }
@@ -933,4 +1002,77 @@ label {
   #subscription-form {
     margin:auto;
   }
+}
+@media only screen and (max-width: 320px) {
+  .recipient-orderSummary {
+    margin-top:-20px;;
+  }
+  .recipient-orderSummary h5 {
+    font-size:4.5vw;
+    margin:3px 0;
+  }
+  .recipient-orderSummary p {
+    font-size:4vw;
+  }
+  .recipients-info h5 {
+    font-size:3vw;
+  }
+  .orderSummary h5 {
+    font-size:4vw;
+  }
+  #recipient-page button {
+    font-size: 2.5vw;
+    padding: 6px;
+    margin: auto;
+  }
+  .orderSummary p {
+    text-align:center;
+    font-size:3vw;
+  }
+  .orderSummary {
+    font-size:3vw;
+  }
+  .recipientInfoFields1 {
+    width: 70%;
+    border-radius: 10px;
+    margin: auto;
+  }
+  #recipient-page label {
+      font-size: 3vw;
+    margin: 0;
+    padding: 0;
+  }
+   .schedule h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 4.5vw;
+}
+  #startDate {
+    width: 175px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3vw;
+  }
+  .leftSide {
+    margin-top:20px;
+  }
+  #scheduleInfo h5 {
+    margin: auto;
+    font-size: 4vw;
+}
+  #subscription-form {
+    margin:auto;
+  }
+  textarea {
+
+    width: 100%;
+    height: 25px;
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(80%, rgba(255,255,255,1)),to(rgba(255,255,255,0)));
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 80%,rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+    padding: 1.0416667%;
+    border-radius: 0.72916667%;
+}
 }
