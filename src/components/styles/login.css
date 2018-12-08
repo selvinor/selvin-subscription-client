@@ -1,51 +1,7 @@
-h2 {
-  text-align:center;
-}
-
-input {
-  border-radius:6px;
-  margin-bottom:5px;
-}
-button {
-  margin: 0 auto;
-  background-color: steelblue;
-  color:white;
-  padding:5px;
-  border-radius:10px;
-  margin-top:3px;
-}
-
-button.login {
-  background-color: steelblue; 
-}
-
-label {
+.login-form label {
   font-size:2vw;
 }
-
-.loginLink{
-  margin: 0 auto;
-  background-color: steelblue;
-  color:white;
-  padding:0px;
-  border-radius:10px;
-  margin-top:3px;
-  font-size:2vw;
-  text-decoration:none;
-  margin:10px;
-}
-div.register {
-margin-top:30%;
-}
-.registration-form {
-  width:40%;
-  margin:auto;
-  background-color:rgba(255, 255, 255, 0.15);
-}
-.registration-form label {
-  font-size:2vw;
-}
-.registration-section{
+.login-section{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +9,7 @@ margin-top:30%;
   height:40%;
 }
 
-.registration-form {
+.login-form {
   background:rgba(255, 255, 255, 0.6) ;
   border-radius:15px;
   width:300px;
@@ -106,10 +62,10 @@ margin-top:30%;
     }
   }
   @media screen and (max-width: 768px) {
-    .registration-form label {
+    .login-form label {
       font-size:3vw;
     }
-    .registration-section{
+    .login-section{
       display: flex;
       align-items: center;
       justify-content: center;
@@ -117,7 +73,7 @@ margin-top:30%;
       height:1080px;
     }
     
-    .registration-form {
+    .login-form {
       background:rgba(255, 255, 255, 0.6) ;
       border-radius:15px;
       width:300px;

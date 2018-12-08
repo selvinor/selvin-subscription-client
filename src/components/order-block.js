@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import ProductBlock from './product-block';
 //import './styles/order-block.css';
 
-class OrderBlock extends React.Component {
+export class OrderBlock extends React.Component {
 
   render() {
     console.log('order block props: ', this.props);

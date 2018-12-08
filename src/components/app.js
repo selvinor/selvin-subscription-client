@@ -4,6 +4,7 @@ import {Route, withRouter, Switch} from 'react-router-dom';
 
 // import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
+import LoginForm from './login-form';
 import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import Products from './products';
@@ -74,6 +75,7 @@ export class App extends React.Component {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/login" component={LoginForm} />
           <Route exact path="/register" component={RegistrationPage} />
           <Route exact path="/products" component={Products} />
           <Route       path="/products/:pCode" component={Product}/>

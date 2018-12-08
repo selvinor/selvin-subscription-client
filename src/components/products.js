@@ -5,7 +5,7 @@ import './styles/products.css';
 import { setProductChoice } from '../actions'
 import HeaderBar from './header-bar';
 
-class Products extends React.Component { 
+export class Products extends React.Component { 
 
   render() {
 

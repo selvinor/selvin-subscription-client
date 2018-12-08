@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 //import './styles/product-block.css';
 
-class ProductBlock extends React.Component {
+export class ProductBlock extends React.Component {
   render() {
 console.log('productBlock - this.props: ', this.props);
     return (

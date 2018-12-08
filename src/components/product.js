@@ -5,27 +5,29 @@ import './styles/product.css';
 import { setProductChoice } from '../actions'
 import HeaderBar from './header-bar';
 
-class Product extends React.Component { 
+export class Product extends React.Component { 
   componentDidMount() {
-    if (!this.props.loggedIn) {
-      return <Redirect to="/landing" />;
-    }
-    console.log('Products: product is: ', this.props.match.params.pCode);
-    if(!this.props.current.productCode) {     
-      setProductChoice(this.props.match.params.pCode);
-    }
-  }
-  
+    console.log('product component did mount');
+    if (this.props.loggedIn) {
+      console.log('this.props.currentUser: ', this.props.currentUser, ' | Products: product is: ', this.props.match.params.pCode);
+      if(!this.props.current.productCode) {     
+        setProductChoice(this.props.match.params.pCode);
+      } 
+    } 
+  }  
   render() {
 
-    let to;
+  let to;
+  let buttonText;
   console.log('product.js  props: ', (this.props));
-  console.log('this.props.loggedIn: ', this.props.loggedIn);
+  console.log('this.props.currentUser: ', this.props.currentUser);
   const { pCode } = this.props.match.params  // decide which dispatch to issue
   if (this.props.loggedIn) {
     to = '/subscriptionAdd/' + pCode;
+    buttonText = 'Choose';
   } else {
     to = '/login';
+    buttonText = 'Login to continue';
   }
 
     return (
@@ -47,7 +49,7 @@ class Product extends React.Component {
               <p className="productDetailPrice">Starting at: ${this.props.current.productPrice}</p>
               <p className="productDetailDesc">{this.props.current.productDesc}</p> 
                 <button className="arrangeButton">
-                { <Link style={{display: 'block', height: '100%'}} to={to} >Choose</Link>}
+                { <Link style={{display: 'block', height: '100%'}} to={to} >{buttonText}</Link>}
                 </button>
             </div>  
           </div>              
@@ -68,7 +70,8 @@ const mapDispatchToProps = dispatch => {
 };
 const mapStateToProps = state => ({
   hasAuthToken: state.auth.authToken !== null,
-  loggedIn: state.auth.User !== null,
+  loggedIn: state.auth.currentUser !== null,
+  currentUser: state.auth.currentUser !== null,
   current:  state.subscription
 });
 

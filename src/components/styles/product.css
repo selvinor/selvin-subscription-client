@@ -56,9 +56,9 @@ button {
   margin-left:20px;
 }
 .header {
-  margin:auto;
+  /* margin:auto;
   display:flex;
-  flex-direction: column;
+  flex-direction: column; */
 }
 .product-shot  {
   margin: auto;

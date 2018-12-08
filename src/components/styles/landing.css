@@ -39,7 +39,6 @@
 
 .home {
   display:flex;
-  height:100%;
   flex:1;
 }
   button.jump {
@@ -85,7 +84,7 @@
   font-size: 4vw;
 }
   button.jump {
-    font-size:3vw;
+    font-size:1.5vw;
   }
 }
 
@@ -341,7 +340,7 @@
 
 }
 .landing {
-  margin: auto;
+  margin:0 auto;
   text-align:center;
   background-position: fixed;
   border-bottom: none;
@@ -349,6 +348,7 @@
   border-radius:15px;
   width:100%;
   padding:10px;
+  align-self: center;
 }
 .landing h2 {
 

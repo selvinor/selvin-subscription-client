@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 import { Link } from 'react-router-dom';
+import HeaderBar from './header-bar';
+import './styles/login.css';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
@@ -22,7 +24,11 @@ export class LoginForm extends React.Component {
         const registerButton = (<button className="jump" type="button"><Link style={{display: 'block', height: '100%', textDecoration:'none', color:'white', }} to="/register" >Register</Link></button>);
 
         return (
-            <form
+          <Fragment>
+          <section id="main">
+            <HeaderBar />
+            <section className="login-section">
+              <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
@@ -47,12 +53,16 @@ export class LoginForm extends React.Component {
                     autocomplete="current-password"
                     validate={[required, nonEmpty]}
                 />
-                <button className="login" disabled={this.props.pristine || this.props.submitting}>
-                    Log in
-                </button>
-                {registerButton}
-
-            </form>
+                <div className="login-buttons">
+                  <button className="login" disabled={this.props.pristine || this.props.submitting}>
+                      Log in
+                  </button>
+                  {registerButton}
+                </div>
+              </form>
+            </section>
+          </section>
+        </Fragment>
         );
     }
 }

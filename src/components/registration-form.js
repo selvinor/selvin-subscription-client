@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
+import { Link } from 'react-router-dom';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
@@ -19,6 +20,7 @@ export class RegistrationForm extends React.Component {
 
     render() {
         return (
+          <Fragment>
             <form
                 className="registration-form" 
                 onSubmit={this.props.handleSubmit(values =>
@@ -62,12 +64,18 @@ export class RegistrationForm extends React.Component {
                     validate={[required, nonEmpty, matchesPassword]}
                     placeholder="required"
                 />
-                <button
+                <div className="login-buttons">
+                  <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Register
-                </button>
+                  </button>
+                  <button type="button">
+                    <Link className="loginLink" to="/login">Sign In</Link>
+                  </button>
+                </div>
             </form>
+          </Fragment>
         );
     }
 }
