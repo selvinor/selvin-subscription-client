@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   display:flex;
-  max-height:1280px;
+  height:100%;
 }
 
 .product-back-button {
