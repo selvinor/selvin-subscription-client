@@ -26,7 +26,7 @@ export class Dashboard extends React.Component {
         <HeaderBar />
         <div className="dashboard">
           <ul className="userInfo">
-            <li className="dashboard-username">Username: {this.props.user.username}</li>
+            <li className="dashboard-userName">Username: {this.props.user.userName}</li>
             <li className="dashboard-name">Name: {this.props.name}</li>
             <li className="dashboard-email">Email: {this.props.user.email}</li>
             <li className="dashboard-phone">Phone: {this.props.user.phone}</li>         

@@ -7,7 +7,7 @@ import {required, nonEmpty} from '../validators';
 import './styles/subscription-add-form.css'; 
 import './styles/recipient-block.css'; 
 import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
-import {REACT_APP_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config';
 
 export class SubscriptionAddForm extends React.Component {
   componentDidMount() {
@@ -24,7 +24,7 @@ export class SubscriptionAddForm extends React.Component {
     values['frequency'] = this.props.current.frequency;
     values['duration'] = this.props.current.duration;
 console.log('submitted');
-    return fetch(`${REACT_APP_BASE_URL}/subscriptions`, {
+    return fetch(`${API_BASE_URL}/subscriptions`, {
       method:'POST',
       body: JSON.stringify(values),
       headers: {

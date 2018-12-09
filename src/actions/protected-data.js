@@ -1,4 +1,4 @@
-import {REACT_APP_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
 export const FETCH_PROTECTED_DATA_SUCCESS = 'FETCH_PROTECTED_DATA_SUCCESS';
@@ -17,7 +17,7 @@ export const fetchProtectedDataError = error => ({
 export const fetchProtectedData = () => (dispatch, getState)  => {
   console.log('fetch subscriptions fired!');
   const authToken = getState().auth.authToken;
-  fetch(`${REACT_APP_BASE_URL}/protected/subscriptions`, {
+  fetch(`${API_BASE_URL}/protected/subscriptions`, {
     method: 'GET',
     headers: {
         // Provide our auth token as credentials
@@ -45,7 +45,7 @@ export const fetchProtectedData = () => (dispatch, getState)  => {
 
 export const xfetchProtectedData = () => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    return fetch(`${REACT_APP_BASE_URL}/protected/subscriptions/`, {
+    return fetch(`${API_BASE_URL}/protected/subscriptions/`, {
         method: 'GET',
         headers: {
             // Provide our auth token as credentials
