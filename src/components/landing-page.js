@@ -15,7 +15,7 @@ export class LandingPage extends React.Component {
       return <Redirect to="/dashboard" />;
     }
     const WrappedLink = (<button className="jump" type="button"><Link to="/products" >New Subscription</Link></button>);  
-    const loginButton = (<button className="jump" type="button"><Link to="/login" >Login</Link></button>);
+    const loginButton = (<button className="jump" type="button"><Link to="/login" >Sign In</Link></button>);
     return (
       <Fragment>
         <section id="main">

@@ -28,9 +28,7 @@
 .login-buttons {
   display: flex;
 }
-.header {
-  margin-top: 10%; 
-}
+
   button.jump {
     font-size:1.5vw;
 
@@ -45,21 +43,23 @@
     font-size:1vw;
     font-weight:bold;
   }
-  .header {
-    margin-top: 5%; 
-  }
+
   @media screen and (max-width: 1366px) {
-    .header {
-      margin-top: 10%; 
+    .login-form button.login {
+      font-size: 1.5vw;
+    }
+    .login-form button.jump {
+      font-size: 1.5vw;
     }
   }
   @media screen and (max-width: 1024px) {
-    button.login {
-      font-size:1.5vw;
+    .login-form button.login {
+      font-size: 1.5vw;
     }
-    .header {
-      margin-top: 12%; 
+    .login-form button.jump {
+      font-size: 1.5vw;
     }
+
   }
   @media screen and (max-width: 768px) {
     .login-form label {
@@ -80,4 +80,18 @@
     
       padding:20px;
      }
+     .login-form button.login {
+      font-size: 2vw;
+    }
+    .login-form button.jump {
+      font-size: 2vw;
+    }
+  }
+  @media screen and (max-width: 415px) {
+    .login-form button.login {
+      font-size: 3vw;
+    }
+    .login-form button.jump {
+      font-size: 3vw;
+    }
   }

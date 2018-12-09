@@ -24,9 +24,43 @@ h1.mainTitle {
   margin:auto;
 
 }
+.header {
+  margin-top: 10%; 
+}
+@media screen and (max-width: 1366px){
+  .header {
+    margin-top: 9%; 
+  }
+}
+@media screen and (max-width: 1024px){
+  .header {
+    margin-top: 6%; 
+  }
+}
 @media screen and (max-width: 768px){
+  .header {
+    margin-top: 14%; 
+  }
   h1.mainTitle {
-    width:300px;
+    width:500px;
+    margin:0 auto;
+  }
+  .logo {
+    background: transparent url("/img/bloomsLogo_500.png");
+    background-repeat:no-repeat;
+    background-position: center center;
+    width:500px;
+    height:150px;
+    margin:auto;  
+  }
+
+}
+@media screen and (max-width: 414px){
+  .header {
+    margin-top: 20%; 
+  }
+  h1.mainTitle {
+    width:500px;
     margin:0 auto;
   }
   .logo {
@@ -34,8 +68,17 @@ h1.mainTitle {
     background-repeat:no-repeat;
     background-position: center center;
     width:300px;
-    height:90px;
+    height:100px;
     margin:auto;  
   }
-
+}
+@media screen and (max-width: 360px){
+  .header {
+    margin-top: 25%; 
+  }
+}
+@media screen and (max-width: 320px){
+  .header {
+    margin-top: 15%; 
+  }
 }

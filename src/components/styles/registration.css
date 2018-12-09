@@ -1,49 +1,41 @@
+#main {
+  display:flex;
+  height:100%;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
 h2 {
   text-align:center;
+  margin:auto;
+  margin:20px;
 }
 
 input {
   border-radius:6px;
   margin-bottom:5px;
 }
-button {
-  margin: 0 auto;
-  background-color: steelblue;
-  color:white;
-  padding:5px;
-  border-radius:10px;
-  margin-top:3px;
-}
+
 
 button.login {
   background-color: steelblue; 
+}
+
+button[type="submit"]:disabled {
+  background: #dddddd;
 }
 
 label {
   font-size:2vw;
 }
 
-.loginLink{
-  margin: 0 auto;
-  background-color: steelblue;
-  color:white;
-  padding:0px;
-  border-radius:10px;
-  margin-top:3px;
-  font-size:2vw;
-  text-decoration:none;
-  margin:10px;
-}
+
 div.register {
-margin-top:30%;
+margin-top:50%;
 }
-.registration-form {
-  width:40%;
-  margin:auto;
-  background-color:rgba(255, 255, 255, 0.15);
-}
+
 .registration-form label {
-  font-size:2vw;
+  font-size:1vw;
 }
 .registration-section{
   display: flex;
@@ -53,13 +45,18 @@ margin-top:30%;
   height:40%;
 }
 
-.registration-form {
+.registration-section {
   background:rgba(255, 255, 255, 0.6) ;
   border-radius:15px;
   width:300px;
   margin:auto;
   padding:20px;
  }
+.registration-buttons {
+  display:flex;
+  justify-content: space-around;
+  width:100%;
+}
 
 .login h2 {
 
@@ -72,9 +69,7 @@ margin-top:30%;
 .login-buttons {
   display: flex;
 }
-.header {
-  margin-top: 10%; 
-}
+
   button.jump {
     font-size:1.5vw;
 
@@ -89,39 +84,126 @@ margin-top:30%;
     font-size:1vw;
     font-weight:bold;
   }
-  .header {
-    margin-top: 5%; 
-  }
+
   @media screen and (max-width: 1366px) {
-    .header {
-      margin-top: 10%; 
+    .registration-form label {
+      font-size:1.2vw;
     }
+
+    .registration-section h2 {
+      font-size:2vw;
+      text-align:center;
+      margin:auto;
+    }
+    .registration-section {
+      flex-direction: column;
+      background:rgba(255, 255, 255, 0.6) ;
+      border-radius:15px;
+      width:400px;
+      height:500px;
+      padding:20px;
+     }
+
+    .registration-buttons button.registration {
+      font-size: 1.2vw;
+      margin:auto;
+    }
+    .registration-form{
+      width:90%;
+    }
+  }
+  @media screen and (max-width: 415px) {
+    .registration-section h2 {
+      font-size:5vw;
+      text-align:center;
+      margin:0px;
+    }
+    .registration-section {
+      flex-direction: column;
+      background:rgba(255, 255, 255, 0.6) ;
+      border-radius:15px;
+      width:70%;
+      height:360px;
+     }
+
   }
   @media screen and (max-width: 1024px) {
     button.login {
       font-size:1.5vw;
     }
-    .header {
-      margin-top: 12%; 
-    }
+
   }
   @media screen and (max-width: 768px) {
     .registration-form label {
       font-size:3vw;
     }
-    .registration-section{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width:100%;
-      height:1080px;
+
+    .registration-section h2 {
+      font-size:3vw;
+      text-align:center;
+      margin:auto;
     }
-    
-    .registration-form {
+    .registration-section {
+      flex-direction: column;
       background:rgba(255, 255, 255, 0.6) ;
       border-radius:15px;
-      width:300px;
-    
+      width:400px;
+      height:500px;
       padding:20px;
      }
+
+    .registration-buttons button.registration {
+      font-size: 3vw;
+      margin:auto;
+    }
+  }
+  @media screen and (max-width: 415px) {
+    .registration-section h2 {
+      font-size:5vw;
+      text-align:center;
+      margin:0px;
+    }
+    .registration-section {
+      flex-direction: column;
+      background:rgba(255, 255, 255, 0.6) ;
+      border-radius:15px;
+      width:70%;
+      height:360px;
+     }
+  }
+
+  @media screen and (max-width: 360px) {
+    .registration-section h2 {
+      font-size:5vw;
+      text-align:center;
+      margin:0px;
+    }
+    .registration-section {
+      flex-direction: column;
+      background:rgba(255, 255, 255, 0.6) ;
+      border-radius:15px;
+      width:70%;
+      height:360px;
+     }
+  }
+  @media screen and (max-width: 320px) {
+    .registration-section h2 {
+      font-size:5vw;
+      text-align:center;
+      margin:0px;
+    }
+    .registration-section {
+      flex-direction: column;
+      background:rgba(255, 255, 255, 0.6) ;
+      border-radius:15px;
+      width:70%;
+      height:360px;
+      margin-top:50px;
+     }
+     .registration-buttons button.login {
+      font-size: 3vw;
+    }
+    .registration-buttons button.registration {
+      font-size: 3vw;
+    }
   }

@@ -39,7 +39,10 @@ export class Product extends React.Component {
           <button className="product-back-button">
             <Link style={{display: 'block', height: '100%'}} to="/products/">BACK</Link>
           </button>
-          <HeaderBar />
+          <div className="product-header">
+            <HeaderBar />
+          </div>
+          
           <div className="product">
             <div className="productDetail">
               <div className="product-shot">

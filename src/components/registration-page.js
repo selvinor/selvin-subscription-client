@@ -16,9 +16,11 @@ export class RegistrationPage extends React.Component {
       <Fragment>
         <section id="main">
           <HeaderBar />
-          <section className="login-section">
+
+          <section className="registration-section">
             <h2>Register</h2>
             <RegistrationForm />
+            <p>Already have an account? Go to the <Link to="/login">login page</Link></p>
           </section>  
         </section>  
       </Fragment>

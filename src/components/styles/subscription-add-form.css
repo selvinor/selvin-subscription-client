@@ -80,6 +80,14 @@ div.form-input{
 .bold {
   font-weight:bold;
 }
+button {
+  margin: 0 auto;
+  background-color: steelblue;
+  color:white;
+  padding:7px;
+  border-radius:7px;
+  margin-top:3px;
+}
 label {
   font-weight:bold;
 }
@@ -182,19 +190,13 @@ ul {
 li  {
   list-style-type: none;
 }
-.formButton {
 
-  padding:10px;
-  background-color:steelblue;
-  margin: 5px auto 0;
-}
 .jump{
   background-color: green;
   color: white;
   font-weight: bold;
   text-align: center;
   font-size:1.8vw;
-  margin-top:15px;
   padding:10px;
   border-radius:10px;
 }
@@ -204,16 +206,7 @@ li  {
   margin:20px auto;
   font-size:2.5vw; 
 }
-.jumpBack {
-  background-color:steelblue;
-  font-size:1.5vw;
-  padding:0.72916667% 1.0416667%;
-  font-weight:bold;
 
-  border: .5px #ccc solid;
-  margin-left:5px;
-  float:left;
-}
 .chooseButton {
   font-size: 1.8vw;
   background-color:green;
@@ -666,11 +659,7 @@ li.product2 {
     width:480px;
     margin: 0 auto;
   }
-  .message-success, .message {
-    margin-top:10px;
-    text-align:center;
-    font-size:4vw;
-  }
+
   span.subscribe  {
     margin-left:5px;
   }
@@ -865,11 +854,7 @@ label {
   .jumpBack {
     margin-left: 5px;
   }
-  .message-success, .message {
-    margin-top:10px;
-    text-align:center;
-    font-size:4vw;
-  }
+
   #subscription-form h4 {
     font-size: 3.5vw;
     width:75%;
@@ -934,6 +919,14 @@ label {
     font-size: 3vw;
     margin: 3px 0;
     padding: 0;
+  }
+
+  .message-success, .message {
+    margin-top:5px;
+    text-align:center;
+    font-size:3vw;
+    color:red;
+    font-weight:bold;
   }
 }
 @media only screen and (max-width: 360px) {

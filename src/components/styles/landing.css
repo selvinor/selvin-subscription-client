@@ -35,13 +35,14 @@
 .entry {
   display:flex;
   width:100%;
+  margin-top:10px;
 }
 
 .home {
   display:flex;
   flex:1;
 }
-  button.jump {
+.landing button.jump {
     font-size:1vw;
     justify-content: space-between;
     margin:auto;
@@ -83,7 +84,7 @@
 .landing p {
   font-size: 4vw;
 }
-  button.jump {
+.landing button.jump {
     font-size:1.5vw;
   }
 }
@@ -123,7 +124,7 @@
 .landing p {
   font-size: 4vw;
 }
-  button.jump {
+.landing button.jump {
     font-size:3vw;
   }
 }
@@ -163,7 +164,7 @@
 .landing p {
   font-size: 4vw;
 }
-  button.jump {
+.landing button.jump {
     font-size:3vw;
   }
 }
@@ -202,7 +203,7 @@
 .landing p {
   font-size: 4vw;
 }
-  button.jump {
+.landing button.jump {
     font-size:3vw;
   }
 }
@@ -241,7 +242,7 @@
 .landing p {
   font-size: 4vw;
 }
-  button.jump {
+.landing button.jump {
     font-size:3vw;
   }
 }
@@ -279,7 +280,7 @@
   .landing p {
     font-size: 4vw;
   }
-    button.jump {
+  .landing button.jump {
       font-size:3vw;
     }
   }
@@ -317,7 +318,7 @@
   .landing p {
     font-size: 4vw;
   }
-    button.jump {
+  .landing button.jump {
       font-size:3vw;
     }
   }
@@ -331,33 +332,33 @@
     background-blend-mode: screen;
     background-size: cover;
   } 
-.landing-section {
-  height:568px;
-  margin:auto;
-  width:100%;
-  padding:5%;
-  margin-top:50px;
+  .landing-section {
+    height:568px;
+    margin:auto;
+    width:100%;
+    padding:5%;
+    margin-top:50px;
 
-}
-.landing {
-  margin:0 auto;
-  text-align:center;
-  background-position: fixed;
-  border-bottom: none;
-  background:rgba(255, 255, 255, 0.6) ;
-  border-radius:15px;
-  width:100%;
-  padding:10px;
-  align-self: center;
-}
-.landing h2 {
+  }
+  .landing {
+    margin:0 auto;
+    text-align:center;
+    background-position: fixed;
+    border-bottom: none;
+    background:rgba(255, 255, 255, 0.6) ;
+    border-radius:15px;
+    width:100%;
+    padding:10px;
+    align-self: center;
+  }
+  .landing h2 {
 
-  font-size:5vw;
+    font-size:5vw;
+  }
+  .landing p {
+    font-size: 4vw;
 }
-.landing p {
-  font-size: 4vw;
-}
-  button.jump {
+  .landing button.jump {
     font-size:3vw;
   }
 }

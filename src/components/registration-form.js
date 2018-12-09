@@ -19,6 +19,21 @@ export class RegistrationForm extends React.Component {
     } 
 
     render() {
+      let successMessage;
+      if (this.props.submitSucceeded) {
+        successMessage = (
+          <div className= "message message-success">
+            Your account is ready!
+          </div>
+        );
+      }
+    
+      let errorMessage;
+      if (this.props.error) {
+        errorMessage = (
+          <div className="message message-error">{this.props.error}</div>
+        );
+      }
         return (
           <Fragment>
             <form
@@ -26,10 +41,8 @@ export class RegistrationForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" placeholder="required" />
-                <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName"  placeholder="required" />
+              {successMessage}
+              {errorMessage} 
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
@@ -38,6 +51,10 @@ export class RegistrationForm extends React.Component {
                     validate={[required, nonEmpty, isTrimmed]}
                     placeholder="required"
                 />
+                <label htmlFor="firstName">First name</label>
+                <Field component={Input} type="text" name="firstName" placeholder="required" />
+                <label htmlFor="lastName">Last name</label>
+                <Field component={Input} type="text" name="lastName"  placeholder="required" />
                 <label htmlFor="email">Email</label>
                 <Field
                     component={Input}
@@ -64,13 +81,14 @@ export class RegistrationForm extends React.Component {
                     validate={[required, nonEmpty, matchesPassword]}
                     placeholder="required"
                 />
-                <div className="login-buttons">
+                <div className="registration-buttons">
                   <button
+                    className="registration"
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
                     Register
                   </button>
-                  <button type="button">
+                  <button className="registration" type="button">
                     <Link className="loginLink" to="/login">Sign In</Link>
                   </button>
                 </div>

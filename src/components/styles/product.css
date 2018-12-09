@@ -19,9 +19,12 @@ body {
   display:flex;
   height:100%;
 }
-
+.product-header .header{
+  margin-top:20px;
+}
 .product-back-button {
   align-self: flex-start;
+  margin:10px 0 0 10px;
 }
 .productDetail {
   text-align:center;
@@ -55,11 +58,7 @@ body {
 button {
   margin-left:20px;
 }
-.header {
-  /* margin:auto;
-  display:flex;
-  flex-direction: column; */
-}
+
 .product-shot  {
   margin: auto;
   padding: 0px;
@@ -88,7 +87,7 @@ button {
 }
 .arrangeButton {
   font-size:2.5vw;
-  margin-top:20px;
+  margin-top:5px;
 }
 @media screen and (max-width: 768px){
   h1.mainTitle {
@@ -139,6 +138,7 @@ button {
   }
 }
 @media screen and (max-width: 600px){
+
 .productDetail h3 {
   font-size:4vw;
   margin-bottom:5px;
