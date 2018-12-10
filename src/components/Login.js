@@ -1,34 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
-import LoginForm from './LoginForm';
-import '../styles/forms.css';
+import { Redirect } from 'react-router-dom';
+import LoginForm from './login-form';
+// import '../styles/forms.css';
 
 export class LogIn extends React.Component {
-  componentWillMount() {
-    document.title = 'Login | Cozy Spaces';
+  componentDidMount() {
+    document.title = 'Login | Blooms Subscriptions';
+    console.log('login props current: ', this.props.current);
   }
   
   render() {
     if (this.props.loggedIn) {
-      return <Redirect to="/" />;
+      console.log('logged in props current.productCode: ', this.props.current.productCode);
+      const destination= "/products/" + this.props.current.productCode;
+      return <Redirect to={destination} />;
     }
 
     return (
-      <main aria-live="assertive" className="login-form textCenter" role="main">
-        <h2>Log in</h2>
+      <main aria-live="assertive" className="main textCenter" role="main">
         <LoginForm />
-        <p>
-          Don't have an account? Go to the
-          <Link to="/register"> registration page</Link>
-        </p>
       </main>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  current:  state.subscription
 });
 
 export default connect(mapStateToProps)(LogIn);

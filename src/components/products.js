@@ -6,7 +6,9 @@ import { setProductChoice } from '../actions'
 import HeaderBar from './header-bar';
 
 export class Products extends React.Component { 
-
+  componentDidMount() {
+    console.log('mounted products - this.state: ', this.state);
+  }
   render() {
 
     return (

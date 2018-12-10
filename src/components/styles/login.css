@@ -28,7 +28,9 @@
 .login-buttons {
   display: flex;
 }
-
+.textCenter {
+  flex:1;
+}
   button.jump {
     font-size:1.5vw;
 
@@ -43,7 +45,12 @@
     font-size:1vw;
     font-weight:bold;
   }
-
+  .logout {
+    margin-left:10px;
+  }
+  .signin .header {
+    margin-top:20%;
+  }
   @media screen and (max-width: 1366px) {
     .login-form button.login {
       font-size: 1.5vw;

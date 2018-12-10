@@ -448,7 +448,8 @@ console.log('validating');
         </Fragment> 
         : ""  }  
         { this.props.current.formSection === "checkout" ? 
-        <Fragment>               
+        <Fragment>      
+          <span>{console.log('checkout : ', this.props)}</span>         
           <button className="jumpBack"  onClick={() => dispatchSection('schedule')}  type="button">BACK</button>              
           <h4>If everything looks good, please click the 'subscribe' button to start your subscription!</h4>
           <div className="checkout">
@@ -462,10 +463,10 @@ console.log('validating');
                 </div>
                 <div className="senderBlock">
                   <h5>Sender Info</h5>
-                  <p className="sender name"><span className="bold">NAME: </span>{this.props.currentValues.senderFirstName} {this.props.currentValues.senderLastName}</p>
-                  <p className="sender senderEmail"><span className="bold">EMAIL: </span>{this.props.currentValues.senderEmail}</p>
-                  <p className="sender phone"><span className="bold">PHONE: </span>{this.props.currentValues.senderPhone}</p>  
-                  <p className="recipient message"><span className="bold">GIFT MESSAGE: </span>{this.props.currentValues.recipientMessage}</p>    
+                  <p className="sender name"><span className="bold">NAME: </span>{this.props.currentUser.firstName} {this.props.currentUser.lastName}</p>
+                  <p className="sender senderEmail"><span className="bold">EMAIL: </span>{this.props.currentUser.email}</p>
+                  <p className="sender phone"><span className="bold">PHONE: </span>{this.props.currentUser.phone}</p>  
+                  <p className="recipient-message"><span className="bold">GIFT MESSAGE: </span>{this.props.currentValues.recipientMessage}</p>    
                 </div>  
                 <div className="receiverBlock">
                   <h5>Recipient Info</h5>
@@ -502,6 +503,8 @@ const mapStateToProps = state => {
   const form = state.form.subscriptionAddForm || {values:{}};
   const values = form.values || {};
   return ({
+  hasAuthToken: state.auth.authToken !== null,
+  currentUser: state.auth.currentUser,
   current:  state.subscription,
   currentValues: values
 })}

@@ -1,33 +1,38 @@
 import React, { Fragment } from 'react';
 import {connect} from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './styles/product.css';
 import { setProductChoice } from '../actions'
 import HeaderBar from './header-bar';
 
 export class Product extends React.Component { 
   componentDidMount() {
-    console.log('product component did mount');
+
     if (this.props.loggedIn) {
       console.log('this.props.currentUser: ', this.props.currentUser, ' | Products: product is: ', this.props.match.params.pCode);
-      if(!this.props.current.productCode) {     
-        setProductChoice(this.props.match.params.pCode);
-      } 
     } 
+    console.log('this.props.current: ', this.props.current);
   }  
   render() {
+    const { pCode } = this.props.match.params; 
+    if(pCode) {     
+      setProductChoice(pCode);
+      console.log('setProductChoice: ', pCode);
+    } else {
+      console.log('missing pCode - this.props.match.params: ', this.props.match.params);
+    }
+  let to;    
 
-  let to;
   let buttonText;
   console.log('product.js  props: ', (this.props));
   console.log('this.props.currentUser: ', this.props.currentUser);
-  const { pCode } = this.props.match.params  // decide which dispatch to issue
+   // decide which button to render
   if (this.props.loggedIn) {
-    to = '/subscriptionAdd/' + pCode;
+    to = '/subscriptionAdd';
     buttonText = 'Choose';
   } else {
     to = '/login';
-    buttonText = 'Login to continue';
+    buttonText = 'Start a Subscription';
   }
 
     return (

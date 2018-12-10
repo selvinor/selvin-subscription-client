@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-import { showLogin } from '../actions';
-import LoginForm from './login-form';
 import HeaderBar from './header-bar';
 import './styles/landing.css';
 
@@ -10,7 +8,7 @@ export class LandingPage extends React.Component {
   render() {
   // If we are logged in redirect straight to the user's dashboard
   // Log the initial state
-    console.log('this.props: ', this.props);
+    console.log('landing this.props: ', this.props);
     if (this.props.loggedIn) {
       return <Redirect to="/dashboard" />;
     }

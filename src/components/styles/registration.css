@@ -103,7 +103,11 @@ margin-top:50%;
       height:500px;
       padding:20px;
      }
-
+     .registration-section p {
+      font-size:1vw;
+      text-align:center;
+      margin-top:10px;
+    }
     .registration-buttons button.registration {
       font-size: 1.2vw;
       margin:auto;
@@ -178,12 +182,22 @@ margin-top:50%;
       text-align:center;
       margin:0px;
     }
+    .registration-section p {
+      font-size:3vw;
+    }
+    .registration-section p a{
+      color:steelblue;
+      font-weight:bold;
+    }
     .registration-section {
       flex-direction: column;
       background:rgba(255, 255, 255, 0.6) ;
       border-radius:15px;
       width:70%;
-      height:360px;
+      margin:auto;
+      flex-grow:1;
+      flex-shrink:1;
+      max-height:420px;
      }
   }
   @media screen and (max-width: 320px) {
