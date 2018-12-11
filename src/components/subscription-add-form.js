@@ -23,8 +23,9 @@ export class SubscriptionAddForm extends React.Component {
     values['productName'] = this.props.current.productName;
     values['frequency'] = this.props.current.frequency;
     values['duration'] = this.props.current.duration;
-console.log('submitted');
-    return fetch(`${API_BASE_URL}/subscriptions`, {
+    values['userId'] = this.props.currentUser._id;
+console.log('submitted values: ', values);
+    return fetch(`${API_BASE_URL}/protected/subscriptions`, {
       method:'POST',
       body: JSON.stringify(values),
       headers: {
