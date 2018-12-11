@@ -7,27 +7,32 @@ import {required, nonEmpty} from '../validators';
 import './styles/subscription-add-form.css'; 
 import './styles/recipient-block.css'; 
 import { setSection, setNumberOfDeliveries, setProductChoice, setFrequency, setDuration, setDeliveryDate } from '../actions';
-import {REACT_APP_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config';
 
 export class SubscriptionAddForm extends React.Component {
   componentDidMount() {
-    console.log('product is: ', this.props.match.params);
+    // console.log('product is: ', this.props.match.params);
     if(!this.props.current.productCode) {
       
       this.props.setProductChoice(this.props.match.params.pCode);
     }
   } 
+
   //POST section starts here
   onSubmit(values) {
     values['productCode'] = this.props.current.productCode;
     values['productName'] = this.props.current.productName;
     values['frequency'] = this.props.current.frequency;
     values['duration'] = this.props.current.duration;
-console.log('submitted');
-    return fetch(`${REACT_APP_BASE_URL}/subscriptions`, {
+    values['userId'] = this.props.currentUser._id;
+// console.log('submitted values: ', values);
+    // return fetch(`${API_BASE_URL}/protected/subscriptions`, {
+    return fetch(`${API_BASE_URL}/subscriptions`, {
       method:'POST',
       body: JSON.stringify(values),
       headers: {
+        // 'Content-Type': 'application/json',
+        // Authorization: `Bearer ${authToken}`
         'Content-Type': 'application/json'
     }
   })
@@ -73,7 +78,7 @@ console.log('submitted');
   render() {
     let successMessage;
     let formButton;
-    console.log('subscriptionAdd has these props at start: ', this.props);
+    // console.log('subscriptionAdd has these props at start: ', this.props);
     if (this.props.submitSucceeded) {
       successMessage = (
         <div className= "message message-success">
@@ -448,7 +453,8 @@ console.log('validating');
         </Fragment> 
         : ""  }  
         { this.props.current.formSection === "checkout" ? 
-        <Fragment>               
+        <Fragment>      
+          <span>{console.log('checkout : ', this.props)}</span>         
           <button className="jumpBack"  onClick={() => dispatchSection('schedule')}  type="button">BACK</button>              
           <h4>If everything looks good, please click the 'subscribe' button to start your subscription!</h4>
           <div className="checkout">
@@ -462,10 +468,10 @@ console.log('validating');
                 </div>
                 <div className="senderBlock">
                   <h5>Sender Info</h5>
-                  <p className="sender name"><span className="bold">NAME: </span>{this.props.currentValues.senderFirstName} {this.props.currentValues.senderLastName}</p>
-                  <p className="sender senderEmail"><span className="bold">EMAIL: </span>{this.props.currentValues.senderEmail}</p>
-                  <p className="sender phone"><span className="bold">PHONE: </span>{this.props.currentValues.senderPhone}</p>  
-                  <p className="recipient message"><span className="bold">GIFT MESSAGE: </span>{this.props.currentValues.recipientMessage}</p>    
+                  <p className="sender name"><span className="bold">NAME: </span>{this.props.currentUser.firstName} {this.props.currentUser.lastName}</p>
+                  <p className="sender senderEmail"><span className="bold">EMAIL: </span>{this.props.currentUser.email}</p>
+                  <p className="sender phone"><span className="bold">PHONE: </span>{this.props.currentUser.phone}</p>  
+                  <p className="recipient-message"><span className="bold">GIFT MESSAGE: </span>{this.props.currentValues.recipientMessage}</p>    
                 </div>  
                 <div className="receiverBlock">
                   <h5>Recipient Info</h5>
@@ -488,7 +494,9 @@ console.log('validating');
           <div className="confirm">
               <h2>Thank You!</h2>
               <p className="byebye">Your order will be delivered {this.props.current.deliveryDate}.</p>               
-            <div className="confirmButton">{formButton}</div>
+            <div className="confirmButton"><button className="jumpBack" type="button"> <Link style={{display: 'block', height: '100%'}} to={`/products`} >Finish</Link></button> </div>
+                       
+
           </div>
         : ""  }
       </form> 
@@ -502,6 +510,8 @@ const mapStateToProps = state => {
   const form = state.form.subscriptionAddForm || {values:{}};
   const values = form.values || {};
   return ({
+  hasAuthToken: state.auth.authToken !== null,
+  currentUser: state.auth.currentUser,
   current:  state.subscription,
   currentValues: values
 })}

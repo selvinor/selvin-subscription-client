@@ -91,8 +91,14 @@ button {
 label {
   font-weight:bold;
 }
-.recipientData .formButton {
-  margin-top:10px;
+#subscription-form form {
+  width:100%;
+}
+#recipient-page button {
+  font-size: 1.5vw;
+  padding: 10px;
+  margin: auto;
+  margin-left:10px;
 }
 .span11 {
   width: 68.75%;
@@ -430,6 +436,7 @@ div.checkout {
 }
 .checkout .jump {
   margin-top:10px;
+  font-size:2.5vw;
 }
 
 .productName {
@@ -804,6 +811,7 @@ li.product2 {
     font-size: 1.5vw;
     padding: 10px;
     margin: auto;
+    margin-left:10px;
 }
   .orderSummary p {
     text-align:center;
@@ -816,6 +824,13 @@ li.product2 {
     width: 70%;
     border-radius: 10px;
     margin: auto;
+}
+.confirmButton button{
+  font-size:3vw;
+  text-align:center;
+  margin:20px auto;
+  padding:10px;
+  width:100px;
 }
 #recipient-page label {
   font-size: 2vw;
@@ -931,49 +946,51 @@ label {
 }
 @media only screen and (max-width: 360px) {
   .recipient-orderSummary h5 {
-    font-size:4.5vw;
+    font-size:4vw;
   }
   .recipient-orderSummary p {
     font-size:4vw;
   }
+  
   .recipients-info h5 {
-    font-size:4vw;
+    font-size:3.5vw;
   }
   .orderSummary h5 {
     font-size:4vw;
   }
   #recipient-page button {
-    font-size: 2.5vw;
+    font-size: 2.4vw;
     padding: 10px;
     margin: auto;
   }
   .orderSummary p {
     text-align:center;
-    font-size:4vw;
+    font-size:3.5vw;
   }
   .orderSummary {
-    font-size:4vw;
+    font-size:3.5vw;
   }
   .recipientInfoFields1 {
     width: 70%;
     border-radius: 10px;
     margin: auto;
   }
+  #subscription-form form {
+    width:100%;
+  }
   #recipient-page label {
       font-size: 3vw;
     margin: 0;
     padding: 0;
   }
-  #recipient-page button {
-    font-size: 4vw;
-    padding: 10px;
-    margin: auto;
-  }
-  #recipient-page label {
-    font-size: 3vw;
-    margin: 3px 0;
-    padding: 0;
-  }
+.recipientData {
+  display:flex;
+  height:40px;
+  width:100%;
+}
+.recipientData button {
+  margin:auto;
+}
   .schedule h3 {
     padding: 0;
     margin: 0;

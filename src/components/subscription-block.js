@@ -29,10 +29,10 @@ export default class SubscriptionBlock extends React.Component {
       recipient['state'] = this.props.subscription.recipientState;
       recipient['zipcode'] = this.props.subscription.recipientZipcode;
       recipient['phone'] = this.props.subscription.recipientPhone;
-      console.log('order: ',  order);    
-      console.log('product: ',  product);    
-      console.log('schedule: ',  schedule); 
-      console.log('recipient: ',  recipient); 
+      // console.log('order: ',  order);    
+      // console.log('product: ',  product);    
+      // console.log('schedule: ',  schedule); 
+      // console.log('recipient: ',  recipient); 
 
       
       return (

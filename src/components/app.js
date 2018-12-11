@@ -4,8 +4,8 @@ import {Route, withRouter, Switch} from 'react-router-dom';
 
 // import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
-import LoginForm from './login-form';
-import Dashboard from './dashboard';
+import LogIn from './login';
+//import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import Products from './products';
 import Product from './product';
@@ -17,7 +17,7 @@ import {refreshAuthToken, showLogoutWarning} from '../actions/auth';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
-    console.log('componentDidUpdate', Date.now());
+    // console.log('componentDidUpdate', Date.now());
     if (!prevProps.loggedIn && this.props.loggedIn) {
       // When we are logged in, refresh the auth token periodically
       this.startPeriodicRefresh();
@@ -33,7 +33,7 @@ export class App extends React.Component {
   }
 
   startPeriodicRefresh() {
-    console.log('startPeriodicRefresh: ', Date.now());
+    // console.log('startPeriodicRefresh: ', Date.now());
     this.refreshInterval = setInterval(
       () => this.props.dispatch(refreshAuthToken()),
       10 * 60 * 1000 // One hour
@@ -41,7 +41,7 @@ export class App extends React.Component {
   }
 
   startPeriodicLogout() {
-    console.log('startPeriodicLogout: 2 min countdown', Date.now());
+    // console.log('startPeriodicLogout: 2 min countdown', Date.now());
 
     this.refreshInterval = setTimeout(
       // () => this.props.dispatch(deleteAuthToken()), 
@@ -59,7 +59,7 @@ export class App extends React.Component {
   }
  
   stopPeriodicRefresh() {
-    console.log('stopPeriodicRefresh: ', Date.now());
+    // console.log('stopPeriodicRefresh: ', Date.now());
 
     if (!this.refreshInterval) {
         return;
@@ -69,17 +69,17 @@ export class App extends React.Component {
   }
 
   render() {
-    console.log(' app.js this.props: ', this.props);
+    // console.log(' app.js this.props: ', this.props);
     return (
       <div className="app">
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/login" component={LogIn} />
           <Route exact path="/register" component={RegistrationPage} />
           <Route exact path="/products" component={Products} />
-          <Route       path="/products/:pCode" component={Product}/>
-          <Route       path="/subscriptionAdd" component={SubscriptionAddForm}/>
+          <Route exact  path="/products/:pCode" component={Product}/>
+          <Route exact path="/subscriptionAdd" component={SubscriptionAddForm}/>
           
        </Switch>
       </div>

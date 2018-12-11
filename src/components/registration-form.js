@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import { Link } from 'react-router-dom';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
@@ -10,8 +9,8 @@ const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
     onSubmit(values) {
-        const {username, password, firstName, lastName, email} = values;
-        const user = {username, password, firstName, lastName, email};
+        const {username, password, firstName, lastName, email, phone} = values;
+        const user = {username, password, firstName, lastName, email, phone};
         console.log('user:' , user);
         return this.props
             .dispatch(registerUser(user))
@@ -63,6 +62,8 @@ export class RegistrationForm extends React.Component {
                     validate={[required, nonEmpty, isTrimmed]}
                     placeholder="required"
                 />
+                <label htmlFor="phone">Phone</label>
+                <Field component={Input} type="text" name="phone"  placeholder="required" />
                 <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
@@ -88,9 +89,7 @@ export class RegistrationForm extends React.Component {
                     disabled={this.props.pristine || this.props.submitting}>
                     Register
                   </button>
-                  <button className="registration" type="button">
-                    <Link className="loginLink" to="/login">Sign In</Link>
-                  </button>
+
                 </div>
             </form>
           </Fragment>

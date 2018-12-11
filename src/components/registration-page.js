@@ -10,7 +10,9 @@ export class RegistrationPage extends React.Component {
     // is successful) redirect to the user's dashboard
   render() {
     if (this.props.loggedIn) {
-        return <Redirect to="/dashboard" />;
+      // console.log('logged in registration page current.productCode: ', this.props.current.productCode);
+      const destination= "/products/" + this.props.current.productCode;
+      return <Redirect to={destination} />;
     }
     return (
       <Fragment>
@@ -20,7 +22,7 @@ export class RegistrationPage extends React.Component {
           <section className="registration-section">
             <h2>Register</h2>
             <RegistrationForm />
-            <p>Already have an account? Go to the <Link to="/login">login page</Link></p>
+            <p>Already have an account? <Link to="/login">Sign in</Link></p>
           </section>  
         </section>  
       </Fragment>
@@ -28,7 +30,8 @@ export class RegistrationPage extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  current:  state.subscription
 });
 
 export default connect(mapStateToProps)(RegistrationPage);

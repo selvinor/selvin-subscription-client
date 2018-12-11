@@ -28,7 +28,7 @@ info:
 host: https://blooms-pdx.herokuapp.com/
 schemes:
   - https
-basePath: /api/subscriptions
+basePath: /api/protected/subscriptions
 produces:
   - application/json
 paths:

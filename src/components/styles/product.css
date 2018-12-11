@@ -10,6 +10,9 @@ body {
 .product {
   margin:auto;
 }
+#product-section {
+  width:100%;
+}
 #product-main {
   background: url("../../images/pastelBack.jpg");
   background-position: calc(50% - 00px) calc(0% - 0px); 
@@ -18,6 +21,7 @@ body {
   background-size: cover;
   display:flex;
   height:100%;
+  width:100%;
 
 }
 .product-header .header{

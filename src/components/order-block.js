@@ -6,7 +6,7 @@ import ProductBlock from './product-block';
 export class OrderBlock extends React.Component {
 
   render() {
-    console.log('order block props: ', this.props);
+    // console.log('order block props: ', this.props);
     return (
       <div className="orderBlock">
         <ProductBlock product={this.props.subscription.productCode}/>

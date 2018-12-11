@@ -16,7 +16,7 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
-  console.log('Auth reducer action.type: ', action.type);
+  // console.log('Auth reducer action.type: ', action.type);
   if (action.type === SET_AUTH_TOKEN) {
     return Object.assign({}, state, {
       authToken: action.authToken
@@ -43,7 +43,7 @@ export default function reducer(state = initialState, action) {
         error: action.error
       });
   } else if (action.type === SHOW_WARNING) {
-      console.log('updating state showWarning to true. action: ', action);
+      // console.log('updating state showWarning to true. action: ', action);
       return Object.assign({}, state, {
         showWarning: true
     });

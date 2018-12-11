@@ -5,16 +5,18 @@ import {refreshAuthToken} from '../actions/auth';
 import SubscriptionList from './subscription-list';
 import Nav from'./Nav';
 import HeaderBar from'./header-bar';
-// import './styles/dashboard.css'
+import { fetchProtectedData } from '../actions/protected-data'
+import './styles/dashboard.css'
 export class Dashboard extends React.Component {
-  // componentDidMount() {
-  //     this.props.dispatch(fetchProtectedData());
-  // }
+  componentDidMount() {
+      this.props.dispatch(fetchProtectedData());
+  }
 
   render() {
     // Only render the log out button if we are logged in
-    console.log('Logged in - this.props: ' , this.props);
+    // console.log('Logged in - this.props: ' , this.props);
     let stayLoggedInButton;
+    // console.log('dashboard!');
     if (this.props.showWarning) {
       stayLoggedInButton = (
         <button onClick={() => this.props.dispatch(refreshAuthToken())}>Keep me logged in</button>
@@ -33,7 +35,6 @@ export class Dashboard extends React.Component {
           </ul>
           <div>
             <ul className="dashboard-subscriptions">
-              {console.log('this.props.user: ', this.props.user)}
               <SubscriptionList subscriptions={this.props.user.subscriptions} />
             </ul>
           </div>

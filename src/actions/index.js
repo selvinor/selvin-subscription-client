@@ -1,4 +1,4 @@
-import REACT_APP_BASE_URL from '../config';
+import { API_BASE_URL } from '../config';
 
 export const SUBSCRIPTIONS_HAS_ERRORED = 'SUBSCRIPTIONS_HAS_ERRORED';
 export const subscriptionsHasErrored = (hasErrored) => ({
@@ -71,7 +71,7 @@ export const showLogin = () => ({
 // Async actions
 
 export const addSubscription = () => dispatch => {
-  fetch(`${REACT_APP_BASE_URL}/subscriptions`)
+  fetch(`${API_BASE_URL}/subscriptions`)
   .then(res => {
       if (!res.ok) {
           return Promise.reject(res.statusText);
