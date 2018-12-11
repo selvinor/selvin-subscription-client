@@ -40,7 +40,7 @@ export const registerUser = user => dispatch => {
                 // Convert ValidationErrors into SubmissionErrors for Redux Form
                 return Promise.reject(
                     new SubmissionError({
-                        userName : message
+                        username : message
                     })
                 );
             }

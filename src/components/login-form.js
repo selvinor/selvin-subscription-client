@@ -9,7 +9,7 @@ import './styles/login.css';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
-        return this.props.dispatch(login(values.userName, values.password));
+        return this.props.dispatch(login(values.username, values.password));
 
     }
 
@@ -43,14 +43,14 @@ export class LoginForm extends React.Component {
                   this.onSubmit(values)
               )}>
               {error}
-              <label htmlFor="userName">Sign In</label>
+              <label htmlFor="username">Sign In</label>
               <Field
                   component={Input}
                   type="text"
-                  name="userName"
-                  id="userName"
-                  placeholder="userName"
-                  autocomplete="userName"
+                  name="username"
+                  id="username"
+                  placeholder="username"
+                  autocomplete="username"
                   validate={[required, nonEmpty]}
               />
               <Field
@@ -78,5 +78,5 @@ export class LoginForm extends React.Component {
 
 export default reduxForm({
     form: 'login',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'userName'))
+    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
 })(LoginForm);
