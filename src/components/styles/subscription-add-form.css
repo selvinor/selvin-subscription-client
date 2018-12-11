@@ -825,6 +825,13 @@ li.product2 {
     border-radius: 10px;
     margin: auto;
 }
+.confirmButton button{
+  font-size:3vw;
+  text-align:center;
+  margin:20px auto;
+  padding:10px;
+  width:100px;
+}
 #recipient-page label {
   font-size: 2vw;
   margin: 0;

@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class ScheduleBlock extends React.Component {
   render() {
-    console.log('this.props.schedule.startDate: ', this.props.schedule.startDate)
+    // console.log('this.props.schedule.startDate: ', this.props.schedule.startDate)
     let startMM = this.props.schedule.startDate.slice(4,6);
     let startDD = this.props.schedule.startDate.slice(6,8);
     let startYYYY = this.props.schedule.startDate.slice(0,4);

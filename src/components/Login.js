@@ -7,13 +7,13 @@ import LoginForm from './login-form';
 export class LogIn extends React.Component {
   componentDidMount() {
     document.title = 'Login | Blooms Subscriptions';
-    console.log('login props current: ', this.props.current);
+    // console.log('login props current: ', this.props.current);
   }
   
   render() {
     if (this.props.loggedIn) {
-      console.log('logged in props current.productCode: ', this.props.current.productCode);
-      const destination= "/products/" + this.props.current.productCode;
+      // console.log('logged in props current.productCode: ', this.props.current.productCode);
+      const destination= "/products";
       return <Redirect to={destination} />;
     }
 

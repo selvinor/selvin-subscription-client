@@ -10,7 +10,7 @@ export class RegistrationPage extends React.Component {
     // is successful) redirect to the user's dashboard
   render() {
     if (this.props.loggedIn) {
-      console.log('logged in registration page current.productCode: ', this.props.current.productCode);
+      // console.log('logged in registration page current.productCode: ', this.props.current.productCode);
       const destination= "/products/" + this.props.current.productCode;
       return <Redirect to={destination} />;
     }

@@ -6,26 +6,26 @@ import { setProductChoice } from '../actions'
 import HeaderBar from './header-bar';
 
 export class Product extends React.Component { 
-  componentDidMount() {
+  // componentDidMount() {
 
-    if (this.props.loggedIn) {
-      console.log('this.props.currentUser: ', this.props.currentUser, ' | Products: product is: ', this.props.match.params.pCode);
-    } 
-    console.log('this.props.current: ', this.props.current);
-  }  
+    // if (this.props.loggedIn) {
+      // console.log('this.props.currentUser: ', this.props.currentUser, ' | Products: product is: ', this.props.match.params.pCode);
+    // } 
+    // console.log('this.props.current: ', this.props.current);
+  // }  
   render() {
     const { pCode } = this.props.match.params; 
     if(pCode) {     
       setProductChoice(pCode);
-      console.log('setProductChoice: ', pCode);
+      // console.log('setProductChoice: ', pCode);
     } else {
       console.log('missing pCode - this.props.match.params: ', this.props.match.params);
     }
   let to;    
 
   let buttonText;
-  console.log('product.js  props: ', (this.props));
-  console.log('this.props.currentUser: ', this.props.currentUser);
+  // console.log('product.js  props: ', (this.props));
+  // console.log('this.props.currentUser: ', this.props.currentUser);
    // decide which button to render
   if (this.props.loggedIn) {
     to = '/subscriptionAdd';

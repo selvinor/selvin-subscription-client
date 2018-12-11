@@ -33,7 +33,7 @@ export const subscriptionReducer = (state=initialState, action) => {
   }); 
 
     case 'FETCH_SUBSCRIPTION_SUCCESS':
-    console.log('subscription success action.subscriptions: ', action.subscriptions);
+    // console.log('subscription success action.subscriptions: ', action.subscriptions);
       return Object.assign({}, state, {        
         subscriptions: action.subscriptions
     });
@@ -50,7 +50,7 @@ export const subscriptionReducer = (state=initialState, action) => {
     });
 
     case 'SET_PRODUCT_CHOICE':
-    console.log('SET_PRODUCT_CHOICE action.productCode: ',action.productCode);
+    // console.log('SET_PRODUCT_CHOICE action.productCode: ',action.productCode);
       switch (action.productCode) {
         case 'p1':
           action.productCode = "p1";

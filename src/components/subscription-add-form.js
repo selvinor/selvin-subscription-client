@@ -11,12 +11,13 @@ import {API_BASE_URL} from '../config';
 
 export class SubscriptionAddForm extends React.Component {
   componentDidMount() {
-    console.log('product is: ', this.props.match.params);
+    // console.log('product is: ', this.props.match.params);
     if(!this.props.current.productCode) {
       
       this.props.setProductChoice(this.props.match.params.pCode);
     }
   } 
+
   //POST section starts here
   onSubmit(values) {
     values['productCode'] = this.props.current.productCode;
@@ -24,11 +25,14 @@ export class SubscriptionAddForm extends React.Component {
     values['frequency'] = this.props.current.frequency;
     values['duration'] = this.props.current.duration;
     values['userId'] = this.props.currentUser._id;
-console.log('submitted values: ', values);
-    return fetch(`${API_BASE_URL}/protected/subscriptions`, {
+// console.log('submitted values: ', values);
+    // return fetch(`${API_BASE_URL}/protected/subscriptions`, {
+    return fetch(`${API_BASE_URL}/subscriptions`, {
       method:'POST',
       body: JSON.stringify(values),
       headers: {
+        // 'Content-Type': 'application/json',
+        // Authorization: `Bearer ${authToken}`
         'Content-Type': 'application/json'
     }
   })
@@ -74,7 +78,7 @@ console.log('submitted values: ', values);
   render() {
     let successMessage;
     let formButton;
-    console.log('subscriptionAdd has these props at start: ', this.props);
+    // console.log('subscriptionAdd has these props at start: ', this.props);
     if (this.props.submitSucceeded) {
       successMessage = (
         <div className= "message message-success">
@@ -490,7 +494,9 @@ console.log('validating');
           <div className="confirm">
               <h2>Thank You!</h2>
               <p className="byebye">Your order will be delivered {this.props.current.deliveryDate}.</p>               
-            <div className="confirmButton">{formButton}</div>
+            <div className="confirmButton"><button className="jumpBack" type="button"> <Link style={{display: 'block', height: '100%'}} to={`/products`} >Finish</Link></button> </div>
+                       
+
           </div>
         : ""  }
       </form> 

@@ -15,7 +15,7 @@ export const fetchProtectedDataError = error => ({
 
 
 export const fetchProtectedData = () => (dispatch, getState)  => {
-  console.log('fetch subscriptions fired!');
+  // console.log('fetch subscriptions fired!');
   const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/protected/subscriptions`, {
     method: 'GET',
@@ -26,13 +26,13 @@ export const fetchProtectedData = () => (dispatch, getState)  => {
 })
   .then(res => {
       if (!res.ok) {
-        console.log('!!!PROBLEM!!!');
+        // console.log('!!!PROBLEM!!!');
           return Promise.reject(res.statusText);
       }      
       return res.json();
   }).then(data => {
-    let  subscription_data = data;
-    console.log('***** subscription_data: ', subscription_data);
+    // let  subscription_data = data;
+    // console.log('***** subscription_data: ', subscription_data);
     //subscription_data = Object.keys(data);   
     dispatch(fetchProtectedDataSuccess(data));
   });

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 //import './styles/productListing.css';
 
 export default function ProductLink(props) {
-  console.log('props: ', props)
+  // console.log('props: ', props)
   const thumbImg= props.img;
 
   return (

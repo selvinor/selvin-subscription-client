@@ -14,13 +14,13 @@ export class LoginForm extends React.Component {
     }
 
     render() {
-      console.log('***Checking if We are logged in this.props.loggedIn ***', this.props.loggedIn);
-      if (this.props.loggedIn) {
-        console.log('***We are logged in ***');
-      } 
+      // console.log('***Checking if We are logged in this.props.loggedIn ***', this.props.loggedIn);
+      // if (this.props.loggedIn) {
+        // console.log('***We are logged in ***');
+      // } 
       if (this.props.loggedIn) {
         console.log('yes');
-        return <Redirect to="/" />;
+        return <Redirect to="/products" />;
       }
       let error;
       if (this.props.error) {

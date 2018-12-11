@@ -49,7 +49,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
-    console.log('*** API_BASE_URL ***: ', API_BASE_URL);
+    // console.log('*** API_BASE_URL ***: ', API_BASE_URL);
     return (
         fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
@@ -85,7 +85,7 @@ export const login = (username, password) => dispatch => {
 };
 
 export const refreshAuthToken = () => (dispatch, getState) => {
-  console.log('refreshAuthToken', dispatch);
+  // console.log('refreshAuthToken', dispatch);
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/auth/refresh`, {
@@ -114,6 +114,6 @@ export const deleteAuthToken = () => (dispatch, getState) => {
   clearAuthToken(authToken);
 };
 export const showLogoutWarning = () => (dispatch) => {
-  console.log('dispatching 1 min left warning', Date.now());
+  // console.log('dispatching 1 min left warning', Date.now());
   dispatch(showWarning());
 };
