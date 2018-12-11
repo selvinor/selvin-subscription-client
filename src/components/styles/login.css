@@ -28,6 +28,12 @@
 .login-buttons {
   display: flex;
 }
+.login buttons button.login {
+  font-size:1vw;
+}
+.login buttons button.jump {
+  font-size:1vw;
+}
 .textCenter {
   flex:1;
 }
