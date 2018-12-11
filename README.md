@@ -81,12 +81,11 @@ paths:
           
             
             SCREENSHOTS
-![Landing](/screenshots/screen0.PNG)
-![Choose Product](/screenshots/screen1.PNG)
-![Product Details](/screenshots/screen2.PNG)
-![Add Recipient Info](/screenshots/screen3.PNG)
-![Add Sender Info](/screenshots/screen4.PNG)
-![Set Schedule](/screenshots/screen5.PNG)
-![Checkout](/screenshots/screen6.PNG)
-![Confirmation](/screenshots/screen7.PNG)
+![Landing](/screenshots/landing.PNG)
+![Choose Product](/screenshots/products.PNG)
+![Product Details](/screenshots/product_detail.PNG)
+![Add Recipient Info](/screenshots/recipient.PNG)
+![Set Schedule](/screenshots/schedule.PNG)
+![Checkout](/screenshots/checkout.PNG)
+![Confirmation](/screenshots/confirmation.PNG)
 Format: ![Blooms Subscription Service](https://blooms-pdx.herokuapp.com/)
