@@ -4,7 +4,7 @@ import {Route, withRouter, Switch} from 'react-router-dom';
 
 // import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
-import LogIn from './login';
+import LogIn from './Login';
 //import Dashboard from './dashboard';
 import RegistrationPage from './registration-page';
 import Products from './products';
