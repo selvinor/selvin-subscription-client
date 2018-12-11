@@ -73,6 +73,7 @@ paths:
             CSS3
             JavaScript
             React
+            React Router
             Redux
             Node.JS
             Express.js
