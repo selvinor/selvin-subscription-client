@@ -85,7 +85,7 @@ margin-top:50%;
     font-weight:bold;
   }
 
-  @media screen and (max-width: 1366px) {
+
     .registration-form label {
       font-size:1.2vw;
     }
@@ -100,8 +100,43 @@ margin-top:50%;
       background:rgba(255, 255, 255, 0.6) ;
       border-radius:15px;
       width:400px;
-      height:500px;
+      max-height:720px;
       padding:20px;
+      flex:1;
+     }
+     .registration-section p {
+      font-size:1vw;
+      text-align:center;
+      margin-top:10px;
+    }
+    .registration-buttons button.registration {
+      font-size: 1.2vw;
+      margin:auto;
+    }
+    .registration-form{
+      width:90%;
+    }
+
+
+    @media screen and (max-width: 1024px) {
+
+    .registration-form label {
+      font-size:1.2vw;
+    }
+
+    .registration-section h2 {
+      font-size:2vw;
+      text-align:center;
+      margin:auto;
+    }
+    .registration-section {
+      flex-direction: column;
+      background:rgba(255, 255, 255, 0.6) ;
+      border-radius:15px;
+      width:400px;
+      max-height:520px;
+      padding:20px;
+      flex:1;
      }
      .registration-section p {
       font-size:1vw;
