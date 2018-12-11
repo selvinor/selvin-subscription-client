@@ -71,7 +71,7 @@
 .landing {
   margin: auto;
   text-align:center;
-  background-position: fixed;
+  background-attachment: fixed;
   border-bottom: none;
   background:rgba(255, 255, 255, 0.6) ;
   border-radius:15px;
@@ -111,7 +111,7 @@
 .landing {
   margin: auto;
   text-align:center;
-  background-position: fixed;
+  background-attachment: fixed;
   border-bottom: none;
   background:rgba(255, 255, 255, 0.6) ;
   border-radius:15px;
@@ -151,7 +151,7 @@
 .landing {
   margin: auto;
   text-align:center;
-  background-position: fixed;
+  background-attachment: fixed;
   border-bottom: none;
   background:rgba(255, 255, 255, 0.6) ;
   border-radius:15px;
@@ -190,7 +190,7 @@
 .landing {
   margin: auto;
   text-align:center;
-  background-position: fixed;
+  background-attachment: fixed;
   border-bottom: none;
   background:rgba(255, 255, 255, 0.6) ;
   border-radius:15px;
@@ -229,7 +229,7 @@
 .landing {
   margin: auto;
   text-align:center;
-  background-position: fixed;
+  background-attachment: fixed;
   border-bottom: none;
   background:rgba(255, 255, 255, 0.6) ;
   border-radius:15px;

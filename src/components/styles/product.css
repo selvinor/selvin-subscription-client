@@ -8,7 +8,8 @@ body {
   padding:0;
 }
 .product {
-  margin:auto;
+  display:flex;
+  flex-direction:column;
 }
 #product-section {
   width:100%;
@@ -33,6 +34,15 @@ body {
 }
 .productDetail {
   text-align:center;
+  background-attachment: fixed;
+  border-bottom: none;
+  background:rgba(255, 255, 255, 0.6) ;
+  border-radius:15px;
+  padding:5px;
+  flex-shrink: 1;
+width:80%;
+margin:auto;
+
 }
 
 .product-shot  {
@@ -41,25 +51,7 @@ body {
   border-radius: 50%;
   /* background-image: radial-gradient(circle, pink, white, purple); */
 }
-.productDetail h3 {
-  margin:15px 0;
-  /* background-image: radial-gradient(circle, pink, white, purple); */
-}
 
-.productDetailDesc {
-  text-align: center;
-  margin: auto;
-  font-size: 2.1vw;
-  width:60%;
-}
-.productDetail {
-
-  width:100%;
-  text-align:center;
-}
-.productDetailPrice{
-  font-size:1.2vw;
-}
 button {
   margin-left:20px;
 }
@@ -71,23 +63,21 @@ button {
   /* background-image: radial-gradient(circle, pink, white, purple); */
 }
 .productDetail h3 {
-  margin:15px 0;
+  margin:10px 0;
   font-size:2.8vw;
   /* background-image: radial-gradient(circle, pink, white, purple); */
 }
 
 .productDetailDesc {
-  text-align: center;
-  margin: auto;
+  margin:10px 0;
   font-size: 3vw;
-  width:60%;
 }
-.productDetail {
+.arrangeButton{
+  margin:10px auto;
 
-  width:100%;
-  text-align:center;
 }
 .productDetailPrice{
+  margin:10px 0;
   font-size:2vw;
 }
 .arrangeButton {
@@ -99,21 +89,8 @@ button {
     width:300px;
     margin:0 auto;
   }
-  .productDetail h3 {
-    font-size:4vw;
-    margin-bottom:5px;
-  }
   button {
    font-size:2vw;
-  }
-  .productDetailPrice{
-    font-size:3vw;
-  }
-  .productDetailDesc {
-    text-align:center;
-    margin:auto;
-    font-size:3.5vw;
-  padding:10px;
   }
   .product-shot  {
     margin: auto;
@@ -122,44 +99,25 @@ button {
     /* background-image: radial-gradient(circle, pink, white, purple); */
   }
   .productDetail h3 {
-    margin:15px 0;
+    margin:10px 0;
     font-size:2.8vw;
     /* background-image: radial-gradient(circle, pink, white, purple); */
   }
   
   .productDetailDesc {
-    text-align: center;
-    margin: auto;
     font-size: 2.3vw;
-    width:60%;
   }
-  .productDetail {
-  
-    width:100%;
-    text-align:center;
-  }
+
   .productDetailPrice{
     font-size:1.5vw;
   }
 }
 @media screen and (max-width: 600px){
 
-.productDetail h3 {
-  font-size:4vw;
-  margin-bottom:5px;
-}
 button {
  font-size:3vw;
 }
-.productDetailPrice{
-  font-size:4vw;
-}
-.productDetailDesc {
-  text-align:center;
-  margin:auto;
-  font-size:4.5vw;
-padding:10px;
-}
+
 .product-shot  {
   margin: auto;
   padding: 0px;
@@ -167,43 +125,25 @@ padding:10px;
   /* background-image: radial-gradient(circle, pink, white, purple); */
 }
 .productDetail h3 {
-  margin:15px 0;
+  margin:10px 0;
   font-size:3.8vw;
   /* background-image: radial-gradient(circle, pink, white, purple); */
 }
 
 .productDetailDesc {
-  text-align: center;
-  margin: auto;
   font-size: 3.3vw;
-  width:60%;
 }
-.productDetail {
 
-  width:100%;
-  text-align:center;
-}
 .productDetailPrice{
   font-size:2.5vw;
 }
 }
 @media screen and (max-width: 360px) and (max-height: 640px){
-  .productDetail h3 {
-    font-size:4vw;
-    margin-bottom:5px;
-  }
+
   button {
    font-size:3vw;
   }
-  .productDetailPrice{
-    font-size:4vw;
-  }
-  .productDetailDesc {
-    text-align:center;
-    margin:auto;
-    font-size:4.5vw;
-  padding:10px;
-  }
+
   .product-shot  {
     margin: auto;
     padding: 0px;
@@ -214,43 +154,25 @@ padding:10px;
     width:160px;
   }
   .productDetail h3 {
-    margin:15px 0;
+    margin:10px 0;
     font-size:3.8vw;
     /* background-image: radial-gradient(circle, pink, white, purple); */
   }
   
   .productDetailDesc {
-    text-align: center;
-    margin: auto;
     font-size: 3.3vw;
-    width:60%;
   }
-  .productDetail {
-  
-    width:100%;
-    text-align:center;
-  }
+
   .productDetailPrice{
     font-size:2.5vw;
   }
   }
 @media screen and (max-width: 320px){
-  .productDetail h3 {
-    font-size:4vw;
-    margin-bottom:5px;
-  }
+
   button {
    font-size:3vw;
   }
-  .productDetailPrice{
-    font-size:4vw;
-  }
-  .productDetailDesc {
-    text-align:center;
-    margin:auto;
-    font-size:4.5vw;
-  padding:10px;
-  }
+
   .product-shot  {
     margin: auto;
     padding: 0px;
@@ -261,21 +183,13 @@ padding:10px;
     width:160px;
   }
   .productDetail h3 {
-    margin:15px 0;
+    margin:10px 0;
     font-size:3.8vw;
     /* background-image: radial-gradient(circle, pink, white, purple); */
   }
   
   .productDetailDesc {
-    text-align: center;
-    margin: auto;
     font-size: 3.3vw;
-    width:60%;
-  }
-  .productDetail {
-  
-    width:100%;
-    text-align:center;
   }
   .productDetailPrice{
     font-size:2.5vw;

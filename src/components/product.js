@@ -49,11 +49,12 @@ export class Product extends React.Component {
           </div>
           
           <div className="product">
-            <div className="productDetail">
-              <div className="product-shot">
+          
+          <div className="product-shot">
                 <Link style={{display: 'block', height: '100%'}} to={to}><img src={this.props.current.productPhoto} alt=""/></Link>              
               </div>
-              <h3>{this.props.current.productName}</h3> 
+
+            <div className="productDetail">              <h3>{this.props.current.productName}</h3> 
               <p className="productDetailPrice">Starting at: ${this.props.current.productPrice}</p>
               <p className="productDetailDesc">{this.props.current.productDesc}</p> 
                 <button className="arrangeButton">
