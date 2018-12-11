@@ -43,7 +43,6 @@ height:100%;
 #subscription-form h4{
   width:60%;
   text-align:center;
-  height:60px;
   display:flex;
   margin:20px auto;
 }
@@ -634,6 +633,47 @@ margin:20px 0;
 .recipients-info h5 {
   font-size:1.5vw;
 }
+div.checkout {
+  display:flex;
+  flex-direction: column;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.checkoutSummary h5{
+  font-size:1.5vw;
+  }
+.checkoutSummary p{
+  font-size:1vw;
+}
+.checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
+
+  margin:0 auto;
+
+}
+
+
+.checkoutSummary{
+  background:rgba(255, 255, 255, 0.6) ;
+  border-radius:15px;
+  padding:20px;
+  margin:auto;
+  align-items: flex-start;
+  max-height:700px;
+  margin-top:50px;
+
+}
+.checkout .jump {
+  margin-top: 10px;
+  font-size: 1vw;
+}
+#subscription-form h4 {
+  width: 60%;
+  text-align: center;
+  display: flex;
+  margin: 20px auto;
+  font-size:1.5vw;
+}
 @media only screen and (max-width: 1366px) {
   h1 {
     font-size: 4vw;
@@ -742,12 +782,56 @@ margin:20px 0;
 
 }
 
+@media only screen and (max-width: 1024px) {
+
+div.checkout {
+  display:flex;
+  flex-direction: column;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.checkoutSummary h5{
+  font-size:2.5vw;
+  }
+.checkoutSummary p{
+  font-size:2vw;
+}
+.checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
+
+  margin:0 auto;
+
+}
+
+
+.checkoutSummary{
+  background:rgba(255, 255, 255, 0.6) ;
+  border-radius:15px;
+  padding:20px;
+  margin:auto;
+  align-items: flex-start;
+  max-height:700px;
+  margin-top:50px;
+
+}
+.checkout .jump {
+  margin-top: 10px;
+  font-size: 2vw;
+}
+#subscription-form h4 {
+  width: 60%;
+  text-align: center;
+  display: flex;
+  margin: 20px auto;
+  font-size:2vw;
+}
+}
 
 @media only screen and (max-width: 768px) {
   .checkoutSummary{
     flex-direction: column;
     align-content: space-around;
-    height:60%;
+    height:540px;
   }
   .checkoutSummary h5{
     font-size:3vw;
@@ -758,7 +842,7 @@ margin:20px 0;
   .checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
     width: 500px;
     margin:0 auto;
-    height:150px;
+
   }
   
   #recipients {
@@ -876,11 +960,12 @@ label {
     font-size: 3.5vw;
     width:75%;
 }
-  .checkoutSummary{
-    flex-direction: column;
-    align-content: space-around;
-    height:60%;
-  }
+div.checkout {
+  flex-direction: column;
+  align-content: space-around;
+  flex:1;
+}
+
   .checkoutSummary h5{
     font-size:4vw;
     }
@@ -888,10 +973,17 @@ label {
     font-size:3.5vw;
   }
   .checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
-    width: 300px;
-    margin:0 auto;
-    height:150px;
+    margin:auto;
+    max-width:300px;
   }
+  .checkoutSummary{
+    margin:auto;
+    max-height:440px;
+    flex:1;
+    width:300px;
+    padding:10px;
+  }
+
 
   .recipient-orderSummary h5 {
     font-size:3.5vw;
@@ -945,6 +1037,10 @@ label {
     color:red;
     font-weight:bold;
   }
+  .checkout .jump {
+    margin-top: 10px;
+    font-size: 3vw;
+}
 }
 @media only screen and (max-width: 360px) {
   .recipient-orderSummary h5 {
@@ -1014,6 +1110,21 @@ label {
   #subscription-form {
     margin:auto;
   }
+  .checkout .jump {
+    margin-top: 10px;
+    font-size: 3vw;
+}
+.checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
+  margin:auto;
+  max-width:280px;
+}
+.checkoutSummary{
+  margin:auto;
+  max-height:380px;
+  flex:1;
+  width:300px;
+  padding:10px;
+}
 }
 @media only screen and (max-width: 320px) {
   .recipient-orderSummary {
@@ -1087,4 +1198,28 @@ label {
     padding: 1.0416667%;
     border-radius: 0.72916667%;
 }
+.checkoutSummary h5{
+  font-size:4vw;
+  }
+.checkoutSummary p{
+  font-size:3.5vw;
+}
+.checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
+  margin:auto;
+  max-width:280px;
+}
+.checkoutSummary{
+  margin:auto;
+  max-height:340px;
+  flex:1;
+  width:280px;
+  padding:10px;
+}
+#subscription-form h4 {
+  padding:0;
+  margin:10px auto;
+  font-size: 3.5vw;
+  width: 75%;
+}
+
 }
