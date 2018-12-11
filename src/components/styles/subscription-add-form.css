@@ -482,6 +482,12 @@ li.product2 {
   width:100%;
   align-items: flex-start;
   justify-content:space-around;
+  flex-direction: column;
+  max-height:600px;
+}
+.checkoutSummary div {
+  margin:auto;
+  align-content: space-around;
 }
 .checkoutSummary h5{
   font-size:2vw;
