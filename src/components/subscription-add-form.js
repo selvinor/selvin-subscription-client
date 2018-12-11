@@ -25,7 +25,7 @@ export class SubscriptionAddForm extends React.Component {
     values['frequency'] = this.props.current.frequency;
     values['duration'] = this.props.current.duration;
     values['userId'] = this.props.currentUser._id;
-// console.log('submitted values: ', values);
+console.log('submitted values: ', values);
     // return fetch(`${API_BASE_URL}/protected/subscriptions`, {
     return fetch(`${API_BASE_URL}/subscriptions`, {
       method:'POST',
@@ -325,9 +325,9 @@ console.log('validating');
                       validate={[required, nonEmpty]}
                     />
                   </label>                            
-                  <label htmlFor="RecipientAptSuite" className="RecipientAptSuite">APT /SUITE                            
+                  <label htmlFor="recipientAptSuite" className="recipientAptSuite">APT /SUITE                            
                     <Field
-                      name="RecipientAptSuite"
+                      name="recipientAptSuite"
                       type="text"
                       component={Input}
                       placeholder=""
@@ -476,7 +476,7 @@ console.log('validating');
                 <div className="receiverBlock">
                   <h5>Recipient Info</h5>
                   <p className="recipient name"><span className="bold">NAME: </span>{this.props.currentValues.recipientFirstName} {this.props.currentValues.recipientLastName}</p>
-                  <p className="recipient company"><span className="bold">COMPANY: </span>{this.props.currentValues.recipientCompany} {this.props.currentValues.recipientCompany}</p>
+                  <p className="recipient company"><span className="bold">COMPANY: </span>{this.props.currentValues.recipientCompany} </p>
                   <p className="recipient phone"><span className="bold">PHONE: </span>{this.props.currentValues.recipientPhone}</p>
                   <p className="recipient streetAddress"><span className="bold">STREET ADDRESS: </span>{this.props.currentValues.recipientAddress}</p>
                   <p className="recipient aptSuite"><span className="bold">APT/SUITE: </span>{this.props.currentValues.recipientAptSuite}</p>
