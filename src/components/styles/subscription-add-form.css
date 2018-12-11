@@ -424,20 +424,6 @@ display:inline-block;
 .frequency button, .duration button { 
   margin-top:1.0416667%;
 }
-div.checkout {
-
- 
-  display:flex;
-  height:100%;
-
-}
-.checkout span{
-  font-weight:bold;
-}
-.checkout .jump {
-  margin-top:10px;
-  font-size:2.5vw;
-}
 
 .productName {
   font-weight:bold;
@@ -473,17 +459,28 @@ li.product2 {
 .orderSummary p{
   font-size: 1.8vw;
 }
+div.checkout {
+  display:flex;
+  flex-direction: column;
 
-
-
+}
+.checkout span{
+  font-weight:bold;
+}
+.checkout .jump {
+  margin-top:10px;
+  font-size:2.5vw;
+}
 
 .checkoutSummary{
-  display:flex;
-  width:100%;
+  background:rgba(255, 255, 255, 0.6) ;
+  border-radius:15px;
+  padding:20px;
+  margin:auto;
   align-items: flex-start;
-  justify-content:space-around;
-  flex-direction: column;
-  max-height:600px;
+  max-height:660px;
+
+
 }
 .checkoutSummary div {
   margin:auto;
@@ -493,26 +490,25 @@ li.product2 {
   font-size:2vw;
   }
 .checkoutSummary p{
-  font-size:1.5vw;
+  font-size:2vw;
 }
 .checkoutSummary .orderBlock,.checkoutSummary .senderBlock, .checkoutSummary .receiverBlock  {
-  width:30%;
-  height:300px;
+ 
+margin:20px 0;
 }
 .checkoutButton {
-
-  margin:auto;
+  display:flex;
 }
 .scheduleBlock {
   margin-left:0px;
 }
 
 .receiverBlock h5, .senderBlock h5, .orderBlock h5 {
-  font-size: 2vw;
+  font-size: 2.4vw;
   padding: 0px;
   font-weight: bold;
   text-decoration: underline;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 #scheduleInfo {
 
@@ -727,7 +723,7 @@ li.product2 {
 
 }
 .receiverBlock h5{
-  font-size:2.8vw;
+
   padding:0px;
   font-weight: bold;
   text-decoration:underline;
@@ -735,7 +731,7 @@ li.product2 {
 
 }
 .senderBlock h5 {
-  font-size:2.8vw;
+
   padding:0px;
   font-weight: bold;
   text-decoration:underline;
