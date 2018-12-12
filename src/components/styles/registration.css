@@ -39,6 +39,7 @@ margin-top:50%;
   width:600px;
   margin:auto;
   padding:20px;
+  flex:1;
 }
 .registration-form label {
   font-size:1vw;
