@@ -13,7 +13,7 @@ h2 {
 
 input {
   border-radius:6px;
-  margin-bottom:5px;
+  margin-bottom:0px;
 }
 
 
@@ -109,7 +109,7 @@ margin-top:50%;
     }
     .registration-buttons button.registration {
       font-size: 1.2vw;
-      margin:auto;
+      margin:5px auto 0;
     }
 
 
@@ -141,7 +141,6 @@ margin-top:50%;
     }
     .registration-buttons button.registration {
       font-size: 1.2vw;
-      margin:auto;
     }
     .registration-form{
       width:400px;
@@ -169,8 +168,8 @@ margin-top:50%;
 
     .registration-buttons button.registration {
       font-size: 3vw;
-      margin:auto;
     }
+    
   }
   @media screen and (max-width: 415px) {
     .registration-section h2 {
@@ -181,8 +180,16 @@ margin-top:50%;
     .registration-section {
       max-height:420px;
      }
-  }
 
+  .registration-form {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 375px)  and (max-height: 667px) {
+  .registration-form {
+    height: 400px;
+  }
+}
   @media screen and (max-width: 360px) {
     .registration-section h2 {
       font-size:5vw;
