@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import HeaderBar from './header-bar';
 import RegistrationForm from './registration-form';
 import './styles/registration.css';
@@ -24,9 +24,8 @@ export class RegistrationPage extends React.Component {
           <HeaderBar />
 
           <section className="registration-section">
-            <h2>Register</h2>
             <RegistrationForm />
-            <p>Already have an account? <Link to="/login">Sign in</Link></p>
+
           </section>  
         </section>  
       </Fragment>

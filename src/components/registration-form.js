@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
+import { Link } from 'react-router-dom';
 import {registerUser} from '../actions/users';
 import {login} from '../actions/auth';
 import Input from './input';
@@ -40,6 +41,7 @@ export class RegistrationForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+              <h2>Register</h2>
               {successMessage}
               {errorMessage} 
                 <label htmlFor="username">Username</label>
@@ -91,6 +93,7 @@ export class RegistrationForm extends React.Component {
                   </button>
 
                 </div>
+                <p>Already have an account? <Link to="/login">Sign in</Link></p>
             </form>
           </Fragment>
         );
