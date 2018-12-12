@@ -39,7 +39,7 @@ h1.mainTitle {
 }
 @media screen and (max-width: 768px){
   .header {
-    margin-top: 14%; 
+    margin-top: 12%; 
   }
   h1.mainTitle {
     width:500px;
