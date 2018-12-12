@@ -54,9 +54,7 @@
   .logout {
     margin-left:10px;
   }
-  .signin .header {
-    margin-top:20%;
-  }
+
 
   @media screen and (max-width: 1366px) {
     .login-form button.login {
