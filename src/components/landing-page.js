@@ -26,7 +26,7 @@ export class LandingPage extends React.Component {
                 <p>We will deliver freshly prepared, gorgeous flower products straight to your home or office on a regular schedule!</p>
                 <p>All you need to do is set your flower preferences and delivery details, and that’s it!</p>
                 <p>Click the button, and we'll get you set up right away!</p>
-                <div className="entry">{WrappedLink} {loginButton}</div>
+                <div className="entry">{WrappedLink} {loginButton}</div>     
               </div>
             </div>
           </section>
