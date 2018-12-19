@@ -68,7 +68,7 @@ export const subscriptionReducer = (state=initialState, action) => {
           break;
         case 'p3':
           action.productCode = "p3";
-          action.productName = "Designer's Lobby";
+          action.productName = "Designer's Lobby";  
           action.productDesc = "Perfectly accents an entryway or lobby. See your lobby transformed by each successive flower product. As the season changes, so does the theme.";
           action.productPhoto = "../../img/_DSC3098_280.png";
           action.productPrice = "140";
