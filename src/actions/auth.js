@@ -38,7 +38,7 @@ export const authError = error => ({
     error
 });
 
-// Stores the auth token in state and localStorage, and decodes and stores
+// Stores the auth token in state and localStorage, decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
