@@ -52,7 +52,7 @@ export const login = (username, password) => dispatch => {
     //console.log('*** API_BASE_URL ***: ', API_BASE_URL);
     return (
 //        fetch(`${API_BASE_URL}/login`, {
-          fetch(`${API_BASE_URL}/auth/login`, {
+          fetch(`${API_BASE_URL}/api/auth/login`, {
             method: 'POST',
             headers: {   
                 'Content-Type': 'application/json' 
@@ -66,7 +66,7 @@ export const login = (username, password) => dispatch => {
             // errors which follow a consistent format
             .then(res => normalizeResponseErrors(res))
             .then(res => res.json())
-            .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+            .then(({authToken}) => storeAuthInfo(authToken, dispatch)) 
             .catch(err => {
                 const {code} = err;
                 const message =
@@ -89,7 +89,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
   // console.log('refreshAuthToken', dispatch);
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/refresh`, {
+    return fetch(`${API_BASE_URL}/api/refresh`, {
         method: 'POST',
         headers: {
             // Provide our existing token as credentials to get a new one

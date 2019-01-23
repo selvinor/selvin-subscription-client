@@ -21,7 +21,7 @@ export const registerRequest = () => ({
 
 export const registerUser = user => dispatch => {
     dispatch(registerRequest());
-    return fetch(`${API_BASE_URL}/users`, {
+    return fetch(`${API_BASE_URL}/api/users`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -50,7 +50,7 @@ export const registerUser = user => dispatch => {
 export const deleteAccount = userId => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
-  return fetch(`${API_BASE_URL}/users/${userId}`, {
+  return fetch(`${API_BASE_URL}/api/users/${userId}`, {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${authToken}`

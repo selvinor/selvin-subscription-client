@@ -71,7 +71,7 @@ export const showLogin = () => ({
 // Async actions
 
 export const addSubscription = () => dispatch => {
-  fetch(`${API_BASE_URL}/subscriptions`)
+  fetch(`${API_BASE_URL}/api/subscriptions`)
   .then(res => {
       if (!res.ok) {
           return Promise.reject(res.statusText);
