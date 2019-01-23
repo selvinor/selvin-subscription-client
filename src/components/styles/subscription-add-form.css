@@ -99,6 +99,17 @@ label {
   margin: auto;
   margin-left:10px;
 }
+#recipient-page div.recipient-orderSummary {
+  margin:5px auto;
+}
+.recipient-orderSummary h5 {
+  font-size:1.2vw;
+}
+.recipient-button {
+  width:100px;
+  display:flex;
+  margin:0
+}
 .span11 {
   width: 68.75%;
 }
@@ -195,15 +206,17 @@ ul {
 li  {
   list-style-type: none;
 }
-
+.recipient-productName {
+  font-size: 1vw;
+}
 .jump{
   background-color: green;
   color: white;
   font-weight: bold;
   text-align: center;
-  font-size:1.8vw;
   padding:10px;
   border-radius:10px;
+  margin-top:10px;
 }
 
 
@@ -413,7 +426,7 @@ display:inline-block;
 .schedule h3 {
   padding:0;
   margin:0;
-  font-size:3vw;
+  font-size:2vw;
 }
 .datePicking h2 {
   padding:0;
@@ -456,7 +469,10 @@ li.product2 {
   
 
 .orderSummary p{
-  font-size: 1.8vw;
+  font-size: .8vw;
+  width:200px;
+  margin:0 auto;
+  text-align:center;
 }
 div.checkout {
   display:flex;
@@ -499,7 +515,9 @@ margin:20px 0;
   display:flex;
 }
 .scheduleBlock {
-  margin-left:0px;
+  margin: 0 auto;
+  width:450px;
+
 }
 
 .receiverBlock h5, .senderBlock h5, .orderBlock h5 {
@@ -568,7 +586,7 @@ margin:20px 0;
 }
 .orderSummary h5 {
   text-align:center;
-  font-size:3vw;
+  font-size:1.8vw;
 }
 #recipients h5 {
   /* font-size: 1.8vw; */
@@ -610,28 +628,33 @@ margin:20px 0;
 
 }
 #recipient-page div{
-  /* margin: 20px auto 0; */
+  margin: auto;
 }
-.recipient-button {
-  width:100px;
-  display:flex;
-}
+
 #recipient-page button {
   font-size:1.2vw;
   padding:10px;
-  margin:auto;
+
+}
+#recipient-page div.recipient-button{
+  margin: 0 auto;
 }
 .recipient-orderSummary {
   margin:20px auto 10px;
 }
 .jumpBack {
-  margin:auto;
+  margin:5px auto 0;
+  display:flex;
+  font-size:1.2vw;
 }
 .recipient-orderSummary {
   margin:0 auto;
 }
+.recipients-info {
+  margin:5px auto;
+}
 .recipients-info h5 {
-  font-size:1.5vw;
+  font-size:1.2vw;
 }
 div.checkout {
   display:flex;
@@ -881,6 +904,7 @@ div.checkout {
     height:640px;
     margin: 0 auto;
   }
+
   .recipient-orderSummary h5 {
     font-size:3vw;
   }
@@ -1081,10 +1105,12 @@ div.checkout {
     margin: 0;
     padding: 0;
   }
+  #recipient-page div.recipientData {
+    margin: 0 auto;
+}
 .recipientData {
-  display:flex;
-  height:40px;
-  width:100%;
+    width: 100px;
+    display: flex;
 }
 .recipientData button {
   margin:auto;
