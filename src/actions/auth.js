@@ -89,7 +89,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
   // console.log('refreshAuthToken', dispatch);
     dispatch(authRequest());
     const authToken = getState().auth.authToken;
-    return fetch(`${API_BASE_URL}/api/refresh`, {
+    return fetch(`${API_BASE_URL}/refresh`, {
         method: 'POST',
         headers: {
             // Provide our existing token as credentials to get a new one
